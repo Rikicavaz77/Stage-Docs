@@ -1,2 +1,17 @@
-# Stage-Docs
-Documentazione del progetto di stage formativo previsto dal corso di laurea in Informatica dell'Università degli Studi di Padova.
+<h1 align="center">Cavalli Riccardo - Stage</h1>
+<p align="center">Stage formativo, <a href="https://www.unipd.it" target="_blank">Università degli Studi di Padova</a>, Laurea triennale in Computer Science, A.A. 2024/2025</p>
+<p align="center">
+  <code>Repository relativo alla documentazione del progetto.</code>
+</p>
+<table align="center">
+  <tr>
+    <th>Cognome e Nome</th>
+    <th>Matricola</th>
+    <th>Email</th>
+  </tr>
+  <tr>
+    <td>Cavalli Riccardo</td>
+    <td>2042893</td>
+    <td><a href="mailto:riccardo.cavalli@studenti.unipd.it">riccardo.cavalli@studenti.unipd.it</a></td>
+  </tr>
+</table>
