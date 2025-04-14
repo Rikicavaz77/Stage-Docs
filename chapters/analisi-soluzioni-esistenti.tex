@@ -1,78 +1,177 @@
 \chapter{Analisi del contesto tecnologico}
 \label{cap:analisi-soluzioni-esistenti}
 
-\par Uno dei passi fondamentali nel processo di ottimizzazione SEO è la scelta delle parole chiave e il loro utilizzo in punti strategici delle pagine web. Esistono software in grado di automatizzare la ricerca e l’analisi delle keywords, contribuendo a migliorare il posizionamento e l’indicizzazione del sito. Questi strumenti, disponibili gratuitamente o a pagamento, coprono numerosi aspetti dell’analisi SEO, tra cui:
+\par Uno dei passi fondamentali nel processo di ottimizzazione \gls{seog} è la scelta delle parole chiave e il loro utilizzo in punti strategici delle pagine web. Esistono software in grado di automatizzare la ricerca e l'analisi delle parole chiave, contribuendo a migliorare il posizionamento e l'indicizzazione di un sito. Questi strumenti, disponibili gratuitamente o a pagamento, coprono numerosi aspetti dell'analisi SEO, tra cui:
 \begin{itemize}
-    \item Analisi SEO on-page (meta tag, intestazioni, URL, immagini, broken link, redirect, ecc.);
-    \item Ricerca delle parole chiave per cui un sito web è posizionato in alto nella SERP (Search Engine Results Page);
-    \item Suggerimento di parole chiave correlate e rilevanti;
-    \item Anteprima SERP per una parola chiave scelta dall'utente;
-    \item Analisi dell’efficacia delle parole chiave;
+    \item Analisi SEO \gls{on-page-seo} e \gls{off-page-seo};
+    \item Identificazione delle parole chiave più frequenti;
+    \item Analisi della densità e della distribuzione delle parole chiave all'interno di una pagina web;
+    \item Analisi dell'efficacia delle parole chiave;
+    \item Ricerca delle parole chiave per cui un sito è posizionato in alto nella \gls{serpg};
+    \item Suggerimenti di parole chiave correlate e rilevanti;
+    \item Anteprime SERP per una determinata parola chiave;
     \item Analisi dei competitor;
-    \item Distribuzione delle parole chiave all’interno di una pagina web;
-    \item Analisi di parametri essenziali come la keyword difficulty (difficoltà di posizionarsi per una specifica parola chiave) e il keyword stuffing (uso eccessivo di una parola chiave).
+    \item Analisi di parametri come la \gls{keyword-difficulty} e di pratiche come il \gls{keyword-stuffing}.
 \end{itemize}
 
 \section{MozBar}
 
 \subsection{Funzionalità}
-\par MozBar è un'estensione gratuita per Chrome che consente agli utenti di eseguire analisi SEO on-page e accedere a metriche avanzate senza aprire un'altra scheda del browser. Le funzionalità fornite dall'estensione includono:
+\par MozBar è un'estensione gratuita per Chrome che consente agli utenti di eseguire analisi SEO \gls{on-page-seo} e \gls{off-page-seo} senza aprire un'altra scheda del browser. Le funzionalità fornite dall'estensione includono:
 \begin{itemize}
-    \item \textbf{Page Authority e Domain Authority}: metriche da 1 a 100 che prevedono il posizionamento di una pagina e un dominio in base a un algoritmo di apprendimento automatico;
+    \item \textbf{Page Authority e Domain Authority}: metriche da 1 a 100 che stimano il posizionamento di una singola pagina o di un dominio in base a un algoritmo di apprendimento automatico;
     \item \textbf{Linking Domains}: numero di domini unici che puntano a un sito;
-    \item \textbf{Inbound Links}: numero di link in entrata provenienti da pagine esterne;
-    \item \textbf{Attributi generali}: tempo di caricamento, tag canonical, URL della cache di Google, sitemap, Hreflang, tag robots;
-    \item \textbf{Elementi on-page}: URL, titolo, meta description, meta tag keywords, elenco degli heading, testo alternativo delle immagini;
-    \item \textbf{Dati strutturati (JSON-LD)}: verifica che lo schema sia formattato correttamente;
+    \item \textbf{Inbound Links}: numero di link in entrata provenienti da pagine web esterne;
+    \item \textbf{Attributi generali}: tempo di caricamento, \gls{tag-canonical}, URL della cache di Google, \gls{sitemap}, \gls{hreflang}, \gls{tag-robots};
+    \item \textbf{Elementi on-page}: URL, titolo, meta description, meta tag `keywords`, elenco degli heading, testo alternativo delle immagini;
+    \item \textbf{Dati strutturati (\gls{json-ldg})}: verifica che lo schema sia formattato correttamente;
     \item \textbf{Ranking Keywords}: identifica le parole chiave per cui un sito è posizionato e fornisce informazioni sui competitor;
     \item \textbf{Ottimizzazione della pagina}: visualizza il punteggio ottenuto per una determinata parola chiave e mostra  i fattori che contribuiscono al punteggio complessivo, nonché quelli che potrebbero danneggiarlo;
-    \item \textbf{Highlight links}: evidenzia tutte le tipologie di link presenti all’interno della pagina;
-    \item \textbf{Highlight keywords}: questa funzionalità consente agli utenti di inserire una parola chiave e ottenere il numero di occorrenze. Inoltre, la parola chiave viene evidenziata all’interno della pagina.
+    \item \textbf{Highlight links}: evidenzia tutte le tipologie di link presenti all'interno della pagina;
+    \item \textbf{Highlight keywords}: questa funzionalità consente agli utenti di inserire una parola chiave e ottenere il numero di occorrenze. Inoltre, la parola chiave viene evidenziata graficamente all'interno della pagina.
 \end{itemize}
 
 \begin{figure}[H]
     \centering 
     \includegraphics[width=0.8\columnwidth]{soluzioni-esistenti/MozBar/moz_bar_search_keywords.png} 
-    \caption{MozBar - Analisi parole chiave}
+    \caption{MozBar - Analisi del sito `W3Schools`}
 \end{figure}
 
 \subsection{Vantaggi}
-\par Poiché funziona su localhost, l’estensione può essere facilmente usata durante lo sviluppo. La barra degli strumenti può essere ancorata in alto o in basso nella pagina e le metriche SEO possono essere visualizzate direttamente nei risultati di ricerca.
+\par Poiché funziona su \gls{localhost}, l'estensione può essere facilmente usata durante lo sviluppo. La barra degli strumenti può essere ancorata in alto o in basso nella pagina e le metriche SEO possono essere visualizzate direttamente nei risultati di ricerca.
 
 \subsection{Svantaggi}
-\par L’estensione non è disponibile come barra laterale, ma solo come pop-up o barra degli strumenti. Inoltre, il rilevamento dei tag è case-sensitive, quindi c’è il rischio che alcuni tag non vengano rilevati se si usa la lettera iniziale maiuscola. La funzionalità di analisi delle parole chiave non include alcuni aspetti, come la densità o la distribuzione. Le funzionalità premium richiedono un abbonamento a pagamento. 
+\par L'estensione non è disponibile come barra laterale, ma solo come pop-up o barra degli strumenti. L'analisi delle parole chiave non include alcuni aspetti essenziali, come la densità o la distribuzione. Inoltre, il rilevamento dei tag è \gls{case-sensitive}, quindi c'è il rischio che alcuni tag non vengano individuati se si usa la lettera iniziale maiuscola. Le funzionalità Premium richiedono un abbonamento a pagamento. 
 
-\section{Silktide (analisi SEO su richiesta)}
+\section{Wincher}
 
 \subsection{Funzionalità}
-\par Le soluzioni progettate da Silktide sono in grado di identificare problemi SEO come titoli mancanti, "broken link", scarsa velocità di caricamento e mancanza di ottimizzazione delle parole chiave. Per quanto riguarda l’analisi delle keywords, Silktide mette a disposizione un modulo di ranking che permette di monitorare:
+\par Wincher è una piattaforma orientata alla ricerca e all'analisi delle parole chiave; in particolare, Wincher monitora il posizionamento di un sito web, i volumi di ricerca, il traffico stimato e le anteprime \gls{serpg}. La piattaforma include anche l'On-Page SEO Checker, uno strumento di analisi \gls{on-page-seo} per un URL e una parola chiave specifici. Il tool fornisce suggerimenti per migliorare una pagina web in relazione alla parola chiave scelta:
 \begin{itemize}
-    \item \textbf{Parole chiave organiche}: portano traffico “organico” (non sponsorizzato) a un sito web. Sono i termini di ricerca per i quali il sito viene posizionato, sulla base di algoritmi di ranking, nella SERP (Search Engine Results Page). Le "SERP previews" mostrano un'anteprima del posizionamento del sito nella pagina dei risultati del motore di ricerca;
-    \item \textbf{Parole chiave a pagamento}: portano traffico tramite annunci sponsorizzati. Sono i termini per i quali è stata attivata una campagna pubblicitaria PPC (Pay-Per-Click). "Le PPC previews" mostrano un'anteprima di come appare l'annuncio a pagamento per una determinata keyword.
+    \item \textbf{Titolo}: lunghezza del titolo, presenza e posizione della parola chiave nel titolo;
+    \item \textbf{Heading}: lunghezza e numero di occorrenze del tag H1, presenza e posizione della parola chiave nel tag H1, differenza di contenuto tra il titolo e il tag H1, presenza della parola chiave nei sottotitoli;
+    \item \textbf{Meta}: presenza della parola chiave nel meta tag description;
+    \item \textbf{Media}: presenza della parola chiave nel testo alternativo delle immagini;
+    \item \textbf{URL}: presenza della parola chiave negli URL;
+    \item \textbf{Body}: la parola chiave dovrebbe essere menzionata almeno tre volte nel corpo del testo.
 \end{itemize}
-\par Oltre a monitorare le keywords selezionate, Silktide identifica anche i siti che competono per le stesse parole chiave, generando un elenco basato sul numero di keywords in comune.
 
 \begin{figure}[H]
     \centering 
-    \includegraphics[width=0.6\columnwidth]{soluzioni-esistenti/Silktide/silktide_competitor_analysis.png} 
-    \caption{Silktide - Analisi dei competitor}
+    \includegraphics[width=0.8\columnwidth]{soluzioni-esistenti/Wincher/wincher_seo_checker.png} 
+    \caption{Wincher - On-Page SEO Checker}
 \end{figure}
 
 \subsection{Vantaggi}
-\par Silktide offre funzionalità SEO avanzate come il monitoraggio delle keywords, anteprime SERP e PPC, analisi dei competitor; il tutto integrato in un'unica piattaforma. Il team di Silktide mette a disposizione, su richiesta, una scansione gratuita, personalizzata e interattiva del sito web.
+\par On-Page SEO Checker fornisce un punteggio complessivo e dei suggerimenti per garantire la conformità di una pagina alle attuali linee guida SEO.
 
 \subsection{Svantaggi}
-\par Per usufruire della funzionalità di analisi SEO è necessario prenotare una dimostrazione e attendere l'esito dell'analisi. Si tratta di uno strumento orientato maggiormente a grandi realtà che necessitano di una piattaforma di marketing completa.
+\par Lo strumento di analisi on-page non funziona su \gls{localhost} ed è accessibile esclusivamente tramite la piattaforma di Wincher. Nella versione gratuita, i controlli giornalieri sono limitati.
+
+\begin{figure}[H]
+    \centering 
+    \includegraphics[width=0.8\columnwidth]{soluzioni-esistenti/Wincher/wincher_seo_checker_score.png} 
+    \caption{Wincher - Analisi del sito `W3Schools`}
+\end{figure}
+
+\section{SEOquake}
+
+\subsection{Funzionalità}
+\par SEOquake è un plugin che fornisce metriche SEO e strumenti di analisi \gls{on-page-seo}. Le parole chiave vengono identificate tramite un algoritmo di ricerca e successivamente elencate in quattro tabelle distinte:
+\begin{itemize}
+    \item Keyword di 1 parola;
+    \item Keyword di 2 parole;
+    \item Keyword di 3 parole;
+    \item Keyword di 4 parole.
+\end{itemize}
+Per ogni parola chiave, SEOquake visualizza il numero di occorrenze e la densità. Inoltre, verifica se ciascuna parola chiave appare nei seguenti tag principali:
+\begin{itemize}
+    \item Titolo della pagina;
+    \item Meta description;
+    \item Meta tag `keywords`;
+    \item Tag H1.
+\end{itemize}
+Tutti questi fattori contribuiscono a determinare un punteggio di importanza per ciascuna parola chiave. SEOquake permette anche di filtrare le parole chiave, esportare i risultati dell'analisi in formato \gls{csvg} e configurare un elenco di parole da includere o escludere.
+
+\begin{figure}[H]
+    \centering 
+    \includegraphics[width=0.8\columnwidth]{soluzioni-esistenti/SEOquake/seoquake.png} 
+    \caption{SEOquake - Analisi del sito `W3Schools`}
+\end{figure}
+
+\subsection{Vantaggi}
+\par Oltre all'analisi SEO \gls{on-page-seo}, SEOquake offre funzionalità avanzate come l'analisi dei \gls{backlink} e del traffico; il tutto è integrato in un'unica piattaforma che funziona anche su \gls{localhost}. L'estensione è sviluppata da Semrush e, pertanto, include funzionalità avanzate della piattaforma.
+
+\subsection{Svantaggi}
+\par Le funzionalità di analisi SEO on-page sono accessibili solo tramite la dashboard esterna, il che limita l'interazione diretta con la pagina corrente.
+
+\section{SEOptimer}
+
+\subsection{Funzionalità}
+\par SEOptimer è una piattaforma di analisi SEO e reportistica. Offre una suite completa di strumenti che coprono le seguenti funzionalità:
+\begin{itemize}
+    \item \textbf{Audit SEO}: fornisce un punteggio complessivo basato su fattori come analisi SEO \gls{on-page-seo} e \gls{off-page-seo}, usabilità, performance e ottimizzazione per i social media;
+    \item \textbf{Crawler SEO}: esegue una scansione dettagliata di una pagina web, includendo anche un'analisi della distribuzione delle parole chiave. Le parole chiave vengono estratte in base alla frequenza e suddivise in:
+    \begin{itemize}
+        \item Keyword di 1 parola;
+        \item Keyword di 2 o più parole.
+    \end{itemize}
+    Le parole chiave dovrebbero essere distribuite correttamente tra i tag HTML più importanti, in particolare: 
+    \begin{itemize}
+        \item Titolo della pagina;
+        \item Meta description;
+        \item Heading.
+    \end{itemize}
+    \item \textbf{Monitoraggio delle parole chiave};
+    \item \textbf{Ricerca di parole chiave}: analizza i competitor e fornisce suggerimenti per nuove parole chiave;
+    \item \textbf{Ricerca e monitoraggio dei \gls{backlink}}.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering 
+    \includegraphics[width=0.8\columnwidth]{soluzioni-esistenti/SEOptimer/seoptimer.png} 
+    \caption{SEOptimer - Analisi del sito `W3Schools`}
+\end{figure}
+
+\subsection{Vantaggi}
+\par SEOptimer integra in un'unica piattaforma tutti gli strumenti necessari per un'analisi SEO approfondita ed è più economico rispetto ad altri servizi simili.
+
+\subsection{Svantaggi}
+\par SEOptimer non funziona su \gls{localhost} e la versione gratuita consente un numero limitato di report giornalieri. Non è disponibile un'estensione per browser, pertanto l'analisi può essere eseguita soltanto tramite la piattaforma proprietaria.
+
+\section{SEO tester online}
+
+\subsection{Funzionalità}
+\par SEO tester online è un'estensione gratuita per Chrome sviluppata da Sitechecker. Fornisce una panoramica generale dei dati SEO essenziali, seguita da un elenco di sezioni specifiche, tra cui:
+\begin{itemize}
+    \item Contenuto: analizza la gerarchia degli heading, la lunghezza del testo, il rapporto testo/codice HTML e la densità delle keyword composte da 1, 2 o 3 parole;
+    \item Link e immagini;
+    \item \gls{hreflang} e dati strutturati;
+    \item Velocità di caricamento;
+    \item Analisi \gls{gsc}.
+\end{itemize}
+
+\subsection{Vantaggi}
+\par L'estensione è gratuita e si integra con \gls{gsc}, offrendo un'analisi SEO più approfondita.
+
+\subsection{Svantaggi}
+\par L'estensione non funziona su \gls{localhost} e si apre unicamente come pop-up.
+
+\begin{figure}[H]
+    \centering 
+    \includegraphics[width=0.8\columnwidth]{soluzioni-esistenti/SEO-Tester-Online/site_checker.png} 
+    \caption{SEO tester online - Analisi del sito `W3Schools`}
+\end{figure}
 
 \section{Semrush}
 
 \subsection{Funzionalità}
-\par Semrush include oltre 50 strumenti di analisi SEO, il che lo rende una delle piattaforme più complete sul mercato. La dashboard consente di visualizzare gratuitamente analisi relative al traffico, ai backlink, alle ricerche organiche e a quelle sponsorizzate. Offre inoltre funzionalità avanzate come:
+\par Semrush include oltre 50 strumenti di analisi SEO, il che lo rende una delle piattaforme più complete sul mercato. La dashboard consente di visualizzare gratuitamente analisi relative al traffico, ai \gls{backlink}, alle ricerche \gls{organiche} e a quelle \gls{sponsorizzate}. Offre inoltre funzionalità avanzate come:
 \begin{itemize}
-    \item \textbf{Analisi SEO on-page};
-    \item \textbf{Keyword research}: suggerisce parole chiave rilevanti in base al volume di ricerca, all'intento, alla keyword difficulty e ad altri fattori SEO. Questa funzionalità può essere integrato con plugin di terze parti, tra cui Yoast SEO per WordPress;
+    \item \textbf{Analisi SEO \gls{on-page-seo}};
+    \item \textbf{Keyword research}: suggerisce parole chiave rilevanti in base al volume di ricerca, all'intento, alla \gls{keyword-difficulty} e ad altri fattori SEO. Questa funzionalità può essere integrata con plugin di terze parti, tra cui Yoast SEO per \gls{wordpress};
     \item \textbf{Analisi dei competitor};
-    \item \textbf{Position tracking}: monitora il posizionamento nella SERP (Search Engine Results Page) per determinate parole chiave.
+    \item \textbf{Position tracking}: monitora il posizionamento nella \gls{serpg} per determinate parole chiave.
 \end{itemize}
 
 \begin{figure}[H] 
@@ -82,86 +181,15 @@
 \end{figure}
 
 \subsection{Vantaggi}
-\par Semrush può essere integrato facilmente con altri strumenti di analisi SEO. Integra funzionalità tecniche e strumenti di marketing in un'unica piattaforma.
+\par Semrush può essere integrato facilmente con altri strumenti di analisi SEO.
 
 \subsection{Svantaggi}
 \par Le funzionalità avanzate sono a pagamento. Per effettuare un'analisi, è necessario interrompere la navigazione e accedere alla piattaforma web di Semrush.
 
-\section{Keywords Everywhere}
+\section{Yoast SEO (plugin per \gls{cmsg})}
 
 \subsection{Funzionalità}
-\par Keywords Everywhere è uno degli strumenti SEO più utilizzati per la ricerca e l'analisi delle parole chiave. La versione gratuita include anche prompt ottimizzati per LLM. Tra le funzionalità a pagamento, una delle più rilevanti è l'analisi on-page di un determinato URL, che fornisce un elenco delle parole chiave e la loro densità.
-
-\subsection{Vantaggi}
-\par L'estensione è disponibile per Google Chrome, Firefox e Microsoft Edge. Dopo aver inserito una query, mostra direttamente nei risultati di ricerca le metriche SEO. Questi parametri includono:
-\begin{itemize}
-    \item SEO difficulty;
-    \item Off-page e on-page difficulty;
-    \item Brand query.
-\end{itemize}
-\par L’estensione fornisce anche suggerimenti per parole chiave correlate e long-tail keywords.
-
-\subsection{Svantaggi}
-\par L'estensione utilizza un sistema a crediti per accedere alle funzionalità avanzate.
-
-\begin{figure}[H] 
-    \centering 
-    \includegraphics[width=0.9\textwidth]{soluzioni-esistenti/Keywords-Everywhere/keywords_everywhere.png} 
-    \caption{Keywords Everywhere}
-\end{figure}
-
-\section{SEO Minion}
-
-\subsection{Funzionalità}
-\par SEO Minion è un tool specializzato nell’analisi SEO fornito da Keywords Everywhere. Tra le attività svolte da SEO Minion, le più significative sono:
-\begin{itemize}
-    \item \textbf{Analisi SEO On-page}: identifica problemi nella struttura delle pagine web;
-    \item \textbf{Controllo link}: evidenzia i link interni ed esterni presenti all’interno della pagina;
-    \item \textbf{Controllo "broken link"}: identifica eventuali "broken link" e li classifica in base ai codici di stato;
-    \item \textbf{Preview e utility SERP}: visualizza un'anteprima del sito su un risultato di ricerca reale e scarica dati dalla SERP (Search Engine Results Page);
-    \item \textbf{SERP multi-località}: controlla il posizionamento del sito in base a diverse combinazioni di localizzazione/lingua;
-    \item \textbf{HTML vs DOM}: analizza le differenze tra il codice sorgente e il DOM renderizzato.
-\end{itemize}
-
-\begin{figure}[H] 
-    \centering 
-    \includegraphics[width=0.9\textwidth]{soluzioni-esistenti/SEO-Minion/seo_minion_sidebar.png} 
-    \caption{SEO Minion - sidebar}
-\end{figure}
-
-\subsection{Vantaggi}
-\par SEO Minion è disponibile come estensione o add-on per Google Chrome, Firefox e Microsoft Edge. Le funzionalità di analisi SEO sono integrate in un'unica piattaforma.
-
-\subsection{Svantaggi}
-\par SEO Minion è disponibile solo per i clienti del piano Silver o superiore di Keywords Everywhere.
-
-\begin{figure}[H]
-    \centering 
-    \includegraphics[width=0.8\columnwidth]{soluzioni-esistenti/SEO-Minion/seo_minion_on_page_analysis.png} 
-    \caption{SEO Minion - Analisi On-Page}
-\end{figure}
-
-\section{SEO Checker}
-
-\subsection{Funzionalità}
-\par SEO Checker è uno strumento dell’ecosistema Keywords Everywhere, all’interno del quale troviamo anche il già citato SEO Minion. Mentre quest’ultimo è stato concepito per l’analisi single-page, SEO Checker nasce per superarne i limiti: permette infatti di analizzare siti con migliaia di pagine e integra controlli su velocità e sicurezza.
-
-\begin{figure}[H]
-    \centering 
-    \includegraphics[width=0.8\columnwidth]{soluzioni-esistenti/SEO-Checker/seo_checker_analysis.png} 
-    \caption{SEO Checker - Analisi SEO del Corriere della Sera}
-\end{figure}
-
-\subsection{Vantaggi}
-\par Così come SEO Minion, anche SEO Checker è disponibile come estensione o add-on per Google Chrome, Firefox e Microsoft Edge. Le funzionalità sono integrate in un'unica piattaforma. A differenza di SEO Minion, SEO Checker è disponibile gratuitamente.
-
-\subsection{Svantaggi}
-\par SEO Checker fornisce un'analisi dettagliata della SEO on-page, ma risulta carente per quanto riguarda le funzionalità di ricerca e analisi delle parole chiave.
-
-\section{Yoast SEO (plugin per CMS)}
-
-\subsection{Funzionalità}
-\par Yoast SEO è un plugin per CMS che semplifica il processo di ottimizzazione SEO. Fornisce feedback in tempo reale per migliorare il posizionamento sui motori di ricerca. La versione del plugin per WordPress consente di ottimizzare le parole chiave (note anche come keyphrase) attraverso un’analisi della densità, della distribuzione e di altri fattori SEO on-page. Con la versione a pagamento, l’utente può anche scegliere delle keyphrase correlate (argomenti collegati o parole chiave secondarie) da valutare distintamente. Inoltre, l’integrazione con Semrush fornisce suggerimenti di keyphrase correlate basati sui volumi di ricerca, sull’intento e sulla keyword difficulty. Naturalmente, i controlli sono meno restrittivi rispetto alla parola chiave principale. Per evitare di dover ripetere meccanicamente la stessa keyphrase, la versione Premium permette anche di aggiungere uno o più sinonimi, che Yoast interpreta allo stesso modo senza penalizzare il punteggio.
+\par Yoast SEO è un plugin per \gls{cms} che semplifica il processo di ottimizzazione SEO. Fornisce feedback in tempo reale per migliorare il posizionamento sui motori di ricerca. La versione del plugin per \gls{wordpress} consente di ottimizzare le parole chiave (note anche come keyphrase) attraverso un'analisi della densità, della distribuzione e di altri fattori SEO \gls{on-page-seo}. Con la versione a pagamento, l'utente può anche scegliere delle keyphrase correlate (argomenti collegati o parole chiave secondarie) da valutare distintamente. Inoltre, l'integrazione con Semrush fornisce suggerimenti di keyphrase correlate basati sui volumi di ricerca, sull'intento e sulla \gls{keyword-difficulty}. Naturalmente, i controlli sono meno restrittivi rispetto alla keyphrase principale. Per evitare di dover ripetere meccanicamente la stessa keyphrase, la versione Premium permette anche di aggiungere uno o più sinonimi, che Yoast interpreta allo stesso modo senza penalizzare il punteggio.
 
 \begin{figure}[H]
     \centering 
@@ -170,10 +198,10 @@
 \end{figure}
 
 \subsection{Vantaggi}
-\par Yoast SEO è disponibile in versione gratuita per WordPress, seppur con alcune limitazioni, e può essere integrato con altri strumenti SEO come Semrush e Wincher. Il plugin viene aggiornato regolarmente per rimanere allineato agli algoritmi dei motori di ricerca e alle best practice SEO.
+\par Yoast SEO è disponibile in versione gratuita per \gls{wordpress}, seppur con alcune limitazioni, e può essere integrato con altri strumenti come Semrush e Wincher. Il plugin viene aggiornato regolarmente per rimanere allineato agli algoritmi dei motori di ricerca e alle best practice SEO.
 
 \subsection{Svantaggi}
-\par Yoast SEO è limitato a CMS come WordPress e Shopify. Alcune funzionalità, tra cui l’inserimento di parole chiave correlate e sinonimi, o l'integrazione con Semrush, richiedono la sottoscrizione di un abbonamento a pagamento.
+\par Yoast SEO è limitato a \gls{cmsg} come WordPress e \gls{shopify}. Alcune funzionalità, tra cui l'inserimento di parole chiave correlate e sinonimi, o l'integrazione con Semrush, richiedono la sottoscrizione di un abbonamento a pagamento.
 
 \begin{figure}[H]
     \centering 
@@ -184,122 +212,102 @@
 \section{Keyword Density Analyzer}
 
 \subsection{Funzionalità}
-\par 
+\par Keyword Density Analyzer è uno strumento di analisi SEO fornito da Webmaster Tips. L'analisi inizia con una panoramica generale della pagina esaminata, che include le seguenti informazioni:
+\begin{itemize}
+    \item URL, titolo, meta description e lingua;
+    \item Dimensione della pagina non compressa;
+    \item Dimensione del contenuto di testo semplice;
+    \item Rapporto testo semplice/codice HTML;
+    \item Conteggio di caratteri e parole;
+    \item Top keywords: elenco delle parole chiave considerate più rilevanti in base a parametri interni all'applicazione.
+\end{itemize}
+Viene poi effettuata un'analisi del titolo e della meta description, evidenziando la frequenza e la densità di ciascuna parola contenuta in questi tag. L'analisi delle parole chiave è suddivisa in quattro sezioni:
+\begin{itemize}
+    \item \textbf{Meta tag `keywords`}: mostra la frequenza e la densità delle parole chiave contenute nel meta tag `keywords`;
+    \item \textbf{Top Keywords by Density}: elenca le parole più frequenti, escludendo quelle comuni e troppo brevi. Oltre alla frequenza e alla densità, mostra anche il numero di occorrenze nel titolo, negli heading, nei link e nel testo alternativo delle immagini;
+    \item \textbf{Top Keywords by Score}: elenca le parole in base a un punteggio calcolato internamente;
+    \item \textbf{Top Phrases}: elenca le frasi con più di una occorrenza, escludendo quelle brevi e con parole comuni.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering 
+    \includegraphics[width=0.8\columnwidth]{soluzioni-esistenti/Keywords-Density-Analyzer/keywords_density_analyzer.png} 
+    \caption{Keyword Density Analyzer - Analisi del sito `W3Schools`}
+\end{figure}
+
+\subsection{Vantaggi}
+\par Tutte le funzionalità sono gratuite e possono essere integrate con gli altri strumenti di Webmaster Tips per un'analisi SEO completa.
+
+\subsection{Svantaggi}
+\par L'analisi di una pagina web richiede di interrompere la navigazione e accedere alla piattaforma di Webmaster Tips.
+
+\begin{figure}[H]
+    \centering 
+    \includegraphics[width=0.8\columnwidth]{soluzioni-esistenti/Keywords-Density-Analyzer/keywords_density_analyzer_score.png} 
+    \caption{Keyword Density Analyzer - Top Keywords by Score}
+\end{figure}
 
 \section{Detailed SEO Extension}
 
 \subsection{Funzionalità}
-\par Detailed SEO Extension è un’estensione per Google Chrome e Firefox che consente di analizzare, con un solo clic, qualsiasi sito web. L’estensione estrae e analizza i seguenti elementi:
+\par Detailed SEO Extension è un'estensione per Google Chrome e Firefox che consente di analizzare, con un solo clic, qualsiasi sito web. L'estensione estrae e analizza i seguenti elementi:
 \begin{itemize}
-    \item Titolo, meta description, URL, tag canonical, tag "robots", meta tag keywords, numero di parole e lingua;
+    \item Titolo, meta description, URL, \gls{tag-canonical}, \gls{tag-robots}, meta tag `keywords`, numero di parole e lingua;
     \item Gerarchia degli heading (da H1 a H6): l'estensione regola l'indentazione e la dimensione del font in base al livello, facilitando l'analisi visiva della struttura;
     \item Link (unici, interni o esterni, completi o incompleti);
     \item Immagini (complete o prive di attributi);
-    \item Schema e Hreflang;
-    \item Open Graph.
+    \item Schema e \gls{hreflang};
+    \item Ottimizzazione per i social media.
 \end{itemize}
-\par Inoltre, l'estensione genera automaticamente i link per analizzare la stessa pagina web su altre piattaforme, tra cui Ahrefs, Majestic, Moz, Semrush e SimilarWeb.
-
-\begin{figure}[H]
-    \centering 
-    \includegraphics[width=0.8\columnwidth]{soluzioni-esistenti/Detailed-SEO-Extension/detailed_seo_extension.png} 
-    \caption{Detailed SEO Extension}
-\end{figure}
-
-\subsection{Vantaggi}
-\par Essendo gratuita e compatibile con localhost, l'estensione si presta perfettamente all'uso durante la fase di sviluppo.
-
-\subsection{Svantaggi}
-\par L'estensione si apre come pop-up, il che può rendere meno agevole l'interazione con la pagina corrente. Per quanto riguarda l'analisi delle parole chiave, lo strumento si limita a estrarre ed elencare quelle presenti nel meta tag `keywords`.
+Inoltre, l'estensione genera automaticamente i link per analizzare la stessa pagina web su altre piattaforme, tra cui Ahrefs, Majestic, Moz, Semrush e SimilarWeb.
 
 \begin{figure}[H]
     \centering 
     \includegraphics[width=0.8\columnwidth]{soluzioni-esistenti/Detailed-SEO-Extension/detailed_seo_analysis.png} 
-    \caption{Detailed SEO Extension - Analisi SEO}
+    \caption{Detailed SEO Extension - Analisi del sito `W3Schools`}
 \end{figure}
 
-\section{Checkbot}
-
-\subsection{Funzionalità}
-\par Checkbot è un'estensione per browser che esegue analisi SEO, test di velocità e di sicurezza su centinaia di pagine contemporaneamente.
-
 \subsection{Vantaggi}
-\par Checkbot fornisce un'analisi SEO on-page completa.
+\par Essendo gratuita e compatibile con \gls{localhost}, l'estensione si presta perfettamente all'uso durante la fase di sviluppo.
 
 \subsection{Svantaggi}
-\par Per accedere a funzionalità essenziali per lo sviluppo, come l'analisi su localhost, è necessario un abbonamento a pagamento. I test vengono eseguiti sulla piattaforma web di Checkbot e non includono l'analisi delle parole chiave.
+\par L'estensione si apre come pop-up, il che può rendere meno agevole l'interazione con la pagina corrente. Per quanto riguarda l'analisi delle parole chiave, lo strumento si limita a estrarre ed elencare quelle presenti nel meta tag `keywords`.
+
+\section{SEO Analyzer (Rank Math)}
+
+\subsection{Funzionalità}
+\par Rank Math è un plugin per \gls{wordpress} che semplifica l'ottimizzazione SEO mediante suggerimenti basati sulle best practice. Il tool SEO Analyzer esegue un'analisi approfondita delle pagine web, generando un punteggio complessivo. Inoltre, SEO Analyzer visualizza un elenco delle parole chiave più frequenti nella pagina e verifica che siano distribuite correttamente.
+
+\subsection{Vantaggi}
+\par SEO Analyzer è in grado di analizzare anche siti web che non sono stati realizzati con WordPress.
+
+\subsection{Svantaggi}
+\par SEO Analyzer non funziona su \gls{localhost} ed è meno affidabile rispetto ad altri strumenti, in quanto l'analisi dei tag è \gls{case-sensitive}, il che può portare a errori come il mancato rilevamento della meta description. Inoltre, la versione Premium di Rank Math è a pagamento.
 
 \begin{figure}[H]
     \centering 
-    \includegraphics[width=0.8\columnwidth]{soluzioni-esistenti/Checkbot/checkbot.png} 
-    \caption{Checkbot}
+    \includegraphics[width=0.6\columnwidth]{soluzioni-esistenti/RankMath/rank_math.png} 
+    \caption{Rank Math - Analisi del sito `Silktide`}
 \end{figure}
 
-\section{Serpstat}
+\section{Altri strumenti di analisi SEO}
 
-\subsection{Funzionalità}
-\par Checkbot è un'estensione per browser che esegue analisi SEO, test di velocità e di sicurezza su centinaia di pagine contemporaneamente.
-
-\section{Sitebulb}
-
-\subsection{Funzionalità}
-\par Checkbot è un'estensione per browser che esegue analisi SEO, test di velocità e di sicurezza su centinaia di pagine contemporaneamente.
-
-\section{Screaming Frog SEO}
-
-\subsection{Funzionalità}
-\par Checkbot è un'estensione per browser che esegue analisi SEO, test di velocità e di sicurezza su centinaia di pagine contemporaneamente.
-
-\section{Wincher}
-
-\subsection{Funzionalità}
-\par Checkbot è un'estensione per browser che esegue analisi SEO, test di velocità e di sicurezza su centinaia di pagine contemporaneamente.
-
-\section{Majestic}
-
-\subsection{Funzionalità}
-\par Checkbot è un'estensione per browser che esegue analisi SEO, test di velocità e di sicurezza su centinaia di pagine contemporaneamente.
-
-\section{Similarweb}
-
-\subsection{Funzionalità}
-\par Checkbot è un'estensione per browser che esegue analisi SEO, test di velocità e di sicurezza su centinaia di pagine contemporaneamente.
-
-\section{Ahrefs SEO Toolbar}
-
-\subsection{Funzionalità}
-\par Ahrefs SEO Toolbar è un'estensione gratuita per browser che esegue un'analisi SEO completa e dettagliata.
-
-\subsection{Vantaggi}
-\par L'estensione funziona su localhost e fornisce suggerimenti SEO direttamente nei risultati di ricerca.
-
-\subsection{Svantaggi}
-\par Per accedere alle metriche avanzate di Ahrefs, è necessario un abbonamento a pagamento. Inoltre, l'estensione si apre solo come pop-up, il che può interferire con la navigazione.
-
-\begin{figure}[H]
-    \centering 
-    \includegraphics[width=0.8\columnwidth]{soluzioni-esistenti/Ahrefs/ahrefs.png} 
-    \caption{Ahrefs SEO Toolbar}
-\end{figure}
-
-\section{Ubersuggest}
-
-\subsection{Funzionalità}
-\par Ubersuggest è uno strumento SEO disponibile sia come piattaforma web esterna che come estensione gratuita per Chrome. Fornisce analisi del traffico organico e a pagamento, suggerimenti di parole chiave, analisi dei backlink e dei competitor.
-
-\subsection{Vantaggi}
-\par L'estensione è progettata come barra laterale, facilitando l'interazione con la pagina corrente.
-
-\subsection{Svantaggi}
-\par Nella versione gratuita, le funzionalità sono limitate a 40 richieste al giorno. Inoltre, l'accesso a dati e funzioni avanzate richiede l'upgrade a un piano a pagamento.
-
-\section{Keyword Surfer}
-
-\subsection{Funzionalità}
-\par Keyword Surfer è un’estensione per Chrome che mostra volumi di ricerca e suggerimenti di parole chiave direttamente nei risultati di ricerca. Fornisce anche informazioni sulle pagine dei competitor, come il traffico stimato e il numero esatto di occorrenze di una parola chiave.
-
-\subsection{Vantaggi}
-\par La ricerca e l'analisi delle parole chiave sono completamente gratuite.
-
-\subsection{Svantaggi}
-\par Rispetto ad altre piattaforme SEO, Keyword Surfer offre funzionalità più limitate.
+\par Di seguito sono elencati gli strumenti di analisi SEO che forniscono funzionalità simili a quelle già esaminate in precedenza:
+\begin{itemize}
+    \item \textbf{SEO META in 1 CLICK}: è un'estensione per Chrome che analizza i meta tag e i principali fattori di ottimizzazione. Figura tra gli strumenti più utilizzati per l'analisi SEO \gls{on-page-seo}, grazie a un'interfaccia intuitiva e ai collegamenti diretti con altri servizi analoghi;
+    \item \textbf{Keywords Everywhere}: è uno degli strumenti SEO più utilizzati per la ricerca e l'analisi delle parole chiave. Dopo aver inserito una query, Keywords Everywhere mostra direttamente nei risultati di ricerca le metriche SEO e i suggerimenti per parole chiave correlate e \gls{long-tail-keywords};
+    \item \textbf{Ahrefs SEO Toolbar}: è un'estensione gratuita per browser che esegue un'analisi SEO completa e dettagliata. L'estensione funziona su \gls{localhost} e fornisce suggerimenti direttamente nei risultati di ricerca;
+    \item \textbf{SEO Minion}: è un'estensione a pagamento fornita da Keywords Everywhere. Oltre all'analisi SEO \gls{on-page-seo} e \gls{off-page-seo}, permette agli utenti di visualizzare un'anteprima del sito nella \gls{serpg} e di controllare il posizionamento in base a diverse combinazioni di localizzazione e lingua;
+    \item \textbf{SEO Checker}: è un'estensione gratuita che fa parte dell'ecosistema Keywords Everywhere, all'interno del quale troviamo anche il già citato SEO Minion. Mentre quest'ultimo è stato concepito per l'analisi di singole pagine, SEO Checker nasce per superarne i limiti: permette infatti di analizzare siti con migliaia di pagine; 
+    \item \textbf{Screaming Frog SEO Spider}: è un crawler potente e flessibile; esegue analisi SEO anche su siti web di grandi dimensioni. L'applicazione va installata localmente e richiede un abbonamento a pagamento per accedere alle funzionalità avanzate;
+    \item \textbf{Silktide (analisi SEO su richiesta)}: le soluzioni progettate da Silktide sono in grado di identificare problemi SEO come titoli mancanti, "broken link", scarsa velocità di caricamento e mancanza di ottimizzazione delle parole chiave. Per usufruire delle funzionalità di analisi SEO è necessario prenotare una dimostrazione;
+    \item \textbf{META SEO inspector}: è un'estensione gratuita per Chrome che si apre come pop-up ed esegue un'analisi SEO \gls{on-page-seo}, evidenziando gli errori in rosso, le informazioni in blu e i suggerimenti in giallo;
+    \item \textbf{SpyFu}: è una piattaforma web che permette di analizzare in modo approfondito i competitor, le parole chiave e i \gls{backlink}. È utile anche per identificare le tendenze, ma l'accesso alla versione completa è a pagamento;
+    \item \textbf{Serpstat}: è un’estensione per browser che fornisce gratuitamente funzionalità SEO on-page, mentre le analisi avanzate di una pagina o del dominio, così come l’accesso alla piattaforma web, richiedono un abbonamento a pagamento;
+    \item \textbf{Checkbot}: è un'estensione per browser che esegue analisi SEO, test di velocità e di sicurezza su centinaia di pagine contemporaneamente. Per accedere a funzionalità essenziali per lo sviluppo, come l'analisi su \gls{localhost}, è necessario un abbonamento a pagamento. I test vengono eseguiti sulla piattaforma di Checkbot e non includono l'analisi delle parole chiave;
+    \item \textbf{Majestic}: è una piattaforma web specializzata nell’analisi dei backlink, ambito in cui offre uno dei database più completi disponibili. Include anche strumenti per la ricerca e l’analisi delle parole chiave, riservati però agli utenti abbonati;
+    \item \textbf{Ubersuggest}: è uno strumento SEO disponibile sia come piattaforma web esterna che come estensione gratuita per Chrome. Fornisce analisi del traffico, suggerimenti per nuove parole chiave, analisi dei backlink e dei competitor. L'estensione è progettata come barra laterale, facilitando l'interazione con la pagina corrente. Tuttavia, nella versione gratuita le funzionalità sono limitate a 40 richieste al giorno. Inoltre, l'accesso a dati e funzioni avanzate richiede l'upgrade a un piano a pagamento;
+    \item \textbf{Keyword Surfer}: è un'estensione per Chrome che mostra volumi di ricerca e suggerimenti di parole chiave direttamente nella \gls{serpg}. Fornisce anche informazioni sulle pagine dei competitor, come il traffico stimato e il numero esatto di occorrenze di una parola chiave. La ricerca e l'analisi delle parole chiave sono gratuite ma, rispetto ad altre piattaforme, Keyword Surfer offre funzionalità più limitate;
+    \item \textbf{Similarweb}: è un’estensione per browser che fornisce informazioni sul traffico e sulle parole chiave per cui un sito è posizionato, con un limite settimanale di richieste per la versione gratuita;
+    \item \textbf{MetricSpot}: è una piattaforma che consente di analizzare e ottimizzare un sito web, includendo test su performance, struttura e usabilità. L’analisi degli elementi che contribuiscono alla SEO Authority richiede un abbonamento a pagamento.
+\end{itemize}
