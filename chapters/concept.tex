@@ -27,14 +27,13 @@
 
 \begin{usecase}{2}{Visualizzazione di una panoramica dell'analisi delle parole chiave}\label{UC2}
     \usecaseactors{Utente.}
-    \usecasepre{
+    \usecasepreEnv{
         \begin{itemize}
             \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
             \item Il sistema è attivo e funzionante.
-        \end{itemize}
-    }
+        \end{itemize}}
     \usecasepost{Il sistema mostra una panoramica dell'analisi delle parole chiave.}
-    \usecasesub{
+    \usecasesubEnv{
         \begin{itemize}
             \item \hyperref[UC2point1]{UC2.1}: Visualizzazione del meta tag keywords;
             \item \hyperref[UC2point2]{UC2.2}: Visualizzazione del numero totale di parole nella pagina;
@@ -45,12 +44,12 @@
 
 \begin{usecase}{2.1}{Visualizzazione del meta tag keywords}\label{UC2point1}
     \usecaseactors{Utente.}
-    \usecasepre{\begin{itemize}
+    \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{Il sistema mostra il meta tag keywords.}
-    \usecaseext{
+    \usecaseextEnv{
         \begin{itemize}
             \item Visualizzazione di un avviso se il meta tag keywords non è presente (\hyperref[UC10]{UC10}).
         \end{itemize}}
@@ -58,16 +57,16 @@
 
 \begin{usecase}{2.2}{Visualizzazione del numero totale di parole nella pagina}\label{UC2point2}
     \usecaseactors{Utente.}
-    \usecasepre{\begin{itemize}
+    \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
-    \usecasepost{Il sistema il numero totale di parole presenti nella pagina.}
+    \usecasepost{Il sistema mostra il numero totale di parole presenti nella pagina.}
 \end{usecase}
 
 \begin{usecase}{2.3}{Visualizzazione del numero di parole uniche nella pagina}\label{UC2point3}
     \usecaseactors{Utente.}
-    \usecasepre{\begin{itemize}
+    \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
@@ -76,7 +75,7 @@
 
 \begin{usecase}{2.4}{Visualizzazione della lingua della pagina}\label{UC2point4}
     \usecaseactors{Utente.}
-    \usecasepre{\begin{itemize}
+    \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
@@ -85,7 +84,7 @@
 
 \begin{usecase}{3}{Inserimento di una parola chiave}\label{UC3}
     \usecaseactors{Utente.}
-    \usecasepre{\begin{itemize}
+    \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
@@ -95,38 +94,38 @@
 
 \begin{usecase}{4}{Inserimento di una parola chiave}\label{UC4}
     \usecaseactors{Utente.}
-    \usecasepre{\begin{itemize}
+    \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasedesc{Il sistema esegue l'analisi di una parola chiave scelta dall'utente.}
     \usecasepost{Il sistema aggiunge la parola chiave analizzata alla lista delle keyword.}
-    \usecaseinc{\begin{itemize}
+    \usecaseincEnv{\begin{itemize}
         \item Inserimento di una parola chiave (\hyperref[UC3]{UC3}).
     \end{itemize}}
 \end{usecase}
 
 \begin{usecase}{5}{Visualizzazione di una lista delle parole chiave}\label{UC5}
     \usecaseactors{Utente.}
-    \usecasepre{\begin{itemize}
+    \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{Il sistema mostra una lista delle parole chiave.}
-    \usecasesub{
+    \usecasesubEnv{
         \begin{itemize}
             \item \hyperref[UC5point1]{UC5.1}: Visualizzazione di una lista delle parole chiave estratte dal meta tag keywords;
             \item \hyperref[UC5point2]{UC5.2}: Visualizzazione di una lista delle parole chiave inserite dall'utente;
             \item \hyperref[UC5point3]{UC5.3}: Visualizzazione di una lista delle parole chiave più frequenti.
         \end{itemize}}
-    \usecaseinc{\begin{itemize}
+    \usecaseincEnv{\begin{itemize}
         \item Visualizzazione di una singola parola chiave (\hyperref[UC6]{UC6}).
     \end{itemize}}
 \end{usecase}
 
 \begin{usecase}{5.1}{Visualizzazione di una lista delle parole chiave}\label{UC5point1}
     \usecaseactors{Utente.}
-    \usecasepre{\begin{itemize}
+    \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
@@ -135,7 +134,7 @@
 
 \begin{usecase}{5.2}{Visualizzazione di una lista delle parole chiave inserite dall'utente}\label{UC5point2}
     \usecaseactors{Utente.}
-    \usecasepre{\begin{itemize}
+    \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
@@ -144,7 +143,7 @@
 
 \begin{usecase}{5.3}{Visualizzazione di una lista delle parole chiave inserite dall'utente}\label{UC5point3}
     \usecaseactors{Utente.}
-    \usecasepre{\begin{itemize}
+    \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
@@ -153,25 +152,25 @@
 
 \begin{usecase}{6}{Visualizzazione di una singola parola chiave}\label{UC6}
     \usecaseactors{Utente.}
-    \usecasepre{\begin{itemize}
+    \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante;
         \item È visibile la lista delle parole chiave.
     \end{itemize}}
     \usecasepost{L'utente visualizza una singola parola chiave.}
-    \usecaseinc{\begin{itemize}
+    \usecaseincEnv{\begin{itemize}
         \item Visualizzazione dei risultati dell'analisi di una parola chiave (\hyperref[UC7]{UC7}).
     \end{itemize}}
 \end{usecase}
 
 \begin{usecase}{7}{Visualizzazione dei risultati dell'analisi di una parola chiave}\label{UC7}
     \usecaseactors{Utente.}
-    \usecasepre{\begin{itemize}
+    \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{L'utente visualizza i risultati dell'analisi di una parola chiave.}
-    \usecasesub{
+    \usecasesubEnv{
         \begin{itemize}
             \item \hyperref[UC7point1]{UC7.1}: Visualizzazione della frequenza di una parola chiave;
             \item \hyperref[UC7point2]{UC7.2}: Visualizzazione della densità di una parola chiave;
@@ -181,7 +180,7 @@
 
 \begin{usecase}{7.1}{Visualizzazione della frequenza di una parola chiave}\label{UC7point1}
     \usecaseactors{Utente.}
-    \usecasepre{\begin{itemize}
+    \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
@@ -190,38 +189,38 @@
 
 \begin{usecase}{7.2}{Visualizzazione della densità di una parola chiave}\label{UC7point2}
     \usecaseactors{Utente.}
-    \usecasepre{\begin{itemize}
+    \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{L'utente visualizza la densità di una parola chiave.}
-    \usecaseext{\begin{itemize}
+    \usecaseextEnv{\begin{itemize}
         \item Visualizzazione di un avviso se la densità di una parola chiave è troppo alta (\hyperref[UC11]{UC11}).
     \end{itemize}}
 \end{usecase}
 
 \begin{usecase}{7.3}{Visualizzazione di un elenco dei tag in cui dovrebbe essere presente una parola chiave}\label{UC7point3}
     \usecaseactors{Utente.}
-    \usecasepre{\begin{itemize}
+    \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{L'utente visualizza un elenco dei tag in cui dovrebbe essere presente una parola chiave.}
-    \usecasesub{\begin{itemize}
+    \usecasesubEnv{\begin{itemize}
         \item \hyperref[UC7point3point1]{UC7.3.1}: Visualizzazione di un singolo tag.
     \end{itemize}}
 \end{usecase}
 
 \begin{usecase}{7.3.1}{Visualizzazione di un singolo tag}\label{UC7point3point1}
     \usecaseactors{Utente.}
-    \usecasepre{\begin{itemize}
+    \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante;
         \item L'utente sta visualizzando i risultati dell'analisi di una parola chiave;
         \item È visibile l'elenco dei tag.
     \end{itemize}}
     \usecasepost{L'utente visualizza un singolo tag.}
-    \usecasesub{\begin{itemize}
+    \usecasesubEnv{\begin{itemize}
         \item \hyperref[UC7point3point1point1]{UC7.3.1.1}: Visualizzazione del nome del tag;
         \item \hyperref[UC7point3point1point2]{UC7.3.1.2}: Visualizzazione del numero di occorrenze della parola chiave nel tag.
     \end{itemize}}
@@ -229,7 +228,7 @@
 
 \begin{usecase}{7.3.1.1}{Visualizzazione del nome del tag}\label{UC7point3point1point1}
     \usecaseactors{Utente.}
-    \usecasepre{\begin{itemize}
+    \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
@@ -238,19 +237,19 @@
 
 \begin{usecase}{7.3.1.2}{Visualizzazione del numero di occorrenze di una parola chiave nel tag}\label{UC7point3point1point2}
     \usecaseactors{Utente.}
-    \usecasepre{\begin{itemize}
+    \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{L'utente visualizza il numero di occorrenze della parola chiave nel tag.}
-    \usecaseext{\begin{itemize}
+    \usecaseextEnv{\begin{itemize}
         \item Visualizzazione di un avviso se il numero di occorrenze di una parola chiave nel tag è inferiore a una certa soglia (\hyperref[UC12]{UC12}).
     \end{itemize}}
 \end{usecase}
 
 \begin{usecase}{8}{Evidenziazione di una parola chiave nella pagina}\label{UC8}
     \usecaseactors{Utente.}
-    \usecasepre{\begin{itemize}
+    \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
@@ -259,7 +258,7 @@
 
 \begin{usecase}{9}{Aggiornamento dell'analisi delle parole chiave}\label{UC9}
     \usecaseactors{Utente.}
-    \usecasepre{\begin{itemize}
+    \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
@@ -269,7 +268,7 @@
 
 \begin{usecase}{10}{Visualizzazione di un avviso se il meta tag keywords non è presente}\label{UC10}
     \usecaseactors{Utente.}
-    \usecasepre{\begin{itemize}
+    \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
@@ -278,7 +277,7 @@
 
 \begin{usecase}{11}{Visualizzazione di un avviso se la densità di una parola chiave è troppo alta}\label{UC11}
     \usecaseactors{Utente.}
-    \usecasepre{\begin{itemize}
+    \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
@@ -287,7 +286,7 @@
 
 \begin{usecase}{12}{Visualizzazione di un avviso se il numero di occorrenze di una parola chiave nel tag è inferiore a una certa soglia}\label{UC12}
     \usecaseactors{Utente.}
-    \usecasepre{\begin{itemize}
+    \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
@@ -314,7 +313,7 @@
     Codice = & codice numerico univoco \\
 \end{tabular}
     
-\newpage
+\par\vspace{30pt}
 
 \renewcommand{\arraystretch}{1.5}
 \begin{longtable}{p{0.15\textwidth}p{0.55\textwidth}p{0.2\textwidth}}
@@ -415,7 +414,7 @@ RQ.O.1 & La funzionalità di analisi \gls{seog} deve rispettare le linee guida \
 \hline
 RQ.OP.2 & L'estensione deve rimanere attiva su tutte le tab. & Discussione con la Proponente \\
 \hline
-RQ.OP.3 & L'utente deve poter aprire e chiudere l'estensione in modo rapido e intuitivo. & Discussione con la Proponente \\
+RQ.D.3 & L'utente deve poter aprire e chiudere l'estensione in modo rapido e intuitivo. & Discussione con la Proponente \\
 \end{longtable}
 
 \renewcommand{\arraystretch}{1.5}
@@ -442,3 +441,27 @@ RV.O.1 & La funzionalità di analisi \gls{seog} deve essere resa disponibile tra
 \hline
 RV.O.2 & La funzionalità di analisi SEO deve essere integrata all'interno di un'estensione per Chrome & Discussione con la Proponente \\
 \end{longtable}
+
+\par\vspace{20pt}
+
+\subsection{Riepilogo}
+
+\begin{table}[H]
+\centering
+\caption{Tabella di riepilogo dei requisiti}
+\label{tab:riepilogo-requisiti}
+% MAX 12.5cm
+\begin{tabular}{ccccc}
+\hline\hline
+\textbf{Requisito} & \textbf{Obbligatorio} & \textbf{Desiderabile} & \textbf{Opzionale} & \textbf{Totale} \\ 
+\hline
+Funzionale & 19 & 5 & 2 & 26 \\
+\hline
+Di qualità & 1 & 1 & 1 & 3 \\
+\hline 
+Di vincolo/dominio & 2 & 0 & 0 & 2 \\
+\hline
+\textbf{Totale} & 22 & 6 & 3 & \textbf{31} \\ 
+\hline
+\end{tabular}
+\end{table}
