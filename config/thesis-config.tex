@@ -179,11 +179,14 @@
 
 \newcommand{\usecasename}{UC}
 
-\newcommand{\usecaseactors}[1]{\textbf{\\Attori Principali:} #1. \vspace{4pt}}
-\newcommand{\usecasepre}[1]{\textbf{\\Precondizioni:} #1. \vspace{4pt}}
-\newcommand{\usecasedesc}[1]{\textbf{\\Descrizione:} #1. \vspace{4pt}}
-\newcommand{\usecasepost}[1]{\textbf{\\Postcondizioni:} #1. \vspace{4pt}}
-\newcommand{\usecasealt}[1]{\textbf{\\Scenario Alternativo:} #1. \vspace{4pt}}
+\newcommand{\usecaseactors}[1]{\par\textbf{\\Attori Principali}: #1}
+\newcommand{\usecasepre}[1]{\par\textbf{\\Precondizioni}: #1}
+\newcommand{\usecasedesc}[1]{\par\textbf{\\Descrizione}: #1}
+\newcommand{\usecasepost}[1]{\par\textbf{\\Postcondizioni}: #1}
+\newcommand{\usecasealt}[1]{\par\textbf{\\Scenario Alternativo}: #1}
+\newcommand{\usecasesub}[1]{\par\textbf{\\Sottocasi d'uso}: #1}
+\newcommand{\usecaseinc}[1]{\par\textbf{\\Inclusioni}: #1}
+\newcommand{\usecaseext}[1]{\par\textbf{\\Scenario Alternativo}: #1}
 
 % Namespace description environment
 \newenvironment{namespacedesc}{

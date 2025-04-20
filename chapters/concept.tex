@@ -1,78 +1,444 @@
 \chapter{Analisi dei requisiti}
 \label{cap:analisi-requisiti}
 
-\intro{Breve introduzione al capitolo}\\
+\par L'analisi dei \gls{requisiti} è stata condotta seguendo gli standard dell'ingegneria del software, integrando l'analisi del progetto e delle soluzioni esistenti con colloqui e dialoghi con la Proponente. In questa sezione sono illustrati i seguenti punti:
+\begin{itemize}
+    \item \textbf{\gls{use-case}}: descrizione e diagrammi dei casi d'uso;
+    \item \textbf{Tracciamento dei requisiti};
+    \item \textbf{\gls{user-story}}.
+\end{itemize}
 
 \section{Casi d'uso}
 
-Per lo studio dei casi di utilizzo del prodotto sono stati creati dei diagrammi.
-I diagrammi dei casi d'uso (in inglese \emph{Use Case Diagram}) sono diagrammi di tipo \gls{uml} dedicati alla descrizione delle funzioni o servizi offerti da un sistema, così come sono percepiti e utilizzati dagli attori che interagiscono col sistema stesso.
-Essendo il progetto finalizzato alla creazione di un tool per l'automazione di un processo, le interazioni da parte dell'utilizzatore devono essere ovviamente ridotte allo stretto necessario. Per questo motivo i diagrammi d'uso risultano semplici e in numero ridotto.
+\paragraph*{Attori}\\
+\par L'unico attore coinvolto nell'interazione con il sistema è un \textbf{utente generico} con accesso completo alla funzionalità di analisi \gls{seog}. Di seguito sono elencate alcune tipologie di utenti a cui è rivolto il progetto:
+\begin{itemize}
+    \item \textbf{Sviluppatore}: utilizza l'estensione durante lo sviluppo e la produzione di contenuti web;
+    \item \textbf{Tester}: effettua un'analisi SEO per identificare eventuali problemi e proporre azioni di miglioramento;
+    \item \textbf{Professore}: utilizza l'estensione per analizzare progetti didattici.
+\end{itemize}
 
-\begin{figure}[!h] 
-    \centering 
-    \includegraphics[width=0.9\columnwidth]{usecase/scenario-principale} 
-    \caption{Use Case - UC0: Scenario principale}
-\end{figure}
-
-\begin{usecase}{0}{Scenario principale}
-\usecaseactors{Sviluppatore applicativi}
-\usecasepre{Lo sviluppatore è entrato nel plug-in di simulazione all'interno dell'IDE}
-\usecasedesc{La finestra di simulazione mette a disposizione i comandi per configurare, registrare o eseguire un test}
-\usecasepost{Il sistema è pronto per permettere una nuova interazione}
-\label{uc:scenario-principale}
+\begin{usecase}{1}{Accesso alla funzionalità di analisi delle parole chiave}\label{UC1}
+    \usecaseactors{Utente.}
+    \usecasepre{L'utente ha avviato l'estensione.}
+    \usecasedesc{L'utente seleziona la funzionalità di analisi delle parole chiave.}
+    \usecasepost{Il sistema mostra la schermata di analisi delle parole chiave.}
 \end{usecase}
 
-\section{Tracciamento dei requisiti}
+\begin{usecase}{2}{Visualizzazione di una panoramica dell'analisi delle parole chiave}\label{UC2}
+    \usecaseactors{Utente.}
+    \usecasepre{
+        \begin{itemize}
+            \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+            \item Il sistema è attivo e funzionante.
+        \end{itemize}
+    }
+    \usecasepost{Il sistema mostra una panoramica dell'analisi delle parole chiave.}
+    \usecasesub{
+        \begin{itemize}
+            \item \hyperref[UC2point1]{UC2.1}: Visualizzazione del meta tag keywords;
+            \item \hyperref[UC2point2]{UC2.2}: Visualizzazione del numero totale di parole nella pagina;
+            \item \hyperref[UC2point3]{UC2.3}: Visualizzazione del numero di parole uniche nella pagina;
+            \item \hyperref[UC2point4]{UC2.4}: Visualizzazione della lingua della pagina.
+        \end{itemize}}
+\end{usecase}
 
-Da un'attenta analisi dei requisiti e degli use case effettuata sul progetto è stata stilata la tabella che traccia i requisiti in rapporto agli use case.\\
-Sono stati individuati diversi tipi di requisiti e si è quindi fatto utilizzo di un codice identificativo per distinguerli.\\
-Il codice dei requisiti è così strutturato R(F/Q/V)(N/D/O) dove:
-\begin{enumerate}
-	\item[R =] requisito
-    \item[F =] funzionale
-    \item[Q =] qualitativo
-    \item[V =] di vincolo
-    \item[N =] obbligatorio (necessario)
-    \item[D =] desiderabile
-    \item[Z =] opzionale
-\end{enumerate}
-Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi} e \ref{tab:requisiti-vincolo} sono riassunti i requisiti e il loro tracciamento con gli use case delineati in fase di analisi.
+\begin{usecase}{2.1}{Visualizzazione del meta tag keywords}\label{UC2point1}
+    \usecaseactors{Utente.}
+    \usecasepre{\begin{itemize}
+        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item Il sistema è attivo e funzionante.
+    \end{itemize}}
+    \usecasepost{Il sistema mostra il meta tag keywords.}
+    \usecaseext{
+        \begin{itemize}
+            \item Visualizzazione di un avviso se il meta tag keywords non è presente (\hyperref[UC10]{UC10}).
+        \end{itemize}}
+\end{usecase}
+
+\begin{usecase}{2.2}{Visualizzazione del numero totale di parole nella pagina}\label{UC2point2}
+    \usecaseactors{Utente.}
+    \usecasepre{\begin{itemize}
+        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item Il sistema è attivo e funzionante.
+    \end{itemize}}
+    \usecasepost{Il sistema il numero totale di parole presenti nella pagina.}
+\end{usecase}
+
+\begin{usecase}{2.3}{Visualizzazione del numero di parole uniche nella pagina}\label{UC2point3}
+    \usecaseactors{Utente.}
+    \usecasepre{\begin{itemize}
+        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item Il sistema è attivo e funzionante.
+    \end{itemize}}
+    \usecasepost{Il sistema mostra il numero totale di parole uniche presenti nella pagina.}
+\end{usecase}
+
+\begin{usecase}{2.4}{Visualizzazione della lingua della pagina}\label{UC2point4}
+    \usecaseactors{Utente.}
+    \usecasepre{\begin{itemize}
+        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item Il sistema è attivo e funzionante.
+    \end{itemize}}
+    \usecasepost{Il sistema mostra la lingua della pagina.}
+\end{usecase}
+
+\begin{usecase}{3}{Inserimento di una parola chiave}\label{UC3}
+    \usecaseactors{Utente.}
+    \usecasepre{\begin{itemize}
+        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item Il sistema è attivo e funzionante.
+    \end{itemize}}
+    \usecasedesc{L'utente digita una parola chiave da analizzare.}
+    \usecasepost{Il sistema mostra la parola chiave inserita dall'utente nell'apposito campo di testo.}
+\end{usecase}
+
+\begin{usecase}{4}{Inserimento di una parola chiave}\label{UC4}
+    \usecaseactors{Utente.}
+    \usecasepre{\begin{itemize}
+        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item Il sistema è attivo e funzionante.
+    \end{itemize}}
+    \usecasedesc{Il sistema esegue l'analisi di una parola chiave scelta dall'utente.}
+    \usecasepost{Il sistema aggiunge la parola chiave analizzata alla lista delle keyword.}
+    \usecaseinc{\begin{itemize}
+        \item Inserimento di una parola chiave (\hyperref[UC3]{UC3}).
+    \end{itemize}}
+\end{usecase}
+
+\begin{usecase}{5}{Visualizzazione di una lista delle parole chiave}\label{UC5}
+    \usecaseactors{Utente.}
+    \usecasepre{\begin{itemize}
+        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item Il sistema è attivo e funzionante.
+    \end{itemize}}
+    \usecasepost{Il sistema mostra una lista delle parole chiave.}
+    \usecasesub{
+        \begin{itemize}
+            \item \hyperref[UC5point1]{UC5.1}: Visualizzazione di una lista delle parole chiave estratte dal meta tag keywords;
+            \item \hyperref[UC5point2]{UC5.2}: Visualizzazione di una lista delle parole chiave inserite dall'utente;
+            \item \hyperref[UC5point3]{UC5.3}: Visualizzazione di una lista delle parole chiave più frequenti.
+        \end{itemize}}
+    \usecaseinc{\begin{itemize}
+        \item Visualizzazione di una singola parola chiave (\hyperref[UC6]{UC6}).
+    \end{itemize}}
+\end{usecase}
+
+\begin{usecase}{5.1}{Visualizzazione di una lista delle parole chiave}\label{UC5point1}
+    \usecaseactors{Utente.}
+    \usecasepre{\begin{itemize}
+        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item Il sistema è attivo e funzionante.
+    \end{itemize}}
+    \usecasepost{Il sistema mostra una lista delle parole chiave estratte dal meta tag keywords.}
+\end{usecase}
+
+\begin{usecase}{5.2}{Visualizzazione di una lista delle parole chiave inserite dall'utente}\label{UC5point2}
+    \usecaseactors{Utente.}
+    \usecasepre{\begin{itemize}
+        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item Il sistema è attivo e funzionante.
+    \end{itemize}}
+    \usecasepost{Il sistema mostra una lista delle parole chiave inserite dall'utente.}
+\end{usecase}
+
+\begin{usecase}{5.3}{Visualizzazione di una lista delle parole chiave inserite dall'utente}\label{UC5point3}
+    \usecaseactors{Utente.}
+    \usecasepre{\begin{itemize}
+        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item Il sistema è attivo e funzionante.
+    \end{itemize}}
+    \usecasepost{Il sistema mostra una lista delle parole chiave più frequenti.}
+\end{usecase}
+
+\begin{usecase}{6}{Visualizzazione di una singola parola chiave}\label{UC6}
+    \usecaseactors{Utente.}
+    \usecasepre{\begin{itemize}
+        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item Il sistema è attivo e funzionante;
+        \item È visibile la lista delle parole chiave.
+    \end{itemize}}
+    \usecasepost{L'utente visualizza una singola parola chiave.}
+    \usecaseinc{\begin{itemize}
+        \item Visualizzazione dei risultati dell'analisi di una parola chiave (\hyperref[UC7]{UC7}).
+    \end{itemize}}
+\end{usecase}
+
+\begin{usecase}{7}{Visualizzazione dei risultati dell'analisi di una parola chiave}\label{UC7}
+    \usecaseactors{Utente.}
+    \usecasepre{\begin{itemize}
+        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item Il sistema è attivo e funzionante.
+    \end{itemize}}
+    \usecasepost{L'utente visualizza i risultati dell'analisi di una parola chiave.}
+    \usecasesub{
+        \begin{itemize}
+            \item \hyperref[UC7point1]{UC7.1}: Visualizzazione della frequenza di una parola chiave;
+            \item \hyperref[UC7point2]{UC7.2}: Visualizzazione della densità di una parola chiave;
+            \item \hyperref[UC7point3]{UC7.3}: Visualizzazione di un elenco dei tag in cui dovrebbe essere presente una parola chiave.
+        \end{itemize}}
+\end{usecase}
+
+\begin{usecase}{7.1}{Visualizzazione della frequenza di una parola chiave}\label{UC7point1}
+    \usecaseactors{Utente.}
+    \usecasepre{\begin{itemize}
+        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item Il sistema è attivo e funzionante.
+    \end{itemize}}
+    \usecasepost{L'utente visualizza la frequenza di una parola chiave.}
+\end{usecase}
+
+\begin{usecase}{7.2}{Visualizzazione della densità di una parola chiave}\label{UC7point2}
+    \usecaseactors{Utente.}
+    \usecasepre{\begin{itemize}
+        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item Il sistema è attivo e funzionante.
+    \end{itemize}}
+    \usecasepost{L'utente visualizza la densità di una parola chiave.}
+    \usecaseext{\begin{itemize}
+        \item Visualizzazione di un avviso se la densità di una parola chiave è troppo alta (\hyperref[UC11]{UC11}).
+    \end{itemize}}
+\end{usecase}
+
+\begin{usecase}{7.3}{Visualizzazione di un elenco dei tag in cui dovrebbe essere presente una parola chiave}\label{UC7point3}
+    \usecaseactors{Utente.}
+    \usecasepre{\begin{itemize}
+        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item Il sistema è attivo e funzionante.
+    \end{itemize}}
+    \usecasepost{L'utente visualizza un elenco dei tag in cui dovrebbe essere presente una parola chiave.}
+    \usecasesub{\begin{itemize}
+        \item \hyperref[UC7point3point1]{UC7.3.1}: Visualizzazione di un singolo tag.
+    \end{itemize}}
+\end{usecase}
+
+\begin{usecase}{7.3.1}{Visualizzazione di un singolo tag}\label{UC7point3point1}
+    \usecaseactors{Utente.}
+    \usecasepre{\begin{itemize}
+        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item Il sistema è attivo e funzionante;
+        \item L'utente sta visualizzando i risultati dell'analisi di una parola chiave;
+        \item È visibile l'elenco dei tag.
+    \end{itemize}}
+    \usecasepost{L'utente visualizza un singolo tag.}
+    \usecasesub{\begin{itemize}
+        \item \hyperref[UC7point3point1point1]{UC7.3.1.1}: Visualizzazione del nome del tag;
+        \item \hyperref[UC7point3point1point2]{UC7.3.1.2}: Visualizzazione del numero di occorrenze della parola chiave nel tag.
+    \end{itemize}}
+\end{usecase}
+
+\begin{usecase}{7.3.1.1}{Visualizzazione del nome del tag}\label{UC7point3point1point1}
+    \usecaseactors{Utente.}
+    \usecasepre{\begin{itemize}
+        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item Il sistema è attivo e funzionante.
+    \end{itemize}}
+    \usecasepost{L'utente visualizza il nome del tag.}
+\end{usecase}
+
+\begin{usecase}{7.3.1.2}{Visualizzazione del numero di occorrenze di una parola chiave nel tag}\label{UC7point3point1point2}
+    \usecaseactors{Utente.}
+    \usecasepre{\begin{itemize}
+        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item Il sistema è attivo e funzionante.
+    \end{itemize}}
+    \usecasepost{L'utente visualizza il numero di occorrenze della parola chiave nel tag.}
+    \usecaseext{\begin{itemize}
+        \item Visualizzazione di un avviso se il numero di occorrenze di una parola chiave nel tag è inferiore a una certa soglia (\hyperref[UC12]{UC12}).
+    \end{itemize}}
+\end{usecase}
+
+\begin{usecase}{8}{Evidenziazione di una parola chiave nella pagina}\label{UC8}
+    \usecaseactors{Utente.}
+    \usecasepre{\begin{itemize}
+        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item Il sistema è attivo e funzionante.
+    \end{itemize}}
+    \usecasepost{Il sistema evidenzia graficamente tutte le occorrenze di una parola chiave nella pagina.}
+\end{usecase}
+
+\begin{usecase}{9}{Aggiornamento dell'analisi delle parole chiave}\label{UC9}
+    \usecaseactors{Utente.}
+    \usecasepre{\begin{itemize}
+        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item Il sistema è attivo e funzionante.
+    \end{itemize}}
+    \usecasedesc{L'utente attiva manualmente l'aggiornamento dell'analisi delle parole chiave per sincronizzarla con eventuali modifiche dinamiche al DOM.}
+    \usecasepost{Il sistema aggiorna l'analisi delle parole chiave.}
+\end{usecase}
+
+\begin{usecase}{10}{Visualizzazione di un avviso se il meta tag keywords non è presente}\label{UC10}
+    \usecaseactors{Utente.}
+    \usecasepre{\begin{itemize}
+        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item Il sistema è attivo e funzionante.
+    \end{itemize}}
+    \usecasepost{Il sistema mostra un avviso in cui notifica all'utente che il meta tag keywords non è presente.}
+\end{usecase}
+
+\begin{usecase}{11}{Visualizzazione di un avviso se la densità di una parola chiave è troppo alta}\label{UC11}
+    \usecaseactors{Utente.}
+    \usecasepre{\begin{itemize}
+        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item Il sistema è attivo e funzionante.
+    \end{itemize}}
+    \usecasepost{Il sistema mostra un avviso in cui notifica all'utente che la densità di una parola chiave è troppo alta.}
+\end{usecase}
+
+\begin{usecase}{12}{Visualizzazione di un avviso se il numero di occorrenze di una parola chiave nel tag è inferiore a una certa soglia}\label{UC12}
+    \usecaseactors{Utente.}
+    \usecasepre{\begin{itemize}
+        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item Il sistema è attivo e funzionante.
+    \end{itemize}}
+    \usecasepost{Il sistema mostra un avviso in cui notifica all'utente che il numero di occorrenze di una parola chiave nel tag è inferiore a una certa soglia.}
+\end{usecase}
 
 \newpage
 
-\begin{table}%
-\caption{Tabella del tracciamento dei requisti funzionali}
-\label{tab:requisiti-funzionali}
-\begin{tabularx}{\textwidth}{lXl}
-\hline\hline
-\textbf{Requisito} & \textbf{Descrizione} & \textbf{Use Case}\\
-\hline
-RFN-1     & L'interfaccia permette di configurare il tipo di sonde del test & UC1 \\
-\hline
-\end{tabularx}
-\end{table}%
+\section{Tracciamento dei requisiti}
+\par I requisiti del progetto, individuati e formalizzati durante il processo di analisi, sono illustrati nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi} e \ref{tab:requisiti-vincolo} secondo la seguente notazione:
+\par \textbf{\[R[Tipologia].[Importanza].[Codice]\]} 
+\par dove:
+\par\vspace{20pt}
+\begin{tabular}{@{}ll@{}}
+    R = & requisito \\
+    \textbf{Tipologia}: & \\
+    \quad F = & funzionale \\
+    \quad Q = & di qualità \\
+    \quad V = & di vincolo/dominio \\
+    \textbf{Importanza}: & \\
+    \quad O = & obbligatorio \\
+    \quad D = & desiderabile \\  
+    \quad OP = & opzionale \\
+    Codice = & codice numerico univoco \\
+\end{tabular}
+    
+\newpage
 
-\begin{table}%
-\caption{Tabella del tracciamento dei requisiti qualitativi}
-\label{tab:requisiti-qualitativi}
-\begin{tabularx}{\textwidth}{lXl}
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{p{0.15\textwidth}p{0.55\textwidth}p{0.2\textwidth}}
+\caption{Tabella dei requisti funzionali}
+\label{tab:requisiti-funzionali} \\
 \hline\hline
-\textbf{Requisito} & \textbf{Descrizione} & \textbf{Use Case}\\
-\hline
-RQD-1    & Le prestazioni del simulatore hardware deve garantire la giusta esecuzione dei test e non la generazione di falsi negativi & - \\
-\hline
-\end{tabularx}
-\end{table}%
+\textbf{Requisito} & \textbf{Descrizione} & \textbf{Fonti}\\
+\endfirsthead
 
-\begin{table}%
-\caption{Tabella del tracciamento dei requisiti di vincolo}
-\label{tab:requisiti-vincolo}
-\begin{tabularx}{\textwidth}{lXl}
+\caption[]{Tabella dei requisiti funzionali (continua)} \\
 \hline\hline
-\textbf{Requisito} & \textbf{Descrizione} & \textbf{Use Case}\\
+\textbf{Requisito} & \textbf{Descrizione} & \textbf{Fonti} \\ 
+\endhead
+
+\multicolumn{3}{r}{{Continua nella prossima pagina}} \\ 
+\endfoot
+
 \hline
-RVO-1    & La libreria per l'esecuzione dei test automatici deve essere riutilizzabile & - \\
+\endlastfoot
+
 \hline
-\end{tabularx}
-\end{table}%
+RF.O.1 & L'utente deve poter accedere alla funzionalità di analisi delle parole chiave. & \hyperref[UC1]{UC1} \\
+\hline
+RF.O.2 & L'utente deve poter visualizzare una panoramica dell'analisi delle parole chiave. & \hyperref[UC2]{UC2} \\
+\hline
+RF.O.3 & L'utente deve poter visualizzare il meta tag keywords. & \hyperref[UC2point1]{UC2.1} \\
+\hline
+RF.O.4 & L'utente deve poter visualizzare il numero totale di parole nella pagina. & \hyperref[UC2point2]{UC2.2} \\
+\hline
+RF.OP.5 & L'utente deve poter visualizzare il numero di parole uniche nella pagina. & \hyperref[UC2point3]{UC2.3} \\
+\hline
+RF.O.6 & L'utente deve poter visualizzare la lingua della pagina. & \hyperref[UC2point4]{UC2.4} \\
+\hline
+RF.O.7 & L'utente deve poter inserire una parola chiave da analizzare. & \hyperref[UC3]{UC3} \\
+\hline
+RF.O.8 & L'utente deve poter analizzare una parola chiave. & \hyperref[UC4]{UC4} \\
+\hline
+RF.O.9 & L'utente deve poter visualizzare una lista delle parole chiave. & \hyperref[UC5]{UC5} \\
+\hline
+RF.O.10 & L'utente deve poter visualizzare una lista delle parole chiave estratte dal meta tag keywords. & \hyperref[UC5point1]{UC5.1} \\
+\hline
+RF.O.11 & Il sistema deve visualizzare una lista delle parole chiave inserite dall'utente. & \hyperref[UC5point2]{UC5.2} \\
+\hline
+RF.OP.12 & L'utente deve poter visualizzare una lista delle parole chiave più frequenti. & \hyperref[UC5point3]{UC5.3} \\
+\hline
+RF.O.13 & L'utente deve poter visualizzare una singola parola chiave. & \hyperref[UC6]{UC6} \\
+\hline
+RF.O.14 & L'utente deve poter visualizzare i risultati dell'analisi di una parola chiave. & \hyperref[UC7]{UC7} \\
+\hline
+RF.O.15 & L'utente deve poter visualizzare la frequenza di una parola chiave. & \hyperref[UC7point1]{UC7.1} \\
+\hline
+RF.O.16 & L'utente deve poter visualizzare la densità di una parola chiave. & \hyperref[UC7point2]{UC7.2} \\
+\hline
+RF.D.17 & Il sistema deve mostrare un elenco dei tag in cui dovrebbe essere presente una parola chiave. & \hyperref[UC7point3]{UC7.3} \\
+\hline
+RF.D.18 & L'utente deve poter visualizzare un singolo tag. & \hyperref[UC7point3point1]{UC7.3.1} \\
+\hline
+RF.D.19 & L'utente deve poter visualizzare il nome del tag. & \hyperref[UC7point3point1point1]{UC7.3.1.1} \\
+\hline
+RF.D.20 & L'utente deve poter visualizzare il numero di occorrenze di una parola chiave nel tag. & \hyperref[UC7point3point1point2]{UC7.3.1.2} \\
+\hline
+RF.O.21 & Il sistema deve evidenziare tutte le occorrenze di una parola chiave nella pagina. & \hyperref[UC8]{UC8} \\
+\hline
+RF.O.22 & L'utente deve poter aggiornare l'analisi delle parole chiave. & \hyperref[UC9]{UC9} \\
+\hline
+RF.O.23 & Il sistema deve mostrare un avviso se il meta tag keywords non è presente. & \hyperref[UC10]{UC10} \\
+\hline
+RF.O.24 & Il sistema deve mostrare un avviso se la densità di una parola chiave è troppo alta. & \hyperref[UC11]{UC11} \\
+\hline
+RF.D.25 & Il sistema deve mostrare un avviso se il numero di occorrenze di una parola chiave nel tag è inferiore a una certa soglia. & \hyperref[UC12]{UC12} \\
+\hline
+RF.O.26 & Il sistema deve evidenziare le parole chiave con colori diversi in base al tag HTML che le racchiude. & Discussione con la Proponente \\
+\end{longtable}
+
+\newpage
+
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{p{0.15\textwidth}p{0.55\textwidth}p{0.2\textwidth}}
+\caption{Tabella dei requisti di qualità}
+\label{tab:requisiti-qualitativi} \\
+\hline\hline
+\textbf{Requisito} & \textbf{Descrizione} & \textbf{Fonti}\\
+\endfirsthead
+    
+\caption[]{Tabella dei requisiti di qualità (continua)} \\
+\hline\hline
+\textbf{Requisito} & \textbf{Descrizione} & \textbf{Fonti} \\ 
+\endhead
+    
+\multicolumn{3}{r}{{Continua nella prossima pagina}} \\ 
+\endfoot
+    
+\hline
+\endlastfoot
+
+\hline
+RQ.O.1 & La funzionalità di analisi \gls{seog} deve rispettare le linee guida \gls{wcagg} 2.2, livello AA. & Discussione con la Proponente \\
+\hline
+RQ.OP.2 & L'estensione deve rimanere attiva su tutte le tab. & Discussione con la Proponente \\
+\hline
+RQ.OP.3 & L'utente deve poter aprire e chiudere l'estensione in modo rapido e intuitivo. & Discussione con la Proponente \\
+\end{longtable}
+
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{p{0.15\textwidth}p{0.55\textwidth}p{0.2\textwidth}}
+\caption{Tabella dei requisti di vincolo/dominio}
+\label{tab:requisiti-vincolo} \\
+\hline\hline
+\textbf{Requisito} & \textbf{Descrizione} & \textbf{Fonti}\\
+\endfirsthead
+        
+\caption[]{Tabella dei requisiti di vincolo/dominio (continua)} \\
+\hline\hline
+\textbf{Requisito} & \textbf{Descrizione} & \textbf{Fonti} \\ 
+\endhead
+        
+\multicolumn{3}{r}{{Continua nella prossima pagina}} \\ 
+\endfoot
+        
+\hline
+\endlastfoot
+
+\hline
+RV.O.1 & La funzionalità di analisi \gls{seog} deve essere resa disponibile tramite \gls{github} (come codice sorgente) o pubblicata su un'altra piattaforma ad accesso pubblico. & Discussione con la Proponente \\
+\hline
+RV.O.2 & La funzionalità di analisi SEO deve essere integrata all'interno di un'estensione per Chrome & Discussione con la Proponente \\
+\end{longtable}
