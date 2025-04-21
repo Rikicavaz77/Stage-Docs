@@ -35,23 +35,23 @@
     \usecasepost{Il sistema mostra una panoramica dell'analisi delle parole chiave.}
     \usecasesubEnv{
         \begin{itemize}
-            \item \hyperref[UC2point1]{UC2.1}: Visualizzazione del meta tag keywords;
+            \item \hyperref[UC2point1]{UC2.1}: Visualizzazione del meta tag `keywords`;
             \item \hyperref[UC2point2]{UC2.2}: Visualizzazione del numero totale di parole nella pagina;
             \item \hyperref[UC2point3]{UC2.3}: Visualizzazione del numero di parole uniche nella pagina;
             \item \hyperref[UC2point4]{UC2.4}: Visualizzazione della lingua della pagina.
         \end{itemize}}
 \end{usecase}
 
-\begin{usecase}{2.1}{Visualizzazione del meta tag keywords}\label{UC2point1}
+\begin{usecase}{2.1}{Visualizzazione del meta tag `keywords`}\label{UC2point1}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
-    \usecasepost{Il sistema mostra il meta tag keywords.}
+    \usecasepost{Il sistema mostra il meta tag `keywords`.}
     \usecaseextEnv{
         \begin{itemize}
-            \item Visualizzazione di un avviso se il meta tag keywords non è presente (\hyperref[UC10]{UC10}).
+            \item Visualizzazione di un avviso se il meta tag `keywords` non è presente (\hyperref[UC10]{UC10}).
         \end{itemize}}
 \end{usecase}
 
@@ -114,7 +114,7 @@
     \usecasepost{Il sistema mostra una lista delle parole chiave.}
     \usecasesubEnv{
         \begin{itemize}
-            \item \hyperref[UC5point1]{UC5.1}: Visualizzazione di una lista delle parole chiave estratte dal meta tag keywords;
+            \item \hyperref[UC5point1]{UC5.1}: Visualizzazione di una lista delle parole chiave estratte dal meta tag `keywords`;
             \item \hyperref[UC5point2]{UC5.2}: Visualizzazione di una lista delle parole chiave inserite dall'utente;
             \item \hyperref[UC5point3]{UC5.3}: Visualizzazione di una lista delle parole chiave più frequenti.
         \end{itemize}}
@@ -123,13 +123,13 @@
     \end{itemize}}
 \end{usecase}
 
-\begin{usecase}{5.1}{Visualizzazione di una lista delle parole chiave}\label{UC5point1}
+\begin{usecase}{5.1}{Visualizzazione di una lista delle parole chiave estratte dal meta tag `keywords`}\label{UC5point1}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
-    \usecasepost{Il sistema mostra una lista delle parole chiave estratte dal meta tag keywords.}
+    \usecasepost{Il sistema mostra una lista delle parole chiave estratte dal meta tag `keywords`.}
 \end{usecase}
 
 \begin{usecase}{5.2}{Visualizzazione di una lista delle parole chiave inserite dall'utente}\label{UC5point2}
@@ -141,7 +141,7 @@
     \usecasepost{Il sistema mostra una lista delle parole chiave inserite dall'utente.}
 \end{usecase}
 
-\begin{usecase}{5.3}{Visualizzazione di una lista delle parole chiave inserite dall'utente}\label{UC5point3}
+\begin{usecase}{5.3}{Visualizzazione di una lista delle parole chiave più frequenti}\label{UC5point3}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
@@ -222,7 +222,7 @@
     \usecasepost{L'utente visualizza un singolo tag.}
     \usecasesubEnv{\begin{itemize}
         \item \hyperref[UC7point3point1point1]{UC7.3.1.1}: Visualizzazione del nome del tag;
-        \item \hyperref[UC7point3point1point2]{UC7.3.1.2}: Visualizzazione del numero di occorrenze della parola chiave nel tag.
+        \item \hyperref[UC7point3point1point2]{UC7.3.1.2}: Visualizzazione del numero di occorrenze di una parola chiave nel tag.
     \end{itemize}}
 \end{usecase}
 
@@ -241,7 +241,7 @@
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
-    \usecasepost{L'utente visualizza il numero di occorrenze della parola chiave nel tag.}
+    \usecasepost{L'utente visualizza il numero di occorrenze di una parola chiave nel tag.}
     \usecaseextEnv{\begin{itemize}
         \item Visualizzazione di un avviso se il numero di occorrenze di una parola chiave nel tag è inferiore a una certa soglia (\hyperref[UC12]{UC12}).
     \end{itemize}}
@@ -262,17 +262,17 @@
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
-    \usecasedesc{L'utente attiva manualmente l'aggiornamento dell'analisi delle parole chiave per sincronizzarla con eventuali modifiche dinamiche al DOM.}
+    \usecasedesc{L'utente aggiorna manualmente l'analisi delle parole chiave per sincronizzarla con eventuali modifiche dinamiche al DOM.}
     \usecasepost{Il sistema aggiorna l'analisi delle parole chiave.}
 \end{usecase}
 
-\begin{usecase}{10}{Visualizzazione di un avviso se il meta tag keywords non è presente}\label{UC10}
+\begin{usecase}{10}{Visualizzazione di un avviso se il meta tag `keywords` non è presente}\label{UC10}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
-    \usecasepost{Il sistema mostra un avviso in cui notifica all'utente che il meta tag keywords non è presente.}
+    \usecasepost{Il sistema mostra un avviso in cui notifica all'utente che il meta tag `keywords` non è presente.}
 \end{usecase}
 
 \begin{usecase}{11}{Visualizzazione di un avviso se la densità di una parola chiave è troppo alta}\label{UC11}
@@ -339,7 +339,7 @@ RF.O.1 & L'utente deve poter accedere alla funzionalità di analisi delle parole
 \hline
 RF.O.2 & L'utente deve poter visualizzare una panoramica dell'analisi delle parole chiave. & \hyperref[UC2]{UC2} \\
 \hline
-RF.O.3 & L'utente deve poter visualizzare il meta tag keywords. & \hyperref[UC2point1]{UC2.1} \\
+RF.O.3 & L'utente deve poter visualizzare il meta tag `keywords`. & \hyperref[UC2point1]{UC2.1} \\
 \hline
 RF.O.4 & L'utente deve poter visualizzare il numero totale di parole nella pagina. & \hyperref[UC2point2]{UC2.2} \\
 \hline
@@ -353,7 +353,7 @@ RF.O.8 & L'utente deve poter analizzare una parola chiave. & \hyperref[UC4]{UC4}
 \hline
 RF.O.9 & L'utente deve poter visualizzare una lista delle parole chiave. & \hyperref[UC5]{UC5} \\
 \hline
-RF.O.10 & L'utente deve poter visualizzare una lista delle parole chiave estratte dal meta tag keywords. & \hyperref[UC5point1]{UC5.1} \\
+RF.O.10 & L'utente deve poter visualizzare una lista delle parole chiave estratte dal meta tag `keywords`. & \hyperref[UC5point1]{UC5.1} \\
 \hline
 RF.O.11 & Il sistema deve visualizzare una lista delle parole chiave inserite dall'utente. & \hyperref[UC5point2]{UC5.2} \\
 \hline
@@ -379,13 +379,13 @@ RF.O.21 & Il sistema deve evidenziare tutte le occorrenze di una parola chiave n
 \hline
 RF.O.22 & L'utente deve poter aggiornare l'analisi delle parole chiave. & \hyperref[UC9]{UC9} \\
 \hline
-RF.O.23 & Il sistema deve mostrare un avviso se il meta tag keywords non è presente. & \hyperref[UC10]{UC10} \\
+RF.O.23 & Il sistema deve mostrare un avviso se il meta tag `keywords` non è presente. & \hyperref[UC10]{UC10} \\
 \hline
 RF.O.24 & Il sistema deve mostrare un avviso se la densità di una parola chiave è troppo alta. & \hyperref[UC11]{UC11} \\
 \hline
 RF.D.25 & Il sistema deve mostrare un avviso se il numero di occorrenze di una parola chiave nel tag è inferiore a una certa soglia. & \hyperref[UC12]{UC12} \\
 \hline
-RF.O.26 & Il sistema deve evidenziare le parole chiave con colori diversi in base al tag HTML che le racchiude. & Discussione con la Proponente \\
+RF.O.26 & Il sistema deve evidenziare le parole chiave con colori diversi in base al tag \gls{htmlg} che le racchiude. & Discussione con la Proponente \\
 \end{longtable}
 
 \newpage
