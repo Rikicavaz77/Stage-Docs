@@ -46,7 +46,7 @@
 \input{config/variables}
 
 \input{appendix/glossary-entries}
-\renewcommand*{\glspostdescription}{}
+\renewcommand*{\glspostdescription}{}   % removes point after description
 \makeglossaries
 
 \bibliography{appendix/bibliography}
@@ -169,15 +169,14 @@
     \renewcommand{\theusecasecounter}{\usecasename #1}  % this is where the display of
                                                         % the counter is overwritten/modified
     \refstepcounter{usecasecounter}             % increment counter
-    %\vspace{10pt}
+
     \section*{\large \usecasename #1: #2}   % display the title before the
                                             % content of the environment is displayed
-}{
-    %\medskip
 }
 
 \newcommand{\usecasename}{UC}
 
+% commands to use if the section ends with a simple paragraph
 \newcommand{\usecaseactors}[1]{\par\noindent\textbf{Attori Principali}: #1\medskip}
 \newcommand{\usecasepre}[1]{\par\noindent\textbf{Precondizioni}: #1\medskip}
 \newcommand{\usecasedesc}[1]{\par\noindent\textbf{Descrizione}: #1\medskip}
@@ -186,6 +185,8 @@
 \newcommand{\usecasesub}[1]{\par\noindent\textbf{Sottocasi d'uso}: #1\medskip}
 \newcommand{\usecaseinc}[1]{\par\noindent\textbf{Inclusioni}: #1\medskip}
 \newcommand{\usecaseext}[1]{\par\noindent\textbf{Estensioni}: #1\medskip}
+
+% commands to use if the section ends with an environment
 \newcommand{\usecaseactorsEnv}[1]{\par\noindent\textbf{Attori Principali}: #1}
 \newcommand{\usecasepreEnv}[1]{\par\noindent\textbf{Precondizioni}: #1}
 \newcommand{\usecasedescEnv}[1]{\par\noindent\textbf{Descrizione}: #1}
@@ -206,3 +207,5 @@
 }
 
 \newcommand{\classdesc}[2]{\item[\textbf{#1:}] #2}
+
+\keepXColumns   % keeps X columns flexible

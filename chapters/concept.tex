@@ -268,7 +268,7 @@
         \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
-    \usecasedesc{L'utente aggiorna manualmente l'analisi delle parole chiave per sincronizzarla con eventuali modifiche dinamiche al DOM.}
+    \usecasedesc{L'utente aggiorna manualmente l'analisi delle parole chiave per sincronizzarla con eventuali modifiche dinamiche al \gls{domg}.}
     \usecasepost{Il sistema aggiorna l'analisi delle parole chiave.}
 \end{usecase}
 
@@ -472,6 +472,47 @@ Di vincolo/dominio & 2 & 0 & 0 & 2 \\
 \end{tabular}
 \end{table}
 
+\newpage
+
 \section{User story}
 
-\par <To-Do>.
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{lX}
+\caption{Tabella delle user story}
+\label{tab:user-story} \\
+\hline\hline
+\textbf{ID} & \textbf{User story}\\
+\endfirsthead
+    
+\caption[]{Tabella delle user story (continua)} \\
+\hline\hline
+\textbf{ID} & \textbf{User story} \\ 
+\endhead
+    
+\multicolumn{2}{r}{{Continua nella prossima pagina}} \\ 
+\endfoot
+    
+\hline
+\endlastfoot
+
+\hline
+1 & Come utente, voglio visualizzare una panoramica dell'analisi delle parole chiave, in modo da avere un'idea generale del contenuto della pagina. \\
+\hline
+2 & Come utente, voglio visualizzare il meta tag `keywords`, in modo da sapere se è presente o meno. \\
+\hline
+3 & Come utente, voglio visualizzare il numero di parole totali e uniche presenti nella pagina, in modo da valutare la qualità del contenuto in base all'intento. \\
+\hline
+4 & Come utente, voglio poter inserire manualmente una parola chiave, in modo da analizzare anche quelle non presenti nel meta tag `keywords` o non rilevate automaticamente dal sistema. \\
+\hline
+5 & Come utente, voglio visualizzare un elenco delle parole chiave analizzate, organizzate per categoria, in modo da facilitare la navigazione. \\
+\hline
+6 & Come utente, voglio visualizzare la frequenza e la densità di una parola chiave, in modo da capire se il suo utilizzo è eccessivo o appropriato. \\
+\hline
+7 & Come utente, voglio visualizzare il numero di occorrenze di una parola chiave nei principali tag \gls{htmlg}, in modo da capire se è presente nei punti strategici della pagina. \\
+\hline
+8 & Come utente, voglio poter visualizzare graficamente tutte le occorrenze di una parola chiave nella pagina, con colori diversi in base al tag HTML che le contiene, in modo da valutarne la distribuzione. \\
+\hline
+9 & Come utente, voglio poter aggiornare l'analisi delle parole chiave, in modo da sincronizzarla con eventuali modifiche dinamiche al \gls{domg}. \\
+\hline
+10 & Come utente, voglio che la funzionalità di analisi \gls{seog} sia accessibile a tutti. \\
+\end{tabularx}
