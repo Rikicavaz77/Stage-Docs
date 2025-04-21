@@ -46,6 +46,7 @@
 \input{config/variables}
 
 \input{appendix/glossary-entries}
+\renewcommand*{\glspostdescription}{}
 \makeglossaries
 
 \bibliography{appendix/bibliography}
@@ -168,22 +169,31 @@
     \renewcommand{\theusecasecounter}{\usecasename #1}  % this is where the display of
                                                         % the counter is overwritten/modified
     \refstepcounter{usecasecounter}             % increment counter
-    \vspace{10pt}
-    \par \noindent                              % start new paragraph
-    {\large \textbf{\usecasename #1: #2}}       % display the title before the
-                                                % content of the environment is displayed
-    \medskip
+    %\vspace{10pt}
+    \section*{\large \usecasename #1: #2}   % display the title before the
+                                            % content of the environment is displayed
 }{
-    \medskip
+    %\medskip
 }
 
 \newcommand{\usecasename}{UC}
 
-\newcommand{\usecaseactors}[1]{\textbf{\\Attori Principali:} #1. \vspace{4pt}}
-\newcommand{\usecasepre}[1]{\textbf{\\Precondizioni:} #1. \vspace{4pt}}
-\newcommand{\usecasedesc}[1]{\textbf{\\Descrizione:} #1. \vspace{4pt}}
-\newcommand{\usecasepost}[1]{\textbf{\\Postcondizioni:} #1. \vspace{4pt}}
-\newcommand{\usecasealt}[1]{\textbf{\\Scenario Alternativo:} #1. \vspace{4pt}}
+\newcommand{\usecaseactors}[1]{\par\noindent\textbf{Attori Principali}: #1\medskip}
+\newcommand{\usecasepre}[1]{\par\noindent\textbf{Precondizioni}: #1\medskip}
+\newcommand{\usecasedesc}[1]{\par\noindent\textbf{Descrizione}: #1\medskip}
+\newcommand{\usecasepost}[1]{\par\noindent\textbf{Postcondizioni}: #1\medskip}
+\newcommand{\usecasealt}[1]{\par\noindent\textbf{Scenario Alternativo}: #1\medskip}
+\newcommand{\usecasesub}[1]{\par\noindent\textbf{Sottocasi d'uso}: #1\medskip}
+\newcommand{\usecaseinc}[1]{\par\noindent\textbf{Inclusioni}: #1\medskip}
+\newcommand{\usecaseext}[1]{\par\noindent\textbf{Estensioni}: #1\medskip}
+\newcommand{\usecaseactorsEnv}[1]{\par\noindent\textbf{Attori Principali}: #1}
+\newcommand{\usecasepreEnv}[1]{\par\noindent\textbf{Precondizioni}: #1}
+\newcommand{\usecasedescEnv}[1]{\par\noindent\textbf{Descrizione}: #1}
+\newcommand{\usecasepostEnv}[1]{\par\noindent\textbf{Postcondizioni}: #1}
+\newcommand{\usecasealtEnv}[1]{\par\noindent\textbf{Scenario Alternativo}: #1}
+\newcommand{\usecasesubEnv}[1]{\par\noindent\textbf{Sottocasi d'uso}: #1}
+\newcommand{\usecaseincEnv}[1]{\par\noindent\textbf{Inclusioni}: #1}
+\newcommand{\usecaseextEnv}[1]{\par\noindent\textbf{Estensioni}: #1}
 
 % Namespace description environment
 \newenvironment{namespacedesc}{
