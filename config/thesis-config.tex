@@ -146,7 +146,7 @@
 % #1: Title
 \newenvironment{risk}[1]{
     \refstepcounter{riskcounter}        % increment counter
-    \par \noindent                      % start new paragraph
+    \vspace{10pt}\par\noindent                      % start new paragraph
     \textbf{\arabic{riskcounter}. #1}   % display the title before the content of the environment is displayed
 }{
     \par\medskip
@@ -156,7 +156,9 @@
 
 \newcommand{\riskdescription}[1]{\textbf{\\Descrizione:} #1.}
 
-\newcommand{\risksolution}[1]{\textbf{\\Soluzione:} #1.}
+\newcommand{\riskprevention}[1]{\textbf{\\Prevenzione:} #1.}
+
+\newcommand{\riskmitigation}[1]{\textbf{\\Mitigazione:} #1.}
 
 % Use case environment
 \newcounter{usecasecounter}             % define a counter

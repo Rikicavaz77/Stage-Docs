@@ -1,9 +1,59 @@
 \chapter{Descrizione del progetto}
 \label{cap:descrizione-progetto}
 
+\section{Analisi preventiva dei rischi}
+\label{sec:rischi}
+
+\par Durante le discussioni iniziali con la Proponente, sono emersi alcuni rischi che, se non prevenuti o mitigati correttamente, possono compromettere l’esito del progetto e il rispetto delle scadenze. Di seguito sono illustrati i rischi identificati e le relative strategie di prevenzione e/o mitigazione.
+
+\begin{risk}{Risultato non conforme alle aspettative}
+  \riskdescription{trattandosi di uno stage interno, la Proponente ha evidenziato il rischio che, in caso di mancanza di feedback costanti, la soluzione sviluppata, in termini tecnici o di interfaccia grafica, non soddisfi le attese}
+  \riskprevention{creazione di una cartella condivisa su Google Drive, all’interno della quale verrà caricata la documentazione del progetto, che la Proponente potrà monitorare e commentare.\\ Condivisione del repository GitHub per consentire l’esecuzione di test manuali in parallelo a quelli automatici.\\ Aggiornamento in presenza o da remoto almeno una o due volte a settimana. In caso di aggiornamento a distanza, la comunicazione via mail dovrà essere sufficientemente esaustiva}
+  \label{risk:risultato-non-conforme} 
+\end{risk}
+
+\begin{risk}{Performance dell’estensione}
+  \riskdescription{per migliorare l'affidabilità dell’analisi delle parole chiave, potrebbe essere necessario sviluppare algoritmi più complessi dal punto di vista computazionale. Una volta integrate le nuove funzionalità nel progetto esistente, le performance potrebbero non risultare ottimali, poiché quest’ultimo esegue già operazioni onerose, come l’analisi delle immagini}
+  \riskprevention{prima di sviluppare algoritmi orientati a migliorare l’affidabilità a discapito delle prestazioni, lo stagista dovrà inviare alla Proponente una comunicazione via mail contenente un confronto, in termini di pro e contro, tra la soluzione attuale e quella proposta. Tale comunicazione dovrà includere esempi pratici basati su analisi e benchmarking, lasciando alla Proponente la decisione finale in funzione degli obiettivi del progetto}
+  \riskmitigation{nel caso in cui il calo delle performance si verifichi comunque, lo stagista e la Proponente organizzeranno un incontro per individuare una soluzione che garantisca il giusto compromesso tra affidabilità e prestazioni}
+  \label{risk:prestazioni} 
+\end{risk}
+
+\begin{risk}{Sottostima del tempo necessario}
+  \riskdescription{il preventivo “a finire” potrebbe comportare uno sforamento della scadenza prevista}
+  \riskmitigation{revisione e riformulazione dei requisiti obbligatori minimi, al fine di garantire il raggiungimento degli obiettivi previsti ed evitare sforamenti eccessivi}
+  \label{risk:scadenze} 
+\end{risk}
+
+\begin{risk}{Integrazione con un progetto esistente}
+  \riskdescription{l’integrazione della funzionalità di analisi delle parole chiave con un progetto esistente potrebbe risultare problematica, a causa di possibili incompatibilità legate all’architettura, alle performance o all’interfaccia grafica}
+  \riskmitigation{per quanto l’integrazione con un progetto esistente sia preferibile, in modo da centralizzare le funzionalità in un unico strumento (che sarà utilizzato dalla Proponente come sistema di valutazione), lo stagista è libero di sviluppare una soluzione ad hoc qualora dovessero sorgere problemi nel processo di integrazione}
+  \label{risk:integrazione} 
+\end{risk}
+
+\begin{risk}{Scarsa definizione dei requisiti iniziali}
+  \riskdescription{se non formulati con attenzione a scenari d’uso concreti, i requisiti potrebbero richiedere diverse rielaborazioni nel corso del progetto, il che potrebbe comportare frequenti refactoring sostanziali}
+  \riskprevention{la prima settimana e mezza di stage sarà dedicata all’analisi delle soluzioni esistenti e alla stesura formale degli obiettivi, al fine di garantire una buona stabilità dei requisiti}
+  \label{risk:requisiti-imprecisi} 
+\end{risk}
+
+\begin{risk}{Apprendimento delle tecnologie}
+  \riskdescription{Alcune tecnologie, legate principalmente allo sviluppo di estensioni web, presentano una curva di apprendimento che potrebbe rallentare l’avanzamento del progetto}
+  \riskprevention{La prima settimana di stage sarà dedicata all’identificazione delle tecnologie necessarie allo sviluppo, mentre la seconda sarà riservata allo studio delle stesse}
+  \label{risk:apprendimento-tecnologie} 
+\end{risk}
+
+\begin{risk}{Test automatici non esaustivi}
+  \riskdescription{sebbene la funzionalità di analisi delle parole chiave possa disporre di una copertura completa dei test automatici, l’integrazione con un progetto esistente rende più difficile testare in modo automatizzato interazioni reali e complesse dal punto di vista dell’utente}
+  \riskmitigation{al termine dello sviluppo, verrà inviato un questionario SUS a un campione di utenti, al fine di raccogliere ulteriori feedback che, pur essendo orientati all’usabilità, possono offrire un contributo aggiuntivo alla valutazione manuale del sistema}
+  \label{risk:test-automatici} 
+\end{risk}
+
 \section{Pianificazione del lavoro}
+\label{sec:pianificazione}
 
 \section{Strumenti e tecnologie}
+\label{sec:strumenti-tecnologie}
 
 \par Di seguito sono elencati, in ordine alfabetico, i principali strumenti e tecnologie utilizzati durante lo svolgimento del progetto.
 
