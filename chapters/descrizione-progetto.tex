@@ -71,6 +71,37 @@
 
 \par\noindent Dopo aver ultimato l’analisi delle soluzioni esistenti e redatto la relativa documentazione, il tempo restante è stato dedicato all’analisi dei requisiti e alla realizzazione del mockup dell’interfaccia grafica. Sempre in questa fase, ho definito un workflow su GitHub, selezionato uno strumento di gestione del progetto e integrato i due ambienti. Inoltre, ho avviato lo studio delle tecnologie di sviluppo, nonché delle normative vigenti in materia di accessibilità e SEO.
 
+\subsection{Sviluppo delle funzionalità di analisi SEO}
+
+\par In questa fase ho sviluppato le funzionalità definite durante l’analisi dei requisiti e ho convertito in codice il mockup dell’interfaccia grafica. Lo sviluppo è stato suddiviso in due periodi: il primo dedicato alla realizzazione di un \gls{poc}, il secondo riservato alla progettazione, alla scelta dei design pattern, alla codifica e ai test. La versione dimostrativa è stata sviluppata in locale come pagina web standard, simulando un’estensione tramite una barra laterale e sostituendo una pagina reale con una pagina di analisi statica. Questo approccio ha permesso di disporre fin da subito di una demo funzionante da presentare alla Proponente, facilitando la raccolta di feedback sulle funzionalità e sull’interfaccia grafica. Una volta realizzato e convalidato il PoC, l’integrazione con il progetto esistente è risultata più naturale. Per garantire il rispetto delle scadenze, sono state fissate delle milestone, una per ogni versione rilasciata a partire dal PoC.
+
+\vspace{10pt}
+\par\noindent Ho adottato un sistema di versionamento conforme al formato \textbf{Semantic Versioning}:
+
+\[
+X.Y.Z
+\]
+
+\begin{itemize}
+  \item \textbf{X (MAJOR)}: introduce funzionalità o cambiamenti che rompono  la retrocompatibilità;
+  \item \textbf{Y (MINOR)}: aggiunge funzionalità in modo retrocompatibile;
+  \item \textbf{Z (PATCH)}: applica correzioni di bug o comportamenti imprevisti, sempre in modo retrocompatibile.
+\end{itemize}
+
+\subsection{Verifica e validazione del codice}
+
+\par In parallelo con l’attività di codifica, ho avviato la fase di testing, comprendente sia test automatici che manuali. I test di unità e integrazione sono stati automatizzati grazie a GitHub Actions, così da ottenere feedback immediati al verificarsi di determinati eventi, come l’apertura, l’aggiornamento o la chiusura di una pull request. Questo approccio riduce il rischio di introdurre errori nel branch principale e garantisce una copertura uniforme del codice, grazie alle funzionalità di coverage messe a disposizione dai framework di test. I test manuali sono stati effettuati sia dalle parti direttamente coinvolte nello sviluppo, sia da soggetti esterni privi di familiarità con il progetto.
+
+\vspace{20pt}
+\par\noindent Come strumento di gestione del progetto ho scelto Jira, più articolato rispetto a Trello ma perfettamente integrabile con GitHub. Si tratta, inoltre, di uno strumento già utilizzato in ambito accademico, di cui conoscevo punti di forza e limitazioni. Le funzionalità maggiormente impiegate sono state:
+\begin{itemize}
+  \item \textbf{Epic}: per definire le tre macro-fasi del progetto;
+  \item \textbf{Ticket}: per tracciare le attività e sotto-attività;
+  \item \textbf{Automazioni}: per integrare il flusso di lavoro automatizzato di GitHub con quello di Jira.
+\end{itemize}
+
+\par\noindent Di seguito è riportata un’immagine della timeline Jira che ha guidato l’avanzamento del progetto.
+
 \begin{figure}[H]
   \centering 
   \fbox{\includegraphics[width=0.8\columnwidth]{pianificazione/jira.png}} 
