@@ -71,3 +71,26 @@
 
 \vspace{10pt}
 \par\noindent Di seguito sono riportati i test di unità e di integrazione.
+
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{p{0.65\textwidth}p{0.25\textwidth}}
+\caption{Tabella delle suite di test}
+\label{tab:test-suite} \\
+\hline\hline
+\textbf{Suite di test} & \textbf{\% di superamento dei test}\\
+\endfirsthead
+    
+\caption[]{Tabella delle suite di test (continua)} \\
+\hline\hline
+\textbf{Suite di test} & \textbf{Percentuale di superamento dei test} \\ 
+\endhead
+    
+\multicolumn{2}{r}{{Continua nella prossima pagina}} \\ 
+\endfoot
+    
+\hline
+\endlastfoot
+
+\hline
+\textbf{Utils} \textit{(utils.test.js)}: verifica il corretto funzionamento delle funzioni di utilità & 100\% \\
+\end{longtable}
