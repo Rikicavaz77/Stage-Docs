@@ -74,13 +74,13 @@
 
 \renewcommand{\arraystretch}{1.5}
 \begin{longtable}{>{\raggedright\arraybackslash}p{0.65\textwidth} >{\raggedright\arraybackslash}p{0.25\textwidth}}
-\caption{Tabella delle suite di test}
-\label{tab:test-suite} \\
+\caption{Tabella dei test automatici}
+\label{tab:test-automatici} \\
 \hline\hline
 \textbf{Suite di test} & \textbf{\% di superamento dei test}\\
 \endfirsthead
     
-\caption[]{Tabella delle suite di test (continua)} \\
+\caption[]{Tabella dei test automatici (continua)} \\
 \hline\hline
 \textbf{Suite di test} & \textbf{\% di superamento dei test} \\ 
 \endhead
@@ -136,3 +136,52 @@
 \hline
 \textbf{Utils} \textit{(utils.test.js)}: verifica il corretto comportamento delle funzioni di utilità & 100\% \\
 \end{longtable}
+
+\section{Test manuali}
+
+\par L’estensione è stata testata su un insieme di pagine web differenti per dimensione (in termini di profondità del DOM) e lingua (inglese o italiana), con l’obiettivo di verificarne il corretto funzionamento mediante osservazione manuale.
+
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X}
+\caption{Tabella dei test manuali}
+\label{tab:test-manuali} \\
+\hline\hline
+\textbf{Sito web} & \textbf{Esito dei test}\\
+\endfirsthead
+    
+\caption[]{Tabella dei test manuali (continua)} \\
+\hline\hline
+\textbf{Sito web} & \textbf{Esito dei test} \\ 
+\endhead
+    
+\multicolumn{2}{r}{{Continua nella prossima pagina}} \\ 
+\endfoot
+    
+\hline
+\endlastfoot
+
+\hline
+\textbf{W3Schools} - JavaScript Tutorial (\url{https://www.w3schools.com/js/}) & Tutti i test manuali sono stati superati con successo, inclusa l'analisi di parole chiave “spezzate” su più tag \gls{html} (es. “JavaScript Tutorial”) \\
+\hline
+\textbf{W3Schools} - JavaScript Regular Expressions (\url{https://www.w3schools.com/js/js\_regexp.asp}) & Tutti i test manuali sono stati superati con successo \\
+\hline
+\textbf{Corriere della Sera} - HomePage (\url{https://www.corriere.it/}) & Tutti i test manuali sono stati superati con successo, sebbene con prestazioni non sempre ottimali, a causa della complessità del sito in questione \\
+\hline
+Siti web partecipanti al concorso \textbf{Accattivante Accessibile}, organizzato dall’Università degli Studi di Padova (\url{https://web.math.unipd.it/CAA/classifica.html}) & Tutti i test manuali sono stati superati con successo. Durante l’analisi del sito \textit{BookOverflow}, è emerso un caso particolare non gestito: una singola parola “spezzata” su più tag HTML (es. “BookOverflow”). Questa situazione è stata valutata come un’eccezione poco significativa, non tale da giustificare una gestione più granulare, che avrebbe inciso negativamente sulle prestazioni \\
+\hline
+\textbf{Nasce, Cresce, Ignora} - The Killer, la recensione (\url{https://nascecresceignora.it/the-killer-la-recensione-un-thriller-freddo-e-glaciale/}) & Tutti i test manuali sono stati superati con successo, inclusa l'analisi di parole chiave “spezzate” su più tag HTML (es. “David Fincher”) e l’estrazione delle keyphrase più frequenti (es. “The Killer”) \\
+\hline
+\textbf{Nasce, Cresce, Ignora} - Pixar: I migliori film (\url{https://nascecresceignora.it/pixar-i-migliori-film-secondo-letterboxd/}) & Tutti i test manuali sono stati superati con successo \\
+\hline
+\textbf{Nasce, Cresce, Ignora} - Death Stranding 2: On The Beach (\url{https://nascecresceignora.it/death-stranding-2-on-the-beach-pubblicato-nuovo-trailer-gameplay/}) & Tutti i test manuali sono stati superati con successo \\
+\hline
+\textbf{Nasce, Cresce, Ignora} - The Last of Us in concerto (\url{https://nascecresceignora.it/the-last-of-us-in-concerto-gustavo-santaolalla-annuncia-2-date-italia/}) & Tutti i test manuali sono stati superati con successo \\
+\hline
+\textbf{la Repubblica} - HomePage (\url{https://www.repubblica.it/}) & Tutti i test manuali sono stati superati con successo \\
+\hline
+\textbf{TradingView} - HomePage (\url{https://it.tradingview.com/}) & Tutti i test manuali sono stati superati con successo, sebbene con prestazioni non sempre ottimali, a causa della complessità del sito in questione \\
+\hline
+\textbf{GitHub} - HomePage (\url{https://github.com/}) & Tutti i test manuali sono stati superati con successo \\
+\hline
+\textbf{STEM Unipd} - HomePage (\url{https://stem.elearning.unipd.it/}) & Tutti i test manuali sono stati superati con successo. Data la presenza di numerosi tag nascosti, la maggior parte delle parole chiave più frequenti non è direttamente visibile \\
+\end{tabularx}
