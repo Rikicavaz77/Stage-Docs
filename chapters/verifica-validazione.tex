@@ -71,3 +71,68 @@
 
 \vspace{10pt}
 \par\noindent Di seguito sono riportati i test di unità e di integrazione.
+
+\renewcommand{\arraystretch}{1.5}
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.65\textwidth} >{\raggedright\arraybackslash}p{0.25\textwidth}}
+\caption{Tabella delle suite di test}
+\label{tab:test-suite} \\
+\hline\hline
+\textbf{Suite di test} & \textbf{\% di superamento dei test}\\
+\endfirsthead
+    
+\caption[]{Tabella delle suite di test (continua)} \\
+\hline\hline
+\textbf{Suite di test} & \textbf{\% di superamento dei test} \\ 
+\endhead
+    
+\multicolumn{2}{r}{{Continua nella prossima pagina}} \\ 
+\endfoot
+    
+\hline
+\endlastfoot
+
+\hline
+\textbf{Keyword} \textit{(keyword.test.js)}: verifica il corretto funzionamento del modello relativo alle parole chiave & 100\% \\
+\hline
+\textbf{AnalysisResultView} \textit{(analysis\_result\_view.test.js)}: verifica il corretto funzionamento del componente responsabile della visualizzazione dei risultati relativi all’analisi di una parola chiave & 100\% \\
+\hline 
+\textbf{KeywordListView} \textit{(keyword\_list\_view.test.js)}: verifica il corretto funzionamento del componente responsabile della visualizzazione delle liste di parole chiave per ciascuna tipologia & 100\% \\
+\hline 
+\textbf{KeywordView} \textit{(view.test.js)}: verifica il corretto funzionamento della view principale, responsabile della gestione della dashboard e delle sotto-view & 100\% \\
+\hline 
+\textbf{KeywordController} \textit{(controller.test.js)}: verifica il corretto funzionamento delle operazioni di gestione delle parole chiave (funzionalità non dipendenti dal DOM e non sufficientemente specifiche da giustificare una suite dedicata) & 100\% \\
+\hline 
+\textbf{KeywordController - DOM} \textit{(controller\_dom.test.js)}: verifica il corretto funzionamento delle operazioni del controller che richiedono l’interazione con il \gls{dom} & 100\% \\
+\hline 
+\textbf{KeywordController - sorting} \textit{(controller\_sorting.test.js)}: verifica le funzionalità di ordinamento delle parole chiave & 100\% \\
+\hline
+\textbf{KeywordController - filtering} \textit{(controller\_filtering.test.js)}: verifica le funzionalità di filtraggio delle parole chiave & 100\% \\
+\hline
+\textbf{KeywordController - pagination} \textit{(controller\_pagination.test.js)}: verifica la logica di gestione della paginazione delle parole chiave & 100\% \\
+\hline
+\textbf{KeywordController - highlight} \textit{(controller\_highlight.test.js)}: verifica la logica di gestione dell’evidenziazione delle parole chiave nella pagina & 100\% \\
+\hline
+\textbf{KeywordController - events} \textit{(controller\_events.test.js)}: verifica il corretto funzionamento dell’associazione (binding) degli eventi & 100\% \\
+\hline
+\textbf{KeywordController - init} \textit{(controller\_init.test.js)}: verifica le funzionalità di inizializzazione e aggiornamento del controller, nonché l’integrazione tra i componenti dell’architettura & 100\% \\
+\hline
+\textbf{TreeWalkerManager} \textit{(tree\_walker\_manager.test.js)}: verifica le funzionalità di gestione dell’oggetto TreeWalker & 100\% \\
+\hline
+\textbf{TextProcessor} \textit{(text\_processor.test.js)}: verifica il corretto comportamento delle funzioni di utilità legate all’analisi e all’elaborazione testuale & 100\% \\
+\hline
+\textbf{TagAccessor} \textit{(tag\_accessor.test.js)}: verifica il corretto comportamento delle funzioni di utilità dedicate all’accesso e alla lettura del contenuto dei tag \gls{htmlg} & 100\% \\
+\hline
+\textbf{WordCounter} \textit{(word\_counter.test.js)}: verifica le funzionalità di conteggio delle parole nella pagina e di estrazione di quelle più frequenti & 100\% \\
+\hline
+\textbf{KeywordHighlighter} \textit{(keyword\_highlighter.test.js)}: verifica le funzionalità di evidenziazione delle parole chiave all’interno della pagina & 100\% \\
+\hline
+\textbf{KeywordAnalyzer} \textit{(keyword\_analyzer.test.js)}: verifica le funzionalità dedicate all’analisi delle parole chiave & 100\% \\
+\hline
+\textbf{KeywordAnalysisStrategy} \textit{(keyword\_analysis\_strategy.test.js)}: verifica il corretto comportamento della struttura astratta, assicurandosi che l’istanziazione diretta sia impedita e che i metodi non implementati generino un errore & 100\% \\
+\hline
+\textbf{StagedAnalysisStrategy} \textit{(staged\_analysis\_strategy.test.js)}: verifica il corretto funzionamento dell’implementazione concreta della strategy, basata su un’analisi “per fasi” (staged) & 100\% \\
+\hline
+\textbf{AllInOneAnalysisStrategy} \textit{(all\_in\_one\_analysis\_strategy.test.js)}: verifica il corretto funzionamento dell’implementazione concreta della strategy, basata su un’analisi compatta e unificata & 100\% \\
+\hline
+\textbf{Utils} \textit{(utils.test.js)}: verifica il corretto comportamento delle funzioni di utilità & 100\% \\
+\end{longtable}
