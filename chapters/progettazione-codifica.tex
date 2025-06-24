@@ -26,11 +26,41 @@
 \section{PoC}
 \label{sec:poc}
 
-\section{Progettazione}
+\par Lo scopo principale del \gls{poc} è stato quello di tradurre in codice il mockup dell’interfaccia grafica, al fine di verificare la correttezza e la coerenza delle scelte progettuali. Per raggiungere questo obiettivo, ho simulato il funzionamento dell’estensione in ambiente \gls{localhost}, sostituendo una pagina reale con una versione statica. Questa soluzione ha reso possibile lavorare in un ambiente di test controllato, all’interno del quale è stato possibile condurre uno studio di fattibilità e sperimentare le funzionalità di analisi ed evidenziazione visiva delle parole chiave. Al termine di questa fase, è stato organizzato un incontro con la Proponente per discutere i risultati ottenuti e le problematiche riscontrate, e identificare gli elementi da mantenere, modificare o integrare, in vista della successiva progettazione architetturale e dello sviluppo definitivo.
+
+\section{Progettazione architetturale}
 \label{sec:progettazione}
+
+\begin{figure}[H] 
+    \centering 
+    \includegraphics[width=0.8\textwidth]{progettazione/mvc.jpg} 
+    \caption{Pattern MVC (Model-view-controller)}
+\end{figure}
+
+\par\noindent Di seguito è riportata la struttura della funzionalità di analisi delle parole chiave:
+
+\vspace{10pt}
+\begin{samepage}
+  \dirtree{%
+    .1 .github.
+    .2 workflows.
+    .1 keyword.
+    .2 controller.
+    .2 model.
+    .2 services.
+    .3 strategy.
+    .2 tests.
+    .2 utils.
+    .2 view.
+    .1 static.
+    .2 fonts.
+    .2 img.
+    .2 libs.
+  }
+\end{samepage}
 
 \section{Design Pattern utilizzati}
 \label{sec:design-pattern}
 
-\section{Codifica}
-\label{sec:codifica}
+\section{Elenco delle classi}
+\label{sec:elenco-classi}
