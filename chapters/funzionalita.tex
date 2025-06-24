@@ -6,3 +6,13 @@
 \subsection{Problematiche riscontrate}
 
 \section{Accessibilità}
+
+\par Dal momento che la funzionalità di analisi delle parole chiave è integrata in un’estensione preesistente orientata all’accessibilità, anche questa componente è stata progettata in conformità alle linee guida \gls{wcag}. A tal fine, sono stati condotti test di accessibilità con i seguenti obiettivi:
+\begin{itemize}
+  \item Verificare il rispetto del \textbf{rapporto minimo di contrasto} tra testo e sfondo, pari a 4.5:1 per il testo di dimensioni “normali” e 3:1 per il testo di grandi dimensioni. Questo controllo è stato applicato sia agli elementi interni all’estensione, sia a quelli utilizzati per evidenziare le parole chiave;
+  \item Controllare che le \textbf{immagini non decorative} siano dotate di un testo alternativo;
+  \item Accertarsi che le \textbf{icone non decorative} siano accompagnate da un’etichetta accessibile;
+  \item Verificare l’accessibilità dei \textbf{tooltip}, assicurandosi che vengano attivati e disattivati correttamente quando si interagisce con l’elemento trigger, sia tramite navigazione da tastiera sia tramite l’uso del mouse. Inoltre, i tooltip devono rimanere visibili al passaggio del mouse su di essi e devono poter essere chiusi premendo il tasto Esc;
+  \item Controllare che tutti gli \textbf{elementi interattivi} (come pulsanti o link) dispongano di un’etichetta testuale descrittiva;
+  \item Assicurare la \textbf{navigazione tramite tastiera}, con un ordine di tabulazione logico e una chiara indicazione visiva dell’elemento attualmente attivo.
+\end{itemize}
