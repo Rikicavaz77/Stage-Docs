@@ -2,6 +2,7 @@
 \label{cap:funzionalità-sviluppate}
 
 \section{Evidenziazione delle parole chiave}
+\label{sec:highlight-keyword}
 
 \par La funzionalità “Highlight Keywords” consente di evidenziare tutte le occorrenze di una parola chiave all’interno della pagina web in cui l’estensione è attiva. Ogni occorrenza viene formattata con colori di sfondo, testo e bordo differenti, in base al tag \gls{html} che la contiene; tali colori sono personalizzabili tramite le impostazioni dell’estensione. Oltre alla personalizzazione cromatica delle occorrenze, ciascuna di esse è accompagnata da un’etichetta, posizionata in alto a sinistra, che riporta il nome del tag genitore. Nell’interfaccia grafica, a ogni keyword è associato un pulsante (highlighter) che permette di attivare o disattivare l’evidenziazione a livello globale. Questa funzionalità è accessibile sia dalla pagina principale sia da quella dedicata a una singola keyword, e lo stato del pulsante rimane sincronizzato tra le due. Le parole chiave inserite manualmente dall'utente possono essere evidenziate anche prima dell’avvio dell’analisi vera e propria, tramite il pulsante dedicato, mantenendo le funzionalità di analisi ed evidenziazione separate e indipendenti.
 
@@ -19,6 +20,42 @@
 \par\noindent Nel secondo algoritmo, ogni volta che si concatena il contenuto di un nodo al testo virtuale, è necessario effettuare una mappatura degli indici di inizio e fine, in modo da poter risalire al nodo originale nel momento in cui viene trovata una corrispondenza. Questa operazione può risultare complessa, soprattutto in presenza di \gls{dom} profondi o fortemente nidificati. Per questo motivo, l’algoritmo “a nodi multipli” non ha sostituito quello originale, che esegue la ricerca sui singoli nodi di testo, ma coesiste con esso all’interno del sistema. I due algoritmi vengono richiamati dinamicamente in base alla tipologia di parola chiave: per le keyword semplici viene utilizzato l’algoritmo “a nodo singolo”, mentre per le keyphrase viene impiegato l’algoritmo “a nodi multipli”. È stato valutato anche il caso limite in cui una keyword semplice risulti spezzata su più tag. Tuttavia, trattandosi di una situazione molto rara, si è deciso di non complicare ulteriormente il flusso di ricerca per gestirla.
 
 \section{Analisi delle parole chiave}
+\label{sec:analyze-keyword}
+
+\par La funzionalità “Analyze Keywords” è stata progettata per operare principalmente su pagine web in lingua inglese e italiana. Questa funzionalità fornisce una panoramica generale dell'analisi \gls{on-page-seo}, che include i seguenti elementi:
+\begin{itemize}
+  \item Contenuto del meta tag keywords;
+  \item Lingua dichiarata nella pagina;
+  \item Conteggio totale delle parole;
+  \item Conteggio delle parole uniche.
+\end{itemize}
+
+\vspace{10pt}
+\par\noindent Queste informazioni costituiscono la base per l'analisi delle parole chiave, che prende in considerazione diversi parametri, come la frequenza, la densità e il numero di occorrenze all’interno di un insieme predefinito di tag semantici. L'analisi viene eseguita su una copia statica del \gls{dom}, al fine di garantire coerenza tra tutte le parole chiave, e può essere aggiornata manualmente tramite un pulsante dedicato. La ricerca delle parole chiave segue gli stessi criteri illustrati nella \hyperref[sec:highlight-keyword]{sezione precedente}.
+
+\vspace{10pt}
+\par\noindent I tag semantici considerati più rilevanti dal punto di vista SEO sono:
+\begin{itemize}
+  \item Il tag title;
+  \item Il meta tag description;
+  \item I tag di intestazione (H1-H6);
+  \item I paragrafi (<p>);
+  \item I link (<a>);
+  \item Il testo in grassetto (<strong>);
+  \item Il test in corsivo (<em>);
+  \item Le voci degli elenchi (<li>);
+  \item Il testo alternativo delle immagini (Alt).
+\end{itemize}
+
+\vspace{10pt}
+\par\noindent Per il calcolo delle occorrenze di una parola chiave all’interno di questi tag, sono stati adottati due approcci:
+\begin{itemize}
+  \item Accedere direttamente ai tag e utilizzare la proprietà textContent per estrarne il contenuto da analizzare;
+  \item Risalire ai tag semantici durante la navigazione del DOM con \textit{TreeWalker}, registrando le occorrenze contestualmente al calcolo della frequenza complessiva.
+\end{itemize}
+
+\vspace{10pt}
+\par\noindent Poiché entrambi gli approcci sono stati considerati ugualmente validi, ho adottato il design pattern comportamentale \textit{Strategy}, in modo da poter selezionare dinamicamente l’algoritmo senza alterare il codice del modulo di analisi.
 
 \subsection{Problematiche riscontrate}
 
