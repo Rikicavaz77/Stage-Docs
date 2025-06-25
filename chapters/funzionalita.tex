@@ -31,7 +31,7 @@
 \end{itemize}
 
 \vspace{10pt}
-\par\noindent Queste informazioni costituiscono la base per l'analisi delle parole chiave, che prende in considerazione diversi parametri, come la frequenza, la densità e il numero di occorrenze all’interno di un insieme predefinito di tag semantici. L'analisi viene eseguita su una copia statica del \gls{dom}, al fine di garantire coerenza tra tutte le parole chiave, e può essere aggiornata manualmente tramite un pulsante dedicato. La ricerca delle parole chiave segue gli stessi criteri illustrati nella \hyperref[sec:highlight-keyword]{sezione precedente}.
+\par\noindent Queste informazioni costituiscono la base per l'analisi delle parole chiave, che prende in considerazione diversi parametri, come la frequenza, la densità e il numero di occorrenze all’interno di un insieme predefinito di tag semantici. L'analisi viene eseguita su una copia statica del \gls{dom}, al fine di garantire coerenza tra tutte le parole chiave, e può essere aggiornata manualmente tramite un pulsante dedicato. La ricerca delle parole chiave segue gli stessi criteri illustrati nella \hyperref[sec:highlight-keyword]{sezione \textsection\ref*{sec:highlight-keyword}}.
 
 \vspace{10pt}
 \par\noindent I tag semantici considerati più rilevanti dal punto di vista SEO sono:
@@ -58,6 +58,51 @@
 \par\noindent Poiché entrambi gli approcci sono stati considerati ugualmente validi, ho adottato il design pattern comportamentale \textit{Strategy}, in modo da poter selezionare dinamicamente l’algoritmo senza alterare il codice del modulo di analisi.
 
 \subsection{Problematiche riscontrate}
+
+\par Una delle difficoltà incontrate ha riguardato il calcolo di un punteggio da associare a ciascuna parola chiave. Le due opzioni considerate erano l’assegnazione di un punteggio di qualità o, in alternativa, di un punteggio basato sulla rilevanza strutturale. Tuttavia, in entrambi i casi è emerso che i criteri effettivamente utilizzati dai motori di ricerca sono molto più articolati e difficili da replicare in modo attendibile. Per questo motivo, ho concordato con la Proponente di non introdurre alcun sistema di punteggio.
+
+\vspace{10pt}
+\par\noindent Un’altra problematica è stata riscontrata in seguito alla modifica della modalità di analisi, con il passaggio dal \gls{dom} live a una copia statica. Durante l’operazione di clonazione, infatti, gli stili applicati agli elementi non vengono mantenuti, rendendo meno preciso il controllo sui tag \textit{inline} rispetto a quanto avviene nella funzionalità di evidenziazione, che opera direttamente sul DOM live. Tuttavia, in fase di analisi, è possibile fare affidamento sulla natura semantica dei tag \gls{html}. Pertanto, un controllo basato sul nome del tag risulta sufficiente nella maggior parte dei casi, garantendo un buon livello di affidabilità anche senza una verifica esplicita dello stile.
+
+\vspace{10pt}
+\par\noindent Un aspetto che ha generato ambiguità è stata la discrepanza tra la frequenza complessiva e la somma delle occorrenze rilevate nei singoli tag. Tale divergenza era dovuta al fatto che alcune occorrenze di una parola chiave si trovavano all’interno di tag annidati. La soluzione concordata con la Proponente è stata l’inserimento di un messaggio esplicativo, al fine di chiarire il comportamento del sistema ed evitare fraintendimenti da parte dell’utente.
+
+\section{Conteggio delle parole ed estrazione di quelle più frequenti}
+\label{sec:count-word}
+
+\par Il conteggio delle parole presenti nella pagina rappresenta un requisito fondamentale per il calcolo della densità di una keyword. L'estrazione delle parole dal testo avviene secondo un pattern che segue gli stessi criteri descritti nella \hyperref[sec:highlight-keyword]{sezione \textsection\ref*{sec:highlight-keyword}}. Tra i requisiti opzionali figura invece l'identificazione delle parole più frequenti, suddivisibili in categorie come “single-word”, “double-word” e così via. Questa funzionalità risulta particolarmente utile qualora il meta tag \textit{keywords} non sia presente, poiché consente di suggerire all’utente un elenco di termini che, in base alla frequenza, possono essere considerati potenziali parole chiave. Il sistema seleziona le 10 parole più ricorrenti per ciascuna categoria, presentandole in ordine decrescente.
+
+\subsection{Problematiche riscontrate}
+
+\par Le \gls{stopword} devono essere escluse dal processo di identificazione delle parole più frequenti, in quanto non hanno valore semantico e difficilmente corrispondono a parole chiave. A tal fine, ho utilizzato una libreria esterna per definire una serie di liste di stopword, selezionate dinamicamente in base alla lingua dichiarata nella pagina. Nel caso delle “single-word”, l’esclusione delle stopword è diretta e immediata. La gestione delle espressioni composte da due o più termini (n-grammi), invece, richiede maggiore attenzione. Nei testi in lingua italiana, ad esempio, è piuttosto comune l’uso di termini o espressioni in inglese (lingua di riferimento a livello internazionale). In questi contesti, espressioni come “The Batman” possono essere considerate valide, mentre sequenze prive di valore semantico come “of the” andrebbero escluse. Per trattare in modo adeguato queste situazioni, ho implementato un duplice controllo: escludere tutte le stopword relative alla lingua dichiarata nella pagina e tollerare la presenza di stopword inglesi solo se queste non superano il 50\% dei termini dell’espressione.
+
+\section{Elenco delle parole chiave}
+\label{sec:keyword-list}
+
+\par L'interfaccia grafica è organizzata in quattro elenchi distinti: 
+\begin{itemize}
+  \item \textbf{Meta keywords}: parole chiave estratte dal meta tag keywords;
+  \item \textbf{User-added keywords}: parole chiave inserite manualmente dall'utente;
+  \item \textbf{Most frequent “single-word” keywords}: le 10 parole chiave più frequenti composte da una sola parola;
+  \item \textbf{Most frequent “double-word” keywords}: le 10 parole chiave più frequenti composte da due parole.
+\end{itemize}
+
+\vspace{10pt}
+\par\noindent Ogni elenco può essere ordinato per frequenza, filtrato per nome e ripristinato tramite appositi pulsanti. All’interno di ciascuna lista, il sistema carica 5 elementi alla volta, navigabili attraverso un sistema di paginazione. Per evitare di sovraccaricare l’interfaccia, non vengono mostrati tutti i pulsanti di navigazione delle pagine, ma solo un sottoinsieme calcolato dinamicamente secondo le seguenti regole:
+\begin{itemize}
+  \item Il pulsante per accedere alla prima pagina è sempre visibile;
+  \item Il pulsante per accedere all’ultima pagina è sempre visibile;
+  \item Sono visibili i due pulsanti precedenti a quello attualmente attivo;
+  \item Sono visibili i due pulsanti successivi a quello attualmente attivo;
+  \item I pulsanti nascosti sono sostituiti dalla stringa “...”.
+\end{itemize}
+
+\vspace{10pt}
+\par\noindent A ciascuna keyword è associata un’indicazione della frequenza e un gruppo di pulsanti che consentono di eseguire operazioni come l’eliminazione, l’evidenziazione visiva o la visualizzazione dei risultati dell’analisi.
+
+\subsection{Problematiche riscontrate}
+
+\par L’elenco delle parole chiave più frequenti viene visualizzato, per impostazione predefinita, in ordine decrescente. Di conseguenza, il relativo pulsante di ordinamento deve risultare attivo sin dall’inizio. Una volta rimossi eventuali filtri, è necessario ripristinare il comportamento predefinito, ovvero riattivare il pulsante di ordinamento in modalità “desc”. Questa condizione è rimasta inosservata fino all’esecuzione dei test manuali, rendendo necessario un leggero refactoring per evitare potenziali situazioni di disorientamento per l’utente.
 
 \section{Accessibilità}
 
