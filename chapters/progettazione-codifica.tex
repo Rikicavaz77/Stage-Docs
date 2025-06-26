@@ -31,11 +31,19 @@
 \section{Progettazione architetturale}
 \label{sec:progettazione}
 
-\par Il progetto adotta il pattern architetturale MVC (Model-View-Controller) al fine di garantire una chiara separazione delle responsabilità tra i diversi componenti.
+\par Il progetto adotta il pattern architetturale MVC (Model-View-Controller) al fine di garantire una chiara separazione delle responsabilità tra i diversi componenti. Questo design pattern prevede tre elementi principali, ciascuno con un ruolo preciso e ben definito:
+\begin{itemize}
+  \item \textbf{Model}: rappresenta il cuore dell’architettura. È responsabile della rappresentazione e della gestione interna dei dati, isolando le operazioni di manipolazione, archiviazione e accesso. Ha il compito di mantenere i dati organizzati, accurati e coerenti con le regole e la logica dell’applicazione;
+  \item \textbf{View}: è il componente con cui l’utente interagisce direttamente. Visualizza i dati in un formato comprensibile e gestisce l’interazione tra l’utente e il sistema. Trattandosi di un componente “passivo”, la View non comunica direttamente con il Model, ma si affida al Controller per elaborare le richieste;
+  \item \textbf{Controller}: funge da intermediario tra il Model e la View. Contiene la logica applicativa, elabora le richieste dell’utente e aggiorna il Model e la View di conseguenza. È responsabile della gestione del flusso dell’applicazione.
+\end{itemize}
+
+\vspace{5pt}
+\par\noindent Il pattern MVC promuove principi fondamentali della qualità del software, quali modularità, manutenibilità, scalabilità, robustezza e riusabilità. La chiara separazione delle responsabilità tra i componenti consente di limitare l’impatto delle modifiche, che possono essere applicate a un singolo modulo senza influire sugli altri. Inoltre, l’architettura MVC facilita l’esecuzione di test di unità e di integrazione, migliorando l’affidabilità del sistema.
 
 \begin{figure}[H] 
     \centering 
-    \includegraphics[width=0.7\textwidth]{progettazione/mvc.jpg} 
+    \includegraphics[width=0.6\textwidth]{progettazione/mvc.jpg} 
     \caption{Pattern MVC (Model-View-Controller)}
 \end{figure}
 
@@ -72,4 +80,66 @@
 \section{Elenco delle classi}
 \label{sec:elenco-classi}
 
-\par To-Do.
+\subsection{Model}
+
+\par Di seguito sono elencate le classi presenti nella cartella \textit{Model}:
+
+\begin{itemize}
+  \item \textbf{Keyword}: rappresenta il modello relativo alle parole chiave. Memorizza il nome (cioè la keyword vera e propria), la frequenza, la densità, lo stato dell’analisi e il numero di occorrenze all’interno di un insieme predefinito di tag \gls{html} considerati rilevanti per l’analisi. Espone metodi getter e setter per l’interazione esterna, oltre a un metodo per ripristinare lo stato del modello e uno per calcolare la densità;
+  \item \textbf{KeywordListInfo}: funge da DTO (Data Transfer Object) per la View, trasportando le informazioni associate a una lista di keyword, come la categoria (meta keywords, user-added keywords, ecc.), il titolo, le keyword da visualizzare, il numero totale di pagine e la modalità di ordinamento;
+  \item \textbf{OverviewInfo}: memorizza le informazioni relative all’anteprima dell’analisi \gls{seo}, come il contenuto del meta tag \textit{keywords}, la lingua dichiarata nella pagina, il numero totale di parole e il conteggio delle parole uniche.
+\end{itemize}
+
+\subsection{View}
+
+\par Di seguito sono elencate le classi presenti nella cartella \textit{View}:
+
+\begin{itemize}
+  \item \textbf{KeywordView}: visualizza la dashboard, ovvero il pannello di controllo principale da cui è possibile anche aggiornare l’analisi a livello globale, e gestisce le operazioni di creazione, accesso e rimozione delle sotto-view. La dashboard è suddivisa nelle seguenti sezioni:
+  \begin{itemize}
+    \item \textbf{Overview}: mostra un’anteprima dell’analisi \gls{seo};
+    \item \textbf{Settings}: visualizza le impostazioni dell’analisi SEO, che consentono di personalizzare i colori utilizzati per evidenziare le keyword;
+    \item \textbf{Insert Keyword}: mostra un campo di input affiancato da un pulsante per avviare l’analisi. Include anche una checkbox, posizionata sotto il campo di input, che permette di attivare l’evidenziazione della keyword digitata;
+    \item \textbf{Keyword List}: visualizza un elenco di keyword organizzate per categoria (meta keywords, user-added keywords, ecc.).
+  \end{itemize}
+  \item \textbf{KeywordListView}: visualizza una lista di keyword suddivisa in tre sezioni virtuali:
+  \begin{itemize}
+    \item \textbf{Header}: mostra il titolo della lista, un campo di input per il filtraggio delle keyword, due pulsanti per l’ordinamento e un pulsante per la rimozione dei filtri;
+    \item \textbf{Body}: visualizza l’elenco delle keyword, ciascuna accompagnata da un’indicazione della frequenza e un gruppo di pulsanti per l’eliminazione, l’evidenziazione e l’accesso ai risultati dell’analisi;
+    \item \textbf{Footer}: mostra l’elenco delle pagine per navigare all’interno della lista delle keyword.
+  \end{itemize}
+  \item \textbf{AnalysisResultView}: visualizza la sezione con i risultati dell’analisi di una singola keyword, utilizzando un formato tabellare per riportare il numero di occorrenze nei singoli tag \gls{html}. Include anche un pulsante (highlighter) che consente di evidenziare una keyword direttamente e che rimane sincronizzato tra tutte le View.
+\end{itemize}
+
+\subsection{Controller}
+
+\par Di seguito sono elencate le classi presenti nella cartella \textit{Controller}:
+
+\begin{itemize}
+  \item \textbf{KeywordController}: si occupa dell’inizializzazione e dell’aggiornamento dell’interfaccia, dell’associazione (binding) degli eventi e della gestione delle keyword, includendo funzionalità come inserimento, analisi, evidenziazione, eliminazione, navigazione, ordinamento e filtraggio.
+\end{itemize}
+
+\subsection{Services}
+
+\par Di seguito sono elencate le classi presenti nella cartella \textit{Services}:
+
+\begin{itemize}
+  \item \textbf{TreeWalkerManager}: gestisce la creazione dell’oggetto \textit{TreeWalker}, definendo quali nodi includere o escludere nella navigazione del \gls{dom}. Fornisce inoltre un metodo per tornare alla radice e uno per accedere al nodo successivo;
+  \item \textbf{TextProcessor}: fornisce funzioni di utilità condivise dai moduli di analisi ed evidenziazione. In particolare, espone i seguenti metodi:
+  \begin{itemize}
+    \item \textbf{getWordsPattern}: restituisce un'espressione regolare per estrarre le parole dal testo;
+    \item \textbf{getCompoundSplitPattern}: restituisce un’espressione regolare per suddividere il testo in blocchi (proposizioni);
+    \item \textbf{getKeywordPattern}: restituisce un’espressione regolare per identificare una keyword nel testo;
+    \item \textbf{getParentName}: restituisce il nome dell’elemento genitore più vicino, risalendo la gerarchia con approccio bottom-up, tra quelli considerati rilevanti per l’analisi;
+    \item \textbf{getTextNodes}: restituisce i nodi di testo;
+    \item \textbf{getTextNodeGroups}: restituisce i nodi di testo suddivisi in gruppi. Ciascun gruppo contiene nodi inline validi (ad esempio strong, em, ecc.) che condividono lo stesso elemento genitore.
+  \end{itemize}
+\end{itemize}
+
+\subsection{Utils}
+
+\par Di seguito sono elencate le classi presenti nella cartella \textit{Utils}:
+
+\begin{itemize}
+  \item \textbf{Utils}: fornisce due funzioni di utilità, \textit{escapeRegExp} e \textit{escapeHTML}, che consentono rispettivamente di eseguire l’escape di un’espressione regolare e di convertire alcuni caratteri predefiniti in entità \gls{html}. 
+\end{itemize}
