@@ -134,7 +134,29 @@
     \item \textbf{getTextNodes}: restituisce i nodi di testo;
     \item \textbf{getTextNodeGroups}: restituisce i nodi di testo suddivisi in gruppi. Ciascun gruppo contiene nodi inline validi (ad esempio strong, em, ecc.) che condividono lo stesso elemento genitore.
   \end{itemize}
-  \item \textbf{TagAccessor}: centralizza l’accesso ai tag \gls{html} e fornisce un metodo per estrarne il contenuto testuale.
+  \item \textbf{TagAccessor}: centralizza l’accesso ai tag \gls{html} e fornisce un metodo per estrarne il contenuto testuale;
+  \item \textbf{WordCounter}: si occupa di calcolare il numero di parole presenti nella pagina e di identificare quelle più frequenti. Quest’ultima operazione è gestita da due metodi distinti, \textit{findOneWordKeywords} e \textit{findCompoundKeywords}, che estraggono rispettivamente le espressioni più ricorrenti composte da una sola parola e da due o più termini (n-grammi), escludendo le \gls{stopword} in base alla lingua dichiarata nella pagina.
+  \item \textbf{KeywordHighlighter}: implementa la funzionalità di evidenziazione delle keyword, esponendo tre metodi principali:
+  \begin{itemize}
+    \item \textbf{highlightKeyword}: evidenzia tutte le occorrenze di una keyword adottando due approcci differenti, a seconda che si tratti di una keyword semplice o di una keyphrase. Entrambi gli approcci si basano sulla stessa funzione per applicare l’evidenziazione, ma differiscono nella modalità di ricerca. Per le keyword semplici la ricerca avviene nei singoli nodi di testo, mentre per le keyphrase viene eseguita su un testo virtuale che include uno o più nodi mappati correttamente;
+    \item \textbf{removeHighlight}: rimuove l’evidenziazione eseguendo una normalizzazione del \gls{dom}, al fine di ripristinare il contenuto originale;
+    \item \textbf{updateTagColors}: aggiorna i colori utilizzati per l’evidenziazione delle keyword e inietta nuovamente lo stile nella pagina.
+  \end{itemize}
+  \item \textbf{KeywordAnalyzer}: implementa la funzionalità di analisi delle keyword, delegando al pattern \textit{Strategy} una fase del processo, che riguarda il calcolo della frequenza tramite la navigazione del DOM con \textit{TreeWalker} e la registrazione del numero di occorrenze in un insieme predefinito di tag HTML. Questa classe espone quattro metodi principali:
+  \begin{itemize}
+    \item \textbf{analyzeKeyword}: esegue l’analisi di una singola keyword;
+    \item \textbf{analyzeKeywords}: esegue l’analisi di un gruppo (batch) di keyword, gestendo opportunamente la cache per ottimizzare l’esecuzione;
+    \item \textbf{countOccurrencesInTag}: conta il numero di occorrenze di una parola chiave in un tag specifico;
+    \item \textbf{fullRefresh}: ripristina la cache di tutti i moduli utilizzati per l’analisi.
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Strategy}
+
+\par Di seguito sono elencate le classi presenti nella cartella \textit{Strategy}:
+
+\begin{itemize}
+  \item \textbf{KeywordAnalysisStrategy}: simula un’interfaccia all’interno del pattern Strategy, definendo il contratto che le classi concrete devono implementare.
 \end{itemize}
 
 \subsection{Utils}
