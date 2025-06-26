@@ -130,10 +130,11 @@
     \item \textbf{getWordsPattern}: restituisce un'espressione regolare per estrarre le parole dal testo;
     \item \textbf{getCompoundSplitPattern}: restituisce un’espressione regolare per suddividere il testo in blocchi (proposizioni);
     \item \textbf{getKeywordPattern}: restituisce un’espressione regolare per identificare una keyword nel testo;
-    \item \textbf{getParentName}: restituisce il nome dell’elemento genitore più vicino, risalendo la gerarchia con approccio bottom-up, tra quelli considerati rilevanti per l’analisi;
+    \item \textbf{getParentName}: restituisce il nome dell’elemento genitore più vicino, risalendo la gerarchia con un approccio bottom-up, tra quelli considerati rilevanti per l’analisi;
     \item \textbf{getTextNodes}: restituisce i nodi di testo;
     \item \textbf{getTextNodeGroups}: restituisce i nodi di testo suddivisi in gruppi. Ciascun gruppo contiene nodi inline validi (ad esempio strong, em, ecc.) che condividono lo stesso elemento genitore.
   \end{itemize}
+  \item \textbf{TagAccessor}: centralizza l’accesso ai tag \gls{html} e fornisce un metodo per estrarne il contenuto testuale.
 \end{itemize}
 
 \subsection{Utils}
