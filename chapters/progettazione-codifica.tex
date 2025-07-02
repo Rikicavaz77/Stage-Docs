@@ -206,3 +206,112 @@
 \begin{itemize}
   \item \textbf{Utils}: fornisce due funzioni di utilità, \textit{escapeRegExp} e \textit{escapeHTML}, che consentono rispettivamente di eseguire l’escape di un’espressione regolare e di convertire alcuni caratteri predefiniti in entità \gls{html}. 
 \end{itemize}
+
+\subsection{Tracciamento dei requisiti - Implementazione}
+
+\renewcommand{\arraystretch}{1.5}
+\begin{tabularx}{\textwidth}{l >{\raggedright\arraybackslash}X l}
+  \caption{Tracciamento dei requisiti - Implementazione}
+  \label{tab:tracciamento-requisiti-implementazione} \\
+  \hline\hline
+  \textbf{Requisito} & \textbf{Classi} & \textbf{\% di copertura}\\
+  \endfirsthead
+
+  \caption[]{Tracciamento dei requisiti - Implementazione (continua)} \\
+  \hline\hline
+  \textbf{Requisito} & \textbf{Classi} & \textbf{\% di copertura} \\
+  \endhead
+
+  \multicolumn{3}{r}{{Continua nella prossima pagina}} \\
+  \endfoot
+
+  \hline
+  \endlastfoot
+
+  \hline
+  RF.O.1 & \texttt{Interface} & 100\% \\
+  \hline 
+  RF.O.2 & \texttt{KeywordController}, \texttt{WordCounter}, \texttt{OverviewInfo}, \texttt{KeywordView} & 100\% \\
+  \hline 
+  RF.O.3 & \texttt{KeywordController}, \texttt{OverviewInfo}, \texttt{KeywordView} & 100\% \\
+  \hline 
+  RF.O.4 & \texttt{KeywordController}, \texttt{WordCounter}, \texttt{OverviewInfo}, \texttt{KeywordView} & 100\% \\
+  \hline 
+  RF.D.5 & \texttt{KeywordController}, \texttt{WordCounter}, \texttt{OverviewInfo}, \texttt{KeywordView} & 100\% \\
+  \hline 
+  RF.O.6 & \texttt{KeywordController}, \texttt{OverviewInfo}, \texttt{KeywordView} & 100\% \\
+  \hline 
+  RF.O.7 & \texttt{KeywordController}, \texttt{KeywordView}, \texttt{KeywordListView} & 100\% \\
+  \hline 
+  RF.O.8 & \texttt{KeywordController}, \texttt{KeywordAnalyzer}, \texttt{StagedAnalysisStrategy}, \texttt{AllInOneAnalysisStrategy}, \texttt{Keyword}, \texttt{KeywordView} & 100\% \\
+  \hline 
+  RF.O.9 & \texttt{KeywordController}, \texttt{Keyword}, \texttt{KeywordListInfo}, \texttt{KeywordView}, \texttt{KeywordListView} & 100\% \\
+  \hline 
+  RF.O.10 & \texttt{KeywordController}, \texttt{Keyword}, \texttt{KeywordListInfo}, \texttt{KeywordView}, \texttt{KeywordListView} & 100\% \\
+  \hline 
+  RF.O.11 & \texttt{KeywordController}, \texttt{Keyword}, \texttt{KeywordListInfo}, \texttt{KeywordView}, \texttt{KeywordListView} & 100\% \\
+  \hline 
+  RF.OP.12 & \texttt{KeywordController}, \texttt{WordCounter}, \texttt{Keyword}, \texttt{KeywordListInfo}, \texttt{KeywordView}, \texttt{KeywordListView} & 100\% \\
+  \hline 
+  RF.OP.13 & \texttt{KeywordController}, \texttt{WordCounter}, \texttt{Keyword}, \texttt{KeywordListInfo}, \texttt{KeywordView}, \texttt{KeywordListView} & 100\% \\
+  \hline 
+  RF.OP.14 & \texttt{KeywordController}, \texttt{WordCounter}, \texttt{Keyword}, \texttt{KeywordListInfo}, \texttt{KeywordView}, \texttt{KeywordListView} & 100\% \\
+  \hline 
+  RF.O.15 & \texttt{KeywordController}, \texttt{Keyword}, \texttt{KeywordListInfo}, \texttt{KeywordView}, \texttt{KeywordListView} & 100\% \\
+  \hline 
+  RF.O.16 & \texttt{KeywordController}, \texttt{KeywordHighlighter}, \texttt{Keyword}, \texttt{KeywordView} & 100\% \\
+  \hline 
+  RF.O.17 & \texttt{KeywordController}, \texttt{Keyword}, \texttt{AnalysisResultView} & 100\% \\
+  \hline 
+  RF.D.18 & \texttt{KeywordController}, \texttt{Keyword}, \texttt{KeywordView}, \texttt{KeywordListView} & 100\% \\
+  \hline 
+  RF.O.19 & \texttt{KeywordController}, \texttt{Keyword}, \texttt{KeywordListInfo}, \texttt{KeywordView}, \texttt{KeywordListView}, \texttt{AnalysisResultView} & 100\% \\
+  \hline 
+  RF.O.20 & \texttt{KeywordController}, \texttt{Keyword}, \texttt{KeywordListInfo}, \texttt{KeywordView}, \texttt{KeywordListView}, \texttt{AnalysisResultView} & 100\% \\
+  \hline 
+  RF.O.21 & \texttt{KeywordController}, \texttt{Keyword}, \texttt{KeywordView}, \texttt{AnalysisResultView} & 100\% \\
+  \hline 
+  RF.O.22 & \texttt{KeywordController}, \texttt{Keyword}, \texttt{KeywordView}, \texttt{AnalysisResultView} & 100\% \\
+  \hline 
+  RF.O.23 & \texttt{KeywordController}, \texttt{Keyword}, \texttt{KeywordView}, \texttt{AnalysisResultView} & 100\% \\
+  \hline 
+  RF.O.24 & \texttt{KeywordController}, \texttt{Keyword}, \texttt{KeywordView}, \texttt{AnalysisResultView} & 100\% \\
+  \hline 
+  RF.O.25 & \texttt{KeywordController}, \texttt{Keyword}, \texttt{KeywordView}, \texttt{AnalysisResultView} & 100\% \\
+  \hline 
+  RF.D.26 & \texttt{KeywordController}, \texttt{Keyword}, \texttt{KeywordView}, \texttt{KeywordListView} & 100\% \\
+  \hline 
+  RF.D.27 & \texttt{KeywordController}, \texttt{Keyword}, \texttt{KeywordView}, \texttt{KeywordListView} & 100\% \\
+  \hline 
+  RF.D.28 & \texttt{KeywordController}, \texttt{Keyword}, \texttt{KeywordView}, \texttt{KeywordListView} & 100\% \\
+  \hline 
+  RF.O.29 & \texttt{KeywordController}, \texttt{Keyword}, \texttt{KeywordView}, \texttt{KeywordListView} & 100\% \\
+  \hline 
+  RF.OP.30 & \texttt{KeywordController}, \texttt{WordCounter}, \texttt{KeywordAnalyzer}, \texttt{StagedAnalysisStrategy}, \texttt{AllInOneAnalysisStrategy}, \texttt{Keyword}, \texttt{OverviewInfo}, \texttt{KeywordView}, \texttt{KeywordListView} & 100\% \\
+  \hline 
+  RF.O.31 & \texttt{KeywordController}, \texttt{OverviewInfo}, \texttt{KeywordView} & 100\% \\
+  \hline 
+  RF.O.32 & \texttt{KeywordController}, \texttt{OverviewInfo}, \texttt{KeywordView} & 100\% \\
+  \hline 
+  RF.O.33 & \texttt{KeywordController}, \texttt{Keyword}, \texttt{KeywordListInfo}, \texttt{KeywordView}, \texttt{KeywordListView}, \texttt{AnalysisResultView} & 100\% \\
+  \hline 
+  RF.O.34 & \texttt{KeywordController}, \texttt{Keyword}, \texttt{KeywordView}, \texttt{AnalysisResultView} & 100\% \\
+  \hline 
+  RF.OP.35 & \texttt{KeywordController}, \texttt{KeywordHighlighter}, \texttt{KeywordView} & 100\% \\
+  \hline 
+  RF.OP.36 & \texttt{KeywordController}, \texttt{KeywordHighlighter}, \texttt{KeywordView} & 100\% \\
+  \hline 
+  RF.OP.37 & \texttt{KeywordController}, \texttt{KeywordHighlighter}, \texttt{KeywordView} & 100\% \\
+  \hline 
+  RF.OP.38 & \texttt{KeywordController}, \texttt{KeywordHighlighter}, \texttt{KeywordView} & 100\% \\
+  \hline 
+  RF.O.39 & \texttt{KeywordController}, \texttt{KeywordAnalyzer}, \texttt{StagedAnalysisStrategy}, \texttt{AllInOneAnalysisStrategy}, \texttt{Keyword} & 100\% \\
+  \hline 
+  RF.OP.40 & \texttt{KeywordController}, \texttt{KeywordAnalyzer}, \texttt{StagedAnalysisStrategy}, \texttt{AllInOneAnalysisStrategy}, \texttt{Keyword} & 100\% \\
+  \hline 
+  RF.O.41 & \texttt{KeywordHighlighter} & 100\% \\
+  \hline 
+  RF.OP.42 & \texttt{WordCounter} & 100\% \\
+  \hline 
+  RF.D.43 & \texttt{WordCounter}, \texttt{KeywordAnalyzer}, \texttt{StagedAnalysisStrategy}, \texttt{AllInOneAnalysisStrategy}, \texttt{KeywordHighlighter} & 100\% \\
+\end{tabularx}
