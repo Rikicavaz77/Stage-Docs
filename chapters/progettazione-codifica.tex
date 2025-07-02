@@ -32,7 +32,7 @@
 \par Durante la progettazione dell’interfaccia grafica, ho tratto ispirazione da diverse soluzioni esistenti analizzate nella fase preliminare. In particolare:
 \begin{itemize}
     \item Lo stile delle informazioni in anteprima (come meta keywords, conteggio delle parole, ecc.) si ispira al layout dell’estensione \textit{Detailed SEO Extension}, al quale è stato aggiunto un comportamento flessibile per gestire dinamicamente lo spazio nella barra laterale;
-    \item Il \textit{box} di inserimento della parola chiave è il risultato di una combinazione tra le interfacce di \textit{MozBar} e \textit{Wincher}. Da \textit{MozBar} ho ripreso l’idea della \textit{checkbox} posizionata sotto il campo di \textit{input}, che permette di evidenziare una keyword senza dover eseguire preventivamente una ricerca o un’analisi. \textit{Wincher}, invece, ha ispirato il design del campo di testo affiancato da un pulsante per avviare l’analisi;
+    \item Il \textit{box} di inserimento della parola chiave è il risultato di una combinazione tra le interfacce di \textit{MozBar} e \textit{Wincher}. Da \textit{MozBar} ho ripreso l’idea della \textit{checkbox} posizionata sotto il campo di \textit{input}, che permette di evidenziare una parola chiave senza dover eseguire preventivamente una ricerca o un’analisi. \textit{Wincher}, invece, ha ispirato il design del campo di testo affiancato da un pulsante per avviare l’analisi;
     \item L’organizzazione delle parole chiave in categorie (user-added keywords, meta keywords, most frequent keywords) si basa su un approccio integrato derivato da strumenti come \textit{Keyword Density Analyzer}, \textit{SEOquake}, \textit{SEOptimer} e \textit{SEO tester online}. Da questi strumenti ho ripreso anche l’idea di una rappresentazione dei risultati in formato tabellare;
     \item Il sistema di filtraggio delle parole chiave - non presente nella prima bozza dell’interfaccia - è stato ispirato da \textit{SEOquake}, che offre funzionalità simili per agevolare la consultazione dei risultati.
 \end{itemize}
@@ -72,7 +72,7 @@
 
 \par\noindent 
 \begin{minipage}{\textwidth}
-  Di seguito è riportata la struttura della funzionalità di analisi delle keyword:
+  Di seguito è riportata la struttura della funzionalità di analisi delle parole chiave:
   \vspace{10pt}
   \dirtree{%
     .1 .github.
@@ -102,7 +102,7 @@
 \par Strategy è un pattern comportamentale che permette di incapsulare una famiglia di algoritmi e di selezionare dinamicamente quello più adatto. Poiché in \textit{JavaScript}, a differenza di linguaggi come \textit{Java} o \textit{C\#}, non esistono interfacce in senso stretto, ho definito una classe che ne simula il comportamento all’interno del design  pattern Strategy. Questa classe agisce come una struttura astratta: impedisce l'istanziazione diretta e impone l’implementazione dei metodi. Nell’ambito del progetto di stage, il pattern Strategy è stato utilizzato per delegare una fase dell’analisi a due classi distinte, ognuna delle quali fornisce una diversa implementazione dello stesso processo. In questo modo è possibile selezionare dinamicamente l’algoritmo desiderato senza modificare il codice del modulo di analisi principale.
 
 \vspace{10pt}
-\par\noindent Entrambe le classi calcolano la frequenza complessiva di una keyword tramite la navigazione del \gls{dom} con \textit{TreeWalker}. Le differenze risiedono nel metodo utilizzato per determinare il numero di occorrenze all’interno di un insieme predefinito di tag \gls{html} ritenuti rilevanti per l’analisi. La classe \textit{StagedAnalysisStrategy} esegue un’analisi “per fasi” (staged), contando le occorrenze nei tag solo dopo aver completato il calcolo della frequenza complessiva. L’algoritmo accede direttamente ai tag e ne estrae il contenuto tramite la proprietà \textit{textContent}. Al contrario, la classe \textit{AllInOneAnalysisStrategy} effettua un’analisi compatta e unificata (all in one), registrando le occorrenze nei tag contestualmente al calcolo della frequenza. In questo caso, l’accesso ai tag avviene durante la navigazione del DOM, risalendo la gerarchia (con un approccio bottom-up) ogni volta che vengono trovati \textit{match} all’interno di un nodo.
+\par\noindent Entrambe le classi calcolano la frequenza complessiva di una parola chiave tramite la navigazione del \gls{dom} con \textit{TreeWalker}. Le differenze risiedono nel metodo utilizzato per determinare il numero di occorrenze all’interno di un insieme predefinito di tag \gls{html} ritenuti rilevanti per l’analisi. La classe \textit{StagedAnalysisStrategy} esegue un’analisi “per fasi” (staged), contando le occorrenze nei tag solo dopo aver completato il calcolo della frequenza complessiva. L’algoritmo accede direttamente ai tag e ne estrae il contenuto tramite la proprietà \textit{textContent}. Al contrario, la classe \textit{AllInOneAnalysisStrategy} effettua un’analisi compatta e unificata (all in one), registrando le occorrenze nei tag contestualmente al calcolo della frequenza. In questo caso, l’accesso ai tag avviene durante la navigazione del DOM, risalendo la gerarchia (con un approccio bottom-up) ogni volta che vengono trovati \textit{match} all’interno di un nodo.
 
 \subsection{Dependency Injection}
 
@@ -123,9 +123,9 @@
 \par Di seguito sono elencate le classi presenti nella cartella \textit{Model}:
 
 \begin{itemize}
-  \item \textbf{Keyword}: rappresenta il modello relativo alle parole chiave. Memorizza il nome (cioè la keyword vera e propria), la frequenza, la densità, lo stato dell’analisi e il numero di occorrenze all’interno di un insieme predefinito di tag \gls{html} considerati rilevanti per l’analisi. Espone metodi getter e setter per l’interazione esterna, oltre a un metodo per ripristinare lo stato del modello e uno per calcolare la densità;
-  \item \textbf{KeywordListInfo}: funge da DTO (Data Transfer Object) per la View, trasportando le informazioni associate a una lista di keyword, come la categoria (meta keywords, user-added keywords, ecc.), il titolo, le keyword da visualizzare, il numero totale di pagine e la modalità di ordinamento;
-  \item \textbf{OverviewInfo}: memorizza le informazioni relative all’anteprima dell’analisi \gls{seo}, come il contenuto del meta tag \textit{keywords}, la lingua dichiarata nella pagina, il numero totale di parole e il conteggio delle parole uniche.
+  \item \textbf{Keyword}: rappresenta il modello relativo alle parole chiave. Memorizza il nome (cioè la keyword vera e propria), la frequenza, la densità, lo stato dell’analisi e il numero di occorrenze all’interno di un insieme predefinito di tag \gls{html} considerati rilevanti per l’analisi. Espone metodi \textit{getter} e \textit{setter} per l’interazione esterna, oltre a un metodo per ripristinare lo stato del modello e uno per calcolare la densità;
+  \item \textbf{KeywordListInfo}: funge da DTO (Data Transfer Object) per la View, trasportando le informazioni associate a una lista di keyword, come la categoria (meta keywords, user-added keywords, ecc.), il titolo, le parole chiave da visualizzare, il numero totale di pagine e la modalità di ordinamento;
+  \item \textbf{OverviewInfo}: memorizza le informazioni relative all’anteprima dell’analisi \gls{seo}, come il contenuto del meta tag keywords, la lingua dichiarata nella pagina, il numero totale di parole e il conteggio delle parole uniche.
 \end{itemize}
 
 \subsection{View}
@@ -133,20 +133,20 @@
 \par Di seguito sono elencate le classi presenti nella cartella \textit{View}:
 
 \begin{itemize}
-  \item \textbf{KeywordView}: visualizza la dashboard, ovvero il pannello di controllo principale da cui è possibile anche aggiornare l’analisi a livello globale, e gestisce le operazioni di creazione, accesso e rimozione delle sotto-view. La dashboard è suddivisa nelle seguenti sezioni:
+  \item \textbf{KeywordView}: visualizza la \textit{dashboard}, ovvero il pannello di controllo principale da cui è possibile anche aggiornare l’analisi a livello globale, e gestisce le operazioni di creazione, accesso e rimozione delle sotto-view. La \textit{dashboard} è suddivisa nelle seguenti sezioni:
   \begin{itemize}
     \item \textbf{Overview}: mostra un’anteprima dell’analisi \gls{seo};
-    \item \textbf{Settings}: visualizza le impostazioni dell’analisi SEO, che consentono di personalizzare i colori utilizzati per evidenziare le keyword;
-    \item \textbf{Insert Keyword}: mostra un campo di input affiancato da un pulsante per avviare l’analisi. Include anche una checkbox, posizionata sotto il campo di input, che permette di attivare l’evidenziazione della keyword digitata;
-    \item \textbf{Keyword List}: visualizza un elenco di keyword organizzate per categoria (meta keywords, user-added keywords, ecc.).
+    \item \textbf{Settings}: visualizza le impostazioni dell’analisi SEO, che consentono di personalizzare i colori utilizzati per evidenziare le parole chiave;
+    \item \textbf{Insert Keyword}: mostra un campo di \textit{input} affiancato da un pulsante per avviare l’analisi. Include anche una \textit{checkbox}, posizionata sotto il campo di \textit{input}, che permette di attivare l’evidenziazione della parola chiave digitata;
+    \item \textbf{Keyword List}: visualizza un elenco di parole chiave organizzate per categoria (meta keywords, user-added keywords, ecc.).
   \end{itemize}
   \item \textbf{KeywordListView}: visualizza una lista di keyword suddivisa in tre sezioni virtuali:
   \begin{itemize}
-    \item \textbf{Header}: mostra il titolo della lista, un campo di input per il filtraggio delle keyword, due pulsanti per l’ordinamento e un pulsante per la rimozione dei filtri;
-    \item \textbf{Body}: visualizza l’elenco delle keyword, ciascuna accompagnata da un’indicazione della frequenza e un gruppo di pulsanti per l’eliminazione, l’evidenziazione e l’accesso ai risultati dell’analisi;
-    \item \textbf{Footer}: mostra l’elenco delle pagine per navigare all’interno della lista delle keyword.
+    \item \textbf{Header}: mostra il titolo della lista, un campo di input per il filtraggio delle parole chiave, due pulsanti per l’ordinamento e un pulsante per la rimozione dei filtri;
+    \item \textbf{Body}: visualizza l’elenco delle parole chiave, ciascuna accompagnata da un’indicazione della frequenza e un gruppo di pulsanti per l’eliminazione, l’evidenziazione e l’accesso ai risultati dell’analisi;
+    \item \textbf{Footer}: mostra l’elenco delle pagine per navigare all’interno della lista.
   \end{itemize}
-  \item \textbf{AnalysisResultView}: visualizza la sezione con i risultati dell’analisi di una singola keyword, utilizzando un formato tabellare per riportare il numero di occorrenze nei singoli tag \gls{html}. Include anche un pulsante (highlighter) che consente di evidenziare una keyword direttamente e che rimane sincronizzato tra tutte le View.
+  \item \textbf{AnalysisResultView}: visualizza i risultati dell’analisi di una singola parola chiave, utilizzando un formato tabellare per riportare il numero di occorrenze nei singoli tag \gls{html}. Include anche un pulsante (highlighter) che consente di evidenziare direttamente una parola chiave e che rimane sincronizzato tra tutte le View.
 \end{itemize}
 
 \subsection{Controller}
@@ -154,7 +154,7 @@
 \par Di seguito sono elencate le classi presenti nella cartella \textit{Controller}:
 
 \begin{itemize}
-  \item \textbf{KeywordController}: si occupa dell’inizializzazione e dell’aggiornamento dell’interfaccia, dell’associazione (binding) degli eventi e della gestione delle keyword, includendo funzionalità come inserimento, analisi, evidenziazione, eliminazione, navigazione, ordinamento e filtraggio.
+  \item \textbf{KeywordController}: si occupa dell’inizializzazione e dell’aggiornamento dell’interfaccia, dell’associazione (binding) degli eventi e della gestione delle parole chiave, includendo funzionalità come inserimento, analisi, evidenziazione, eliminazione, navigazione, ordinamento e filtraggio.
 \end{itemize}
 
 \subsection{Services}
@@ -167,23 +167,23 @@
   \begin{itemize}
     \item \textbf{getWordsPattern}: restituisce un'espressione regolare per estrarre le parole dal testo;
     \item \textbf{getCompoundSplitPattern}: restituisce un’espressione regolare per suddividere il testo in blocchi (proposizioni);
-    \item \textbf{getKeywordPattern}: restituisce un’espressione regolare per identificare una keyword nel testo;
+    \item \textbf{getKeywordPattern}: restituisce un’espressione regolare per identificare una parola chiave nel testo;
     \item \textbf{getParentName}: restituisce il nome dell’elemento genitore più vicino (risalendo la gerarchia del DOM con un approccio bottom-up), tra quelli considerati rilevanti per l’analisi;
     \item \textbf{getTextNodes}: restituisce i nodi di testo;
-    \item \textbf{getTextNodeGroups}: restituisce i nodi di testo suddivisi in gruppi. Ciascun gruppo contiene nodi inline validi (ad esempio strong, em, ecc.) che condividono lo stesso elemento genitore.
+    \item \textbf{getTextNodeGroups}: restituisce i nodi di testo suddivisi in gruppi. Ciascun gruppo contiene nodi \textit{inline} validi (ad esempio strong, em, ecc.) che condividono lo stesso elemento genitore.
   \end{itemize}
   \item \textbf{TagAccessor}: centralizza l’accesso ai tag \gls{html} e fornisce un metodo per estrarne il contenuto testuale;
   \item \textbf{WordCounter}: si occupa di calcolare il numero di parole presenti nella pagina e di identificare quelle più frequenti. Quest’ultima operazione è gestita da due metodi distinti, \textit{findOneWordKeywords} e \textit{findCompoundKeywords}, che estraggono rispettivamente le espressioni più ricorrenti composte da una sola parola e da due o più termini (n-grammi), escludendo le \gls{stopword} in base alla lingua dichiarata nella pagina.
-  \item \textbf{KeywordHighlighter}: implementa la funzionalità di evidenziazione delle keyword, esponendo tre metodi principali:
+  \item \textbf{KeywordHighlighter}: implementa la funzionalità di evidenziazione delle parole chiave, esponendo tre metodi principali:
   \begin{itemize}
-    \item \textbf{highlightKeyword}: evidenzia tutte le occorrenze di una keyword adottando due approcci differenti, a seconda che si tratti di una keyword semplice o di una keyphrase. Entrambi gli approcci si basano sulla stessa funzione per applicare l’evidenziazione, ma differiscono nella modalità di ricerca. Per le keyword semplici la ricerca avviene nei singoli nodi di testo, mentre per le keyphrase viene eseguita su un testo virtuale che include uno o più nodi mappati correttamente;
+    \item \textbf{highlightKeyword}: evidenzia tutte le occorrenze di una parola chiave adottando due approcci differenti, a seconda che si tratti di una keyword semplice o di una keyphrase. Entrambi gli approcci si basano sulla stessa funzione per applicare l’evidenziazione, ma differiscono nella modalità di ricerca. Per le keyword semplici la ricerca avviene nei singoli nodi di testo, mentre per le keyphrase viene eseguita su un testo virtuale che include uno o più nodi mappati correttamente;
     \item \textbf{removeHighlight}: rimuove l’evidenziazione eseguendo una normalizzazione del \gls{dom}, al fine di ripristinare il contenuto originale;
-    \item \textbf{updateTagColors}: aggiorna i colori utilizzati per l’evidenziazione delle keyword e inietta nuovamente lo stile nella pagina.
+    \item \textbf{updateTagColors}: aggiorna i colori utilizzati per l’evidenziazione delle parole chiave e inietta nuovamente lo stile nella pagina.
   \end{itemize}
-  \item \textbf{KeywordAnalyzer}: implementa la funzionalità di analisi delle keyword, delegando al pattern \textit{Strategy} una fase del processo, che riguarda il calcolo della frequenza tramite la navigazione del DOM con \textit{TreeWalker} e la registrazione del numero di occorrenze in un insieme predefinito di tag HTML. Questa classe espone quattro metodi principali:
+  \item \textbf{KeywordAnalyzer}: implementa la funzionalità di analisi delle parole chiave, delegando al pattern \textit{Strategy} una fase del processo, che riguarda il calcolo della frequenza tramite la navigazione del DOM con \textit{TreeWalker} e la registrazione del numero di occorrenze in un insieme predefinito di tag HTML. Questa classe espone quattro metodi principali:
   \begin{itemize}
-    \item \textbf{analyzeKeyword}: esegue l’analisi di una singola keyword;
-    \item \textbf{analyzeKeywords}: esegue l’analisi di un gruppo (batch) di keyword, gestendo opportunamente la cache per ottimizzare l’esecuzione;
+    \item \textbf{analyzeKeyword}: esegue l’analisi di una singola parola chiave;
+    \item \textbf{analyzeKeywords}: esegue l’analisi di un gruppo (batch) di parole chiave, gestendo opportunamente la cache per ottimizzare l’esecuzione;
     \item \textbf{countOccurrencesInTag}: conta il numero di occorrenze di una parola chiave in un tag specifico;
     \item \textbf{fullRefresh}: ripristina la cache di tutti i moduli utilizzati per l’analisi.
   \end{itemize}
@@ -195,8 +195,8 @@
 
 \begin{itemize}
   \item \textbf{KeywordAnalysisStrategy}: simula un’interfaccia all’interno del pattern \textit{Strategy}, definendo il contratto che le classi concrete devono implementare;
-  \item \textbf{StagedAnalysisStrategy}: calcola la frequenza di una keyword tramite la navigazione del \gls{dom}, analizzando singoli nodi di testo o gruppi di nodi a seconda della tipologia di keyword (keyword semplice o keyphrase). I due metodi, \textit{analyzeSimpleKeyword} e \textit{analyzeCompoundKeyword}, sono richiamati dal modulo di analisi principale. Per contare il numero di occorrenze all’interno di un insieme predefinito di tag \gls{html}, entrambi i metodi analizzano direttamente i tag interessati, separatamente rispetto al calcolo della frequenza;
-  \item \textbf{AllInOneAnalysisStrategy}: calcola la frequenza in modo analogo alla classe precedente. La differenza principale riguarda la modalità con cui vengono contate le occorrenze all’interno di un insieme predefinito di tag HTML. A differenza della classe precedente, il conteggio avviene contestualmente al calcolo della frequenza, risalendo la gerarchia del DOM con un approccio bottom-up. Per le keyword semplici, l’analisi viene eseguita su singoli nodi di testo; in caso di \textit{match}, è sufficiente risalire la gerarchia alla ricerca dei tag interessati e registrare le occorrenze. Per le keyphrase, invece, l’analisi si svolge su un gruppo di nodi; la registrazione delle occorrenze richiede non solo di risalire la gerarchia per individuare i tag interessati, ma anche di filtrarli per mantenere quelli comuni a tutti i nodi \textit{matchati}.
+  \item \textbf{StagedAnalysisStrategy}: calcola la frequenza di una parola chiave tramite la navigazione del \gls{dom}, analizzando singoli nodi di testo o gruppi di nodi a seconda della tipologia di keyword (keyword semplice o keyphrase). I due metodi, \textit{analyzeSimpleKeyword} e \textit{analyzeCompoundKeyword}, sono richiamati dal modulo di analisi principale. Per contare il numero di occorrenze all’interno di un insieme predefinito di tag \gls{html}, entrambi i metodi analizzano direttamente i tag interessati, separatamente rispetto al calcolo della frequenza;
+  \item \textbf{AllInOneAnalysisStrategy}: calcola la frequenza in modo analogo alla classe precedente. La differenza principale riguarda la modalità con cui vengono contate le occorrenze all’interno di specifici tag HTML. Rispetto alla classe precedente, il conteggio avviene contestualmente al calcolo della frequenza, risalendo la gerarchia del DOM con un approccio bottom-up. Per le keyword semplici, l’analisi viene eseguita su singoli nodi di testo; in caso di \textit{match}, è sufficiente risalire la gerarchia alla ricerca dei tag interessati e registrare le occorrenze. Per le keyphrase, invece, l’analisi si svolge su un gruppo di nodi; la registrazione delle occorrenze richiede non solo di risalire la gerarchia per individuare i tag interessati, ma anche di filtrarli per mantenere quelli comuni a tutti i nodi \textit{matchati}.
 \end{itemize}
 
 \subsection{Utils}

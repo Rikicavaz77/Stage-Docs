@@ -4,7 +4,7 @@
 \section{Evidenziazione delle parole chiave}
 \label{sec:highlight-keyword}
 
-\par La funzionalità “Highlight Keywords” consente di evidenziare tutte le occorrenze di una parola chiave all’interno della pagina web in cui l’estensione è attiva. Ogni occorrenza viene formattata con colori di sfondo, testo e bordo differenti, in base al tag \gls{html} che la contiene; tali colori sono personalizzabili tramite le impostazioni dell’estensione. Oltre alla personalizzazione cromatica delle occorrenze, ciascuna di esse è accompagnata da un’etichetta, posizionata in alto a sinistra, che riporta il nome del tag genitore. Nell’interfaccia grafica, a ogni keyword è associato un pulsante (highlighter) che permette di attivare o disattivare l’evidenziazione a livello globale. Questa funzionalità è accessibile sia dalla pagina principale sia da quella dedicata a una singola keyword, e lo stato del pulsante rimane sincronizzato tra le due. Le parole chiave inserite manualmente dall'utente possono essere evidenziate anche prima dell’avvio dell’analisi vera e propria, tramite il pulsante dedicato, mantenendo le funzionalità di analisi ed evidenziazione separate e indipendenti.
+\par La funzionalità “Highlight Keywords” consente di evidenziare tutte le occorrenze di una parola chiave all’interno della pagina web in cui l’estensione è attiva. Ogni occorrenza viene formattata con colori di sfondo, testo e bordo differenti, in base al tag \gls{html} che la contiene; tali colori sono personalizzabili tramite le impostazioni dell’estensione. Oltre alla personalizzazione cromatica delle occorrenze, ciascuna di esse è accompagnata da un’etichetta, posizionata in alto a sinistra, che riporta il nome del tag genitore. Nell’interfaccia grafica, a ogni parola chiave è associato un pulsante (highlighter) che permette di attivare o disattivare l’evidenziazione a livello globale. Questa funzionalità è accessibile sia dalla pagina principale sia da quella dedicata a una singola keyword, e lo stato del pulsante rimane sincronizzato tra le due. Le parole chiave inserite manualmente dall'utente possono essere evidenziate anche prima dell’avvio dell’analisi vera e propria, tramite il pulsante dedicato, mantenendo le funzionalità di analisi ed evidenziazione separate e indipendenti.
 
 \subsection{Problematiche riscontrate}
 
@@ -14,7 +14,7 @@
 \par\noindent Una volta individuate le occorrenze di una parola chiave, l’evidenziazione è stata applicata utilizzando un oggetto \textit{DocumentFragment}, che permette di costruire in modo sicuro una struttura temporanea da inserire nel DOM principale. Per rimuovere l’evidenziazione e ripristinare correttamente il contenuto originale, è stata eseguita un’operazione di normalizzazione del DOM, tramite la quale i nodi di testo adiacenti vengono unificati e quelli vuoti rimossi.
 
 \vspace{10pt}
-\par\noindent Un altro ostacolo, particolarmente critico per l’affidabilità e le prestazioni del sistema, è emerso nel trattamento delle parole chiave composte da più termini separati da spazi (note anche come \textit{keyphrase}). L’approccio iniziale prevedeva l’esecuzione della ricerca sui singoli nodi di testo; di conseguenza, una keyword come “JavaScript Tutorial” non veniva riconosciuta se i due termini erano distribuiti su tag distinti (ad esempio, un h1 e uno span annidato). Questo limite è stato rilevato nel corso di test manuali condotti su un blog di intrattenimento e informazione, che adotta una convenzione particolare: evidenziare in grassetto solo il cognome all’interno dei nomi propri. Ciò comportava la frammentazione di molte \textit{keyphrase}, che non venivano identificate correttamente dal sistema. Per rendere la ricerca delle \textit{keyphrase} più granulare e accurata, ho sviluppato due algoritmi: uno ricorsivo e uno iterativo. Il primo suddivide la \textit{keyphrase} in blocchi e cerca ciascun blocco all’interno di nodi di testo adiacenti. Il secondo, invece, costruisce un testo virtuale concatenando il contenuto di nodi adiacenti, simulando il comportamento delle proprietà \textit{innerText} o \textit{textContent}. In entrambi gli approcci, i nodi adiacenti devono appartenere allo stesso contesto, ovvero condividere lo stesso elemento genitore ed essere elementi \textit{inline}. Tra le due soluzioni, è stato preferito il secondo algoritmo, in quanto più flessibile e maggiormente coerente con il comportamento reale del browser.
+\par\noindent Un altro ostacolo, particolarmente critico per l’affidabilità e le prestazioni del sistema, è emerso nel trattamento delle parole chiave composte da più termini separati da spazi (note anche come \textit{keyphrase}). L’approccio iniziale prevedeva l’esecuzione della ricerca sui singoli nodi di testo; di conseguenza, una keyword come “JavaScript Tutorial” non veniva riconosciuta se i due termini erano distribuiti su tag distinti (ad esempio, un h1 e uno span annidato). Questo limite è stato rilevato nel corso di test manuali condotti su un blog di intrattenimento e informazione, che adotta una convenzione particolare: evidenziare in grassetto solo il cognome all’interno dei nomi propri. Ciò comportava la frammentazione di molte \textit{keyphrase}, che non venivano identificate correttamente dal sistema. Per rendere la ricerca delle \textit{keyphrase} più granulare e accurata, ho sviluppato due algoritmi: uno ricorsivo e uno iterativo. Il primo suddivide la \textit{keyphrase} in blocchi e cerca ciascun blocco all’interno di nodi di testo adiacenti. Il secondo, invece, costruisce un testo virtuale concatenando il contenuto di nodi adiacenti, simulando il comportamento delle proprietà \textit{innerText} o \textit{textContent}. In entrambi gli approcci, i nodi adiacenti devono appartenere allo stesso contesto, ovvero condividere lo stesso elemento genitore ed essere elementi \textit{inline} validi (ad esempio strong, em, ecc.). Tra le due soluzioni, ho preferito il secondo algoritmo, in quanto più flessibile e maggiormente coerente con il comportamento reale del browser.
 
 \vspace{10pt}
 \par\noindent Nel secondo algoritmo, ogni volta che si concatena il contenuto di un nodo al testo virtuale, è necessario effettuare una mappatura degli indici di inizio e fine, in modo da poter risalire al nodo originale nel momento in cui vengono trovati \textit{match}. Questa operazione può risultare complessa, soprattutto in presenza di \gls{dom} profondi o fortemente nidificati. Per questo motivo, l’algoritmo “a nodi multipli” non ha sostituito quello originale, che esegue la ricerca sui singoli nodi di testo, ma coesiste con esso all’interno del sistema. I due algoritmi vengono richiamati dinamicamente in base alla tipologia di parola chiave: per le keyword semplici viene utilizzato l’algoritmo “a nodo singolo”, mentre per le keyphrase viene impiegato l’algoritmo “a nodi multipli”. È stato valutato anche il caso limite in cui una keyword semplice risulti spezzata su più tag. Tuttavia, trattandosi di una situazione molto rara, si è deciso di non complicare ulteriormente il flusso di ricerca per gestirla.
@@ -30,11 +30,11 @@
   \item Conteggio delle parole uniche.
 \end{itemize}
 
-\vspace{10pt}
-\par\noindent Queste informazioni costituiscono la base per l'analisi delle parole chiave, che prende in considerazione diversi parametri, come la frequenza, la densità e il numero di occorrenze all’interno di un insieme predefinito di tag semantici. L'analisi viene eseguita su una copia statica del \gls{dom}, al fine di garantire coerenza tra tutte le parole chiave, e può essere aggiornata manualmente tramite un pulsante dedicato. La ricerca delle parole chiave segue gli stessi criteri illustrati nella \hyperref[sec:highlight-keyword]{sezione \textsection\ref*{sec:highlight-keyword}}.
+\vspace{5pt}
+\par\noindent Queste informazioni costituiscono la base per l'analisi delle parole chiave, che prende in considerazione diversi parametri, come la frequenza, la densità e il numero di occorrenze all’interno di un insieme predefinito di tag \gls{html}. L'analisi viene eseguita su una copia statica del \gls{dom}, al fine di garantire coerenza tra tutte le parole chiave, e può essere aggiornata manualmente tramite un pulsante dedicato. La ricerca delle parole chiave segue gli stessi criteri illustrati nella \hyperref[sec:highlight-keyword]{sezione \textsection\ref*{sec:highlight-keyword}}.
 
 \vspace{10pt}
-\par\noindent I tag semantici considerati più rilevanti dal punto di vista SEO sono:
+\par\noindent I tag semantici considerati più rilevanti dal punto di vista \gls{seo} sono:
 \begin{itemize}
   \item Il tag title;
   \item Il meta tag description;
@@ -47,14 +47,14 @@
   \item Il testo alternativo delle immagini (Alt).
 \end{itemize}
 
-\vspace{10pt}
+\vspace{5pt}
 \par\noindent Per il calcolo delle occorrenze di una parola chiave all’interno di questi tag, sono stati adottati due approcci:
 \begin{itemize}
   \item Accedere direttamente ai tag e utilizzare la proprietà textContent per estrarne il contenuto da analizzare;
-  \item Risalire ai tag semantici durante la navigazione del DOM con \textit{TreeWalker}, registrando le occorrenze contestualmente al calcolo della frequenza complessiva.
+  \item Risalire ai tag durante la navigazione del DOM con \textit{TreeWalker}, registrando le occorrenze contestualmente al calcolo della frequenza complessiva.
 \end{itemize}
 
-\vspace{10pt}
+\vspace{5pt}
 \par\noindent Poiché entrambi gli approcci sono stati considerati ugualmente validi, ho adottato il design pattern comportamentale \textit{Strategy}, in modo da poter selezionare dinamicamente l’algoritmo senza alterare il codice del modulo di analisi.
 
 \subsection{Problematiche riscontrate}
@@ -70,7 +70,7 @@
 \section{Conteggio delle parole ed estrazione di quelle più frequenti}
 \label{sec:count-word}
 
-\par Il conteggio delle parole presenti nella pagina rappresenta un requisito fondamentale per il calcolo della densità di una keyword. L'estrazione delle parole dal testo avviene secondo un pattern che segue gli stessi criteri descritti nella \hyperref[sec:highlight-keyword]{sezione \textsection\ref*{sec:highlight-keyword}}. Tra i requisiti opzionali figura invece l'identificazione delle parole più frequenti, suddivisibili in categorie come “single-word”, “double-word” e così via. Questa funzionalità risulta particolarmente utile qualora il meta tag \textit{keywords} non sia presente, poiché consente di suggerire all’utente un elenco di termini che, in base alla frequenza, possono essere considerati potenziali parole chiave. Il sistema seleziona le 10 parole più ricorrenti per ciascuna categoria, presentandole in ordine decrescente.
+\par Il conteggio delle parole presenti nella pagina rappresenta un requisito fondamentale per il calcolo della densità di una keyword. L'estrazione delle parole dal testo avviene secondo un pattern che segue gli stessi criteri descritti nella \hyperref[sec:highlight-keyword]{sezione \textsection\ref*{sec:highlight-keyword}}. Tra i requisiti opzionali figura invece l'identificazione delle parole più frequenti, suddivisibili in categorie come “single-word”, “double-word” e così via. Questa funzionalità risulta particolarmente utile qualora il meta tag keywords non sia presente, poiché consente di suggerire all’utente un elenco di termini che, in base alla frequenza, possono essere considerati potenziali parole chiave. Il sistema seleziona le 10 parole più ricorrenti per ciascuna categoria, presentandole in ordine decrescente.
 
 \subsection{Problematiche riscontrate}
 
@@ -83,11 +83,11 @@
 \begin{itemize}
   \item \textbf{Meta keywords}: parole chiave estratte dal meta tag keywords;
   \item \textbf{User-added keywords}: parole chiave inserite manualmente dall'utente;
-  \item \textbf{Most frequent “single-word” keywords}: le 10 parole chiave più frequenti composte da una sola parola;
-  \item \textbf{Most frequent “double-word” keywords}: le 10 parole chiave più frequenti composte da due parole.
+  \item \textbf{Most frequent “single-word” keywords}: le 10 parole chiave più frequenti composte da un solo termine;
+  \item \textbf{Most frequent “double-word” keywords}: le 10 parole chiave più frequenti composte da due termini.
 \end{itemize}
 
-\vspace{10pt}
+\vspace{5pt}
 \par\noindent Ogni elenco può essere ordinato per frequenza, filtrato per nome e ripristinato tramite appositi pulsanti. All’interno di ciascuna lista, il sistema carica 5 elementi alla volta, navigabili attraverso un sistema di paginazione. Per evitare di sovraccaricare l’interfaccia, non vengono mostrati tutti i pulsanti di navigazione delle pagine, ma solo un sottoinsieme calcolato dinamicamente secondo le seguenti regole:
 \begin{itemize}
   \item Il pulsante per accedere alla prima pagina è sempre visibile;
@@ -97,12 +97,12 @@
   \item I pulsanti nascosti sono sostituiti dalla stringa “...”.
 \end{itemize}
 
-\vspace{10pt}
-\par\noindent A ciascuna keyword è associata un’indicazione della frequenza e un gruppo di pulsanti che consentono di eseguire operazioni come l’eliminazione, l’evidenziazione visiva o la visualizzazione dei risultati dell’analisi.
+\vspace{5pt}
+\par\noindent A ciascuna parola chiave è associata un’indicazione della frequenza e un gruppo di pulsanti che consentono di eseguire operazioni come l’eliminazione, l’evidenziazione visiva e la visualizzazione dei risultati dell’analisi.
 
 \subsection{Problematiche riscontrate}
 
-\par L’elenco delle parole chiave più frequenti viene visualizzato, per impostazione predefinita, in ordine decrescente. Di conseguenza, il relativo pulsante di ordinamento deve risultare attivo sin dall’inizio. Una volta rimossi eventuali filtri, è necessario ripristinare il comportamento predefinito, ovvero riattivare il pulsante di ordinamento in modalità “desc”. Questa condizione è rimasta inosservata fino all’esecuzione dei test manuali, rendendo necessario un leggero refactoring per evitare potenziali situazioni di disorientamento per l’utente.
+\par L’elenco delle parole chiave più frequenti viene visualizzato, per impostazione predefinita, in ordine decrescente. Di conseguenza, il relativo pulsante di ordinamento deve risultare attivo sin dall’inizio. Una volta rimossi eventuali filtri, è necessario ripristinare il comportamento predefinito, ovvero riattivare il pulsante di ordinamento in modalità “desc”. Questa condizione è rimasta inosservata fino all’esecuzione dei test manuali, rendendo necessario un leggero \textit{refactoring} per evitare potenziali situazioni di disorientamento per l’utente.
 
 \section{Accessibilità}
 

@@ -36,7 +36,7 @@
   \caption{Copertura del codice - report di Codecov}
 \end{figure}
 
-\par\noindent I test automatici vengono eseguiti a ogni apertura, aggiornamento o chiusura di una pull request, garantendo che tutto il codice rilasciato superi i test e mantenga una copertura uniforme. Dal punto di vista architetturale e organizzativo, i test rispecchiano fedelmente la struttura del core dell’estensione, risultando più leggibili e manutenibili. 
+\par\noindent I test automatici vengono eseguiti a ogni apertura, aggiornamento o chiusura di una \textit{pull request}, garantendo che tutto il codice rilasciato superi i test e mantenga una copertura uniforme. Dal punto di vista architetturale e organizzativo, i test rispecchiano fedelmente la struttura del \textit{core} dell’estensione, risultando più leggibili e manutenibili. 
 
 \vspace{10pt}
 \begin{samepage}
@@ -103,11 +103,11 @@
 \hline 
 \textbf{KeywordListView} \textit{(keyword\_list\_view.test.js)}: verifica il corretto funzionamento del componente responsabile della visualizzazione delle liste di parole chiave per ciascuna tipologia & 100\% \\
 \hline 
-\textbf{KeywordView} \textit{(view.test.js)}: verifica il corretto funzionamento della view principale, responsabile della gestione della dashboard e delle sotto-view & 100\% \\
+\textbf{KeywordView} \textit{(view.test.js)}: verifica il corretto funzionamento della view principale, responsabile della gestione della \textit{dashboard} e delle sotto-view & 100\% \\
 \hline 
-\textbf{KeywordController} \textit{(controller.test.js)}: verifica il corretto funzionamento delle operazioni di gestione delle parole chiave (funzionalità non dipendenti dal DOM e non sufficientemente specifiche da giustificare una suite dedicata) & 100\% \\
+\textbf{KeywordController} \textit{(controller.test.js)}: verifica il corretto funzionamento delle operazioni di gestione delle parole chiave (funzionalità non dipendenti dal \gls{dom} e non sufficientemente specifiche da giustificare una suite dedicata) & 100\% \\
 \hline 
-\textbf{KeywordController - DOM} \textit{(controller\_dom.test.js)}: verifica il corretto funzionamento delle operazioni del controller che richiedono l’interazione con il \gls{dom} & 100\% \\
+\textbf{KeywordController - DOM} \textit{(controller\_dom.test.js)}: verifica il corretto funzionamento delle operazioni del controller che richiedono l’interazione con il DOM & 100\% \\
 \hline 
 \textbf{KeywordController - sorting} \textit{(controller\_sorting.test.js)}: verifica le funzionalità di ordinamento delle parole chiave & 100\% \\
 \hline
@@ -115,13 +115,13 @@
 \hline
 \textbf{KeywordController - pagination} \textit{(controller\_pagination.test.js)}: verifica la logica di gestione della paginazione delle parole chiave & 100\% \\
 \hline
-\textbf{KeywordController - highlight} \textit{(controller\_highlight.test.js)}: verifica la logica di gestione dell’evidenziazione delle parole chiave nella pagina & 100\% \\
+\textbf{KeywordController - highlight} \textit{(controller\_highlight.test.js)}: verifica la logica di gestione dell’evidenziazione delle parole chiave & 100\% \\
 \hline
 \textbf{KeywordController - events} \textit{(controller\_events.test.js)}: verifica il corretto funzionamento dell’associazione (binding) degli eventi & 100\% \\
 \hline
 \textbf{KeywordController - init} \textit{(controller\_init.test.js)}: verifica le funzionalità di inizializzazione e aggiornamento del controller, nonché l’integrazione tra i componenti dell’architettura & 100\% \\
 \hline
-\textbf{TreeWalkerManager} \textit{(tree\_walker\_manager.test.js)}: verifica le funzionalità di gestione dell’oggetto TreeWalker & 100\% \\
+\textbf{TreeWalkerManager} \textit{(tree\_walker\_manager.test.js)}: verifica la corretta gestione dell’oggetto \textit{TreeWalker} & 100\% \\
 \hline
 \textbf{TextProcessor} \textit{(text\_processor.test.js)}: verifica il corretto comportamento delle funzioni di utilità legate all’analisi e all’elaborazione testuale & 100\% \\
 \hline
@@ -144,7 +144,7 @@
 
 \section{Test manuali}
 
-\par L’estensione è stata testata su un insieme di pagine web differenti per dimensione (in termini di profondità del DOM) e lingua (inglese o italiana), con l’obiettivo di verificarne il corretto funzionamento mediante osservazione manuale.
+\par L’estensione è stata testata su un insieme di pagine web differenti per dimensione (in termini di profondità del \gls{dom}) e lingua (inglese o italiana), con l’obiettivo di verificarne il corretto funzionamento mediante osservazione manuale.
 
 \renewcommand{\arraystretch}{1.5}
 \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X}
@@ -166,7 +166,7 @@
 \endlastfoot
 
 \hline
-\textbf{W3Schools} - JavaScript Tutorial (\url{https://www.w3schools.com/js/}) & Tutti i test manuali sono stati superati con successo, inclusa l'analisi di parole chiave “spezzate” su più tag \gls{html} (es. “JavaScript Tutorial”). L’unica eccezione riscontrata nelle prime fasi di sviluppo riguardava il mancato rilevamento dei meta tag \textit{keywords} e \textit{description}. Il problema era dovuto al fatto che, contrariamente alle convenzioni più comuni, il valore dell’attributo \textit{name} iniziava con una lettera maiuscola. La soluzione adottata è stata l’aggiunta del flag di confronto “case-insensitive” nel selettore \\
+\textbf{W3Schools} - JavaScript Tutorial (\url{https://www.w3schools.com/js/}) & Tutti i test manuali sono stati superati con successo, inclusa l'analisi di parole chiave “spezzate” su più tag \gls{html} (es. “JavaScript Tutorial”). L’unica eccezione riscontrata nelle prime fasi di sviluppo riguardava il mancato rilevamento dei meta tag keywords e description. Il problema era dovuto al fatto che, contrariamente alle convenzioni più comuni, il valore dell’attributo \textit{name} iniziava con una lettera maiuscola. La soluzione adottata è stata l’aggiunta del flag di confronto “case-insensitive” nel selettore \\
 \hline
 \textbf{W3Schools} - JavaScript Regular Expressions (\url{https://www.w3schools.com/js/js\_regexp.asp}) & Tutti i test manuali sono stati superati con successo \\
 \hline
