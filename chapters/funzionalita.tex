@@ -19,6 +19,12 @@
 \vspace{10pt}
 \par\noindent Nel secondo algoritmo, ogni volta che si concatena il contenuto di un nodo al testo virtuale, è necessario effettuare una mappatura degli indici di inizio e fine, in modo da poter risalire al nodo originale nel momento in cui vengono trovati \textit{match}. Questa operazione può risultare complessa, soprattutto in presenza di \gls{dom} profondi o fortemente nidificati. Per questo motivo, l’algoritmo “a nodi multipli” non ha sostituito quello originale, che esegue la ricerca sui singoli nodi di testo, ma coesiste con esso all’interno del sistema. I due algoritmi vengono richiamati dinamicamente in base alla tipologia di parola chiave: per le keyword semplici viene utilizzato l’algoritmo “a nodo singolo”, mentre per le keyphrase viene impiegato l’algoritmo “a nodi multipli”. È stato valutato anche il caso limite in cui una keyword semplice risulti spezzata su più tag. Tuttavia, trattandosi di una situazione molto rara, si è deciso di non complicare ulteriormente il flusso di ricerca per gestirla.
 
+\begin{figure}[H]
+  \centering 
+  \fbox{\includegraphics[width=0.95\columnwidth]{funzionalita/highlight.png}} 
+  \caption{Evidenziazione delle parole chiave}
+\end{figure}
+
 \section{Analisi delle parole chiave}
 \label{sec:analyze-keyword}
 
@@ -67,6 +73,12 @@
 \vspace{10pt}
 \par\noindent Un aspetto che ha generato ambiguità è stata la discrepanza tra la frequenza complessiva e la somma delle occorrenze rilevate nei singoli tag. Tale divergenza era dovuta al fatto che alcune occorrenze di una parola chiave si trovavano all’interno di tag annidati. La soluzione concordata con la Proponente è stata l’inserimento di un messaggio esplicativo, al fine di chiarire il comportamento del sistema ed evitare fraintendimenti da parte dell’utente.
 
+\begin{figure}[H]
+  \centering 
+  \fbox{\includegraphics[width=0.95\columnwidth]{funzionalita/analysis.png}} 
+  \caption{Analisi delle parole chiave}
+\end{figure}
+
 \section{Conteggio delle parole ed estrazione di quelle più frequenti}
 \label{sec:count-word}
 
@@ -75,6 +87,12 @@
 \subsection{Problematiche riscontrate}
 
 \par Le \gls{stopword} devono essere escluse dal processo di identificazione delle parole più frequenti, in quanto non hanno valore semantico e difficilmente corrispondono a parole chiave. A tal fine, ho utilizzato una libreria esterna per definire una serie di liste di stopword, selezionate dinamicamente in base alla lingua dichiarata nella pagina. Nel caso delle “single-word”, l’esclusione delle stopword è diretta e immediata. La gestione delle espressioni composte da due o più termini (n-grammi), invece, richiede maggiore attenzione. Nei testi in lingua italiana, ad esempio, è piuttosto comune l’uso di termini o espressioni in inglese (lingua di riferimento a livello internazionale). In questi contesti, espressioni come “The Batman” possono essere considerate valide, mentre sequenze prive di valore semantico come “of the” andrebbero escluse. Per trattare in modo adeguato queste situazioni, ho implementato un duplice controllo: escludere tutte le stopword relative alla lingua dichiarata nella pagina e tollerare la presenza di stopword inglesi solo se queste non superano il 50\% dei termini dell’espressione.
+
+\begin{figure}[H]
+  \centering 
+  \fbox{\includegraphics[width=0.95\columnwidth]{funzionalita/word_count.png}} 
+  \caption{Conteggio delle parole chiave ed estrazione di quelle più frequenti}
+\end{figure}
 
 \section{Elenco delle parole chiave}
 \label{sec:keyword-list}
@@ -103,6 +121,12 @@
 \subsection{Problematiche riscontrate}
 
 \par L’elenco delle parole chiave più frequenti viene visualizzato, per impostazione predefinita, in ordine decrescente. Di conseguenza, il relativo pulsante di ordinamento deve risultare attivo sin dall’inizio. Una volta rimossi eventuali filtri, è necessario ripristinare il comportamento predefinito, ovvero riattivare il pulsante di ordinamento in modalità “desc”. Questa condizione è rimasta inosservata fino all’esecuzione dei test manuali, rendendo necessario un leggero \textit{refactoring} per evitare potenziali situazioni di disorientamento per l’utente.
+
+\begin{figure}[H]
+  \centering 
+  \fbox{\includegraphics[width=0.95\columnwidth]{funzionalita/keyword_list.png}} 
+  \caption{Elenco delle parole chiave}
+\end{figure}
 
 \section{Accessibilità}
 
