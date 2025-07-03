@@ -6,7 +6,7 @@
 \section{Introduzione}
 \label{sec:introduzione-progetto}
 
-\par Il focus del progetto è l’analisi delle parole chiave, ma non in un’ottica di \textit{marketing:} non vengono infatti considerati parametri come efficacia, \textit{ranking}, \gls{keyword-difficulty}, né funzionalità avanzate come anteprime \gls{serp} o suggerimenti di parole chiave. Questi aspetti dell’analisi \gls{seo}, sia \gls{on-page-seo} che \gls{off-page-seo}, sono già ampiamente supportati da numerose estensioni, gratuite e a pagamento, e pertanto non rappresentano una sfida particolarmente stimolante per uno progetto di stage. Inoltre, l’analisi del posizionamento di un sito per una determinata parola chiave richiede che il sito sia effettivamente \textit{hostato;} di conseguenza, questa funzionalità non si adatta allo scopo dell’estensione, che è rivolta principalmente agli sviluppatori e deve quindi funzionare anche in ambiente \gls{localhost}. Al contrario, funzionalità come l’analisi della distribuzione delle parole chiave e la loro evidenziazione visiva all’interno della pagina, rientrano pienamente nell’analisi on-page e rispondono a una necessità reale di molti sviluppatori. Tali funzionalità sono implementate separatamente in estensioni web come \textit{MozBar} o \textit{SEOquake}, ma difficilmente vengono integrate all’interno di un unico strumento. Tra i più noti, probabilmente solo il plugin \textit{Yoast SEO} per \gls{wordpress} consente sia l’analisi che l’evidenziazione delle parole chiave; tuttavia, come suggerisce il nome, si tratta di uno strumento pensato esclusivamente per sviluppatori che utilizzano un \gls{cms}. Pertanto, l’obiettivo del progetto è combinare queste due funzionalità in un’estensione web direttamente accessibile sin dalle prime fasi di sviluppo.
+\par Il focus del progetto è l’analisi delle parole chiave, ma non in un’ottica di \textit{marketing:} non vengono infatti considerati parametri come efficacia, \textit{ranking}, \gls{keyword-difficulty}, né funzionalità avanzate come anteprime \gls{serp} o suggerimenti di parole chiave. Questi aspetti dell’analisi \gls{seo}, sia \gls{on-page} che \gls{off-page}, sono già ampiamente supportati da numerose estensioni, gratuite e a pagamento, e pertanto non rappresentano una sfida particolarmente stimolante per uno progetto di stage. Inoltre, l’analisi del posizionamento di un sito per una determinata parola chiave richiede che il sito sia effettivamente \textit{hostato;} di conseguenza, questa funzionalità non si adatta allo scopo dell’estensione, che è rivolta principalmente agli sviluppatori e deve quindi funzionare anche in ambiente \gls{localhost}. Al contrario, funzionalità come l’analisi della distribuzione delle parole chiave e la loro evidenziazione visiva all’interno della pagina, rientrano pienamente nell’analisi on-page e rispondono a una necessità reale di molti sviluppatori. Tali funzionalità sono implementate separatamente in estensioni web come \textit{MozBar} o \textit{SEOquake}, ma difficilmente vengono integrate all’interno di un unico strumento. Tra i più noti, probabilmente solo il plugin \textit{Yoast SEO} per \gls{wordpress} consente sia l’analisi che l’evidenziazione delle parole chiave; tuttavia, come suggerisce il nome, si tratta di uno strumento pensato esclusivamente per sviluppatori che utilizzano un \gls{cms}. Pertanto, l’obiettivo del progetto è combinare queste due funzionalità in un’estensione web direttamente accessibile sin dalle prime fasi di sviluppo.
 
 \section{Analisi preventiva dei rischi}
 \label{sec:rischi}
@@ -15,7 +15,7 @@
 
 \begin{risk}{Risultato non conforme alle aspettative}
   \riskdescription{Trattandosi di uno stage interno, la Proponente ha evidenziato il rischio che, in caso di mancanza di feedback costanti, la soluzione sviluppata, in termini tecnici o di interfaccia grafica, non soddisfi le attese}
-  \riskprevention{È prevista la creazione di una cartella documentale condivisa su Google Drive, aggiornata costantemente, che la Proponente può monitorare e commentare durante lo svolgimento del progetto.\\ Il repository \gls{github} deve essere accessibile pubblicamente, al fine di consentire l’esecuzione di test manuali in parallelo a quelli automatici.\\ Sono previsti aggiornamenti periodici, in presenza o da remoto, con una frequenza di almeno una o due volte a settimana. In caso di aggiornamento a distanza, la comunicazione via e-mail deve risultare sufficientemente esaustiva}
+  \riskprevention{È prevista la creazione di una cartella documentale condivisa su Google Drive, aggiornata costantemente, che la Proponente può monitorare e commentare durante lo svolgimento del progetto.\\ Il \gls{repository} \gls{github} deve essere accessibile pubblicamente, al fine di consentire l’esecuzione di test manuali in parallelo a quelli automatici.\\ Sono previsti aggiornamenti periodici, in presenza o da remoto, con una frequenza di almeno una o due volte a settimana. In caso di aggiornamento a distanza, la comunicazione via e-mail deve risultare sufficientemente esaustiva}
   \label{risk:risultato-non-conforme} 
 \end{risk}
 
@@ -114,7 +114,7 @@ X.Y.Z
 
 \subsection{Verifica e validazione del codice}
 
-\par In parallelo con l’attività di codifica, ho avviato la fase di testing, comprendente sia test automatici che manuali. I test di unità e integrazione sono stati automatizzati grazie a \textit{GitHub Actions}, così da ottenere feedback immediati al verificarsi di determinati eventi, come l’apertura, l’aggiornamento o la chiusura di una \textit{pull request}. Questo approccio riduce il rischio di introdurre errori nel \textit{branch} principale e garantisce una copertura uniforme del codice, grazie alle funzionalità di \textit{coverage} messe a disposizione dai \textit{framework} di test. I test manuali sono stati effettuati sia dalle parti direttamente coinvolte nello sviluppo, sia da soggetti esterni privi di familiarità con il progetto.
+\par In parallelo con l’attività di codifica, ho avviato la fase di testing, comprendente sia test automatici che manuali. I test di unità e integrazione sono stati automatizzati grazie a \textit{GitHub Actions}, così da ottenere feedback immediati al verificarsi di determinati eventi, come l’apertura, l’aggiornamento o la chiusura di una \gls{pull request}. Questo approccio riduce il rischio di introdurre errori nel \textit{branch} principale e garantisce una copertura uniforme del codice, grazie alle funzionalità di \textit{coverage} messe a disposizione dai \gls{framework} di test. I test manuali sono stati effettuati sia dalle parti direttamente coinvolte nello sviluppo, sia da soggetti esterni privi di familiarità con il progetto.
 
 \vspace{10pt}
 \par\noindent Come strumento di gestione del progetto ho scelto Jira, più articolato rispetto a Trello ma perfettamente integrabile con \gls{github}. Si tratta, inoltre, di uno strumento già utilizzato in ambito accademico, di cui conoscevo punti di forza e limitazioni. Le funzionalità maggiormente impiegate sono state:
@@ -151,7 +151,7 @@ X.Y.Z
 
 \subsection*{Codecov}
 
-\par Codecov è un servizio di \textit{reporting} che monitora la copertura del codice, ovvero la percentuale di codice eseguito durante i test automatici. Nell’ambito del progetto di stage, è stato utilizzato per integrare queste informazioni direttamente nel flusso di lavoro su GitHub, in modo da garantire una copertura del codice uniforme per ogni \textit{pull request}. Inoltre, Codecov fornisce un \textit{badge} di stato utile ad arricchire la documentazione del \textit{repository}.
+\par Codecov è un servizio di \textit{reporting} che monitora la copertura del codice, ovvero la percentuale di codice eseguito durante i test automatici. Nell’ambito del progetto di stage, è stato utilizzato per integrare queste informazioni direttamente nel flusso di lavoro su GitHub, in modo da garantire una copertura del codice uniforme per ogni \gls{pull request}. Inoltre, Codecov fornisce un \textit{badge} di stato utile ad arricchire la documentazione del \gls{repository}.
 
 \begin{figure}[H]
     \centering 
@@ -178,7 +178,7 @@ X.Y.Z
 
 \subsection*{GitHub}
 
-\par Github è un servizio \textit{web e cloud-based} per l'archiviazione, il versionamento e la condivisione del codice. Nell’ambito dello stage, è stato utilizzato per contribuire allo sviluppo di un progetto esistente tramite la funzionalità di \textit{fork}, che consente di lavorare sul codice in modo isolato, per poi proporre le modifiche al \textit{repository} originale. GitHub consente anche di aprire spazi di discussione relativi al codice tramite \textit{issue} e \textit{pull request}, oltre a fornire strumenti per la gestione del progetto come \textit{board} e \textit{milestone}. Inoltre, permette di automatizzare i flussi di lavoro attraverso le \textit{GitHub Actions}.
+\par Github è un servizio \textit{web e cloud-based} per l'archiviazione, il versionamento e la condivisione del codice. Nell’ambito dello stage, è stato utilizzato per contribuire allo sviluppo di un progetto esistente tramite la funzionalità di \textit{fork}, che consente di lavorare sul codice in modo isolato, per poi proporre le modifiche al \gls{repository} originale. GitHub consente anche di aprire spazi di discussione relativi al codice tramite \textit{issue} e \gls{pull request}, oltre a fornire strumenti per la gestione del progetto come \textit{board} e \textit{milestone}. Inoltre, permette di automatizzare i flussi di lavoro attraverso le \textit{GitHub Actions}.
 
 \begin{figure}[H]
     \centering 
@@ -279,7 +279,7 @@ X.Y.Z
 
 \subsection*{JavaScript}
 
-\par JavaScript è un linguaggio di programmazione utilizzato per definire il comportamento e la logica delle pagine web. È un linguaggio multi-paradigma che può essere impiegato sia nella programmazione lato client che lato server (Node.js). JavaScript consente di aggiornare dinamicamente i contenuti HTML e gli stili CSS. Si integra perfettamente con \textit{framework} di test come Jest e strumenti di documentazione come JSDoc. È inoltre il linguaggio di riferimento per lo sviluppo di estensioni web.
+\par JavaScript è un linguaggio di programmazione utilizzato per definire il comportamento e la logica delle pagine web. È un linguaggio multi-paradigma che può essere impiegato sia nella programmazione lato client che lato server (Node.js). JavaScript consente di aggiornare dinamicamente i contenuti HTML e gli stili CSS. Si integra perfettamente con \gls{framework} di test come Jest e strumenti di documentazione come JSDoc. È inoltre il linguaggio di riferimento per lo sviluppo di estensioni web.
 
 \begin{figure}[H]
     \centering 
@@ -288,7 +288,7 @@ X.Y.Z
 
 \subsection*{Jest}
 
-\par Jest è un \textit{framework} di test per JavaScript, utilizzato per la progettazione, lo sviluppo e l’esecuzione di test di unità e di integrazione. Permette di definire suite di test efficienti e isolate, senza richiedere configurazioni complesse, anche quando viene integrato in progetti già avviati. Aggiungendo il flag \verb|--coverage|, è possibile generare un report sulla copertura del codice e inviare i risultati a strumenti di terze parti come Codecov. Nell’ambito del progetto di stage, Jest è stato utilizzato insieme alla libreria Jest DOM per ottenere una copertura completa del codice.
+\par Jest è un \gls{framework} di test per JavaScript, utilizzato per la progettazione, lo sviluppo e l’esecuzione di test di unità e di integrazione. Permette di definire suite di test efficienti e isolate, senza richiedere configurazioni complesse, anche quando viene integrato in progetti già avviati. Aggiungendo il flag \verb|--coverage|, è possibile generare un report sulla copertura del codice e inviare i risultati a strumenti di terze parti come Codecov. Nell’ambito del progetto di stage, Jest è stato utilizzato insieme alla libreria Jest DOM per ottenere una copertura completa del codice.
 
 \begin{figure}[H]
     \centering 
@@ -300,7 +300,7 @@ X.Y.Z
 \par Per l’interfaccia grafica sono state utilizzate icone provenienti da tre librerie:
 \begin{itemize}
   \item \textbf{Font Awesome}: una vasta libreria di icone vettoriali gratuite e premium;
-  \item \textbf{Heroicons}: una raccolta di icone SVG realizzate a mano dai creatori di Tailwind CSS;
+  \item \textbf{Heroicons}: una raccolta di icone \gls{svg} realizzate a mano dai creatori di \textit{Tailwind CSS};
   \item \textbf{Remix Icon}: una libreria \textit{open source} di icone vettoriali progettate per designer e sviluppatori.
 \end{itemize}
 
