@@ -6,7 +6,7 @@
 \section{Introduzione}
 \label{sec:introduzione-progetto}
 
-\par Il focus del progetto è l’analisi delle parole chiave, ma non in un’ottica di \textit{marketing:} non vengono infatti considerati parametri come efficacia, \textit{ranking}, \gls{keyword-difficulty}, né funzionalità avanzate come anteprime \gls{serp} o suggerimenti di parole chiave. Questi aspetti dell’analisi \gls{seo}, sia \gls{on-page} che \gls{off-page}, sono già ampiamente supportati da numerose estensioni, gratuite e a pagamento, e pertanto non rappresentano una sfida particolarmente stimolante per uno progetto di stage. Inoltre, l’analisi del posizionamento di un sito per una determinata parola chiave richiede che il sito sia effettivamente \textit{hostato;} di conseguenza, questa funzionalità non si adatta allo scopo dell’estensione, che è rivolta principalmente agli sviluppatori e deve quindi funzionare anche in ambiente \gls{localhost}. Al contrario, funzionalità come l’analisi della distribuzione delle parole chiave e la loro evidenziazione visiva all’interno della pagina, rientrano pienamente nell’analisi on-page e rispondono a una necessità reale di molti sviluppatori. Tali funzionalità sono implementate separatamente in estensioni web come \textit{MozBar} o \textit{SEOquake}, ma difficilmente vengono integrate all’interno di un unico strumento. Tra i più noti, probabilmente solo il plugin \textit{Yoast SEO} per \gls{wordpress} consente sia l’analisi che l’evidenziazione delle parole chiave; tuttavia, come suggerisce il nome, si tratta di uno strumento pensato esclusivamente per sviluppatori che utilizzano un \gls{cms}. Pertanto, l’obiettivo del progetto è combinare queste due funzionalità in un’estensione web direttamente accessibile sin dalle prime fasi di sviluppo.
+\par Il focus del progetto è l’analisi delle parole chiave, ma non in un’ottica di marketing: non vengono infatti considerati parametri come efficacia, \textit{ranking}, \gls{keyword-difficulty}, né funzionalità avanzate come anteprime \gls{serp} o suggerimenti di parole chiave. Questi aspetti dell’analisi \gls{seo}, sia \gls{on-page} che \gls{off-page}, sono già ampiamente supportati da numerose estensioni, gratuite e a pagamento, e pertanto non rappresentano una sfida particolarmente stimolante per uno progetto di stage. Inoltre, l’analisi del posizionamento di un sito per una determinata parola chiave richiede che il sito sia effettivamente \textit{hostato;} di conseguenza, questa funzionalità non si adatta allo scopo dell’estensione, che è rivolta principalmente agli sviluppatori e deve quindi funzionare anche in ambiente \gls{localhost}. Al contrario, funzionalità come l’analisi della distribuzione delle parole chiave e la loro evidenziazione visiva all’interno della pagina, rientrano pienamente nell’analisi on-page e rispondono a una necessità reale di molti sviluppatori. Tali funzionalità sono implementate separatamente in estensioni web come \textit{MozBar} o \textit{SEOquake}, ma difficilmente vengono integrate all’interno di un unico strumento. Tra i più noti, probabilmente solo il plugin \textit{Yoast SEO} per \gls{wordpress} consente sia l’analisi che l’evidenziazione delle parole chiave; tuttavia, come suggerisce il nome, si tratta di uno strumento pensato esclusivamente per sviluppatori che utilizzano un \gls{cms}. Pertanto, l’obiettivo del progetto è combinare queste due funzionalità in un’estensione web direttamente accessibile sin dalle prime fasi di sviluppo.
 
 \section{Analisi preventiva dei rischi}
 \label{sec:rischi}
@@ -59,16 +59,16 @@
 \section{Obiettivi}
 \label{sec:obiettivi}
 
-\par Il progetto di stage prevede attività di ricerca e sviluppo finalizzate ad approfondire il tema dell’ottimizzazione \gls{seo}, analizzare i competitor e sviluppare una soluzione efficace ed efficiente. GIi obiettivi concordati con la Proponente sono i seguenti:
+\par Il progetto di stage prevede attività di ricerca e sviluppo finalizzate ad approfondire il tema dell’ottimizzazione \gls{seo}, analizzare i \textit{competitor} e sviluppare una soluzione efficace ed efficiente. Gli obiettivi concordati con la Proponente sono i seguenti:
 
 \begin{itemize}
   \item Approfondire le normative e \textit{best practice} relative all’ottimizzazione SEO;
   \item Sviluppare e integrare funzionalità di analisi SEO all’interno di un’estensione web;
   \item Estrarre e analizzare il contenuto del meta tag keywords;
   \item Estrarre e analizzare le parole chiave più frequenti, suddivise tra “single-word” e “double-word”;
-  \item Sviluppare una maschera di input per l’inserimento manuale di una parola chiave da analizzare;
+  \item Sviluppare una maschera di \textit{input} per l’inserimento manuale di una parola chiave da analizzare;
   \item Evidenziare visivamente le occorrenze di una parola chiave all’interno della pagina, utilizzando colori diversi in base al tag \gls{html} che le contiene;
-  \item Visualizzare una lista delle parole chiave analizzate, con informazioni dettagliate quali frequenza, densità e numero di occorrenze in un insieme predefinito di tag HTML;
+  \item Visualizzare una lista delle parole chiave analizzate, con informazioni dettagliate quali frequenza, densità e numero di occorrenze in specifici tag HTML;
   \item Le funzionalità devono essere coerenti, accessibili e non disorientanti per l’utente finale.
 \end{itemize}
 
@@ -90,8 +90,8 @@
 \par Il primo passo è stato identificare e analizzare gli strumenti di analisi \gls{seo} più diffusi sul mercato, selezionando quelli maggiormente in linea con le finalità del progetto. Da questa prima raccolta è stata effettuata una scrematura, con l’intento di concentrarsi soltanto sugli strumenti che offrissero funzionalità specifiche per l’analisi delle parole chiave o che presentassero un’interfaccia grafica accattivante. Questa fase ha ricoperto un ruolo fondamentale nella successiva definizione dei requisiti, permettendo di individuare sia le aree già coperte dal mercato, sia gli ambiti in cui introdurre soluzioni innovative. Inoltre, l’analisi dell’interfaccia grafica di ciascuno di questi strumenti ha fornito una base solida per la progettazione visiva dell’estensione. Dal punto di vista delle funzionalità, sono stati valutati i seguenti aspetti:
 
 \begin{itemize}
-  \item \textbf{Funzionalità complete e ampiamente diffuse}, come l’analisi del contrasto dei colori e il \textit{ranking} delle keyword, già integrate nella maggior parte delle estensioni orientate all’accessibilità e all’ottimizzazione SEO. Poiché strumenti consolidati come \textit{Semrush}, \textit{Ahrefs} o \textit{Silktide} sono attivi e supportati da anni, è difficile che le soluzioni sviluppate durante lo stage possano competere direttamente con essi. Pertanto, tali funzionalità sono state considerate già coperte;
-  \item \textbf{Funzionalità incomplete o non particolarmente user-friendly}. Un esempio è l’analisi della distribuzione delle keyword, che diverse estensioni web implementano in modo superficiale, riportando soltanto la frequenza globale e trascurando il numero di occorrenze nei singoli tag. Inoltre, questa tipologia di analisi richiede spesso di interrompere la navigazione per aprire pop-up o accedere a piattaforme proprietarie;
+  \item \textbf{Funzionalità complete e ampiamente diffuse}, come il \textit{ranking} delle keyword, già integrato nella maggior parte delle estensioni orientate all’accessibilità e all’ottimizzazione SEO. Poiché strumenti consolidati come \textit{Semrush}, \textit{Ahrefs} o \textit{Silktide} sono attivi e supportati da anni, è difficile che le soluzioni sviluppate durante lo stage possano competere direttamente con essi. Pertanto, tali funzionalità sono state considerate già coperte;
+  \item \textbf{Funzionalità incomplete o non particolarmente user-friendly}. Un esempio è l’analisi della distribuzione delle keyword, che diverse estensioni web implementano in modo superficiale, riportando soltanto la frequenza globale e trascurando il numero di occorrenze in specifici tag \gls{html}. Inoltre, questa tipologia di analisi richiede spesso di interrompere la navigazione per aprire pop-up o accedere a piattaforme proprietarie;
   \item \textbf{Funzionalità poco diffuse e raramente supportate}. Un esempio è l’evidenziazione visiva della distribuzione delle keyword nella pagina, che la maggior parte delle estensioni non implementa. Quando presente, come nel caso di \textit{MozBar}, questa funzionalità risulta comunque poco curata rispetto ad altre più consolidate.
 \end{itemize}
 
@@ -117,7 +117,7 @@ X.Y.Z
 
 \subsection{Verifica e validazione del codice}
 
-\par In parallelo con l’attività di codifica, ho avviato la fase di testing, comprendente sia test automatici che manuali. I test di unità e integrazione sono stati automatizzati grazie a \textit{GitHub Actions}, così da ottenere feedback immediati al verificarsi di determinati eventi, come l’apertura, l’aggiornamento o la chiusura di una \gls{pull request}. Questo approccio riduce il rischio di introdurre errori nel \textit{branch} principale e garantisce una copertura uniforme del codice, grazie alle funzionalità di \textit{coverage} messe a disposizione dai \gls{framework} di test. I test manuali sono stati effettuati sia dalle parti direttamente coinvolte nello sviluppo, sia da soggetti esterni privi di familiarità con il progetto.
+\par In parallelo con l’attività di codifica, ho avviato la fase di testing, comprendente sia test automatici che manuali. I test di unità e di integrazione sono stati automatizzati grazie a \textit{GitHub Actions}, così da ottenere feedback immediati al verificarsi di determinati eventi, come l’apertura, l’aggiornamento o la chiusura di una \gls{pull request}. Questo approccio riduce il rischio di introdurre errori nel \textit{branch} principale e garantisce una copertura uniforme del codice, grazie alle funzionalità di \textit{coverage} messe a disposizione dai \gls{framework} di test. I test manuali sono stati effettuati sia dalle parti direttamente coinvolte nello sviluppo, sia da soggetti esterni privi di familiarità con il progetto.
 
 \vspace{10pt}
 \par\noindent Come strumento di gestione del progetto ho scelto Jira, più articolato rispetto a Trello ma perfettamente integrabile con \gls{github}. Si tratta, inoltre, di uno strumento già utilizzato in ambito accademico, di cui conoscevo punti di forza e limitazioni. Le funzionalità maggiormente impiegate sono state:
@@ -181,7 +181,7 @@ X.Y.Z
 
 \subsection*{GitHub}
 
-\par Github è un servizio \textit{web e cloud-based} per l'archiviazione, il versionamento e la condivisione del codice. Nell’ambito dello stage, è stato utilizzato per contribuire allo sviluppo di un progetto esistente tramite la funzionalità di \textit{fork}, che consente di lavorare sul codice in modo isolato, per poi proporre le modifiche al \gls{repository} originale. GitHub consente anche di aprire spazi di discussione relativi al codice tramite \textit{issue} e \gls{pull request}, oltre a fornire strumenti per la gestione del progetto come \textit{board} e \textit{milestone}. Inoltre, permette di automatizzare i flussi di lavoro attraverso le \textit{GitHub Actions}.
+\par Github è un servizio \textit{web e cloud-based} per l'archiviazione, il versionamento e la condivisione del codice. Nell’ambito dello stage, è stato utilizzato per contribuire allo sviluppo di un progetto esistente tramite la funzionalità di \textit{fork}, che consente di lavorare sul codice in modo isolato, per poi proporre le modifiche al \gls{repository} originale. GitHub permette anche di aprire spazi di discussione relativi al codice tramite \textit{issue} e \gls{pull request}, oltre a fornire strumenti per la gestione del progetto come \textit{board} e \textit{milestone}. Inoltre, consente di automatizzare i flussi di lavoro attraverso le \textit{GitHub Actions}.
 
 \begin{figure}[H]
     \centering 
@@ -230,7 +230,7 @@ X.Y.Z
 
 \begin{figure}[H]
     \centering 
-    \includegraphics[width=0.1\columnwidth]{strumenti-tecnologie/jira_logo.pdf} 
+    \includegraphics[width=0.15\columnwidth]{strumenti-tecnologie/jira_logo.pdf} 
 \end{figure}
 
 \subsection*{npm}
@@ -302,7 +302,7 @@ X.Y.Z
 
 \par Per l’interfaccia grafica sono state utilizzate icone provenienti da tre librerie:
 \begin{itemize}
-  \item \textbf{Font Awesome}: una vasta libreria di icone vettoriali gratuite e premium;
+  \item \textbf{Font Awesome}: una vasta libreria di icone vettoriali gratuite e a pagamento;
   \item \textbf{Heroicons}: una raccolta di icone \gls{svg} realizzate a mano dai creatori di \textit{Tailwind CSS};
   \item \textbf{Remix Icon}: una libreria \textit{open source} di icone vettoriali progettate per designer e sviluppatori.
 \end{itemize}
@@ -332,4 +332,4 @@ X.Y.Z
 
 \subsection*{Stopword (stopword.js)}
 
-\par Stopword è un modulo JavaScript che consente di rimuovere le \gls{stopword} da un testo. Oltre alla funzione \textit{removeStopwords}, l’API mette a disposizione identificatori univoci per accedere agli array di stopword associati a lingue specifiche, con supporto verificato per oltre 60 lingue. Il modulo è distribuito con licenza MIT.
+\par Stopword è un modulo JavaScript che consente di rimuovere le \gls{stopword} da un testo. Oltre alla funzione \textit{removeStopwords}, l’API mette a disposizione identificatori univoci per accedere agli array di stopword associati a lingue specifiche, con supporto verificato per oltre 60 lingue. Il modulo è distribuito con licenza \textit{MIT}.
