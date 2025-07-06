@@ -5,7 +5,7 @@
 
 \section{Introduzione}
 
-\par L'analisi dei \gls{requisiti} è stata condotta seguendo gli standard dell'ingegneria del software, integrando l'analisi del progetto e delle soluzioni esistenti con colloqui e dialoghi con la Proponente. In questa sezione sono illustrati i seguenti punti:
+\par L'analisi dei \gls{requisiti} è stata condotta seguendo gli standard dell'ingegneria del software, integrando la valutazione delle soluzioni esistenti con colloqui e dialoghi con la Proponente. In questa sezione vengono illustrati i seguenti punti:
 \begin{itemize}
     \item \textbf{\Gls{use-case}}: descrizione e diagrammi dei casi d'uso;
     \item \textbf{Tracciamento dei requisiti}: associa ciascun requisito alla sua fonte di provenienza;
@@ -15,7 +15,7 @@
 \section{Casi d'uso}
 
 \paragraph*{Attori}
-\par L'unico attore coinvolto nell'interazione con il sistema è un \textbf{utente generico} con accesso completo alla funzionalità di analisi \gls{seo}. Di seguito sono elencate alcune tipologie di utenti a cui è rivolto il progetto:
+\par L'unico attore coinvolto nell'interazione con il sistema è un \textbf{utente generico} con accesso completo alle funzionalità di analisi \gls{seo}. Di seguito sono elencate alcune tipologie di utenti a cui è rivolto il progetto:
 \begin{itemize}
     \item \textbf{Sviluppatore}: utilizza l'estensione durante lo sviluppo e la produzione di contenuti web;
     \item \textbf{Tester}: effettua un'analisi SEO per identificare eventuali problemi e proporre azioni di miglioramento;
@@ -28,10 +28,10 @@
     \caption{Diagrammi dei casi d'uso}
 \end{figure}
 
-\begin{usecase}{1}{Accesso alla funzionalità di analisi delle parole chiave}\label{UC1}
+\begin{usecase}{1}{Accesso allo strumento di analisi delle parole chiave}\label{UC1}
     \usecaseactors{Utente.}
     \usecasepre{L'utente ha avviato l'estensione.}
-    \usecasedesc{L'utente seleziona la funzionalità di analisi delle parole chiave.}
+    \usecasedesc{L'utente seleziona lo strumento di analisi delle parole chiave.}
     \usecasepost{Il sistema mostra la schermata di analisi delle parole chiave.}
 \end{usecase}
 
@@ -39,7 +39,7 @@
     \usecaseactors{Utente.}
     \usecasepreEnv{
         \begin{itemize}
-            \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+            \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
             \item Il sistema è attivo e funzionante.
         \end{itemize}}
     \usecasepost{Il sistema mostra una panoramica dell'analisi delle parole chiave.}
@@ -54,7 +54,7 @@
 \begin{usecase}{2.1}{Visualizzazione del meta tag keywords}\label{UC2point1}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{Il sistema mostra il contenuto del meta tag keywords.}
@@ -66,7 +66,7 @@
 \begin{usecase}{2.2}{Visualizzazione del numero totale di parole nella pagina}\label{UC2point2}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{Il sistema mostra il numero totale di parole presenti nella pagina.}
@@ -75,7 +75,7 @@
 \begin{usecase}{2.3}{Visualizzazione del numero di parole uniche nella pagina}\label{UC2point3}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{Il sistema mostra il numero di parole uniche presenti nella pagina.}
@@ -84,7 +84,7 @@
 \begin{usecase}{2.4}{Visualizzazione della lingua della pagina}\label{UC2point4}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{Il sistema mostra la lingua dichiarata nella pagina.}
@@ -96,7 +96,7 @@
 \begin{usecase}{3}{Inserimento di una parola chiave}\label{UC3}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasedesc{L'utente digita una parola chiave.}
@@ -106,7 +106,7 @@
 \begin{usecase}{4}{Analisi della parola chiave digitata}\label{UC4}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante;
         \item L'utente ha digitato una parola chiave.
     \end{itemize}}
@@ -120,7 +120,7 @@
 \begin{usecase}{5}{Visualizzazione di una lista delle parole chiave}\label{UC5}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{Il sistema mostra una lista delle parole chiave.}
@@ -137,7 +137,7 @@
 \begin{usecase}{5.1}{Visualizzazione di una lista delle parole chiave estratte dal meta tag keywords}\label{UC5point1}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{Il sistema mostra una lista delle parole chiave estratte dal meta tag keywords.}
@@ -146,7 +146,7 @@
 \begin{usecase}{5.2}{Visualizzazione di una lista delle parole chiave inserite dall'utente}\label{UC5point2}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{Il sistema mostra una lista delle parole chiave inserite dall'utente.}
@@ -155,7 +155,7 @@
 \begin{usecase}{5.3}{Visualizzazione di una lista delle parole chiave più frequenti}\label{UC5point3}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{Il sistema mostra una lista delle parole chiave più frequenti, estratte automaticamente da un algoritmo interno.}
@@ -168,16 +168,16 @@
 \begin{usecase}{5.3.1}{Visualizzazione di una lista delle parole chiave più frequenti composte da un solo termine}\label{UC5point3point1}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
-    \usecasepost{Il sistema mostra una lista delle parole chiave più frequenti composte da un solo termine (single-word).}
+    \usecasepost{Il sistema mostra una lista delle parole chiave più frequenti composte da un solo termine (keyword semplici).}
 \end{usecase}
 
 \begin{usecase}{5.3.2}{Visualizzazione di una lista delle parole chiave più frequenti composte da due termini}\label{UC5point3point2}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{Il sistema mostra una lista delle parole chiave più frequenti composte da due termini (keyphrase).}
@@ -186,7 +186,7 @@
 \begin{usecase}{6}{Visualizzazione di una singola parola chiave all’interno della lista}\label{UC6}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante;
         \item È visibile la lista delle parole chiave.
     \end{itemize}}
@@ -200,7 +200,7 @@
 \begin{usecase}{7}{Evidenziazione di una parola chiave nella pagina}\label{UC7}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{Il sistema evidenzia graficamente tutte le occorrenze di una parola chiave nella pagina.}
@@ -209,7 +209,7 @@
 \begin{usecase}{8}{Visualizzazione dei risultati dell'analisi di una parola chiave}\label{UC8}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{L'utente visualizza i risultati dell'analisi di una parola chiave.}
@@ -224,16 +224,17 @@
 \begin{usecase}{9}{Eliminazione di una parola chiave}\label{UC9}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
-    \usecasepost{Il sistema elimina una parola chiave e la rimuove dalla lista delle keyword.}
+    \usecasedesc{L'utente elimina una parola chiave.}
+    \usecasepost{Il sistema rimuove la parola chiave dalla lista delle keyword.}
 \end{usecase}
 
 \begin{usecase}{10}{Visualizzazione della parola chiave vera e propria}\label{UC10}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{L’utente visualizza la parola chiave vera e propria (es. “JavaScript”).}
@@ -242,7 +243,7 @@
 \begin{usecase}{11}{Visualizzazione della frequenza di una parola chiave}\label{UC11}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{L'utente visualizza la frequenza di una parola chiave.}
@@ -254,7 +255,7 @@
 \begin{usecase}{12}{Visualizzazione della densità di una parola chiave}\label{UC12}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{L'utente visualizza la densità percentuale di una parola chiave.}
@@ -266,7 +267,7 @@
 \begin{usecase}{13}{Visualizzazione di una lista di tag HTML rilevanti per l’analisi delle parole chiave}\label{UC13}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{L’utente visualizza una lista di tag \gls{html} considerati rilevanti per l’analisi delle parole chiave.}
@@ -278,7 +279,7 @@
 \begin{usecase}{13.1}{Visualizzazione di un singolo tag all’interno della lista}\label{UC13point1}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante;
         \item L'utente sta visualizzando i risultati dell'analisi di una parola chiave;
         \item È visibile l'elenco dei tag \gls{html}.
@@ -293,7 +294,7 @@
 \begin{usecase}{13.1.1}{Visualizzazione del nome del tag}\label{UC13point1point1}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{L'utente visualizza il nome del tag \gls{html}.}
@@ -302,7 +303,7 @@
 \begin{usecase}{13.1.2}{Visualizzazione del numero di occorrenze di una parola chiave nel tag}\label{UC13point1point2}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{L'utente visualizza il numero di occorrenze di una parola chiave nel tag \gls{html}.}
@@ -311,7 +312,7 @@
 \begin{usecase}{14}{Filtraggio delle parole chiave}\label{UC14}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{Il sistema filtra le parole chiave per nome.}
@@ -323,7 +324,7 @@
 \begin{usecase}{15}{Ordinamento delle parole chiave}\label{UC15}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{Il sistema ordina le parole chiave per frequenza crescente o decrescente.}
@@ -332,7 +333,7 @@
 \begin{usecase}{16}{Rimozione dei filtri applicati}\label{UC16}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{L’utente rimuove i filtri applicati alle parole chiave.}
@@ -341,7 +342,7 @@
 \begin{usecase}{17}{Navigazione delle parole chiave}\label{UC17}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{L’utente naviga tra le parole chiave tramite un sistema di paginazione.}
@@ -350,7 +351,7 @@
 \begin{usecase}{18}{Aggiornamento dell'analisi delle parole chiave}\label{UC18}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasedesc{L'utente aggiorna manualmente l'analisi delle parole chiave per sincronizzarla con eventuali modifiche dinamiche al \gls{dom}.}
@@ -360,7 +361,7 @@
 \begin{usecase}{19}{Visualizzazione di un avviso se il meta tag keywords non è presente}\label{UC19}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante;
         \item Il meta tag keywords non è presente nella pagina analizzata.
     \end{itemize}}
@@ -370,7 +371,7 @@
 \begin{usecase}{20}{Visualizzazione di un avviso se l’attributo lang non è presente}\label{UC20}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante;
         \item Il tag <html> non contiene l’attributo lang.
     \end{itemize}}
@@ -380,7 +381,7 @@
 \begin{usecase}{21}{Visualizzazione di un avviso se la frequenza di una parola chiave è 0}\label{UC21}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante;
         \item La frequenza di una parola chiave è 0.
     \end{itemize}}
@@ -390,7 +391,7 @@
 \begin{usecase}{22}{Visualizzazione di un avviso se la densità di una parola chiave è 0\%}\label{UC22}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante;
         \item La densità di una parola chiave è 0\%.
     \end{itemize}}
@@ -400,7 +401,7 @@
 \begin{usecase}{23}{Aggiornamento del colore di evidenziazione per un tag HTML}\label{UC23}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{L'utente personalizza il colore con cui vengono evidenziate le occorrenze di una parola chiave all’interno di uno specifico tag \gls{html}.}
@@ -414,7 +415,7 @@
 \begin{usecase}{23.1}{Aggiornamento del colore di sfondo}\label{UC23point1}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{L'utente personalizza il colore di sfondo con cui vengono evidenziate le occorrenze di una parola chiave all’interno di uno specifico tag \gls{html}.}
@@ -423,7 +424,7 @@
 \begin{usecase}{23.2}{Aggiornamento del colore del testo}\label{UC23point2}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{L'utente personalizza il colore del testo con cui vengono evidenziate le occorrenze di una parola chiave all’interno di uno specifico tag \gls{html}.}
@@ -432,7 +433,7 @@
 \begin{usecase}{23.3}{Aggiornamento del colore del bordo}\label{UC23point3}
     \usecaseactors{Utente.}
     \usecasepreEnv{\begin{itemize}
-        \item L'utente ha selezionato la funzionalità di analisi delle parole chiave;
+        \item L'utente ha selezionato lo strumento di analisi delle parole chiave;
         \item Il sistema è attivo e funzionante.
     \end{itemize}}
     \usecasepost{L'utente personalizza il colore del bordo con cui vengono evidenziate le occorrenze di una parola chiave all’interno di uno specifico tag \gls{html}.}
@@ -480,7 +481,7 @@
 \endlastfoot
 
 \hline
-RF.O.1 & L'utente deve poter accedere alla funzionalità di analisi delle parole chiave. & \hyperref[UC1]{UC1} \\
+RF.O.1 & L'utente deve poter accedere allo strumento di analisi delle parole chiave. & \hyperref[UC1]{UC1} \\
 \hline
 RF.O.2 & L'utente deve poter visualizzare una panoramica dell'analisi delle parole chiave. & \hyperref[UC2]{UC2} \\
 \hline
@@ -590,7 +591,7 @@ RF.D.43 & Il sistema deve identificare le keyphrase "spezzate" su più tag HTML.
 \endlastfoot
 
 \hline
-RQ.O.1 & La funzionalità di analisi \gls{seo} deve rispettare le linee guida \gls{wcag} 2.2, livello AA. & DP\textsuperscript{*} \\
+RQ.O.1 & Le funzionalità di analisi \gls{seo} devono rispettare le linee guida \gls{wcag} 2.2, livello AA. & DP\textsuperscript{*} \\
 \hline
 RQ.OP.2 & L'estensione deve rimanere attiva su tutte le tab. & DP\textsuperscript{*} \\
 \hline
@@ -620,9 +621,9 @@ RQ.D.3 & L'utente deve poter aprire e chiudere l'estensione in modo rapido e int
 \endlastfoot
 
 \hline
-RV.O.1 & La funzionalità di analisi \gls{seo} deve essere resa disponibile tramite \gls{github} (come codice sorgente) o pubblicata su un'altra piattaforma ad accesso pubblico. & DP\textsuperscript{*} \\
+RV.O.1 & Lo strumento di analisi \gls{seo} deve essere reso disponibile tramite \gls{github} (come codice sorgente) o pubblicato su un'altra piattaforma ad accesso pubblico. & DP\textsuperscript{*} \\
 \hline
-RV.O.2 & La funzionalità di analisi SEO deve essere integrata all'interno di un'estensione per Chrome & DP\textsuperscript{*} \\
+RV.O.2 & Lo strumento di analisi SEO deve essere integrato all'interno di un'estensione per Chrome. & DP\textsuperscript{*} \\
 \end{tabularx}
 
 \vspace{3pt}
@@ -678,7 +679,7 @@ Di vincolo/dominio & 2 & 0 & 0 & 2 \\
 \hline
 1 & Come utente, voglio visualizzare una panoramica dell'analisi delle parole chiave, in modo da avere un'idea generale del contenuto della pagina. \\
 \hline
-2 & Come utente, voglio visualizzare il contenuto del meta tag keywords, in modo da verificare se sono state specificate parole chiave. \\
+2 & Come utente, voglio visualizzare il contenuto del meta tag keywords, in modo da verificare se sono state specificate delle parole chiave. \\
 \hline
 3 & Come utente, voglio visualizzare il numero di parole totali e uniche presenti nella pagina, in modo da valutare la qualità del contenuto. \\
 \hline
@@ -710,5 +711,5 @@ Di vincolo/dominio & 2 & 0 & 0 & 2 \\
 \hline
 17 & Come utente, voglio analizzare anche le parole chiave “spezzate” su più tag HTML, in modo da gestire correttamente le keyphrase. \\
 \hline
-18 & Come utente, voglio che la funzionalità di analisi \gls{seo} sia accessibile a tutti. \\
+18 & Come utente, voglio che lo strumento di analisi \gls{seo} sia accessibile a tutti. \\
 \end{tabularx}

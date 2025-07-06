@@ -72,7 +72,7 @@
 
 \par\noindent 
 \begin{minipage}{\textwidth}
-  Di seguito è riportata la struttura della funzionalità di analisi delle parole chiave:
+  Di seguito è riportata la struttura dello strumento di analisi delle parole chiave:
   \vspace{10pt}
   \dirtree{%
     .1 .github.
@@ -142,7 +142,7 @@
   \end{itemize}
   \item \textbf{KeywordListView}: visualizza una lista di keyword suddivisa in tre sezioni virtuali:
   \begin{itemize}
-    \item \textbf{Header}: mostra il titolo della lista, un campo di input per il filtraggio delle parole chiave, due pulsanti per l’ordinamento e un pulsante per la rimozione dei filtri;
+    \item \textbf{Header}: mostra il titolo della lista, un campo di \textit{input} per il filtraggio delle parole chiave, due pulsanti per l’ordinamento e un pulsante per la rimozione dei filtri;
     \item \textbf{Body}: visualizza l’elenco delle parole chiave, ciascuna accompagnata da un’indicazione della frequenza e un gruppo di pulsanti per l’eliminazione, l’evidenziazione e l’accesso ai risultati dell’analisi;
     \item \textbf{Footer}: mostra l’elenco delle pagine per navigare all’interno della lista.
   \end{itemize}
@@ -180,11 +180,11 @@
     \item \textbf{removeHighlight}: rimuove l’evidenziazione eseguendo una normalizzazione del \gls{dom}, al fine di ripristinare il contenuto originale;
     \item \textbf{updateTagColors}: aggiorna i colori utilizzati per l’evidenziazione delle parole chiave e inietta nuovamente lo stile nella pagina.
   \end{itemize}
-  \item \textbf{KeywordAnalyzer}: implementa la funzionalità di analisi delle parole chiave, delegando al pattern \textit{Strategy} una fase del processo, che riguarda il calcolo della frequenza tramite la navigazione del DOM con \textit{TreeWalker} e la registrazione del numero di occorrenze in un insieme predefinito di tag HTML. Questa classe espone quattro metodi principali:
+  \item \textbf{KeywordAnalyzer}: implementa la funzionalità di analisi delle parole chiave, delegando al pattern \textit{Strategy} una fase del processo, che riguarda il calcolo della frequenza tramite la navigazione del DOM con \textit{TreeWalker} e la registrazione del numero di occorrenze in specifici tag HTML. Questa classe espone quattro metodi principali:
   \begin{itemize}
     \item \textbf{analyzeKeyword}: esegue l’analisi di una singola parola chiave;
     \item \textbf{analyzeKeywords}: esegue l’analisi di un gruppo (batch) di parole chiave, gestendo opportunamente la cache per ottimizzare l’esecuzione;
-    \item \textbf{countOccurrencesInTag}: conta il numero di occorrenze di una parola chiave in un tag specifico;
+    \item \textbf{countOccurrencesInTag}: conta il numero di occorrenze di una parola chiave in un determinato tag;
     \item \textbf{fullRefresh}: ripristina la cache di tutti i moduli utilizzati per l’analisi.
   \end{itemize}
 \end{itemize}
@@ -204,7 +204,7 @@
 \par Di seguito sono elencate le classi presenti nella cartella \textit{Utils}:
 
 \begin{itemize}
-  \item \textbf{Utils}: fornisce due funzioni di utilità, \textit{escapeRegExp} e \textit{escapeHTML}, che consentono rispettivamente di eseguire l’escape di un’espressione regolare e di convertire alcuni caratteri predefiniti in entità \gls{html}. 
+  \item \textbf{Utils}: fornisce due funzioni di utilità, \textit{escapeRegExp} ed \textit{escapeHTML}, che consentono rispettivamente di eseguire l’escape di un’espressione regolare e di convertire alcuni caratteri predefiniti in entità \gls{html}. 
 \end{itemize}
 
 \subsection{Tracciamento dei requisiti - Implementazione}
@@ -243,7 +243,7 @@
   \hline 
   RF.O.7 & \texttt{KeywordController}, \texttt{KeywordView}, \texttt{KeywordListView} & 100\% \\
   \hline 
-  RF.O.8 & \texttt{KeywordController}, \texttt{KeywordAnalyzer}, \texttt{StagedAnalysisStrategy}, \texttt{AllInOneAnalysisStrategy}, \texttt{Keyword}, \texttt{KeywordView} & 100\% \\
+  RF.O.8 & \texttt{KeywordController}, \texttt{KeywordAnalyzer}, \texttt{StagedAnalysisStrategy}, \texttt{AllInOneAnalysisStrategy}, \texttt{Keyword}, \texttt{KeywordView}, \texttt{KeywordListView} & 100\% \\
   \hline 
   RF.O.9 & \texttt{KeywordController}, \texttt{Keyword}, \texttt{KeywordListInfo}, \texttt{KeywordView}, \texttt{KeywordListView} & 100\% \\
   \hline 
