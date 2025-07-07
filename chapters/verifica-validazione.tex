@@ -6,7 +6,7 @@
 \section{Introduzione}
 \label{sec:introduzione-testing}
 
-\par In questa sezione sono riportati i test effettuati durante lo svolgimento del progetto. La fase di testing è stata suddivisa in due sotto-fasi: verifica e validazione (V\&V). La verifica consiste nell’accertare che il software sia conforme alle specifiche, e può essere condotta senza eseguire il codice. Le attività di analisi statica includono la revisione e l’ispezione dei processi, dei \gls{requisiti}, del design e del codice sorgente. Quest’ultima può avvenire tramite una lettura approfondita del codice o mediante una revisione sistematica e mirata. La validazione, invece, riguarda l’analisi dinamica del software, finalizzata ad accertare il soddisfacimento dei requisiti e delle aspettative dal punto di vista dell’utente finale. Le attività di validazione comprendono sia test automatici che manuali.
+\par In questa sezione sono riportati i test effettuati durante lo svolgimento del progetto. La fase di testing è stata suddivisa in due sotto-fasi: verifica e validazione (V\&V). La verifica consiste nell’accertare che il software sia conforme alle specifiche, e può essere condotta senza eseguire il codice. Le attività di analisi statica includono la revisione e l’ispezione dei processi, dei \gls{requisiti}, del design e del codice sorgente. Quest’ultima può avvenire tramite una lettura approfondita del codice o mediante una revisione sistematica e mirata. La validazione, invece, riguarda l’analisi dinamica del software, finalizzata ad accertare il soddisfacimento dei \gls{requisiti} e delle aspettative dal punto di vista dell’utente finale. Le attività di validazione comprendono sia test automatici che manuali.
 
 \lstdefinelanguage{JavaScript}{
   keywords={break, case, catch, continue, debugger, default, delete, do, else, finally, for, function, if, in, instanceof, new, return, switch, this, throw, try, typeof, var, void, while, with, let, const},
@@ -107,7 +107,7 @@
 \hline 
 \textbf{KeywordController} \textit{(controller.test.js)}: verifica il corretto funzionamento delle operazioni di gestione delle parole chiave (funzionalità non dipendenti dal \gls{dom} e non sufficientemente specifiche da giustificare una suite dedicata). & 100\% \\
 \hline 
-\textbf{KeywordController - DOM} \textit{(controller\_dom.test.js)}: verifica il corretto funzionamento delle operazioni del controller che richiedono l’interazione con il DOM. & 100\% \\
+\textbf{KeywordController - DOM} \textit{(controller\_dom.test.js)}: verifica il corretto funzionamento delle operazioni del controller che richiedono l’interazione con il \gls{dom}. & 100\% \\
 \hline 
 \textbf{KeywordController - sorting} \textit{(controller\_sorting.test.js)}: verifica la funzionalità di ordinamento delle parole chiave. & 100\% \\
 \hline
@@ -172,9 +172,9 @@
 \hline
 \textbf{Corriere della Sera} - HomePage (\url{https://www.corriere.it/}) & Tutti i test manuali sono stati superati con successo, sebbene con prestazioni non sempre ottimali, a causa della complessità del sito in questione. \\
 \hline
-Siti web partecipanti al concorso \textbf{Accattivante Accessibile}, organizzato dall’Università degli Studi di Padova (\url{https://web.math.unipd.it/CAA/classifica.html}) & Tutti i test manuali sono stati superati con successo. Durante l’analisi del sito \textit{BookOverflow}, è emerso un caso particolare non gestito: una singola parola “spezzata” su più tag HTML (es. “BookOverflow”). Questa situazione è stata valutata come un’eccezione poco significativa, non tale da giustificare una gestione più granulare, che avrebbe inciso negativamente sulle prestazioni. \\
+Siti web partecipanti al concorso \textbf{Accattivante Accessibile}, organizzato dall’Università degli Studi di Padova (\url{https://web.math.unipd.it/CAA/classifica.html}) & Tutti i test manuali sono stati superati con successo. Durante l’analisi del sito \textit{BookOverflow}, è emerso un caso particolare non gestito: una singola parola “spezzata” su più tag \gls{html} (es. “BookOverflow”). Questa situazione è stata valutata come un’eccezione poco significativa, non tale da giustificare una gestione più granulare, che avrebbe inciso negativamente sulle prestazioni. \\
 \hline
-\textbf{Nasce, Cresce, Ignora} - The Killer, la recensione (\url{https://nascecresceignora.it/the-killer-la-recensione-un-thriller-freddo-e-glaciale/}) & Tutti i test manuali sono stati superati con successo, inclusa l'analisi di parole chiave “spezzate” su più tag HTML (es. “David Fincher”) e l’estrazione delle keyphrase più frequenti (es. “The Killer”). \\
+\textbf{Nasce, Cresce, Ignora} - The Killer, la recensione (\url{https://nascecresceignora.it/the-killer-la-recensione-un-thriller-freddo-e-glaciale/}) & Tutti i test manuali sono stati superati con successo, inclusa l'analisi di parole chiave “spezzate” su più tag \gls{html} (es. “David Fincher”) e l’estrazione delle keyphrase più frequenti (es. “The Killer”). \\
 \hline
 \textbf{Nasce, Cresce, Ignora} - Pixar: I migliori film (\url{https://nascecresceignora.it/pixar-i-migliori-film-secondo-letterboxd/}) & Tutti i test manuali sono stati superati con successo. \\
 \hline
