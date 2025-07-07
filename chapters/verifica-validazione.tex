@@ -6,7 +6,7 @@
 \section{Introduzione}
 \label{sec:introduzione-testing}
 
-\par In questa sezione sono riportati i test effettuati durante lo svolgimento del progetto. La fase di testing è stata suddivisa in due sotto-fasi: verifica e validazione (V\&V). La verifica consiste nell’accertare che il software sia conforme alle specifiche, e può essere condotta senza eseguire il codice. Le attività di analisi statica includono la revisione e l’ispezione dei processi, dei requisiti, del design e del codice sorgente. Quest’ultima può avvenire tramite una lettura approfondita del codice o mediante una revisione sistematica e mirata. La validazione, invece, riguarda l’analisi dinamica del software, finalizzata ad accertare il soddisfacimento dei requisiti e delle aspettative dal punto di vista dell’utente finale. Le attività di validazione comprendono sia test automatici che manuali.
+\par In questa sezione sono riportati i test effettuati durante lo svolgimento del progetto. La fase di testing è stata suddivisa in due sotto-fasi: verifica e validazione (V\&V). La verifica consiste nell’accertare che il software sia conforme alle specifiche, e può essere condotta senza eseguire il codice. Le attività di analisi statica includono la revisione e l’ispezione dei processi, dei \gls{requisiti}, del design e del codice sorgente. Quest’ultima può avvenire tramite una lettura approfondita del codice o mediante una revisione sistematica e mirata. La validazione, invece, riguarda l’analisi dinamica del software, finalizzata ad accertare il soddisfacimento dei requisiti e delle aspettative dal punto di vista dell’utente finale. Le attività di validazione comprendono sia test automatici che manuali.
 
 \lstdefinelanguage{JavaScript}{
   keywords={break, case, catch, continue, debugger, default, delete, do, else, finally, for, function, if, in, instanceof, new, return, switch, this, throw, try, typeof, var, void, while, with, let, const},
@@ -52,7 +52,7 @@
 \end{samepage}
 
 \vspace{10pt}
-\par\noindent Per mantenere l’isolamento tra l’ambiente di test e il resto dell’applicazione, ciascun file testato deve terminare con la seguente porzione di codice:
+\par\noindent Per mantenere l’isolamento tra l'estensione e l’ambiente di test, ciascun file testato deve terminare con la seguente porzione di codice:
 
 \vspace{10pt}
 \begin{samepage}
@@ -97,49 +97,49 @@
 \endlastfoot
 
 \hline
-\textbf{Keyword} \textit{(keyword.test.js)}: verifica il corretto funzionamento del modello relativo alle parole chiave & 100\% \\
+\textbf{Keyword} \textit{(keyword.test.js)}: verifica il corretto funzionamento del modello relativo alle parole chiave. & 100\% \\
 \hline
-\textbf{AnalysisResultView} \textit{(analysis\_result\_view.test.js)}: verifica il corretto funzionamento del componente responsabile della visualizzazione dei risultati relativi all’analisi di una parola chiave & 100\% \\
+\textbf{AnalysisResultView} \textit{(analysis\_result\_view.test.js)}: verifica il corretto funzionamento del componente responsabile della visualizzazione dei risultati relativi all’analisi di una parola chiave. & 100\% \\
 \hline 
-\textbf{KeywordListView} \textit{(keyword\_list\_view.test.js)}: verifica il corretto funzionamento del componente responsabile della visualizzazione delle liste di parole chiave per ciascuna tipologia & 100\% \\
+\textbf{KeywordListView} \textit{(keyword\_list\_view.test.js)}: verifica il corretto funzionamento del componente responsabile della visualizzazione delle liste di parole chiave per ciascuna tipologia. & 100\% \\
 \hline 
-\textbf{KeywordView} \textit{(view.test.js)}: verifica il corretto funzionamento della view principale, responsabile della gestione della \textit{dashboard} e delle sotto-view & 100\% \\
+\textbf{KeywordView} \textit{(view.test.js)}: verifica il corretto funzionamento della view principale, responsabile della gestione della \textit{dashboard} e delle sotto-view. & 100\% \\
 \hline 
-\textbf{KeywordController} \textit{(controller.test.js)}: verifica il corretto funzionamento delle operazioni di gestione delle parole chiave (funzionalità non dipendenti dal \gls{dom} e non sufficientemente specifiche da giustificare una suite dedicata) & 100\% \\
+\textbf{KeywordController} \textit{(controller.test.js)}: verifica il corretto funzionamento delle operazioni di gestione delle parole chiave (funzionalità non dipendenti dal \gls{dom} e non sufficientemente specifiche da giustificare una suite dedicata). & 100\% \\
 \hline 
-\textbf{KeywordController - DOM} \textit{(controller\_dom.test.js)}: verifica il corretto funzionamento delle operazioni del controller che richiedono l’interazione con il DOM & 100\% \\
+\textbf{KeywordController - DOM} \textit{(controller\_dom.test.js)}: verifica il corretto funzionamento delle operazioni del controller che richiedono l’interazione con il DOM. & 100\% \\
 \hline 
-\textbf{KeywordController - sorting} \textit{(controller\_sorting.test.js)}: verifica le funzionalità di ordinamento delle parole chiave & 100\% \\
+\textbf{KeywordController - sorting} \textit{(controller\_sorting.test.js)}: verifica la funzionalità di ordinamento delle parole chiave. & 100\% \\
 \hline
-\textbf{KeywordController - filtering} \textit{(controller\_filtering.test.js)}: verifica le funzionalità di filtraggio delle parole chiave & 100\% \\
+\textbf{KeywordController - filtering} \textit{(controller\_filtering.test.js)}: verifica la funzionalità di filtraggio delle parole chiave. & 100\% \\
 \hline
-\textbf{KeywordController - pagination} \textit{(controller\_pagination.test.js)}: verifica la logica di gestione della paginazione delle parole chiave & 100\% \\
+\textbf{KeywordController - pagination} \textit{(controller\_pagination.test.js)}: verifica la logica di gestione della paginazione delle parole chiave. & 100\% \\
 \hline
-\textbf{KeywordController - highlight} \textit{(controller\_highlight.test.js)}: verifica la logica di gestione dell’evidenziazione delle parole chiave & 100\% \\
+\textbf{KeywordController - highlight} \textit{(controller\_highlight.test.js)}: verifica la logica di gestione dell’evidenziazione delle parole chiave. & 100\% \\
 \hline
-\textbf{KeywordController - events} \textit{(controller\_events.test.js)}: verifica il corretto funzionamento dell’associazione (binding) degli eventi & 100\% \\
+\textbf{KeywordController - events} \textit{(controller\_events.test.js)}: verifica il corretto funzionamento dell’associazione (binding) degli eventi. & 100\% \\
 \hline
-\textbf{KeywordController - init} \textit{(controller\_init.test.js)}: verifica le funzionalità di inizializzazione e aggiornamento del controller, nonché l’integrazione tra i componenti dell’architettura & 100\% \\
+\textbf{KeywordController - init} \textit{(controller\_init.test.js)}: verifica le funzionalità di inizializzazione e di aggiornamento del controller, nonché l’integrazione tra i componenti dell’architettura. & 100\% \\
 \hline
-\textbf{TreeWalkerManager} \textit{(tree\_walker\_manager.test.js)}: verifica la corretta gestione dell’oggetto \textit{TreeWalker} & 100\% \\
+\textbf{TreeWalkerManager} \textit{(tree\_walker\_manager.test.js)}: verifica la corretta gestione dell’oggetto \textit{TreeWalker}. & 100\% \\
 \hline
-\textbf{TextProcessor} \textit{(text\_processor.test.js)}: verifica il corretto comportamento delle funzioni di utilità legate all’analisi e all’elaborazione testuale & 100\% \\
+\textbf{TextProcessor} \textit{(text\_processor.test.js)}: verifica il corretto comportamento delle funzioni di utilità legate all’analisi e all’elaborazione testuale. & 100\% \\
 \hline
-\textbf{TagAccessor} \textit{(tag\_accessor.test.js)}: verifica il corretto comportamento delle funzioni di utilità dedicate all’accesso e alla lettura del contenuto dei tag \gls{html} & 100\% \\
+\textbf{TagAccessor} \textit{(tag\_accessor.test.js)}: verifica il corretto comportamento delle funzioni di utilità dedicate all’accesso e alla lettura del contenuto dei tag \gls{html}. & 100\% \\
 \hline
-\textbf{WordCounter} \textit{(word\_counter.test.js)}: verifica le funzionalità di conteggio delle parole nella pagina e di estrazione di quelle più frequenti & 100\% \\
+\textbf{WordCounter} \textit{(word\_counter.test.js)}: verifica le funzionalità di conteggio delle parole e di estrazione di quelle più frequenti. & 100\% \\
 \hline
-\textbf{KeywordHighlighter} \textit{(keyword\_highlighter.test.js)}: verifica le funzionalità di evidenziazione delle parole chiave all’interno della pagina & 100\% \\
+\textbf{KeywordHighlighter} \textit{(keyword\_highlighter.test.js)}: verifica la funzionalità di evidenziazione delle parole chiave all’interno della pagina. & 100\% \\
 \hline
-\textbf{KeywordAnalyzer} \textit{(keyword\_analyzer.test.js)}: verifica le funzionalità dedicate all’analisi delle parole chiave & 100\% \\
+\textbf{KeywordAnalyzer} \textit{(keyword\_analyzer.test.js)}: verifica la funzionalità di analisi delle parole chiave. & 100\% \\
 \hline
-\textbf{KeywordAnalysisStrategy} \textit{(keyword\_analysis\_strategy.test.js)}: verifica il corretto comportamento della struttura astratta, assicurandosi che l’istanziazione diretta sia impedita e che i metodi non implementati generino un errore & 100\% \\
+\textbf{KeywordAnalysisStrategy} \textit{(keyword\_analysis\_strategy.test.js)}: verifica il corretto comportamento della struttura astratta, assicurandosi che l’istanziazione diretta sia impedita e che i metodi non implementati generino un errore. & 100\% \\
 \hline
-\textbf{StagedAnalysisStrategy} \textit{(staged\_analysis\_strategy.test.js)}: verifica il corretto funzionamento dell’implementazione concreta della strategy, basata su un’analisi “per fasi” (staged) & 100\% \\
+\textbf{StagedAnalysisStrategy} \textit{(staged\_analysis\_strategy.test.js)}: verifica il corretto funzionamento dell’implementazione concreta della \textit{strategy}, basata su un’analisi “per fasi” (staged). & 100\% \\
 \hline
-\textbf{AllInOneAnalysisStrategy} \textit{(all\_in\_one\_analysis\_strategy.test.js)}: verifica il corretto funzionamento dell’implementazione concreta della strategy, basata su un’analisi compatta e unificata & 100\% \\
+\textbf{AllInOneAnalysisStrategy} \textit{(all\_in\_one\_analysis\_strategy.test.js)}: verifica il corretto funzionamento dell’implementazione concreta della \textit{strategy}, basata su un’analisi compatta e unificata. & 100\% \\
 \hline
-\textbf{Utils} \textit{(utils.test.js)}: verifica il corretto comportamento delle funzioni di utilità & 100\% \\
+\textbf{Utils} \textit{(utils.test.js)}: verifica il corretto comportamento delle funzioni di utilità. & 100\% \\
 \end{longtable}
 
 \section{Test manuali}
@@ -166,33 +166,33 @@
 \endlastfoot
 
 \hline
-\textbf{W3Schools} - JavaScript Tutorial (\url{https://www.w3schools.com/js/}) & Tutti i test manuali sono stati superati con successo, inclusa l'analisi di parole chiave “spezzate” su più tag \gls{html} (es. “JavaScript Tutorial”). L’unica eccezione riscontrata nelle prime fasi di sviluppo riguardava il mancato rilevamento dei meta tag keywords e description. Il problema era dovuto al fatto che, contrariamente alle convenzioni più comuni, il valore dell’attributo \textit{name} iniziava con una lettera maiuscola. La soluzione adottata è stata l’aggiunta del flag di confronto “case-insensitive” nel selettore \\
+\textbf{W3Schools} - JavaScript Tutorial (\url{https://www.w3schools.com/js/}) & Tutti i test manuali sono stati superati con successo, inclusa l'analisi di parole chiave “spezzate” su più tag \gls{html} (es. “JavaScript Tutorial”). L’unica eccezione riscontrata nelle prime fasi di sviluppo riguardava il mancato rilevamento dei meta tag keywords e description. Il problema era dovuto al fatto che, contrariamente alle convenzioni più comuni, il valore dell’attributo \textit{name} iniziava con una lettera maiuscola. La soluzione adottata è stata l’aggiunta del flag di confronto “case-insensitive” nel selettore. \\
 \hline
-\textbf{W3Schools} - JavaScript Regular Expressions (\url{https://www.w3schools.com/js/js\_regexp.asp}) & Tutti i test manuali sono stati superati con successo \\
+\textbf{W3Schools} - JavaScript Regular Expressions (\url{https://www.w3schools.com/js/js\_regexp.asp}) & Tutti i test manuali sono stati superati con successo. \\
 \hline
-\textbf{Corriere della Sera} - HomePage (\url{https://www.corriere.it/}) & Tutti i test manuali sono stati superati con successo, sebbene con prestazioni non sempre ottimali, a causa della complessità del sito in questione \\
+\textbf{Corriere della Sera} - HomePage (\url{https://www.corriere.it/}) & Tutti i test manuali sono stati superati con successo, sebbene con prestazioni non sempre ottimali, a causa della complessità del sito in questione. \\
 \hline
-Siti web partecipanti al concorso \textbf{Accattivante Accessibile}, organizzato dall’Università degli Studi di Padova (\url{https://web.math.unipd.it/CAA/classifica.html}) & Tutti i test manuali sono stati superati con successo. Durante l’analisi del sito \textit{BookOverflow}, è emerso un caso particolare non gestito: una singola parola “spezzata” su più tag HTML (es. “BookOverflow”). Questa situazione è stata valutata come un’eccezione poco significativa, non tale da giustificare una gestione più granulare, che avrebbe inciso negativamente sulle prestazioni \\
+Siti web partecipanti al concorso \textbf{Accattivante Accessibile}, organizzato dall’Università degli Studi di Padova (\url{https://web.math.unipd.it/CAA/classifica.html}) & Tutti i test manuali sono stati superati con successo. Durante l’analisi del sito \textit{BookOverflow}, è emerso un caso particolare non gestito: una singola parola “spezzata” su più tag HTML (es. “BookOverflow”). Questa situazione è stata valutata come un’eccezione poco significativa, non tale da giustificare una gestione più granulare, che avrebbe inciso negativamente sulle prestazioni. \\
 \hline
-\textbf{Nasce, Cresce, Ignora} - The Killer, la recensione (\url{https://nascecresceignora.it/the-killer-la-recensione-un-thriller-freddo-e-glaciale/}) & Tutti i test manuali sono stati superati con successo, inclusa l'analisi di parole chiave “spezzate” su più tag HTML (es. “David Fincher”) e l’estrazione delle keyphrase più frequenti (es. “The Killer”) \\
+\textbf{Nasce, Cresce, Ignora} - The Killer, la recensione (\url{https://nascecresceignora.it/the-killer-la-recensione-un-thriller-freddo-e-glaciale/}) & Tutti i test manuali sono stati superati con successo, inclusa l'analisi di parole chiave “spezzate” su più tag HTML (es. “David Fincher”) e l’estrazione delle keyphrase più frequenti (es. “The Killer”). \\
 \hline
-\textbf{Nasce, Cresce, Ignora} - Pixar: I migliori film (\url{https://nascecresceignora.it/pixar-i-migliori-film-secondo-letterboxd/}) & Tutti i test manuali sono stati superati con successo \\
+\textbf{Nasce, Cresce, Ignora} - Pixar: I migliori film (\url{https://nascecresceignora.it/pixar-i-migliori-film-secondo-letterboxd/}) & Tutti i test manuali sono stati superati con successo. \\
 \hline
-\textbf{Nasce, Cresce, Ignora} - Death Stranding 2: On The Beach (\url{https://nascecresceignora.it/death-stranding-2-on-the-beach-pubblicato-nuovo-trailer-gameplay/}) & Tutti i test manuali sono stati superati con successo \\
+\textbf{Nasce, Cresce, Ignora} - Death Stranding 2: On The Beach (\url{https://nascecresceignora.it/death-stranding-2-on-the-beach-pubblicato-nuovo-trailer-gameplay/}) & Tutti i test manuali sono stati superati con successo. \\
 \hline
-\textbf{Nasce, Cresce, Ignora} - The Last of Us in concerto (\url{https://nascecresceignora.it/the-last-of-us-in-concerto-gustavo-santaolalla-annuncia-2-date-italia/}) & Tutti i test manuali sono stati superati con successo \\
+\textbf{Nasce, Cresce, Ignora} - The Last of Us in concerto (\url{https://nascecresceignora.it/the-last-of-us-in-concerto-gustavo-santaolalla-annuncia-2-date-italia/}) & Tutti i test manuali sono stati superati con successo. \\
 \hline
-\textbf{la Repubblica} - HomePage (\url{https://www.repubblica.it/}) & Tutti i test manuali sono stati superati con successo \\
+\textbf{la Repubblica} - HomePage (\url{https://www.repubblica.it/}) & Tutti i test manuali sono stati superati con successo. \\
 \hline
-\textbf{TradingView} - HomePage (\url{https://it.tradingview.com/}) & Tutti i test manuali sono stati superati con successo, sebbene con prestazioni non sempre ottimali, a causa della complessità del sito in questione \\
+\textbf{TradingView} - HomePage (\url{https://it.tradingview.com/}) & Tutti i test manuali sono stati superati con successo, sebbene con prestazioni non sempre ottimali, a causa della complessità del sito in questione. \\
 \hline
-\textbf{GitHub} - HomePage (\url{https://github.com/}) & Tutti i test manuali sono stati superati con successo \\
+\textbf{GitHub} - HomePage (\url{https://github.com/}) & Tutti i test manuali sono stati superati con successo. \\
 \hline
-\textbf{STEM Unipd} - HomePage (\url{https://stem.elearning.unipd.it/}) & Tutti i test manuali sono stati superati con successo. Data la presenza di numerosi tag nascosti, la maggior parte delle parole chiave più frequenti non è direttamente visibile \\
+\textbf{STEM Unipd} - HomePage (\url{https://stem.elearning.unipd.it/}) & Tutti i test manuali sono stati superati con successo. Data la presenza di numerosi tag nascosti, la maggior parte delle parole chiave più frequenti non è direttamente visibile. \\
 \hline
-\textbf{THINKY} - HomePage (\url{https://prodotto.netlify.app/}) & Tutti i test manuali sono stati superati con successo. Cambiando il tema del sito da chiaro a scuro, il rapporto di contrasto dei colori all’interno dell’estensione risultava compromesso. Il problema è stato risolto forzando lo schema di colori da utilizzare \\
+\textbf{THINKY} - HomePage (\url{https://prodotto.netlify.app/}) & Tutti i test manuali sono stati superati con successo. Cambiando il tema del sito da chiaro a scuro, il rapporto di contrasto dei colori all’interno dell’estensione risultava compromesso. Il problema è stato risolto forzando lo schema di colori da utilizzare. \\
 \hline
-\textbf{Vite} - HomePage (\url{https://vite.dev/}) & Tutti i test manuali sono stati superati con successo. Durante l’evidenziazione delle parole chiave contenute nel tag H1, il testo risultava nascosto, lasciando un riquadro vuoto. Il problema è stato risolto azzerando gli stili preimpostati del tag genitore \\
+\textbf{Vite} - HomePage (\url{https://vite.dev/}) & Tutti i test manuali sono stati superati con successo. Durante l’evidenziazione delle parole chiave contenute nel tag H1, il testo risultava nascosto, lasciando un riquadro vuoto. Il problema è stato risolto azzerando gli stili preimpostati del tag genitore. \\
 \end{tabularx}
 
 \vspace{20pt}

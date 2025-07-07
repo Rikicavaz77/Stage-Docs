@@ -18,7 +18,7 @@
 
 \subsection{Content Script}
 
-\par I \textit{content script} sono file che vengono iniettati nelle pagine web ed eseguiti nel contesto di quelle stesse pagine. Possono visualizzare e manipolare il \gls{dom} in modo analogo agli script caricati da ciascuna pagina. Hanno accesso a un insieme limitato delle API di WebExtension, che può essere esteso tramite la comunicazione con i \textit{background script}.
+\par I \textit{content script} sono file che vengono iniettati nelle pagine web ed eseguiti nel contesto di quelle stesse pagine. Possono visualizzare e manipolare il \gls{dom} in modo analogo agli script caricati da ciascuna pagina. Hanno accesso a un insieme limitato delle \gls{api} di WebExtension, che può essere esteso tramite la comunicazione con i \textit{background script}.
 
 \begin{figure}[H]
   \centering 
@@ -49,12 +49,12 @@
 \section{PoC}
 \label{sec:poc}
 
-\par Lo scopo principale del \gls{poc} è stato quello di tradurre in codice il \textit{mockup} dell’interfaccia grafica, al fine di verificare la correttezza e la coerenza delle scelte progettuali. Per raggiungere questo obiettivo, ho simulato il funzionamento dell’estensione in ambiente \gls{localhost}, sostituendo una pagina reale con una versione statica. Questa soluzione ha reso possibile lavorare in un ambiente di test controllato, all’interno del quale è stato possibile condurre uno studio di fattibilità e sperimentare le funzionalità di analisi ed evidenziazione visiva delle parole chiave. Al termine di questa fase, è stato organizzato un incontro con la Proponente per discutere i risultati ottenuti e le problematiche riscontrate, e identificare gli elementi da mantenere, modificare o integrare, in vista della successiva progettazione architetturale e dello sviluppo definitivo.
+\par Lo scopo principale del \gls{poc} è stato quello di tradurre in codice il \textit{mockup} dell’interfaccia grafica, al fine di verificare la correttezza e la coerenza delle scelte progettuali. Per raggiungere questo obiettivo, ho simulato il funzionamento dell’estensione in ambiente \gls{localhost}, sostituendo una pagina reale con una versione statica. Questa soluzione ha reso possibile lavorare in un ambiente di test controllato, all’interno del quale è stato possibile condurre uno studio di fattibilità e sperimentare le funzionalità di analisi e di evidenziazione visiva delle parole chiave. Al termine di questa fase, è stato organizzato un incontro con la Proponente per discutere i risultati ottenuti e le problematiche riscontrate, e identificare gli elementi da mantenere, modificare o integrare, in vista della successiva progettazione architetturale e dello sviluppo definitivo.
 
 \section{Progettazione architetturale}
 \label{sec:progettazione}
 
-\par Il progetto adotta il pattern architetturale MVC (Model-View-Controller) al fine di garantire una chiara separazione delle responsabilità tra i diversi componenti. Questo design pattern prevede tre elementi principali, ciascuno con un ruolo preciso e ben definito:
+\par Il progetto adotta il \textit{pattern} architetturale MVC (Model-View-Controller) al fine di garantire una chiara separazione delle responsabilità tra i diversi componenti. Questo \gls{design-pattern} prevede tre elementi principali, ciascuno con un ruolo preciso e ben definito:
 \begin{itemize}
   \item \textbf{Model}: rappresenta il cuore dell’architettura. È responsabile della rappresentazione e della gestione interna dei dati, isolando le operazioni di manipolazione, archiviazione e accesso. Ha il compito di mantenere i dati organizzati, accurati e coerenti con le regole e la logica dell’applicazione;
   \item \textbf{View}: è il componente con cui l’utente interagisce direttamente. Visualizza i dati in un formato comprensibile e gestisce l’interazione tra l’utente e il sistema. Trattandosi di un componente “passivo”, la View non comunica direttamente con il Model, ma si affida al Controller per elaborare le richieste;
@@ -62,7 +62,7 @@
 \end{itemize}
 
 \vspace{5pt}
-\par\noindent Il pattern MVC promuove principi fondamentali della qualità del software, quali modularità, manutenibilità, scalabilità, robustezza e riusabilità. La chiara separazione delle responsabilità tra i componenti consente di limitare l’impatto delle modifiche, che possono essere applicate a un singolo modulo senza influire sugli altri. Inoltre, l’architettura MVC facilita l’esecuzione di test di unità e di integrazione, migliorando l’affidabilità del sistema.
+\par\noindent Il \textit{pattern} MVC promuove principi fondamentali della qualità del software, quali modularità, manutenibilità, scalabilità, robustezza e riusabilità. La chiara separazione delle responsabilità tra i componenti consente di limitare l’impatto delle modifiche, che possono essere applicate a un singolo modulo senza influire sugli altri. Inoltre, l’architettura MVC facilita l’esecuzione di test di unità e di integrazione, migliorando l’affidabilità del sistema.
 
 \begin{figure}[H] 
     \centering 
@@ -95,25 +95,25 @@
 \section{Design Pattern}
 \label{sec:design-pattern}
 
-\par Oltre al pattern architetturale MVC (Model-View-Controller), ho adottato anche i pattern Strategy e Dependency Injection.
+\par Oltre al \textit{pattern} architetturale MVC (Model-View-Controller), ho adottato anche i \textit{pattern} Strategy e Dependency Injection.
 
 \subsection{Strategy}
 
-\par Strategy è un pattern comportamentale che permette di incapsulare una famiglia di algoritmi e di selezionare dinamicamente quello più adatto. Poiché in \gls{javascript}, a differenza di linguaggi come \textit{Java} o \textit{C\#}, non esistono interfacce in senso stretto, ho definito una classe che ne simula il comportamento all’interno del design  pattern Strategy. Questa classe agisce come una struttura astratta: impedisce l'istanziazione diretta e impone l’implementazione dei metodi. Nell’ambito del progetto di stage, il pattern Strategy è stato utilizzato per delegare una fase dell’analisi a due classi distinte, ognuna delle quali fornisce una diversa implementazione dello stesso processo. In questo modo è possibile selezionare dinamicamente l’algoritmo desiderato senza modificare il codice del modulo di analisi principale.
+\par Strategy è un \gls{design-pattern} comportamentale che permette di incapsulare una famiglia di algoritmi e di selezionare dinamicamente quello più adatto. Poiché in \gls{javascript}, a differenza di linguaggi come \gls{java} o \gls{c-sharp}, non esistono interfacce in senso stretto, ho definito una classe che ne simula il comportamento all’interno del \textit{pattern} Strategy. Questa classe agisce come una struttura astratta: impedisce l'istanziazione diretta e impone l’implementazione dei metodi. Nell’ambito del progetto di stage, il \textit{pattern} Strategy è stato utilizzato per delegare una fase dell’analisi a due classi distinte, ognuna delle quali fornisce una diversa implementazione dello stesso processo. In questo modo è possibile selezionare dinamicamente l’algoritmo desiderato senza modificare il codice del modulo di analisi principale.
 
 \vspace{10pt}
-\par\noindent Entrambe le classi calcolano la frequenza complessiva di una parola chiave tramite la navigazione del \gls{dom} con \textit{TreeWalker}. Le differenze risiedono nel metodo utilizzato per determinare il numero di occorrenze all’interno di un insieme predefinito di tag \gls{html} ritenuti rilevanti per l’analisi. La classe \textit{StagedAnalysisStrategy} esegue un’analisi “per fasi” (staged), contando le occorrenze nei tag solo dopo aver completato il calcolo della frequenza complessiva. L’algoritmo accede direttamente ai tag e ne estrae il contenuto tramite la proprietà \textit{textContent}. Al contrario, la classe \textit{AllInOneAnalysisStrategy} effettua un’analisi compatta e unificata (all in one), registrando le occorrenze nei tag contestualmente al calcolo della frequenza. In questo caso, l’accesso ai tag avviene durante la navigazione del DOM, risalendo la gerarchia (con un approccio bottom-up) ogni volta che vengono trovati \textit{match} all’interno di un nodo.
+\par\noindent Entrambe le classi calcolano la frequenza complessiva di una parola chiave tramite la navigazione del \gls{dom} con \textit{TreeWalker}. Le differenze risiedono nel metodo utilizzato per determinare il numero di occorrenze all’interno di un insieme predefinito di tag \gls{html} ritenuti rilevanti per l’analisi. La classe \textit{StagedAnalysisStrategy} esegue un’analisi “per fasi” (staged), contando le occorrenze nei tag solo dopo aver completato il calcolo della frequenza complessiva. L’algoritmo accede direttamente ai tag e ne estrae il contenuto tramite la proprietà \textit{textContent}. Al contrario, la classe \textit{AllInOneAnalysisStrategy} effettua un’analisi compatta e unificata (all in one), registrando le occorrenze nei tag contestualmente al calcolo della frequenza. In questo caso, l’accesso ai tag avviene durante la navigazione del DOM, risalendo la gerarchia (con un approccio \textit{bottom-up}) ogni volta che vengono trovati \textit{match} all’interno di un nodo.
 
 \subsection{Dependency Injection}
 
-\par Dependency Injection è un pattern che consente di fornire dall’esterno le dipendenze necessarie a un oggetto, invece di istanziarle al suo interno. Le due forme di injection più comuni sono:
+\par Dependency Injection è un \gls{design-pattern} che consente di fornire dall’esterno le dipendenze necessarie a un oggetto, invece di istanziarle al suo interno. Le due forme di injection più comuni sono:
 \begin{itemize}
   \item \textbf{Constructor Injection}: la dipendenza viene iniettata mediante il costruttore della classe;
   \item \textbf{Setter Injection}: la dipendenza viene iniettata tramite un metodo setter.
 \end{itemize}
 
 \vspace{5pt}
-\par\noindent Il pattern Dependency Injection favorisce un basso accoppiamento tra i componenti, promuovendo principi fondamentali dell’ingegneria del software come la flessibilità, la manutenibilità, l’estensibilità, la modularità, la riusabilità e il testing. Nell’ambito del progetto di stage, l’adozione di questo pattern si è rivelata particolarmente utile durante la scrittura dei test di unità e di integrazione, in quanto ha permesso di sostituire le dipendenze reali con oggetti fittizi (mock).
+\par\noindent Il \textit{pattern} Dependency Injection favorisce un basso accoppiamento tra i componenti, promuovendo principi fondamentali dell’ingegneria del software come la flessibilità, la manutenibilità, l’estensibilità, la modularità, la riusabilità e il testing. Nell’ambito del progetto di stage, l’adozione di questo \textit{pattern} si è rivelata particolarmente utile durante la scrittura dei test di unità e di integrazione, in quanto ha permesso di sostituire le dipendenze reali con oggetti fittizi (mock).
 
 \section{Elenco delle classi}
 \label{sec:elenco-classi}
@@ -168,7 +168,7 @@
     \item \textbf{getWordsPattern}: restituisce un'espressione regolare per estrarre le parole dal testo;
     \item \textbf{getCompoundSplitPattern}: restituisce un’espressione regolare per suddividere il testo in blocchi (proposizioni);
     \item \textbf{getKeywordPattern}: restituisce un’espressione regolare per identificare una parola chiave nel testo;
-    \item \textbf{getParentName}: restituisce il nome dell’elemento genitore più vicino (risalendo la gerarchia del DOM con un approccio bottom-up), tra quelli considerati rilevanti per l’analisi;
+    \item \textbf{getParentName}: restituisce il nome dell’elemento genitore più vicino (risalendo la gerarchia del DOM con un approccio \textit{bottom-up}), tra quelli considerati rilevanti per l’analisi;
     \item \textbf{getTextNodes}: restituisce i nodi di testo;
     \item \textbf{getTextNodeGroups}: restituisce i nodi di testo suddivisi in gruppi. Ciascun gruppo contiene nodi \textit{inline} validi (ad esempio strong, em, ecc.) che condividono lo stesso elemento genitore.
   \end{itemize}
@@ -180,7 +180,7 @@
     \item \textbf{removeHighlight}: rimuove l’evidenziazione eseguendo una normalizzazione del \gls{dom}, al fine di ripristinare il contenuto originale;
     \item \textbf{updateTagColors}: aggiorna i colori utilizzati per l’evidenziazione delle parole chiave e inietta nuovamente lo stile nella pagina.
   \end{itemize}
-  \item \textbf{KeywordAnalyzer}: implementa la funzionalità di analisi delle parole chiave, delegando al pattern \textit{Strategy} una fase del processo, che riguarda il calcolo della frequenza tramite la navigazione del DOM con \textit{TreeWalker} e la registrazione del numero di occorrenze in specifici tag HTML. Questa classe espone quattro metodi principali:
+  \item \textbf{KeywordAnalyzer}: implementa la funzionalità di analisi delle parole chiave, delegando al \textit{pattern} Strategy una fase del processo, che riguarda il calcolo della frequenza tramite la navigazione del DOM con \textit{TreeWalker} e la registrazione del numero di occorrenze in specifici tag HTML. Questa classe espone quattro metodi principali:
   \begin{itemize}
     \item \textbf{analyzeKeyword}: esegue l’analisi di una singola parola chiave;
     \item \textbf{analyzeKeywords}: esegue l’analisi di un gruppo (batch) di parole chiave, gestendo opportunamente la cache per ottimizzare l’esecuzione;
@@ -194,9 +194,9 @@
 \par Di seguito sono elencate le classi presenti nella cartella \textit{Strategy}:
 
 \begin{itemize}
-  \item \textbf{KeywordAnalysisStrategy}: simula un’interfaccia all’interno del pattern \textit{Strategy}, definendo il contratto che le classi concrete devono implementare;
+  \item \textbf{KeywordAnalysisStrategy}: simula un’interfaccia all’interno del \textit{pattern} Strategy, definendo il contratto che le classi concrete devono implementare;
   \item \textbf{StagedAnalysisStrategy}: calcola la frequenza di una parola chiave tramite la navigazione del \gls{dom}, analizzando singoli nodi di testo o gruppi di nodi a seconda della tipologia di keyword (keyword semplice o keyphrase). I due metodi, \textit{analyzeSimpleKeyword} e \textit{analyzeCompoundKeyword}, sono richiamati dal modulo di analisi principale. Per contare il numero di occorrenze all’interno di un insieme predefinito di tag \gls{html}, entrambi i metodi analizzano direttamente i tag interessati, separatamente rispetto al calcolo della frequenza;
-  \item \textbf{AllInOneAnalysisStrategy}: calcola la frequenza in modo analogo alla classe precedente. La differenza principale riguarda la modalità con cui vengono contate le occorrenze all’interno di specifici tag HTML. Rispetto alla classe precedente, il conteggio avviene contestualmente al calcolo della frequenza, risalendo la gerarchia del DOM con un approccio bottom-up. Per le keyword semplici, l’analisi viene eseguita su singoli nodi di testo; in caso di \textit{match}, è sufficiente risalire la gerarchia alla ricerca dei tag interessati e registrare le occorrenze. Per le keyphrase, invece, l’analisi si svolge su un gruppo di nodi; la registrazione delle occorrenze richiede non solo di risalire la gerarchia per individuare i tag interessati, ma anche di filtrarli per mantenere quelli comuni a tutti i nodi \textit{matchati}.
+  \item \textbf{AllInOneAnalysisStrategy}: calcola la frequenza in modo analogo alla classe precedente. La differenza principale riguarda la modalità con cui vengono contate le occorrenze all’interno di specifici tag HTML. Rispetto alla classe precedente, il conteggio avviene contestualmente al calcolo della frequenza, risalendo la gerarchia del DOM con un approccio \textit{bottom-up}. Per le keyword semplici, l’analisi viene eseguita su singoli nodi di testo; in caso di \textit{match}, è sufficiente risalire la gerarchia alla ricerca dei tag interessati e registrare le occorrenze. Per le keyphrase, invece, l’analisi si svolge su un gruppo di nodi; la registrazione delle occorrenze richiede non solo di risalire la gerarchia per individuare i tag interessati, ma anche di filtrarli per mantenere quelli comuni a tutti i nodi \textit{matchati}.
 \end{itemize}
 
 \subsection{Utils}

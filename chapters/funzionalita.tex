@@ -17,7 +17,7 @@
 \par\noindent Un altro ostacolo, particolarmente critico per l’affidabilità e le prestazioni del sistema, è emerso nel trattamento delle parole chiave composte da più termini separati da spazi (note anche come keyphrase). L’approccio iniziale prevedeva l’esecuzione della ricerca sui singoli nodi di testo; di conseguenza, una keyword come “JavaScript Tutorial” non veniva riconosciuta se i due termini erano distribuiti su tag distinti (ad esempio, un h1 e uno span annidato). Questo limite è stato rilevato nel corso di test manuali condotti su un blog di intrattenimento e informazione, che adotta una convenzione particolare: evidenziare in grassetto solo il cognome all’interno dei nomi propri. Ciò comportava la frammentazione di molte keyphrase, che non venivano identificate correttamente dal sistema. Per rendere la ricerca delle keyphrase più granulare e accurata, ho sviluppato due algoritmi: uno ricorsivo e uno iterativo. Il primo suddivide la keyphrase in blocchi e cerca ciascun blocco all’interno di nodi di testo adiacenti. Il secondo, invece, costruisce un testo virtuale concatenando il contenuto di nodi adiacenti, simulando il comportamento delle proprietà \textit{innerText} o \textit{textContent}. In entrambi gli approcci, i nodi adiacenti devono appartenere allo stesso contesto, ovvero condividere lo stesso elemento genitore ed essere elementi \textit{inline} validi (ad esempio strong, em, ecc.). Tra le due soluzioni, ho preferito il secondo algoritmo, in quanto più flessibile e maggiormente coerente con il comportamento reale del browser.
 
 \vspace{10pt}
-\par\noindent Nel secondo algoritmo, ogni volta che si concatena il contenuto di un nodo al testo virtuale, è necessario effettuare una mappatura degli indici di inizio e fine, in modo da poter risalire al nodo originale nel momento in cui vengono trovati \textit{match}. Questa operazione può risultare complessa, soprattutto in presenza di \gls{dom} profondi o fortemente nidificati. Per questo motivo, l’algoritmo “a nodi multipli” non ha sostituito quello originale, che esegue la ricerca sui singoli nodi di testo, ma coesiste con esso all’interno del sistema. I due algoritmi vengono richiamati dinamicamente in base alla tipologia di parola chiave: per le keyword semplici viene utilizzato l’algoritmo “a nodo singolo”, mentre per le keyphrase viene impiegato l’algoritmo “a nodi multipli”. È stato valutato anche il caso limite in cui una keyword semplice risulti spezzata su più tag. Tuttavia, trattandosi di una situazione molto rara, si è deciso di non complicare ulteriormente il flusso di ricerca per gestirla.
+\par\noindent Nel secondo algoritmo, ogni volta che si concatena il contenuto di un nodo al testo virtuale, è necessario effettuare una mappatura degli indici di inizio e fine, in modo da poter risalire al nodo originale nel momento in cui vengono trovati \textit{match}. Questa operazione può risultare complessa, soprattutto in presenza di DOM profondi o fortemente nidificati. Per questo motivo, l’algoritmo “a nodi multipli” non ha sostituito quello originale, che esegue la ricerca sui singoli nodi di testo, ma coesiste con esso all’interno del sistema. I due algoritmi vengono richiamati dinamicamente in base alla tipologia di parola chiave: per le keyword semplici viene utilizzato l’algoritmo “a nodo singolo”, mentre per le keyphrase viene impiegato l’algoritmo “a nodi multipli”. È stato valutato anche il caso limite in cui una keyword semplice risulti spezzata su più tag. Tuttavia, trattandosi di una situazione molto rara, si è deciso di non complicare ulteriormente il flusso di ricerca per gestirla.
 
 \begin{figure}[H]
   \centering 
@@ -40,7 +40,7 @@
 \par\noindent Queste informazioni costituiscono la base per l'analisi delle parole chiave, che prende in considerazione diversi parametri, come la frequenza, la densità e il numero di occorrenze all’interno di un insieme predefinito di tag \gls{html}. L'analisi viene eseguita su una copia statica del \gls{dom}, al fine di garantire coerenza tra tutte le parole chiave, e può essere aggiornata manualmente tramite un pulsante dedicato. La ricerca delle parole chiave segue gli stessi criteri illustrati nella \hyperref[sec:highlight-keyword]{sezione \textsection\ref*{sec:highlight-keyword}}.
 
 \vspace{10pt}
-\par\noindent I tag semantici considerati più rilevanti dal punto di vista \gls{seo} sono:
+\par\noindent I tag semantici considerati rilevanti dal punto di vista \gls{seo} sono:
 \begin{itemize}
   \item Il tag title;
   \item Il meta tag description;
@@ -48,7 +48,7 @@
   \item I paragrafi (<p>);
   \item I link (<a>);
   \item Il testo in grassetto (<strong>);
-  \item Il test in corsivo (<em>);
+  \item Il testo in corsivo (<em>);
   \item Le voci degli elenchi (<li>);
   \item Il testo alternativo delle immagini (Alt).
 \end{itemize}
@@ -61,17 +61,17 @@
 \end{itemize}
 
 \vspace{5pt}
-\par\noindent Poiché entrambi gli approcci sono stati considerati ugualmente validi, ho adottato il design pattern comportamentale \textit{Strategy}, in modo da poter selezionare dinamicamente l’algoritmo senza alterare il codice del modulo di analisi.
+\par\noindent Poiché entrambi gli approcci sono stati considerati ugualmente validi, ho adottato il \gls{design-pattern} comportamentale Strategy, in modo da poter selezionare dinamicamente l’algoritmo senza alterare il codice del modulo di analisi.
 
 \subsection{Problematiche riscontrate}
 
 \par Una delle difficoltà incontrate ha riguardato il calcolo di un punteggio da associare a ciascuna parola chiave. Le due opzioni considerate erano l’assegnazione di un punteggio di qualità o, in alternativa, di un punteggio basato sulla rilevanza strutturale. Tuttavia, in entrambi i casi è emerso che i criteri effettivamente utilizzati dai motori di ricerca sono molto più articolati e difficili da replicare in modo attendibile. Per questo motivo, ho concordato con la Proponente di non introdurre alcun sistema di punteggio.
 
 \vspace{10pt}
-\par\noindent Un’altra problematica è stata riscontrata in seguito alla modifica della modalità di analisi, con il passaggio dal \gls{dom} live a una copia statica. Durante l’operazione di clonazione, infatti, gli stili applicati agli elementi non vengono mantenuti, rendendo meno preciso il controllo sui tag \textit{inline} rispetto a quanto avviene nella funzionalità di evidenziazione, che opera direttamente sul DOM live. Tuttavia, in fase di analisi, è possibile fare affidamento sulla natura semantica dei tag \gls{html}. Pertanto, un controllo basato sul nome del tag risulta sufficiente nella maggior parte dei casi, garantendo un buon livello di affidabilità anche senza una verifica esplicita dello stile.
+\par\noindent Un’altra problematica è stata riscontrata in seguito alla modifica della modalità di analisi, con il passaggio dal \gls{dom} live a una copia statica. Durante l’operazione di clonazione, infatti, gli stili applicati agli elementi non vengono mantenuti, rendendo meno preciso il controllo sui tag \textit{inline} rispetto a quanto avviene nella funzionalità di evidenziazione, che opera direttamente sul DOM live. Tuttavia, in fase di analisi, è possibile fare affidamento sulla natura semantica dei tag \gls{html}. Pertanto, un controllo basato sul nome dei tag risulta sufficiente nella maggior parte dei casi, garantendo un buon livello di affidabilità anche senza una verifica esplicita dello stile.
 
 \vspace{10pt}
-\par\noindent Un aspetto che ha generato ambiguità è stata la discrepanza tra la frequenza complessiva e la somma delle occorrenze rilevate nei singoli tag. Tale divergenza era dovuta al fatto che alcune occorrenze di una parola chiave si trovavano all’interno di tag annidati. La soluzione concordata con la Proponente è stata l’inserimento di un messaggio esplicativo, al fine di chiarire il comportamento del sistema ed evitare fraintendimenti da parte dell’utente.
+\par\noindent Un aspetto che ha generato ambiguità è stata la discrepanza tra la frequenza complessiva e la somma delle occorrenze rilevate nei singoli tag. Tale divergenza è dovuta al fatto che alcune occorrenze di una parola chiave si trovano all’interno di tag annidati. La soluzione concordata con la Proponente è stata l’inserimento di un messaggio esplicativo, al fine di chiarire il comportamento del sistema ed evitare fraintendimenti da parte dell’utente.
 
 \begin{figure}[H]
   \centering 
@@ -82,7 +82,7 @@
 \section{Conteggio delle parole ed estrazione di quelle più frequenti}
 \label{sec:count-word}
 
-\par Il conteggio delle parole presenti nella pagina rappresenta un requisito fondamentale per il calcolo della densità di una keyword. L'estrazione delle parole dal testo avviene secondo un pattern che segue gli stessi criteri descritti nella \hyperref[sec:highlight-keyword]{sezione \textsection\ref*{sec:highlight-keyword}}. Tra i requisiti opzionali figura invece l'identificazione delle parole più frequenti, suddivisibili in categorie come “single-word”, “double-word” e così via. Questa funzionalità risulta particolarmente utile qualora il meta tag keywords non sia presente, poiché consente di suggerire all’utente un elenco di termini che, in base alla frequenza, possono essere considerati potenziali parole chiave. Il sistema seleziona le 10 parole più ricorrenti per ciascuna categoria, presentandole in ordine decrescente.
+\par Il conteggio delle parole presenti nella pagina rappresenta un requisito fondamentale per il calcolo della densità di una keyword. L'estrazione delle parole dal testo avviene secondo un \textit{pattern} che segue gli stessi criteri descritti nella \hyperref[sec:highlight-keyword]{sezione \textsection\ref*{sec:highlight-keyword}}. Tra i \gls{requisiti} opzionali figura invece l'identificazione delle parole più frequenti, suddivisibili in categorie come “single-word”, “double-word” e così via. Questa funzionalità risulta particolarmente utile qualora il meta tag keywords non sia presente, poiché consente di suggerire all’utente un elenco di termini che, in base alla frequenza, possono essere considerati potenziali parole chiave. Il sistema seleziona le 10 parole più ricorrenti per ciascuna categoria, presentandole in ordine decrescente.
 
 \subsection{Problematiche riscontrate}
 
@@ -130,12 +130,12 @@
 
 \section{Accessibilità}
 
-\par Dal momento che la funzionalità di analisi delle parole chiave è integrata in un’estensione preesistente orientata all’accessibilità, anche questa componente è stata progettata in conformità alle linee guida \gls{wcag}. A tal fine, sono stati condotti test di accessibilità con i seguenti obiettivi:
+\par Dal momento che lo strumento di analisi delle parole chiave è integrato in un’estensione preesistente orientata all’accessibilità, anche questo \textit{tool} è stato progettato in conformità alle linee guida \gls{wcag}. A tal fine, sono stati condotti test di accessibilità con i seguenti obiettivi:
 \begin{itemize}
   \item Verificare il rispetto del \textbf{rapporto minimo di contrasto} tra testo e sfondo, pari a 4.5:1 per il testo di dimensioni “normali” e 3:1 per il testo di grandi dimensioni. Questo controllo è stato applicato sia agli elementi interni all’estensione, sia a quelli utilizzati per evidenziare le parole chiave;
   \item Controllare che le \textbf{immagini non decorative} siano dotate di un testo alternativo;
   \item Accertarsi che le \textbf{icone non decorative} siano accompagnate da un’etichetta accessibile;
-  \item Verificare l’accessibilità dei \textbf{tooltip}, assicurandosi che vengano attivati e disattivati correttamente quando si interagisce con l’elemento trigger, sia tramite navigazione da tastiera sia tramite l’uso del mouse. Inoltre, i tooltip devono rimanere visibili al passaggio del mouse su di essi e devono poter essere chiusi premendo il tasto Esc;
+  \item Verificare l’accessibilità dei \textbf{tooltip}, assicurandosi che vengano attivati e disattivati correttamente quando si interagisce con l’elemento \textit{trigger}, sia tramite navigazione da tastiera sia tramite l’uso del mouse. Inoltre, i tooltip devono rimanere visibili al passaggio del mouse su di essi e devono poter essere chiusi premendo il tasto Esc;
   \item Controllare che tutti gli \textbf{elementi interattivi} (come pulsanti o link) dispongano di un’etichetta testuale descrittiva;
   \item Assicurare la \textbf{navigazione tramite tastiera}, con un ordine di tabulazione logico e una chiara indicazione visiva dell’elemento attualmente attivo.
 \end{itemize}
