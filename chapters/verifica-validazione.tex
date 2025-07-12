@@ -1,7 +1,7 @@
 \chapter{Verifica e validazione}
 \label{cap:verifica-validazione}
 
-\par In questa sezione sono riportati i test effettuati durante lo svolgimento del progetto. La fase di testing è stata suddivisa in due sotto-fasi: verifica e validazione (V\&V). La verifica consiste nell’accertare che il software sia conforme alle specifiche, e può essere condotta senza eseguire il codice. Le attività di analisi statica includono la revisione e l’ispezione dei processi, dei \gls{requisiti}, del design e del codice sorgente. Quest’ultima può avvenire tramite una lettura approfondita del codice o mediante una revisione sistematica e mirata. La validazione, invece, riguarda l’analisi dinamica del software, finalizzata ad accertare il soddisfacimento dei \gls{requisiti} e delle aspettative dal punto di vista dell’utente finale. Le attività di validazione comprendono sia test automatici che manuali.
+\par In questa sezione sono riportati i test effettuati durante lo svolgimento del progetto. La fase di testing è stata suddivisa in due sottofasi: verifica e validazione (V\&V). La verifica consiste nell’accertare che il software sia conforme alle specifiche, e può essere condotta senza eseguire il codice. Le attività di analisi statica includono la revisione e l’ispezione dei processi, dei \gls{requisiti}, del design e del codice sorgente. Quest’ultima può avvenire tramite una lettura approfondita del codice o mediante una revisione sistematica e mirata. La validazione, invece, riguarda l’analisi dinamica del software, finalizzata ad accertare il soddisfacimento dei \gls{requisiti} e delle aspettative dal punto di vista dell’utente finale. Le attività di validazione comprendono sia test automatici che manuali.
 
 \lstdefinelanguage{JavaScript}{
   keywords={break, case, catch, continue, debugger, default, delete, do, else, finally, for, function, if, in, instanceof, new, return, switch, this, throw, try, typeof, var, void, while, with, let, const},
@@ -71,7 +71,7 @@
 \end{samepage}
 
 \vspace{10pt}
-\par\noindent Di seguito sono riportati i test di unità e di integrazione.
+\par\noindent La tabella \ref{tab:test-automatici} riporta i test di unità e di integrazione eseguiti.
 
 \renewcommand{\arraystretch}{1.5}
 \begin{longtable}{>{\raggedright\arraybackslash}p{0.65\textwidth} >{\raggedright\arraybackslash}p{0.25\textwidth}}
@@ -99,7 +99,7 @@
 \hline 
 \textbf{KeywordListView} \textit{(keyword\_list\_view.test.js)}: verifica il corretto funzionamento del componente responsabile della visualizzazione delle liste di parole chiave per ciascuna tipologia. & 100\% \\
 \hline 
-\textbf{KeywordView} \textit{(view.test.js)}: verifica il corretto funzionamento della view principale, responsabile della gestione della \textit{dashboard} e delle sotto-view. & 100\% \\
+\textbf{KeywordView} \textit{(view.test.js)}: verifica il corretto funzionamento della view principale, responsabile della gestione della \textit{dashboard} e delle sottoview. & 100\% \\
 \hline 
 \textbf{KeywordController} \textit{(controller.test.js)}: verifica il corretto funzionamento delle operazioni di gestione delle parole chiave (funzionalità non dipendenti dal \gls{dom} e non sufficientemente specifiche da giustificare una suite dedicata). & 100\% \\
 \hline 
@@ -140,7 +140,7 @@
 
 \section{Test manuali}
 
-\par L’estensione è stata testata su un insieme di pagine web differenti per dimensione (in termini di profondità del \gls{dom}) e lingua (inglese o italiana), con l’obiettivo di verificarne il corretto funzionamento mediante osservazione manuale.
+\par L’estensione è stata testata su un insieme di pagine web differenti per dimensione (in termini di profondità del \gls{dom}) e lingua (inglese o italiana), con l’obiettivo di verificarne il corretto funzionamento mediante osservazione manuale. La tabella \ref{tab:test-manuali} riporta i test manuali eseguiti.
 
 \renewcommand{\arraystretch}{1.5}
 \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X}
@@ -186,7 +186,7 @@ Siti web partecipanti al concorso \textbf{Accattivante Accessibile}, organizzato
 \hline
 \textbf{STEM Unipd} - HomePage (\url{https://stem.elearning.unipd.it/}) & Tutti i test manuali sono stati superati con successo. Data la presenza di numerosi tag nascosti, la maggior parte delle parole chiave più frequenti non risulta direttamente visibile all’utente. Per rendere più chiara questa situazione, è stato inserito un messaggio esplicativo nella sezione principale dell’estensione. \\
 \hline
-\textbf{Computer Science - Unipd} - HomePage (\url{https://informatica.math.unipd.it/}) & Tutti i test manuali sono stati superati con successo. \\
+\textbf{Computer Science Unipd} - HomePage (\url{https://informatica.math.unipd.it/}) & Tutti i test manuali sono stati superati con successo. \\
 \hline
 \textbf{THINKY} - HomePage (\url{https://prodotto.netlify.app/}) & Tutti i test manuali sono stati superati con successo. Cambiando il tema del sito da chiaro a scuro, il rapporto di contrasto dei colori all’interno dell’estensione risultava compromesso. Il problema è stato risolto forzando lo schema di colori da utilizzare. \\
 \hline

@@ -4,7 +4,7 @@
 \section{Struttura dell'estensione}
 \label{sec:struttura-estensione}
 
-\par Come mostrato in figura \ref{fig:struttura_estensione}, l’estensione si basa su tre componenti fondamentali: \textit{manifest.json}, \textit{service worker} \textit{(background script)} e \textit{content script}.
+\par Come rappresentato in figura \ref{fig:struttura_estensione}, l’estensione si basa su tre componenti fondamentali: \textit{manifest.json}, \textit{service worker} \textit{(background script)} e \textit{content script}.
 
 \subsection{Manifest.json}
 
@@ -134,7 +134,7 @@
 \par Di seguito sono elencate le classi presenti nella cartella \textit{View}:
 
 \begin{itemize}
-  \item \textbf{KeywordView}: visualizza la \textit{dashboard}, ovvero il pannello di controllo principale da cui è possibile anche aggiornare l’analisi a livello globale, e gestisce le operazioni di creazione, accesso e rimozione delle sotto-view. La \textit{dashboard} è suddivisa nelle seguenti sezioni:
+  \item \textbf{KeywordView}: visualizza la \textit{dashboard}, ovvero il pannello di controllo principale da cui è possibile anche aggiornare l’analisi a livello globale, e gestisce le operazioni di creazione, accesso e rimozione delle sottoview. La \textit{dashboard} è suddivisa nelle seguenti sezioni:
   \begin{itemize}
     \item \textbf{Overview}: mostra un’anteprima dell’analisi \gls{seo};
     \item \textbf{Settings}: visualizza le impostazioni dell’analisi \gls{seo}, che consentono di personalizzare i colori utilizzati per evidenziare le parole chiave;
@@ -209,6 +209,8 @@
 \end{itemize}
 
 \subsection{Tracciamento dei requisiti - Implementazione}
+
+\par La tabella \ref{tab:requisiti-implementazione} riporta l’associazione tra i requisiti funzionali e le classi che ne realizzano l’implementazione.
 
 \renewcommand{\arraystretch}{1.5}
 \begin{tabularx}{\textwidth}{l >{\raggedright\arraybackslash}X l}
