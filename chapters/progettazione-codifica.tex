@@ -1,12 +1,10 @@
 \chapter{Progettazione e codifica}
 \label{cap:progettazione-codifica}
 
-\intro{In questa sezione vengono descritti tre processi fondamentali nello sviluppo software: la progettazione dell’interfaccia grafica, la realizzazione del PoC e la macro-fase di progettazione architetturale e codifica.}
-
 \section{Struttura dell'estensione}
 \label{sec:struttura-estensione}
 
-\par L’estensione si basa su tre componenti fondamentali: \textit{manifest.json}, \textit{service worker} \textit{(background script)} e \textit{content script}.
+\par Come mostrato in figura \ref{fig:struttura_estensione}, l’estensione si basa su tre componenti fondamentali: \textit{manifest.json}, \textit{service worker} \textit{(background script)} e \textit{content script}.
 
 \subsection{Manifest.json}
 
@@ -24,6 +22,7 @@
   \centering 
   \includegraphics[width=0.8\columnwidth]{progettazione/estensione.pdf}
   \caption{Struttura dell'estensione}
+  \label{fig:struttura_estensione}
 \end{figure}
 
 \section{Mockup dell'interfaccia grafica}
@@ -38,12 +37,13 @@
 \end{itemize}
 
 \vspace{5pt}
-\par\noindent Le scelte progettuali sopra elencate sono state accompagnate da un’analisi dello spazio disponibile e delle \textit{best practice} in materia di design, con l’obiettivo di definire fin dalle prime fasi quali elementi utilizzare e come disporli sull’interfaccia per garantire comfort visivo ed evitare il sovraccarico cognitivo. Per la scelta cromatica, il punto di partenza è stato il colore più distintivo, il viola, attorno al quale è stata costruita una combinazione di colori coerente e conforme alle linee guida \gls{wcag}. Questi concetti sono stati infine tradotti in un \textit{mockup} realizzato con Figma.
+\par\noindent Le scelte progettuali sopra elencate sono state accompagnate da un’analisi dello spazio disponibile e delle \textit{best practice} in materia di design, con l’obiettivo di definire fin dalle prime fasi quali elementi utilizzare e come disporli sull’interfaccia per garantire comfort visivo ed evitare il sovraccarico cognitivo. Per la scelta cromatica, il punto di partenza è stato il colore più distintivo, il viola, attorno al quale è stata costruita una combinazione di colori coerente e conforme alle linee guida \gls{wcag}. Questi concetti sono stati infine tradotti in un \textit{mockup}, realizzato con Figma e riportato in figura \ref{fig:mockup}.
 
 \begin{figure}[H]
   \centering 
   \includegraphics[width=\columnwidth]{progettazione/mockup.pdf} 
   \caption{Mockup dell'interfaccia grafica}
+  \label{fig:mockup}
 \end{figure}
 
 \section{PoC}
@@ -54,7 +54,7 @@
 \section{Progettazione architetturale}
 \label{sec:progettazione}
 
-\par Il progetto adotta il \textit{pattern} architetturale MVC (Model-View-Controller) al fine di garantire una chiara separazione delle responsabilità tra i diversi componenti. Questo \gls{design-pattern} prevede tre elementi principali, ciascuno con un ruolo preciso e ben definito:
+\par Il progetto adotta il \textit{pattern} architetturale MVC (Model-View-Controller) al fine di garantire una chiara separazione delle responsabilità tra i diversi componenti. Come illustrato in figura \ref{fig:pattern_mvc}, questo \gls{design-pattern} si articola in tre elementi principali, ciascuno con un ruolo preciso e ben definito:
 \begin{itemize}
   \item \textbf{Model}: rappresenta il cuore dell’architettura. È responsabile della rappresentazione e della gestione interna dei dati, isolando le operazioni di manipolazione, archiviazione e accesso. Ha il compito di mantenere i dati organizzati, accurati e coerenti con le regole e la logica dell’applicazione;
   \item \textbf{View}: è il componente con cui l’utente interagisce direttamente. Visualizza i dati in un formato comprensibile e gestisce l’interazione tra l’utente e il sistema. Trattandosi di un componente “passivo”, la View non comunica direttamente con il Model, ma si affida al Controller per elaborare le richieste;
@@ -68,6 +68,7 @@
   \centering 
   \includegraphics[width=0.6\textwidth]{progettazione/mvc.jpg} 
   \caption{Pattern MVC (Model-View-Controller)}
+  \label{fig:pattern_mvc}
 \end{figure}
 
 \par\noindent 

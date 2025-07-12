@@ -1,10 +1,6 @@
 \chapter{Analisi del contesto tecnologico}
 \label{cap:analisi-soluzioni-esistenti}
 
-\intro{In questa sezione vengono illustrati gli strumenti di analisi SEO più in linea con gli obiettivi del progetto, il cui studio ha fornito una base solida per la formulazione dei requisiti.}
-
-\section{Introduzione}
-
 \par Uno dei passi fondamentali nel processo di ottimizzazione \gls{seo} è la scelta delle parole chiave e il loro utilizzo in punti strategici delle pagine web. Esistono software in grado di automatizzare la ricerca e l'analisi delle parole chiave, contribuendo a migliorare il posizionamento e l'indicizzazione di un sito. Questi strumenti, disponibili gratuitamente o a pagamento, coprono numerosi aspetti dell'analisi \gls{seo}, tra cui:
 \begin{itemize}
     \item Analisi \gls{seo} \gls{on-page} e \gls{off-page};
@@ -32,13 +28,14 @@
     \item \textbf{Ranking Keywords}: identifica le parole chiave per cui un sito è posizionato e fornisce informazioni sui \textit{competitor};
     \item \textbf{Ottimizzazione della pagina}: visualizza il punteggio ottenuto per una determinata parola chiave e mostra  i fattori che contribuiscono al punteggio complessivo, nonché quelli che potrebbero danneggiarlo;
     \item \textbf{Highlight links}: evidenzia tutte le tipologie di link presenti all'interno della pagina;
-    \item \textbf{Highlight keywords}: questa funzionalità consente agli utenti di inserire una parola chiave e ottenere il numero di occorrenze. Inoltre, la parola chiave viene evidenziata graficamente all'interno della pagina.
+    \item \textbf{Highlight keywords}: questa funzionalità, rappresentata in figura \ref{fig:mozbar}, consente agli utenti di inserire una parola chiave e ottenere il numero di occorrenze. Inoltre, permette di evidenziare graficamente una parola chiave all'interno della pagina.
 \end{itemize}
 
 \begin{figure}[H]
     \centering 
     \fbox{\includegraphics[width=0.9\columnwidth]{soluzioni-esistenti/MozBar/moz_bar_search_keywords.png}}
     \caption{MozBar - Analisi del sito “W3Schools”}
+    \label{fig:mozbar}
 \end{figure}
 
 \subsection{Vantaggi}
@@ -50,7 +47,7 @@
 \section{Wincher}
 
 \subsection{Funzionalità}
-\par \textit{Wincher} è una piattaforma orientata alla ricerca e all'analisi delle parole chiave; in particolare, \textit{Wincher} monitora il posizionamento di un sito web, i volumi di ricerca, il traffico stimato e le anteprime \gls{serp}. La piattaforma include anche l'\textit{On-Page SEO Checker}, uno strumento di analisi \gls{on-page} per un URL e una parola chiave specifici. Il \textit{tool} fornisce suggerimenti per migliorare una pagina web in relazione alla parola chiave scelta:
+\par \textit{Wincher} è una piattaforma orientata alla ricerca e all'analisi delle parole chiave; in particolare, \textit{Wincher} monitora il posizionamento di un sito web, i volumi di ricerca, il traffico stimato e le anteprime \gls{serp}. La piattaforma include anche l'\textit{On-Page SEO Checker}, uno strumento di analisi \gls{on-page} per un URL e una parola chiave specifici. Il \textit{tool}, rappresentato in figura \ref{fig:on_page_seo_checker}, fornisce suggerimenti per migliorare una pagina web in relazione alla parola chiave scelta:
 \begin{itemize}
     \item \textbf{Titolo}: lunghezza del titolo, presenza e posizione della parola chiave nel titolo;
     \item \textbf{Heading}: lunghezza e numero di occorrenze del tag H1, presenza e posizione della parola chiave nel tag H1, differenza di contenuto tra il titolo e il tag H1, presenza della parola chiave nei sottotitoli;
@@ -64,6 +61,7 @@
     \centering 
     \fbox{\includegraphics[width=0.8\columnwidth]{soluzioni-esistenti/Wincher/wincher_seo_checker.png}}
     \caption{Wincher - On-Page SEO Checker}
+    \label{fig:on_page_seo_checker}
 \end{figure}
 
 \subsection{Vantaggi}
@@ -72,10 +70,14 @@
 \subsection{Svantaggi}
 \par Lo strumento di analisi \gls{on-page} non funziona su \gls{localhost} ed è accessibile esclusivamente tramite la piattaforma di \textit{Wincher}. Nella versione gratuita, i controlli giornalieri sono limitati.
 
+\vspace{10pt}
+\par\noindent La figura \ref{fig:wincher_w3schools} mostra un esempio di analisi del sito “W3Schools” effettuata con \textit{Wincher}.
+
 \begin{figure}[H]
     \centering 
     \fbox{\includegraphics[width=0.8\columnwidth]{soluzioni-esistenti/Wincher/wincher_seo_checker_score.png}}
     \caption{Wincher - Analisi del sito “W3Schools”}
+    \label{fig:wincher_w3schools}
 \end{figure}
 
 \section{SEOquake}
@@ -97,12 +99,13 @@
     \item Tag H1.
 \end{itemize}
 \vspace{5pt}
-\par\noindent Tutti questi fattori contribuiscono a determinare un punteggio di importanza per ogni parola chiave. \textit{SEOquake} permette anche di filtrare le parole chiave, esportare i risultati dell'analisi in formato \gls{csv} e configurare un elenco di parole da includere o escludere.
+\par\noindent Tutti questi fattori contribuiscono a determinare un punteggio di importanza per ogni parola chiave. \textit{SEOquake} permette anche di filtrare le parole chiave, esportare i risultati dell'analisi in formato \gls{csv} e configurare un elenco di parole da includere o escludere. La figura \ref{fig:seoquake_w3schools} mostra un esempio di analisi del sito “W3Schools” effettuata con \textit{SEOquake}.
 
 \begin{figure}[H]
     \centering 
     \fbox{\includegraphics[width=0.9\columnwidth]{soluzioni-esistenti/SEOquake/seoquake.png}} 
     \caption{SEOquake - Analisi del sito “W3Schools”}
+    \label{fig:seoquake_w3schools}
 \end{figure}
 
 \subsection{Vantaggi}
@@ -133,10 +136,14 @@
     \item \textbf{Ricerca e monitoraggio dei \gls{backlink}}.
 \end{itemize}
 
+\vspace{10pt}
+\par\noindent La figura \ref{fig:seoptimer_w3schools} mostra un esempio di analisi del sito “W3Schools” effettuata con \textit{SEOptimer}.
+
 \begin{figure}[H]
     \centering 
     \fbox{\includegraphics[width=0.9\columnwidth]{soluzioni-esistenti/SEOptimer/seoptimer.png}} 
     \caption{SEOptimer - Analisi del sito “W3Schools”}
+    \label{fig:seoptimer_w3schools}
 \end{figure}
 
 \subsection{Vantaggi}
@@ -163,16 +170,20 @@
 \subsection{Svantaggi}
 \par L'estensione non funziona su \gls{localhost} e si apre unicamente come pop-up.
 
+\vspace{10pt}
+\par\noindent La figura \ref{fig:seo_tester_online_w3schools} mostra un esempio di analisi del sito “W3Schools” effettuata con \textit{SEO tester online}.
+
 \begin{figure}[H]
     \centering 
     \fbox{\includegraphics[width=0.9\columnwidth]{soluzioni-esistenti/SEO-Tester-Online/site_checker.png}} 
     \caption{SEO tester online - Analisi del sito “W3Schools”}
+    \label{fig:seo_tester_online_w3schools}
 \end{figure}
 
 \section{Semrush}
 
 \subsection{Funzionalità}
-\par \textit{Semrush} include oltre 50 strumenti di analisi \gls{seo}, il che lo rende una delle piattaforme più complete sul mercato. La \textit{dashboard} consente di visualizzare gratuitamente analisi relative al traffico, ai \gls{backlink}, alle ricerche \gls{organiche} e a quelle \gls{sponsorizzate}. In merito all’analisi delle parole chiave, \textit{Semrush} offre le seguenti funzionalità:
+\par \textit{Semrush} include oltre 50 strumenti di analisi \gls{seo}, il che lo rende una delle piattaforme più complete sul mercato. La \textit{dashboard}, mostrata in figura \ref{fig:semrush}, consente di visualizzare gratuitamente analisi relative al traffico, ai \gls{backlink}, alle ricerche \gls{organiche} e a quelle \gls{sponsorizzate}. In merito all’analisi delle parole chiave, \textit{Semrush} offre le seguenti funzionalità:
 \begin{itemize}
     \item \textbf{Analisi SEO on-page};
     \item \textbf{Keyword research}: suggerisce parole chiave rilevanti in base al volume di ricerca, all'intento, alla \gls{keyword-difficulty} e ad altri fattori \gls{seo}. Questa funzionalità può essere integrata con plugin di terze parti, tra cui \textit{Yoast SEO} per \gls{wordpress};
@@ -184,6 +195,7 @@
     \centering 
     \fbox{\includegraphics[width=0.8\textwidth]{soluzioni-esistenti/SEMrush/semrush.png}} 
     \caption{Semrush - SEO dashboard}
+    \label{fig:semrush}
 \end{figure}
 
 \subsection{Vantaggi}
@@ -203,10 +215,14 @@
 \subsection{Svantaggi}
 \par \textit{Yoast SEO} è limitato a \gls{cms} come \gls{wordpress} e \gls{shopify}. Alcune funzionalità, tra cui l'inserimento di keyphrase correlate e sinonimi, o l'integrazione con \textit{Semrush}, richiedono la sottoscrizione di un abbonamento a pagamento.
 
+\vspace{10pt}
+\par\noindent La figura \ref{fig:yoast_seo} mostra un esempio di analisi effettuata con \textit{Yoast SEO Premium}.
+
 \begin{figure}[H]
     \centering 
     \fbox{\includegraphics[width=0.4\columnwidth]{soluzioni-esistenti/Yoast-SEO/yoast_seo_premium.png}} 
     \caption{Yoast SEO Premium - Analisi SEO}
+    \label{fig:yoast_seo}
 \end{figure}
 
 \section{Keyword Density Analyzer}
@@ -226,14 +242,18 @@
 \begin{itemize}
     \item \textbf{Meta tag keywords}: mostra la frequenza e la densità delle parole chiave specificate nel meta tag keywords;
     \item \textbf{Top Keywords by Density}: elenca le parole più frequenti, escludendo quelle comuni e troppo brevi. Oltre alla frequenza e alla densità, mostra anche il numero di occorrenze nel titolo, negli heading, nei link e nel testo alternativo delle immagini;
-    \item \textbf{Top Keywords by Score}: elenca le parole in base a un punteggio calcolato internamente;
+    \item \textbf{Top Keywords by Score}: elenca le parole in base a un punteggio calcolato internamente, come mostrato in figura \ref{fig:keyword_density_analyzer};
     \item \textbf{Top Phrases}: elenca le frasi con più di una occorrenza, escludendo quelle brevi e con parole comuni.
 \end{itemize}
+
+\vspace{10pt}
+\par\noindent La figura \ref{fig:keyword_density_analyzer_w3schools} mostra un esempio di analisi del sito “W3Schools” effettuata con \textit{Keyword Density Analyzer}.
 
 \begin{figure}[H]
     \centering 
     \fbox{\includegraphics[width=0.8\columnwidth]{soluzioni-esistenti/Keywords-Density-Analyzer/keywords_density_analyzer.png}} 
     \caption{Keyword Density Analyzer - Analisi del sito “W3Schools”}
+    \label{fig:keyword_density_analyzer_w3schools}
 \end{figure}
 
 \subsection{Vantaggi}
@@ -246,6 +266,7 @@
     \centering 
     \fbox{\includegraphics[width=0.8\columnwidth]{soluzioni-esistenti/Keywords-Density-Analyzer/keywords_density_analyzer_score.png}} 
     \caption{Keyword Density Analyzer - Top Keywords by Score}
+    \label{fig:keyword_density_analyzer}
 \end{figure}
 
 \section{Detailed SEO Extension}
@@ -261,12 +282,13 @@
     \item \textbf{Ottimizzazione per i social media}.
 \end{itemize}
 \vspace{5pt}
-\par\noindent Inoltre, l'estensione genera automaticamente i link per analizzare la stessa pagina web su altre piattaforme, tra cui \textit{Ahrefs}, \textit{Majestic}, \textit{Moz}, \textit{Semrush} e \textit{SimilarWeb}.
-
+\par\noindent Inoltre, l'estensione genera automaticamente i link per analizzare la stessa pagina web su altre piattaforme, tra cui \textit{Ahrefs}, \textit{Majestic}, \textit{Moz}, \textit{Semrush} e \textit{SimilarWeb}. La figura \ref{fig:detailed_seo_extension_w3schools} mostra un esempio di analisi del sito “W3Schools” effettuata con \textit{Detailed SEO Extension}.
+ 
 \begin{figure}[H]
     \centering 
     \fbox{\includegraphics[width=0.8\columnwidth]{soluzioni-esistenti/Detailed-SEO-Extension/detailed_seo_analysis.png}} 
     \caption{Detailed SEO Extension - Analisi del sito “W3Schools”}
+    \label{fig:detailed_seo_extension_w3schools}
 \end{figure}
 
 \subsection{Vantaggi}
@@ -284,10 +306,14 @@
 \par \textit{SEO Analyzer} è in grado di analizzare anche siti web che non sono stati realizzati con \gls{wordpress}.
 
 \subsection{Svantaggi}
-\par \textit{SEO Analyzer} non funziona su \gls{localhost} ed è meno affidabile rispetto ad altri strumenti, in quanto l'analisi dei tag è \gls{case-sensitive}, il che può portare a errori come il mancato rilevamento della meta description. Inoltre, la versione Premium di \textit{Rank Math} è a pagamento.
+\par \textit{SEO Analyzer} non funziona su \gls{localhost} ed è meno affidabile rispetto ad altri strumenti, in quanto l'analisi dei tag è \gls{case-sensitive}, il che può portare a errori come il mancato rilevamento della meta description. Inoltre, la versione Premium di \textit{Rank Math} è a pagamento. 
+
+\vspace{10pt}
+\par\noindent La figura \ref{fig:rank_math_silktide} mostra un esempio di analisi del sito “Silktide” effettuata con \textit{Rank Math}.
 
 \begin{figure}[H]
     \centering 
     \fbox{\includegraphics[width=0.7\columnwidth]{soluzioni-esistenti/RankMath/rank_math.png}} 
     \caption{Rank Math - Analisi del sito “Silktide”}
+    \label{fig:rank_math_silktide}
 \end{figure}

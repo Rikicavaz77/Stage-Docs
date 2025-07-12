@@ -4,7 +4,7 @@
 \section{Evidenziazione delle parole chiave}
 \label{sec:highlight-keyword}
 
-\par La funzionalità “Highlight Keywords” consente di evidenziare tutte le occorrenze di una parola chiave all’interno della pagina web in cui l’estensione è attiva. Ogni occorrenza viene formattata con colori di sfondo, testo e bordo differenti, in base al tag \gls{html} che la contiene; tali colori sono personalizzabili tramite le impostazioni dell’estensione. Oltre alla personalizzazione cromatica delle occorrenze, ciascuna di esse è accompagnata da un’etichetta, posizionata in alto a sinistra, che riporta il nome del tag genitore. Nell’interfaccia grafica, a ogni parola chiave è associato un pulsante (highlighter) che permette di attivare o disattivare l’evidenziazione a livello globale. Questa funzionalità è accessibile sia dalla pagina principale sia da quella dedicata a una singola keyword, e lo stato del pulsante rimane sincronizzato tra le due. Le parole chiave inserite manualmente dall'utente possono essere evidenziate anche prima dell’avvio dell’analisi vera e propria, tramite il pulsante dedicato, mantenendo le funzionalità di analisi ed evidenziazione separate e indipendenti.
+\par La funzionalità “Highlight Keywords” consente di evidenziare tutte le occorrenze di una parola chiave all’interno della pagina web in cui l’estensione è attiva. Ogni occorrenza viene formattata con colori di sfondo, testo e bordo differenti, in base al tag \gls{html} che la contiene; tali colori sono personalizzabili tramite le impostazioni dell’estensione. Oltre alla personalizzazione cromatica delle occorrenze, ciascuna di esse è accompagnata da un’etichetta, posizionata in alto a sinistra, che riporta il nome del tag genitore. Nell’interfaccia grafica, a ogni parola chiave è associato un pulsante (highlighter) che permette di attivare o disattivare l’evidenziazione a livello globale. Questa funzionalità è accessibile sia dalla pagina principale sia da quella dedicata a una singola keyword, e lo stato del pulsante rimane sincronizzato tra le due. Le parole chiave inserite manualmente dall'utente possono essere evidenziate anche prima dell’avvio dell’analisi vera e propria, tramite il pulsante dedicato, mantenendo le funzionalità di analisi ed evidenziazione separate e indipendenti. Un esempio della funzionalità di evidenziazione è riportato in figura \ref{fig:highlight_keyword}.
 
 \subsection{Problematiche riscontrate}
 
@@ -23,6 +23,7 @@
   \centering 
   \fbox{\includegraphics[width=0.95\columnwidth]{funzionalita/highlight.png}} 
   \caption{Evidenziazione delle parole chiave}
+  \label{fig:highlight_keyword}
 \end{figure}
 
 \section{Analisi delle parole chiave}
@@ -61,7 +62,7 @@
 \end{itemize}
 
 \vspace{5pt}
-\par\noindent Poiché entrambi gli approcci sono stati considerati ugualmente validi, ho adottato il \gls{design-pattern} comportamentale Strategy, in modo da poter selezionare dinamicamente l’algoritmo senza alterare il codice del modulo di analisi.
+\par\noindent Poiché entrambi gli approcci sono stati considerati ugualmente validi, ho adottato il \gls{design-pattern} comportamentale Strategy, in modo da poter selezionare dinamicamente l’algoritmo senza alterare il codice del modulo di analisi. Un esempio della funzionalità di analisi è riportato in figura \ref{fig:analyze_keyword}.
 
 \subsection{Problematiche riscontrate}
 
@@ -77,12 +78,13 @@
   \centering 
   \fbox{\includegraphics[width=0.95\columnwidth]{funzionalita/analysis.png}} 
   \caption{Analisi delle parole chiave}
+  \label{fig:analyze_keyword}
 \end{figure}
 
 \section{Conteggio delle parole ed estrazione di quelle più frequenti}
 \label{sec:count-word}
 
-\par Il conteggio delle parole presenti nella pagina rappresenta un requisito fondamentale per il calcolo della densità di una keyword. L'estrazione delle parole dal testo avviene secondo un \textit{pattern} che segue gli stessi criteri descritti nella \hyperref[sec:highlight-keyword]{sezione \textsection\ref*{sec:highlight-keyword}}. Tra i \gls{requisiti} opzionali figura invece l'identificazione delle parole più frequenti, suddivisibili in categorie come “single-word”, “double-word” e così via. Questa funzionalità risulta particolarmente utile qualora il meta tag keywords non sia presente, poiché consente di suggerire all’utente un elenco di termini che, in base alla frequenza, possono essere considerati potenziali parole chiave. Il sistema seleziona le 10 parole più ricorrenti per ciascuna categoria, presentandole in ordine decrescente.
+\par Il conteggio delle parole presenti nella pagina rappresenta un requisito fondamentale per il calcolo della densità di una keyword. L'estrazione delle parole dal testo avviene secondo un \textit{pattern} che segue gli stessi criteri descritti nella \hyperref[sec:highlight-keyword]{sezione \textsection\ref*{sec:highlight-keyword}}. Tra i \gls{requisiti} opzionali figura invece l'identificazione delle parole più frequenti, suddivisibili in categorie come “single-word”, “double-word” e così via. Questa funzionalità risulta particolarmente utile qualora il meta tag keywords non sia presente, poiché consente di suggerire all’utente un elenco di termini che, in base alla frequenza, possono essere considerati potenziali parole chiave. Il sistema seleziona le 10 parole più ricorrenti per ciascuna categoria, presentandole in ordine decrescente. Un esempio della funzionalità di conteggio ed estrazione delle parole è riportato in figura \ref{fig:word_count}.
 
 \subsection{Problematiche riscontrate}
 
@@ -92,6 +94,7 @@
   \centering 
   \fbox{\includegraphics[width=0.95\columnwidth]{funzionalita/word_count.png}} 
   \caption{Conteggio delle parole chiave ed estrazione di quelle più frequenti}
+  \label{fig:word_count}
 \end{figure}
 
 \section{Elenco delle parole chiave}
@@ -116,7 +119,7 @@
 \end{itemize}
 
 \vspace{5pt}
-\par\noindent A ciascuna parola chiave è associata un’indicazione della frequenza e un gruppo di pulsanti che consentono di eseguire operazioni come l’eliminazione, l’evidenziazione visiva e la visualizzazione dei risultati dell’analisi.
+\par\noindent A ciascuna parola chiave è associata un’indicazione della frequenza e un gruppo di pulsanti che consentono di eseguire operazioni come l’eliminazione, l’evidenziazione visiva e la visualizzazione dei risultati dell’analisi. Un esempio delle liste di parole chiave è riportato in figura \ref{fig:keyword_list}.
 
 \subsection{Problematiche riscontrate}
 
@@ -126,16 +129,5 @@
   \centering 
   \fbox{\includegraphics[width=0.95\columnwidth]{funzionalita/keyword_list.png}} 
   \caption{Elenco delle parole chiave}
+  \label{fig:keyword_list}
 \end{figure}
-
-\section{Accessibilità}
-
-\par Dal momento che lo strumento di analisi delle parole chiave è integrato in un’estensione preesistente orientata all’accessibilità, anche questo \textit{tool} è stato progettato in conformità alle linee guida \gls{wcag}. A tal fine, sono stati condotti test di accessibilità con i seguenti obiettivi:
-\begin{itemize}
-  \item Verificare il rispetto del \textbf{rapporto minimo di contrasto} tra testo e sfondo, pari a 4.5:1 per il testo di dimensioni “normali” e 3:1 per il testo di grandi dimensioni. Questo controllo è stato applicato sia agli elementi interni all’estensione, sia a quelli utilizzati per evidenziare le parole chiave;
-  \item Controllare che le \textbf{immagini non decorative} siano dotate di un testo alternativo;
-  \item Accertarsi che le \textbf{icone non decorative} siano accompagnate da un’etichetta accessibile;
-  \item Verificare l’accessibilità dei \textbf{tooltip}, assicurandosi che vengano attivati e disattivati correttamente quando si interagisce con l’elemento \textit{trigger}, sia tramite navigazione da tastiera sia tramite l’uso del mouse. Inoltre, i tooltip devono rimanere visibili al passaggio del mouse su di essi e devono poter essere chiusi premendo il tasto Esc;
-  \item Controllare che tutti gli \textbf{elementi interattivi} (come pulsanti o link) dispongano di un’etichetta testuale descrittiva;
-  \item Assicurare la \textbf{navigazione tramite tastiera}, con un ordine di tabulazione logico e una chiara indicazione visiva dell’elemento attualmente attivo.
-\end{itemize}

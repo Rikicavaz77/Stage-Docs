@@ -1,17 +1,12 @@
 \chapter{Descrizione del progetto}
 \label{cap:descrizione-progetto}
 
-\intro{In questa sezione vengono approfondite le fasi iniziali del progetto: dall’ideazione alla pianificazione, con una panoramica sugli strumenti e le tecnologie di sviluppo.}
-
-\section{Introduzione}
-\label{sec:introduzione-progetto}
-
-\par Il focus del progetto è l’analisi delle parole chiave, ma non in un’ottica di marketing: non vengono infatti considerati parametri come efficacia, \textit{ranking}, \gls{keyword-difficulty}, né funzionalità avanzate come anteprime \gls{serp} o suggerimenti di parole chiave. Questi aspetti dell’analisi \gls{seo}, sia \gls{on-page} che \gls{off-page}, sono già ampiamente supportati da numerose estensioni, gratuite e a pagamento, e pertanto non rappresentano una sfida particolarmente stimolante per uno progetto di stage. Inoltre, l’analisi del posizionamento di un sito per una determinata parola chiave richiede che il sito sia effettivamente \textit{hostato;} di conseguenza, questa funzionalità non si adatta allo scopo dell’estensione, che è rivolta principalmente agli sviluppatori e deve quindi funzionare anche in ambiente \gls{localhost}. Al contrario, funzionalità come l’analisi della distribuzione delle parole chiave e la loro evidenziazione visiva all’interno della pagina, rientrano pienamente nell’analisi \gls{on-page} e rispondono a una necessità reale di molti sviluppatori. Tali funzionalità sono implementate separatamente in estensioni web come \textit{MozBar} o \textit{SEOquake}, ma difficilmente vengono integrate all’interno di un unico strumento. Tra i più noti, probabilmente solo il plugin \textit{Yoast SEO} per \gls{wordpress} consente sia l’analisi che l’evidenziazione delle parole chiave; tuttavia, come suggerisce il nome, si tratta di uno strumento pensato esclusivamente per sviluppatori che utilizzano un \gls{cms}. Pertanto, l’obiettivo del progetto è combinare queste due funzionalità in un’estensione web direttamente accessibile sin dalle prime fasi di sviluppo.
+\par Il focus del progetto è l’analisi delle parole chiave, ma non in un’ottica di marketing: non vengono infatti considerati parametri come efficacia, \textit{ranking}, \gls{keyword-difficulty}, né funzionalità avanzate come anteprime \gls{serp} o suggerimenti di parole chiave. Questi aspetti dell’analisi \gls{seo}, sia \gls{on-page} che \gls{off-page}, sono già ampiamente supportati da numerose estensioni, gratuite e a pagamento, e pertanto non rappresentano una sfida particolarmente stimolante per uno progetto di stage. Inoltre, l’analisi del posizionamento di un sito per una determinata parola chiave richiede che il sito sia stato effettivamente pubblicato; di conseguenza, questa funzionalità non si adatta allo scopo dell’estensione, che è rivolta principalmente agli sviluppatori e deve quindi funzionare anche in ambiente \gls{localhost}. Al contrario, funzionalità come l’analisi della distribuzione delle parole chiave e la loro evidenziazione visiva all’interno della pagina, rientrano pienamente nell’analisi \gls{on-page} e rispondono a una necessità reale di molti sviluppatori. Tali funzionalità sono implementate separatamente in estensioni web come \textit{MozBar} o \textit{SEOquake}, ma difficilmente vengono integrate all’interno di un unico strumento. Tra i più noti, probabilmente solo il plugin \textit{Yoast SEO} per \gls{wordpress} consente sia l’analisi che l’evidenziazione delle parole chiave; tuttavia, come suggerisce il nome, si tratta di uno strumento pensato esclusivamente per sviluppatori che utilizzano un \gls{cms}. Pertanto, l’obiettivo del progetto è combinare queste due funzionalità in un’estensione web direttamente accessibile sin dalle prime fasi di sviluppo.
 
 \section{Analisi preventiva dei rischi}
 \label{sec:rischi}
 
-\par Durante le discussioni iniziali con la Proponente, sono emersi alcuni rischi che, se non prevenuti o mitigati correttamente, possono compromettere l’esito del progetto e il rispetto delle scadenze. Di seguito sono illustrati i rischi identificati e le relative strategie di prevenzione e/o mitigazione.
+\par Durante le discussioni iniziali con la Proponente, sono emersi alcuni rischi che, se non prevenuti o mitigati correttamente, potevano compromettere l’esito del progetto e il rispetto delle scadenze. Di seguito sono illustrati i rischi identificati e le relative strategie di prevenzione e/o mitigazione.
 
 \begin{risk}{Risultato non conforme alle aspettative}
   \riskdescription{Trattandosi di uno stage interno, la Proponente ha evidenziato il rischio che, in caso di mancanza di feedback costanti, la soluzione sviluppata, in termini tecnici o di interfaccia grafica, non soddisfi le attese}
@@ -83,7 +78,7 @@
 \end{itemize}
 
 \vspace{5pt}
-\par\noindent Le 9 settimane disponibili sono state suddivise in due blocchi: 6 settimane da 40 ore e 3 settimane da 30 ore, per un totale di 330 ore.
+\par\noindent Le 9 settimane disponibili sono state suddivise in due blocchi: 5 settimane da 40 ore e 4 settimane da 30 ore, per un totale di 320 ore.
 
 \subsection{Analisi degli strumenti SEO}
 
@@ -145,162 +140,196 @@ X.Y.Z
 
 \subsection*{Chrome DevTools}
 
-\par Gli strumenti per sviluppatori di Chrome consentono di ispezionare, \textit{debuggare} e modificare le pagine web. Sono integrati direttamente nel browser e fungono da console di \textit{debug}, offrendo agli sviluppatori la possibilità di individuare rapidamente eventuali errori.
+\par Gli strumenti per sviluppatori di Chrome consentono di ispezionare, \textit{debuggare} e modificare le pagine web. Sono integrati direttamente nel browser e fungono da console di \textit{debug}, offrendo agli sviluppatori la possibilità di individuare rapidamente eventuali errori. Il logo di Chrome DevTools è mostrato in figura \ref{fig:logo_chrome_devtools}.
 
 \begin{figure}[H]
   \centering 
   \includegraphics[width=0.1\columnwidth]{strumenti-tecnologie/devtools_logo.png} 
+  \caption{Logo di Chrome DevTools}
+  \label{fig:logo_chrome_devtools}
 \end{figure}
 
 \subsection*{Codecov}
 
-\par Codecov è un servizio di \textit{reporting} che monitora la copertura del codice, ovvero la percentuale di codice eseguito durante i test automatici. Nell’ambito del progetto di stage, è stato utilizzato per integrare queste informazioni direttamente nel flusso di lavoro su GitHub, in modo da garantire una copertura del codice uniforme per ogni \gls{pull request}. Inoltre, Codecov fornisce un \textit{badge} di stato utile ad arricchire la documentazione del \gls{repository}.
+\par Codecov è un servizio di \textit{reporting} che monitora la copertura del codice, ovvero la percentuale di codice eseguito durante i test automatici. Nell’ambito del progetto di stage, è stato utilizzato per integrare queste informazioni direttamente nel flusso di lavoro su GitHub, in modo da garantire una copertura del codice uniforme per ogni \gls{pull request}. Inoltre, Codecov fornisce un \textit{badge} di stato utile ad arricchire la documentazione del \gls{repository}. Il logo di Codecov è mostrato in figura \ref{fig:logo_codecov}.
 
 \begin{figure}[H]
   \centering 
   \includegraphics[width=0.1\columnwidth]{strumenti-tecnologie/codecov_logo.pdf} 
+  \caption{Logo di Codecov}
+  \label{fig:logo_codecov}
 \end{figure}
 
 \subsection*{Draw.io}
 
-\par Draw.io è uno strumento \textit{web-based} utilizzato per la creazione di sketch e diagrammi. La piattaforma è \textit{open source} e mette a disposizione template personalizzabili. I progetti possono essere salvati localmente oppure online, grazie all’integrazione con Google Workspace (Google Drive) e Dropbox. In assenza di una connessione a Internet, è disponibile un'applicazione desktop per macOS, Windows e Linux. Nell’ambito del progetto di stage, Draw.io è stato impiegato per la realizzazione dei diagrammi dei casi d’uso e delle classi.
+\par Draw.io è uno strumento \textit{web-based} utilizzato per la creazione di sketch e diagrammi. La piattaforma è \textit{open source} e mette a disposizione template personalizzabili. I progetti possono essere salvati localmente oppure online, grazie all’integrazione con Google Workspace (Google Drive) e Dropbox. In assenza di una connessione a Internet, è disponibile un'applicazione desktop per macOS, Windows e Linux. Nell’ambito del progetto di stage, Draw.io è stato impiegato per la realizzazione dei diagrammi dei casi d’uso e delle classi. Il logo di Draw.io è mostrato in figura \ref{fig:logo_draw_io}.
 
 \begin{figure}[H]
   \centering 
   \includegraphics[width=0.2\columnwidth]{strumenti-tecnologie/draw_io_logo.pdf} 
+  \caption{Logo di Draw.io}
+  \label{fig:logo_draw_io}
 \end{figure}
 
 \subsection*{Figma}
 
-\par Figma è uno strumento di progettazione e prototipazione, disponibile sia come servizio \textit{web-based} che come applicazione desktop. Due delle funzionalità più diffuse sono Figma Design, che consente di creare, condividere e testare i design in modo efficiente, e Dev Mode, che permette a designer e sviluppatori di collaborare strettamente per tradurre il design in codice. Nell’ambito dello stage, Figma è stato utilizzato per realizzare il \textit{mockup} dell’interfaccia grafica. Si è rivelato uno strumento di grande valore per la progettazione dell'interfaccia utente (UI) e dell’esperienza utente (UX), consentendo di analizzare lo spazio disponibile, organizzare gli elementi, scegliere i colori e costruire una base solida per lo sviluppo.
+\par Figma è uno strumento di progettazione e prototipazione, disponibile sia come servizio \textit{web-based} che come applicazione desktop. Due delle funzionalità più diffuse sono Figma Design, che consente di creare, condividere e testare i design in modo efficiente, e Dev Mode, che permette a designer e sviluppatori di collaborare strettamente per tradurre il design in codice. Nell’ambito dello stage, Figma è stato utilizzato per realizzare il \textit{mockup} dell’interfaccia grafica. Si è rivelato uno strumento di grande valore per la progettazione dell'interfaccia utente (UI) e dell’esperienza utente (UX), consentendo di analizzare lo spazio disponibile, organizzare gli elementi, scegliere i colori e costruire una base solida per lo sviluppo. Il logo di Figma è mostrato in figura \ref{fig:logo_figma}.
 
 \begin{figure}[H]
   \centering 
   \includegraphics[width=0.2\columnwidth]{strumenti-tecnologie/figma_logo.png} 
+  \caption{Logo di Figma}
+  \label{fig:logo_figma}
 \end{figure}
 
 \subsection*{GitHub}
 
-\par Github è un servizio \textit{web e cloud-based} per l'archiviazione, il versionamento e la condivisione del codice. Nell’ambito dello stage, è stato utilizzato per contribuire allo sviluppo di un progetto preesistente tramite la funzionalità di \textit{fork}, che consente di lavorare sul codice in modo isolato, per poi proporre le modifiche al \gls{repository} originale. GitHub permette anche di aprire spazi di discussione relativi al codice tramite \textit{issue} e \gls{pull request}, oltre a fornire strumenti per la gestione del progetto come \textit{board} e \textit{milestone}. Inoltre, consente di automatizzare i flussi di lavoro attraverso le \textit{GitHub Actions}.
+\par Github è un servizio \textit{web e cloud-based} per l'archiviazione, il versionamento e la condivisione del codice. Nell’ambito dello stage, è stato utilizzato per contribuire allo sviluppo di un progetto preesistente tramite la funzionalità di \textit{fork}, che consente di lavorare sul codice in modo isolato, per poi proporre le modifiche al \gls{repository} originale. GitHub permette anche di aprire spazi di discussione relativi al codice tramite \textit{issue} e \gls{pull request}, oltre a fornire strumenti per la gestione del progetto come \textit{board} e \textit{milestone}. Inoltre, consente di automatizzare i flussi di lavoro attraverso le \textit{GitHub Actions}. Il logo di GitHub è mostrato in figura \ref{fig:logo_github}.
 
 \begin{figure}[H]
   \centering 
   \includegraphics[width=0.1\columnwidth]{strumenti-tecnologie/github_logo.pdf} 
+  \caption{Logo di GitHub}
+  \label{fig:logo_github}
 \end{figure}
 
 \subsection*{Google Docs}
 
-\par Google Docs è un software \textit{web-based} per la scrittura e la condivisione di documenti. Nell’ambito del progetto di stage, è stato utilizzato per la redazione dei seguenti documenti: piano di lavoro, analisi degli strumenti \gls{seo}, analisi dei \gls{requisiti}, soluzioni progettuali e implementative.
+\par Google Docs è un software \textit{web-based} per la scrittura e la condivisione di documenti. Nell’ambito del progetto di stage, è stato utilizzato per la redazione dei seguenti documenti: piano di lavoro, analisi degli strumenti \gls{seo}, analisi dei \gls{requisiti}, soluzioni progettuali e implementative. Il logo di Google Docs è mostrato in figura \ref{fig:logo_google_docs}.
 
 \begin{figure}[H]
   \centering 
   \includegraphics[width=0.1\columnwidth]{strumenti-tecnologie/google_docs_logo.pdf} 
+  \caption{Logo di Google Docs}
+  \label{fig:logo_google_docs}
 \end{figure}
 
 \subsection*{Google Drive}
 
-\par Google Drive è uno strumento \textit{web-based}, parte di Google Workspace, che consente di archiviare, organizzare, condividere e accedere in modo sicuro a file e cartelle ovunque, da qualsiasi dispositivo connesso a Internet. Nell’ambito del progetto di stage, Google Drive è stato adottato come “unica fonte di verità”, ovvero come raccolta centralizzata di tutto il materiale condiviso tra stagista e Proponente (piano di lavoro, appunti, link utili, analisi dei \gls{requisiti}, soluzioni progettuali, diagrammi, ecc.).
+\par Google Drive è uno strumento \textit{web-based}, parte di Google Workspace, che consente di archiviare, organizzare, condividere e accedere in modo sicuro a file e cartelle ovunque, da qualsiasi dispositivo connesso a Internet. Nell’ambito del progetto di stage, Google Drive è stato adottato come “unica fonte di verità”, ovvero come raccolta centralizzata di tutto il materiale condiviso tra stagista e Proponente (piano di lavoro, appunti, link utili, analisi dei \gls{requisiti}, soluzioni progettuali, diagrammi, ecc.). Il logo di Google Drive è mostrato in figura \ref{fig:logo_google_drive}.
 
 \begin{figure}[H]
   \centering 
   \includegraphics[width=0.1\columnwidth]{strumenti-tecnologie/google_drive_logo.pdf} 
+  \caption{Logo di Google Drive}
+  \label{fig:logo_google_drive}
 \end{figure}
 
 \subsection*{Google Forms}
 
-\par Google Forms è uno strumento \textit{web-based} per la creazione di moduli, questionari, quiz e sondaggi. Nell’ambito del progetto di stage, è stato utilizzato per la creazione di un questionario \gls{sus} finalizzato alla valutazione dell’usabilità del software sviluppato.
+\par Google Forms è uno strumento \textit{web-based} per la creazione di moduli, questionari, quiz e sondaggi. Nell’ambito del progetto di stage, è stato utilizzato per la creazione di un questionario \gls{sus} finalizzato alla valutazione dell’usabilità del software sviluppato. Il logo di Google Forms è mostrato in figura \ref{fig:logo_google_forms}.
 
 \begin{figure}[H]
   \centering 
   \includegraphics[width=0.1\columnwidth]{strumenti-tecnologie/google_forms_logo.pdf} 
+  \caption{Logo di Google Forms}
+  \label{fig:logo_google_forms}
 \end{figure}
 
 \subsection*{Google Sheets}
 
-\par Google Sheets è un software \textit{web-based} per la creazione e la condivisione di fogli di calcolo. Nell’ambito del progetto di stage, è stato utilizzato per memorizzare le risposte al questionario \gls{sus} e per creare una tabella di calcolo dei punteggi.
+\par Google Sheets è un software \textit{web-based} per la creazione e la condivisione di fogli di calcolo. Nell’ambito del progetto di stage, è stato utilizzato per memorizzare le risposte al questionario \gls{sus} e per creare una tabella di calcolo dei punteggi. Il logo di Google Sheets è mostrato in figura \ref{fig:logo_google_sheets}.
 
 \begin{figure}[H]
   \centering 
   \includegraphics[width=0.1\columnwidth]{strumenti-tecnologie/google_sheets_logo.pdf} 
+  \caption{Logo di Google Sheets}
+  \label{fig:logo_google_sheets}
 \end{figure}
 
 \subsection*{Jira}
 
-\par Jira è un'applicazione software sviluppata da Atlassian che consente agli utenti di gestire progetti, monitorare le attività e automatizzare i flussi di lavoro. È uno degli strumenti di gestione \textit{agile} più utilizzati, in particolare in contesti fortemente collaborativi, poiché risponde alle esigenze dei team di pianificare, monitorare, rilasciare e supportare software in modo sicuro. Nell’ambito dello stage, Jira è stato impiegato per la pianificazione e il monitoraggio delle tre fasi principali del progetto: analisi delle soluzioni esistenti, sviluppo e collaudo. L’integrazione con GitHub consente di tracciare i \textit{ticket} direttamente nell’ambiente di sviluppo e di automatizzarne la gestione. Inoltre, Jira mette a disposizione una \textit{timeline} che offre una panoramica immediata delle dipendenze tra le attività e del rispetto delle scadenze.
+\par Jira è un'applicazione software sviluppata da Atlassian che consente agli utenti di gestire progetti, monitorare le attività e automatizzare i flussi di lavoro. È uno degli strumenti di gestione \textit{agile} più utilizzati, in particolare in contesti fortemente collaborativi, poiché risponde alle esigenze dei team di pianificare, monitorare, rilasciare e supportare software in modo sicuro. Nell’ambito dello stage, Jira è stato impiegato per la pianificazione e il monitoraggio delle tre fasi principali del progetto: analisi delle soluzioni esistenti, sviluppo e collaudo. L’integrazione con GitHub consente di tracciare i \textit{ticket} direttamente nell’ambiente di sviluppo e di automatizzarne la gestione. Inoltre, Jira mette a disposizione una \textit{timeline} che offre una panoramica immediata delle dipendenze tra le attività e del rispetto delle scadenze. Il logo di Jira è mostrato in figura \ref{fig:logo_jira}.
 
 \begin{figure}[H]
   \centering 
   \includegraphics[width=0.15\columnwidth]{strumenti-tecnologie/jira_logo.pdf} 
+  \caption{Logo di Jira}
+  \label{fig:logo_jira}
 \end{figure}
 
 \subsection*{npm}
 
-\par npm (Node Package Manager) è un gestore di pacchetti per JavaScript che consente di gestire le dipendenze di un progetto. Tutti i pacchetti sono definiti nel file di configurazione \textit{package.json}. Nell’ambito dello stage, npm è stato utilizzato per configurare i test automatizzati tramite Jest e per gestire il versionamento del progetto.
+\par npm (Node Package Manager) è un gestore di pacchetti per JavaScript che consente di gestire le dipendenze di un progetto. Tutti i pacchetti sono definiti nel file di configurazione \textit{package.json}. Nell’ambito dello stage, npm è stato utilizzato per configurare i test automatizzati tramite Jest e per gestire il versionamento del progetto. Il logo di npm è mostrato in figura \ref{fig:logo_npm}.
 
 \begin{figure}[H]
   \centering 
-  \includegraphics[width=0.15\columnwidth]{strumenti-tecnologie/npm_logo.pdf} 
+  \includegraphics[width=0.15\columnwidth]{strumenti-tecnologie/npm_logo.pdf}
+  \caption{Logo di npm}
+  \label{fig:logo_npm} 
 \end{figure}
 
 \subsection*{Visual Studio Code}
 
-\par Visual Studio Code è un editor di codice sorgente, più leggero e flessibile rispetto a un ambiente di sviluppo integrato tradizionale. Combina la semplicità di un editor con \textit{feature} avanzate per sviluppatori, come il completamento del codice e altre funzionalità di assistenza alla scrittura.
+\par Visual Studio Code è un editor di codice sorgente, più leggero e flessibile rispetto a un ambiente di sviluppo integrato tradizionale. Combina la semplicità di un editor con \textit{feature} avanzate per sviluppatori, come il completamento del codice e altre funzionalità di assistenza alla scrittura. Il logo di Visual Studio Code è mostrato in figura \ref{fig:logo_vscode}.
 
 \begin{figure}[H]
   \centering 
   \includegraphics[width=0.1\columnwidth]{strumenti-tecnologie/vscode_logo.png} 
+  \caption{Logo di Visual Studio Code}
+  \label{fig:logo_vscode} 
 \end{figure}
 
 \subsection{Tecnologie}
 
 \subsection*{Chrome Extension APIs}
 
-\par Le Chrome Extension APIs forniscono agli sviluppatori un insieme di interfacce che permettono di estendere e personalizzare le funzionalità del browser. Queste \gls{api} sono accessibili da qualsiasi componente dell’estensione. Consentono di accedere ai dati del browser, interagire con le schede, modificare il contenuto delle pagine web, memorizzare informazioni, gestire eventi e scambiare messaggi tra i componenti dell’estensione, ad esempio tra i \textit{background e i content script}.
+\par Le Chrome Extension APIs forniscono agli sviluppatori un insieme di interfacce che permettono di estendere e personalizzare le funzionalità del browser. Queste \gls{api} sono accessibili da qualsiasi componente dell’estensione. Consentono di accedere ai dati del browser, interagire con le schede, modificare il contenuto delle pagine web, memorizzare informazioni, gestire eventi e scambiare messaggi tra i componenti dell’estensione, ad esempio tra i \textit{background e i content script}. Il logo di Chrome Extension è mostrato in figura \ref{fig:logo_chrome_extension}.
 
 \begin{figure}[H]
   \centering 
   \includegraphics[width=0.15\columnwidth]{strumenti-tecnologie/chrome_extension_logo.png} 
+  \caption{Logo di Chrome Extension}
+  \label{fig:logo_chrome_extension} 
 \end{figure}
 
 \subsection*{CSS}
 
-\par CSS (Cascading Style Sheets) è un linguaggio utilizzato per definire lo stile e la formattazione di documenti scritti in linguaggi di markup come HTML o XML. Nell’ambito del progetto di stage, è stata adottata la versione CSS3.
+\par CSS (Cascading Style Sheets) è un linguaggio utilizzato per definire lo stile e la formattazione di documenti scritti in linguaggi di markup come HTML o XML. Nell’ambito del progetto di stage, è stata adottata la versione CSS3. Il logo di CSS è mostrato in figura \ref{fig:logo_css}.
 
 \begin{figure}[H]
   \centering 
   \includegraphics[width=0.25\columnwidth]{strumenti-tecnologie/css_logo.png} 
+  \caption{Logo di CSS}
+  \label{fig:logo_css} 
 \end{figure}
 
 \subsection*{HTML}
 
-\par HTML (Hypertext Markup Language) è un linguaggio di markup utilizzato per definire la struttura e i contenuti delle pagine web. Nell’ambito del progetto di stage, è stata adottata la versione HTML5.
+\par HTML (Hypertext Markup Language) è un linguaggio di markup utilizzato per definire la struttura e i contenuti delle pagine web. Nell’ambito del progetto di stage, è stata adottata la versione HTML5. Il logo di HTML è mostrato in figura \ref{fig:logo_html}.
 
 \begin{figure}[H]
   \centering 
   \includegraphics[width=0.15\columnwidth]{strumenti-tecnologie/html_logo.png} 
+  \caption{Logo di HTML}
+  \label{fig:logo_html} 
 \end{figure}
 
 \subsection*{JavaScript}
 
-\par JavaScript è un linguaggio di programmazione utilizzato per definire il comportamento e la logica delle pagine web. È un linguaggio multi-paradigma che può essere impiegato sia nella programmazione lato client che lato server (Node.js). JavaScript consente di aggiornare dinamicamente i contenuti HTML e gli stili CSS. Si integra perfettamente con \gls{framework} di test come Jest e strumenti di documentazione come JSDoc. È inoltre il linguaggio di riferimento per lo sviluppo di estensioni web.
+\par JavaScript è un linguaggio di programmazione utilizzato per definire il comportamento e la logica delle pagine web. È un linguaggio multi-paradigma che può essere impiegato sia nella programmazione lato client che lato server (Node.js). JavaScript consente di aggiornare dinamicamente i contenuti HTML e gli stili CSS. Si integra perfettamente con \gls{framework} di test come Jest e strumenti di documentazione come JSDoc. È inoltre il linguaggio di riferimento per lo sviluppo di estensioni web. Il logo di JavaScript è mostrato in figura \ref{fig:logo_javascript}.
 
 \begin{figure}[H]
   \centering 
   \includegraphics[width=0.15\columnwidth]{strumenti-tecnologie/js_logo.png} 
+  \caption{Logo di JavaScript}
+  \label{fig:logo_javascript} 
 \end{figure}
 
 \subsection*{Jest}
 
-\par Jest è un \gls{framework} di test per JavaScript, utilizzato per la progettazione, lo sviluppo e l’esecuzione di test di unità e di integrazione. Permette di definire suite di test efficienti e isolate, senza richiedere configurazioni complesse, anche quando viene integrato in progetti già avviati. Aggiungendo il flag \verb|--coverage|, è possibile generare un report sulla copertura del codice e inviare i risultati a strumenti di terze parti come Codecov. Nell’ambito del progetto di stage, Jest è stato utilizzato insieme alla libreria Jest DOM per ottenere una copertura completa del codice.
+\par Jest è un \gls{framework} di test per JavaScript, utilizzato per la progettazione, lo sviluppo e l’esecuzione di test di unità e di integrazione. Permette di definire suite di test efficienti e isolate, senza richiedere configurazioni complesse, anche quando viene integrato in progetti già avviati. Aggiungendo il flag \verb|--coverage|, è possibile generare un report sulla copertura del codice e inviare i risultati a strumenti di terze parti come Codecov. Nell’ambito del progetto di stage, Jest è stato utilizzato insieme alla libreria Jest DOM per ottenere una copertura completa del codice. Il logo di Jest è mostrato in figura \ref{fig:logo_jest}.
 
 \begin{figure}[H]
   \centering 
   \includegraphics[width=0.1\columnwidth]{strumenti-tecnologie/jest_logo.pdf} 
+  \caption{Logo di Jest}
+  \label{fig:logo_jest} 
 \end{figure}
 
 \subsection*{Librerie di icone}
 
-\par Per l’interfaccia grafica sono state utilizzate icone provenienti da tre librerie:
+\par Per l’interfaccia grafica sono state utilizzate icone provenienti da tre librerie, i cui loghi sono riportati in figura \ref{fig:loghi_librerie_icone}:
 \begin{itemize}
   \item \textbf{Font Awesome}: una vasta libreria di icone vettoriali gratuite e a pagamento;
   \item \textbf{Heroicons}: una raccolta di icone \gls{svg} realizzate a mano dai creatori di \textit{Tailwind CSS};
@@ -308,7 +337,8 @@ X.Y.Z
 \end{itemize}
 
 \vspace{5pt}
-\begin{center}
+\begin{figure}[H]
+  \centering
   \begin{minipage}{0.3\columnwidth}
     \centering
     \includegraphics[width=0.6\columnwidth]{strumenti-tecnologie/heroicons_logo.pdf} 
@@ -323,7 +353,9 @@ X.Y.Z
     \centering
     \includegraphics[width=0.6\columnwidth]{strumenti-tecnologie/remixicon_logo.pdf} 
   \end{minipage}
-\end{center}
+  \caption{Loghi delle librerie di icone: Heroicons, Font Awesome, Remix Icon}
+  \label{fig:loghi_librerie_icone}
+\end{figure}
 \vspace{5pt}
 
 \subsection*{Manifest (manifest.json)}
