@@ -12,12 +12,12 @@ jobs:
       - name: PDF compile
         run: latexmk thesis.tex printable-thesis.tex
       - name: Upload thesis.pdf as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: thesis-pdf
           path: thesis.pdf
       - name: Upload printable-thesis.pdf as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: printable-thesis-pdf
           path: printable-thesis.pdf
