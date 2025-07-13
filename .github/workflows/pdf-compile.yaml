@@ -1,13 +1,23 @@
 name: pdf-compile
 on:
-    workflow_dispatch:
-    pull_request:
+  workflow_dispatch:
+  pull_request:
 jobs:
-    pdf-compile:
-        runs-on: ubuntu-latest
-        container: aergus/latex:latest
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v2
-            - name: PDF compile
-              run: latexmk thesis.tex printable-thesis.tex
+  pdf-compile:
+    runs-on: ubuntu-latest
+    container: aergus/latex:latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: PDF compile
+        run: latexmk thesis.tex printable-thesis.tex
+      - name: Upload thesis.pdf as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: thesis-pdf
+          path: thesis.pdf
+      - name: Upload printable-thesis.pdf as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: printable-thesis-pdf
+          path: printable-thesis.pdf
