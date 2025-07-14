@@ -4,19 +4,19 @@
 \section{Struttura dell'estensione}
 \label{sec:struttura-estensione}
 
-\par Come rappresentato in figura \ref{fig:struttura_estensione}, l’estensione si basa su tre componenti fondamentali: \textit{manifest.json}, \textit{service worker} \textit{(background script)} e \textit{content script}.
+Come rappresentato in figura \ref{fig:struttura_estensione}, l’estensione si basa su tre componenti fondamentali: \textit{manifest.json}, \textit{service worker} \textit{(background script)} e \textit{content script}.
 
 \subsection{Manifest.json}
 
-\par Il file \textit{manifest.json} è il cuore dell’estensione: descrive il contenuto in un formato strutturato e definisce le regole per l'iniezione dei \textit{content script}.
+Il file \textit{manifest.json} è il cuore dell’estensione: descrive il contenuto in un formato strutturato e definisce le regole per l'iniezione dei \textit{content script}.
 
 \subsection{Service Worker}
 
-\par Il \textit{service worker} è uno script \textit{singleton} che il browser esegue in background. Non ha accesso diretto alle pagine web, ma può interagire con esse tramite i \textit{content script}. Viene utilizzato per gestire gli eventi del browser (come la chiusura di una scheda o il clic sull’icona dell’estensione nella barra degli strumenti) e coordinare i componenti dell'estensione.
+Il \textit{service worker} è uno script \textit{singleton} che il browser esegue in background. Non ha accesso diretto alle pagine web, ma può interagire con esse tramite i \textit{content script}. Viene utilizzato per gestire gli eventi del browser (come la chiusura di una scheda o il clic sull’icona dell’estensione nella barra degli strumenti) e coordinare i componenti dell'estensione.
 
 \subsection{Content Script}
 
-\par I \textit{content script} sono file che vengono iniettati nelle pagine web ed eseguiti nel contesto di quelle stesse pagine. Possono visualizzare e manipolare il \gls{dom} in modo analogo agli script caricati da ciascuna pagina. Hanno accesso a un insieme limitato delle \gls{api} di WebExtension, che può essere esteso tramite la comunicazione con i \textit{background script}.
+I \textit{content script} sono file che vengono iniettati nelle pagine web ed eseguiti nel contesto di quelle stesse pagine. Possono visualizzare e manipolare il \gls{dom} in modo analogo agli script caricati da ciascuna pagina. Hanno accesso a un insieme limitato delle \gls{api} di WebExtension, che può essere esteso tramite la comunicazione con i \textit{background script}.
 
 \begin{figure}[H]
   \centering 
@@ -28,16 +28,16 @@
 \section{Mockup dell'interfaccia grafica}
 \label{sec:mockup}
 
-\par Durante la progettazione dell’interfaccia grafica, ho tratto ispirazione da diverse soluzioni esistenti analizzate nella fase preliminare. In particolare:
+Durante la progettazione dell’interfaccia grafica, ho tratto ispirazione da diverse soluzioni esistenti analizzate nella fase preliminare. In particolare:
 \begin{itemize}
-    \item Lo stile delle informazioni in anteprima (come meta keywords, conteggio delle parole, ecc.) si ispira al layout dell’estensione \textit{Detailed SEO Extension}, al quale è stato aggiunto un comportamento flessibile per gestire dinamicamente lo spazio nella barra laterale;
+    \item Lo stile delle informazioni in anteprima (come meta keywords, conteggio delle parole e altri dati SEO) si ispira al layout dell’estensione \textit{Detailed SEO Extension}, al quale è stato aggiunto un comportamento flessibile per gestire dinamicamente lo spazio nella barra laterale;
     \item Il \textit{box} di inserimento della parola chiave è il risultato di una combinazione tra le interfacce di \textit{MozBar} e \textit{Wincher}. Da \textit{MozBar} ho ripreso l’idea della \textit{checkbox} posizionata sotto il campo di \textit{input}, che permette di evidenziare una parola chiave senza dover eseguire preventivamente una ricerca o un’analisi. \textit{Wincher}, invece, ha ispirato il design del campo di testo affiancato da un pulsante per avviare l’analisi;
     \item L’organizzazione delle parole chiave in categorie (user-added keywords, meta keywords, most frequent keywords) si basa su un approccio integrato derivato da strumenti come \textit{Keyword Density Analyzer}, \textit{SEOquake}, \textit{SEOptimer} e \textit{SEO tester online}. Da questi strumenti ho ripreso anche l’idea di una rappresentazione dei risultati in formato tabellare;
     \item Il sistema di filtraggio delle parole chiave - non presente nella prima bozza dell’interfaccia - è stato ispirato da \textit{SEOquake}, che offre funzionalità simili per agevolare la consultazione dei risultati.
 \end{itemize}
 
 \vspace{5pt}
-\par\noindent Le scelte progettuali sopra elencate sono state accompagnate da un’analisi dello spazio disponibile e delle \textit{best practice} in materia di design, con l’obiettivo di definire fin dalle prime fasi quali elementi utilizzare e come disporli sull’interfaccia per garantire comfort visivo ed evitare il sovraccarico cognitivo. Per la scelta cromatica, il punto di partenza è stato il colore più distintivo, il viola, attorno al quale è stata costruita una combinazione di colori coerente e conforme alle linee guida \gls{wcag}. Questi concetti sono stati infine tradotti in un \textit{mockup}, realizzato con Figma e riportato in figura \ref{fig:mockup}.
+\noindent Le scelte progettuali sopra elencate sono state accompagnate da un’analisi dello spazio disponibile e delle \textit{best practice} in materia di design, con l’obiettivo di definire fin dalle prime fasi quali elementi utilizzare e come disporli sull’interfaccia per garantire comfort visivo ed evitare il sovraccarico cognitivo. Per la scelta cromatica, il punto di partenza è stato il colore più distintivo, il viola, attorno al quale è stata costruita una combinazione di colori coerente e conforme alle linee guida \gls{wcag}. Questi concetti sono stati infine tradotti in un \textit{mockup}, realizzato con Figma e riportato in figura \ref{fig:mockup}.
 
 \begin{figure}[H]
   \centering 
@@ -49,12 +49,12 @@
 \section{PoC}
 \label{sec:poc}
 
-\par Lo scopo principale del \gls{poc} è stato quello di tradurre in codice il \textit{mockup} dell’interfaccia grafica, al fine di verificare la correttezza e la coerenza delle scelte progettuali. Per raggiungere questo obiettivo, ho simulato il funzionamento dell’estensione in ambiente \gls{localhost}, sostituendo una pagina reale con una versione statica. Questa soluzione ha reso possibile lavorare in un ambiente di test controllato, all’interno del quale è stato possibile condurre uno studio di fattibilità e sperimentare le funzionalità di analisi e di evidenziazione visiva delle parole chiave. Al termine di questa fase, è stato organizzato un incontro con la Proponente per discutere i risultati ottenuti e le problematiche riscontrate, e identificare gli elementi da mantenere, modificare o integrare, in vista della successiva progettazione architetturale e dello sviluppo definitivo.
+Lo scopo principale del \gls{poc} è stato quello di tradurre in codice il \textit{mockup} dell’interfaccia grafica, al fine di verificare la correttezza e la coerenza delle scelte progettuali. Per raggiungere questo obiettivo, ho simulato il funzionamento dell’estensione in ambiente \gls{localhost}, sostituendo una pagina reale con una versione statica. Questa soluzione ha reso possibile lavorare in un ambiente di test controllato, all’interno del quale è stato possibile condurre uno studio di fattibilità e sperimentare le funzionalità di analisi e di evidenziazione visiva delle parole chiave. Al termine di questa fase, è stato organizzato un incontro con la Proponente per discutere i risultati ottenuti e le problematiche riscontrate, e identificare gli elementi da mantenere, modificare o integrare, in vista della successiva progettazione architetturale e dello sviluppo definitivo.
 
 \section{Progettazione architetturale}
 \label{sec:progettazione}
 
-\par Il progetto adotta il \textit{pattern} architetturale MVC (Model-View-Controller) al fine di garantire una chiara separazione delle responsabilità tra i diversi componenti. Come illustrato in figura \ref{fig:pattern_mvc}, questo \gls{design-pattern} si articola in tre elementi principali, ciascuno con un ruolo preciso e ben definito:
+Il progetto adotta il \textit{pattern} architetturale MVC (Model-View-Controller) al fine di garantire una chiara separazione delle responsabilità tra i diversi componenti. Come illustrato in figura \ref{fig:pattern_mvc}, questo \gls{design-pattern} si articola in tre elementi principali, ciascuno con un ruolo preciso e ben definito:
 \begin{itemize}
   \item \textbf{Model}: rappresenta il cuore dell’architettura. È responsabile della rappresentazione e della gestione interna dei dati, isolando le operazioni di manipolazione, archiviazione e accesso. Ha il compito di mantenere i dati organizzati, accurati e coerenti con le regole e la logica dell’applicazione;
   \item \textbf{View}: è il componente con cui l’utente interagisce direttamente. Visualizza i dati in un formato comprensibile e gestisce l’interazione tra l’utente e il sistema. Trattandosi di un componente “passivo”, la View non comunica direttamente con il Model, ma si affida al Controller per elaborare le richieste;
@@ -62,7 +62,7 @@
 \end{itemize}
 
 \vspace{5pt}
-\par\noindent Il \textit{pattern} MVC promuove principi fondamentali della qualità del software, quali modularità, manutenibilità, scalabilità, robustezza e riusabilità. La chiara separazione delle responsabilità tra i componenti consente di limitare l’impatto delle modifiche, che possono essere applicate a un singolo modulo senza influire sugli altri. Inoltre, l’architettura MVC facilita l’esecuzione di test di unità e di integrazione, migliorando l’affidabilità del sistema.
+\noindent Il \textit{pattern} MVC promuove principi fondamentali della qualità del software, quali modularità, manutenibilità, scalabilità, robustezza e riusabilità. La chiara separazione delle responsabilità tra i componenti consente di limitare l’impatto delle modifiche, che possono essere applicate a un singolo modulo senza influire sugli altri. Inoltre, l’architettura MVC facilita l’esecuzione di test di unità e di integrazione, migliorando l’affidabilità del sistema.
 
 \begin{figure}[H] 
   \centering 
@@ -71,7 +71,7 @@
   \label{fig:pattern_mvc}
 \end{figure}
 
-\par\noindent 
+\noindent 
 \begin{minipage}{\textwidth}
   Di seguito è riportata la struttura dello strumento di analisi delle parole chiave:
   \vspace{10pt}
@@ -96,42 +96,42 @@
 \section{Design Pattern}
 \label{sec:design-pattern}
 
-\par Oltre al \textit{pattern} architetturale MVC (Model-View-Controller), ho adottato anche i \textit{pattern} Strategy e Dependency Injection.
+Oltre al \textit{pattern} architetturale MVC (Model-View-Controller), ho adottato anche i \textit{pattern} Strategy e Dependency Injection.
 
 \subsection{Strategy}
 
-\par Strategy è un \gls{design-pattern} comportamentale che permette di incapsulare una famiglia di algoritmi e di selezionare dinamicamente quello più adatto. Poiché in \gls{javascript}, a differenza di linguaggi come \gls{java} o \gls{c-sharp}, non esistono interfacce in senso stretto, ho definito una classe che ne simula il comportamento all’interno del \textit{pattern} Strategy. Questa classe agisce come una struttura astratta: impedisce l'istanziazione diretta e impone l’implementazione dei metodi. Nell’ambito del progetto di stage, il \textit{pattern} Strategy è stato utilizzato per delegare una fase dell’analisi a due classi distinte, ognuna delle quali fornisce una diversa implementazione dello stesso processo. In questo modo è possibile selezionare dinamicamente l’algoritmo desiderato senza modificare il codice del modulo di analisi principale.
+Strategy è un \gls{design-pattern} comportamentale che permette di incapsulare una famiglia di algoritmi e di selezionare dinamicamente quello più adatto. Poiché in \gls{javascript}, a differenza di linguaggi come \gls{java} o \gls{c-sharp}, non esistono interfacce in senso stretto, ho definito una classe che ne simula il comportamento all’interno del \textit{pattern} Strategy. Questa classe agisce come una struttura astratta: impedisce l'istanziazione diretta e impone l’implementazione dei metodi. Nell’ambito del progetto di stage, il \textit{pattern} Strategy è stato utilizzato per delegare una fase dell’analisi a due classi distinte, ognuna delle quali fornisce una diversa implementazione dello stesso processo. In questo modo è possibile selezionare dinamicamente l’algoritmo desiderato senza modificare il codice del modulo di analisi principale.
 
 \vspace{10pt}
-\par\noindent Entrambe le classi calcolano la frequenza complessiva di una parola chiave tramite la navigazione del \gls{dom} con \textit{TreeWalker}. Le differenze risiedono nel metodo utilizzato per determinare il numero di occorrenze all’interno di un insieme predefinito di tag \gls{html} ritenuti rilevanti per l’analisi. La classe \textit{StagedAnalysisStrategy} esegue un’analisi “per fasi” (staged), contando le occorrenze nei tag solo dopo aver completato il calcolo della frequenza complessiva. L’algoritmo accede direttamente ai tag e ne estrae il contenuto tramite la proprietà \textit{textContent}. Al contrario, la classe \textit{AllInOneAnalysisStrategy} effettua un’analisi compatta e unificata (all in one), registrando le occorrenze nei tag contestualmente al calcolo della frequenza. In questo caso, l’accesso ai tag avviene durante la navigazione del \gls{dom}, risalendo la gerarchia (con un approccio \textit{bottom-up}) ogni volta che vengono trovati \textit{match} all’interno di un nodo.
+\noindent Entrambe le classi calcolano la frequenza complessiva di una parola chiave tramite la navigazione del \gls{dom} con \textit{TreeWalker}. Le differenze risiedono nel metodo utilizzato per determinare il numero di occorrenze all’interno di un insieme predefinito di tag \gls{html} ritenuti rilevanti per l’analisi. La classe \textit{StagedAnalysisStrategy} esegue un’analisi “per fasi” (staged), contando le occorrenze nei tag solo dopo aver completato il calcolo della frequenza complessiva. L’algoritmo accede direttamente ai tag e ne estrae il contenuto tramite la proprietà \textit{textContent}. Al contrario, la classe \textit{AllInOneAnalysisStrategy} effettua un’analisi compatta e unificata (all in one), registrando le occorrenze nei tag contestualmente al calcolo della frequenza. In questo caso, l’accesso ai tag avviene durante la navigazione del \gls{dom}, risalendo la gerarchia (con un approccio \textit{bottom-up}) ogni volta che vengono trovati \textit{match} all’interno di un nodo.
 
 \subsection{Dependency Injection}
 
-\par Dependency Injection è un \gls{design-pattern} che consente di fornire dall’esterno le dipendenze necessarie a un oggetto, invece di istanziarle al suo interno. Le due forme di injection più comuni sono:
+Dependency Injection è un \gls{design-pattern} che consente di fornire dall’esterno le dipendenze necessarie a un oggetto, invece di istanziarle al suo interno. Le due forme di injection più comuni sono:
 \begin{itemize}
   \item \textbf{Constructor Injection}: la dipendenza viene iniettata mediante il costruttore della classe;
   \item \textbf{Setter Injection}: la dipendenza viene iniettata tramite un metodo setter.
 \end{itemize}
 
 \vspace{5pt}
-\par\noindent Il \textit{pattern} Dependency Injection favorisce un basso accoppiamento tra i componenti, promuovendo principi fondamentali dell’ingegneria del software come la flessibilità, la manutenibilità, l’estensibilità, la modularità, la riusabilità e il testing. Nell’ambito del progetto di stage, l’adozione di questo \textit{pattern} si è rivelata particolarmente utile durante la scrittura dei test di unità e di integrazione, in quanto ha permesso di sostituire le dipendenze reali con oggetti fittizi (mock).
+\noindent Il \textit{pattern} Dependency Injection favorisce un basso accoppiamento tra i componenti, promuovendo principi fondamentali dell’ingegneria del software come la flessibilità, la manutenibilità, l’estensibilità, la modularità, la riusabilità e il testing. Nell’ambito del progetto di stage, l’adozione di questo \textit{pattern} si è rivelata particolarmente utile durante la scrittura dei test di unità e di integrazione, in quanto ha permesso di sostituire le dipendenze reali con oggetti fittizi (mock).
 
 \section{Elenco delle classi}
 \label{sec:elenco-classi}
 
 \subsection{Model}
 
-\par Di seguito sono elencate le classi presenti nella cartella \textit{Model}:
+Di seguito sono elencate le classi presenti nella cartella \textit{Model}:
 
 \begin{itemize}
   \item \textbf{Keyword}: rappresenta il modello relativo alle parole chiave. Memorizza il nome (cioè la keyword vera e propria), la frequenza, la densità, lo stato dell’analisi e il numero di occorrenze all’interno di un insieme predefinito di tag \gls{html} considerati rilevanti per l’analisi. Espone metodi \textit{getter} e \textit{setter} per l’interazione esterna, oltre a un metodo per ripristinare lo stato del modello e uno per calcolare la densità;
-  \item \textbf{KeywordListInfo}: funge da DTO (Data Transfer Object) per la View, trasportando le informazioni associate a una lista di keyword, come la categoria (meta keywords, user-added keywords, ecc.), il titolo, le parole chiave da visualizzare, il numero totale di pagine e la modalità di ordinamento;
+  \item \textbf{KeywordListInfo}: funge da DTO (Data Transfer Object) per la View, trasportando le informazioni associate a una lista di keyword, come la categoria (es. meta keywords e user-added keywords), il titolo, le parole chiave da visualizzare, il numero totale di pagine e la modalità di ordinamento;
   \item \textbf{OverviewInfo}: memorizza le informazioni relative all’anteprima dell’analisi \gls{seo}, come il contenuto del meta tag keywords, la lingua dichiarata nella pagina, il numero totale di parole e il conteggio delle parole uniche.
 \end{itemize}
 
 \subsection{View}
 
-\par Di seguito sono elencate le classi presenti nella cartella \textit{View}:
+Di seguito sono elencate le classi presenti nella cartella \textit{View}:
 
 \begin{itemize}
   \item \textbf{KeywordView}: visualizza la \textit{dashboard}, ovvero il pannello di controllo principale da cui è possibile anche aggiornare l’analisi a livello globale, e gestisce le operazioni di creazione, accesso e rimozione delle sottoview. La \textit{dashboard} è suddivisa nelle seguenti sezioni:
@@ -139,7 +139,7 @@
     \item \textbf{Overview}: mostra un’anteprima dell’analisi \gls{seo};
     \item \textbf{Settings}: visualizza le impostazioni dell’analisi \gls{seo}, che consentono di personalizzare i colori utilizzati per evidenziare le parole chiave;
     \item \textbf{Insert Keyword}: mostra un campo di \textit{input} affiancato da un pulsante per avviare l’analisi. Include anche una \textit{checkbox}, posizionata sotto il campo di \textit{input}, che permette di attivare l’evidenziazione della parola chiave digitata;
-    \item \textbf{Keyword List}: visualizza un elenco di parole chiave organizzate per categoria (meta keywords, user-added keywords, ecc.).
+    \item \textbf{Keyword List}: visualizza un elenco di parole chiave organizzate per categoria (es. meta keywords e user-added keywords).
   \end{itemize}
   \item \textbf{KeywordListView}: visualizza una lista di keyword suddivisa in tre sezioni virtuali:
   \begin{itemize}
@@ -152,7 +152,7 @@
 
 \subsection{Controller}
 
-\par Di seguito sono elencate le classi presenti nella cartella \textit{Controller}:
+Di seguito sono elencate le classi presenti nella cartella \textit{Controller}:
 
 \begin{itemize}
   \item \textbf{KeywordController}: si occupa dell’inizializzazione e dell’aggiornamento dell’interfaccia, dell’associazione (binding) degli eventi e della gestione delle parole chiave, includendo funzionalità come inserimento, analisi, evidenziazione, eliminazione, navigazione, ordinamento e filtraggio.
@@ -160,7 +160,7 @@
 
 \subsection{Services}
 
-\par Di seguito sono elencate le classi presenti nella cartella \textit{Services}:
+Di seguito sono elencate le classi presenti nella cartella \textit{Services}:
 
 \begin{itemize}
   \item \textbf{TreeWalkerManager}: gestisce la creazione dell’oggetto \textit{TreeWalker}, definendo quali nodi includere o escludere nella navigazione del \gls{dom}. Fornisce inoltre un metodo per tornare alla radice e uno per accedere al nodo successivo;
@@ -171,7 +171,7 @@
     \item \textbf{getKeywordPattern}: restituisce un’espressione regolare per identificare una parola chiave nel testo;
     \item \textbf{getParentName}: restituisce il nome dell’elemento genitore più vicino (risalendo la gerarchia del \gls{dom} con un approccio \textit{bottom-up}), tra quelli considerati rilevanti per l’analisi;
     \item \textbf{getTextNodes}: restituisce i nodi di testo;
-    \item \textbf{getTextNodeGroups}: restituisce i nodi di testo suddivisi in gruppi. Ciascun gruppo contiene nodi \textit{inline} validi (ad esempio strong, em, ecc.) che condividono lo stesso elemento genitore.
+    \item \textbf{getTextNodeGroups}: restituisce i nodi di testo suddivisi in gruppi. Ciascun gruppo contiene nodi \textit{inline} validi (come strong ed em) che condividono lo stesso elemento genitore.
   \end{itemize}
   \item \textbf{TagAccessor}: centralizza l’accesso ai tag \gls{html} e fornisce un metodo per estrarne il contenuto testuale;
   \item \textbf{WordCounter}: si occupa di calcolare il numero di parole presenti nella pagina e di identificare quelle più frequenti. Quest’ultima operazione è gestita da due metodi distinti, \textit{findOneWordKeywords} e \textit{findCompoundKeywords}, che estraggono rispettivamente le espressioni più ricorrenti composte da una sola parola e da due o più termini (n-grammi), escludendo le \gls{stopword} in base alla lingua dichiarata nella pagina.
@@ -192,7 +192,7 @@
 
 \subsubsection{Strategy}
 
-\par Di seguito sono elencate le classi presenti nella cartella \textit{Strategy}:
+Di seguito sono elencate le classi presenti nella cartella \textit{Strategy}:
 
 \begin{itemize}
   \item \textbf{KeywordAnalysisStrategy}: simula un’interfaccia all’interno del \textit{pattern} Strategy, definendo il contratto che le classi concrete devono implementare;
@@ -202,7 +202,7 @@
 
 \subsection{Utils}
 
-\par Di seguito sono elencate le classi presenti nella cartella \textit{Utils}:
+Di seguito sono elencate le classi presenti nella cartella \textit{Utils}:
 
 \begin{itemize}
   \item \textbf{Utils}: fornisce due funzioni di utilità, \textit{escapeRegExp} ed \textit{escapeHTML}, che consentono rispettivamente di eseguire l’escape di un’espressione regolare e di convertire alcuni caratteri predefiniti in entità \gls{html}. 
@@ -210,7 +210,7 @@
 
 \subsection{Tracciamento dei requisiti - Implementazione}
 
-\par La tabella \ref{tab:requisiti-implementazione} riporta l’associazione tra i requisiti funzionali e le classi che ne realizzano l’implementazione.
+La tabella \ref{tab:requisiti-implementazione} riporta l’associazione tra i requisiti funzionali e le classi che ne realizzano l’implementazione.
 
 \renewcommand{\arraystretch}{1.5}
 \begin{tabularx}{\textwidth}{l >{\raggedright\arraybackslash}X l}

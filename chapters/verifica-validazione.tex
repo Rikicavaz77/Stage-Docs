@@ -1,7 +1,7 @@
 \chapter{Verifica e validazione}
 \label{cap:verifica-validazione}
 
-\par In questa sezione sono riportati i test effettuati durante lo svolgimento del progetto. La fase di testing è stata suddivisa in due sottofasi: verifica e validazione (V\&V). La verifica consiste nell’accertare che il software sia conforme alle specifiche, e può essere condotta senza eseguire il codice. Le attività di analisi statica includono la revisione e l’ispezione dei processi, dei \gls{requisiti}, del design e del codice sorgente. Quest’ultima può avvenire tramite una lettura approfondita del codice o mediante una revisione sistematica e mirata. La validazione, invece, riguarda l’analisi dinamica del software, finalizzata ad accertare il soddisfacimento dei \gls{requisiti} e delle aspettative dal punto di vista dell’utente finale. Le attività di validazione comprendono sia test automatici che manuali.
+In questa sezione sono riportati i test effettuati durante lo svolgimento del progetto. La fase di testing è stata suddivisa in due sottofasi: verifica e validazione (V\&V). La verifica consiste nell’accertare che il software sia conforme alle specifiche, e può essere condotta senza eseguire il codice. Le attività di analisi statica includono la revisione e l’ispezione dei processi, dei \gls{requisiti}, del design e del codice sorgente. Quest’ultima può avvenire tramite una lettura approfondita del codice o mediante una revisione sistematica e mirata. La validazione, invece, riguarda l’analisi dinamica del software, finalizzata ad accertare il soddisfacimento dei \gls{requisiti} e delle aspettative dal punto di vista dell’utente finale. Le attività di validazione comprendono sia test automatici che manuali.
 
 \lstdefinelanguage{JavaScript}{
   keywords={break, case, catch, continue, debugger, default, delete, do, else, finally, for, function, if, in, instanceof, new, return, switch, this, throw, try, typeof, var, void, while, with, let, const},
@@ -20,10 +20,10 @@
 
 \section{Test automatici}
 
-\par Il testing automatizzato è una tecnica che prevede la configurazione di un ambiente di test e la progettazione di una o più suite che vengono eseguite automaticamente, confrontando i risultati effettivi con quelli attesi. Ogni test dovrebbe essere veloce, indipendente, affidabile e riutilizzabile. I test automatici non sostituiscono i test manuali né eliminano la necessità di una revisione “umana”; tuttavia, forniscono una misura oggettiva della qualità del software e contribuiscono a ottimizzare il ciclo di sviluppo, individuando rapidamente errori che potrebbero sfuggire all’osservazione manuale, specialmente in contesti di \gls{continuous integration}.
+Il testing automatizzato è una tecnica che prevede la configurazione di un ambiente di test e la progettazione di una o più suite che vengono eseguite automaticamente, confrontando i risultati effettivi con quelli attesi. Ogni test dovrebbe essere veloce, indipendente, affidabile e riutilizzabile. I test automatici non sostituiscono i test manuali né eliminano la necessità di una revisione “umana”; tuttavia, forniscono una misura oggettiva della qualità del software e contribuiscono a ottimizzare il ciclo di sviluppo, individuando rapidamente errori che potrebbero sfuggire all’osservazione manuale, specialmente in contesti di \gls{continuous integration}.
 
 \vspace{10pt}
-\par\noindent La progettazione, scrittura e manutenzione dei test automatici hanno richiesto uno sforzo considerevole; tuttavia, data la ridotta finestra temporale dello stage, l’automatizzazione si è rivelata essenziale nel lungo periodo. Essa ha infatti fornito un riscontro continuo sulla qualità del software durante lo sviluppo, riducendo il carico di lavoro legato all’esecuzione dei test manuali. Inoltre, ha consentito di raggiungere una copertura del codice del 100\% (come attestato dal report di Codecov in figura \ref{fig:report_codecov}), un risultato difficilmente ottenibile con il solo testing manuale.
+\noindent La progettazione, scrittura e manutenzione dei test automatici hanno richiesto uno sforzo considerevole; tuttavia, data la ridotta finestra temporale dello stage, l’automatizzazione si è rivelata essenziale nel lungo periodo. Essa ha infatti fornito un riscontro continuo sulla qualità del software durante lo sviluppo, riducendo il carico di lavoro legato all’esecuzione dei test manuali. Inoltre, ha consentito di raggiungere una copertura del codice del 100\% (come attestato dal report di Codecov in figura \ref{fig:report_codecov}), un risultato difficilmente ottenibile con il solo testing manuale.
 
 \begin{figure}[H]
   \centering 
@@ -32,7 +32,7 @@
   \label{fig:report_codecov}
 \end{figure}
 
-\par\noindent I test automatici vengono eseguiti a ogni apertura, aggiornamento o chiusura di una \gls{pull request}, garantendo che tutto il codice rilasciato superi i test e mantenga una copertura uniforme. Dal punto di vista architetturale e organizzativo, i test rispecchiano fedelmente la struttura del \textit{core} dell’estensione, risultando più leggibili e manutenibili. 
+\noindent I test automatici vengono eseguiti a ogni apertura, aggiornamento o chiusura di una \gls{pull request}, garantendo che tutto il codice rilasciato superi i test e mantenga una copertura uniforme. Dal punto di vista architetturale e organizzativo, i test rispecchiano fedelmente la struttura del \textit{core} dell’estensione, risultando più leggibili e manutenibili. 
 
 \vspace{10pt}
 \begin{samepage}
@@ -48,7 +48,7 @@
 \end{samepage}
 
 \vspace{10pt}
-\par\noindent Per mantenere l’isolamento tra l'estensione e l’ambiente di test, ciascun file testato deve terminare con la seguente porzione di codice:
+\noindent Per mantenere l’isolamento tra l'estensione e l’ambiente di test, ciascun file testato deve terminare con la seguente porzione di codice:
 
 \vspace{10pt}
 \begin{samepage}
@@ -61,7 +61,7 @@
 \end{samepage}
 
 \vspace{10pt}
-\par\noindent Questo approccio consente di importare i moduli all’interno dei file di test tramite la seguente istruzione:
+\noindent Questo approccio consente di importare i moduli all’interno dei file di test tramite la seguente istruzione:
 
 \vspace{10pt}
 \begin{samepage}
@@ -71,7 +71,7 @@
 \end{samepage}
 
 \vspace{10pt}
-\par\noindent La tabella \ref{tab:test-automatici} riporta i test di unità e di integrazione eseguiti.
+\noindent La tabella \ref{tab:test-automatici} riporta i test di unità e di integrazione eseguiti.
 
 \renewcommand{\arraystretch}{1.5}
 \begin{longtable}{>{\raggedright\arraybackslash}p{0.65\textwidth} >{\raggedright\arraybackslash}p{0.25\textwidth}}
@@ -140,7 +140,7 @@
 
 \section{Test manuali}
 
-\par L’estensione è stata testata su un insieme di pagine web differenti per dimensione (in termini di profondità del \gls{dom}) e lingua (inglese o italiana), con l’obiettivo di verificarne il corretto funzionamento mediante osservazione manuale. La tabella \ref{tab:test-manuali} riporta i test manuali eseguiti.
+L’estensione è stata testata su un insieme di pagine web differenti per dimensione (in termini di profondità del \gls{dom}) e lingua (inglese o italiana), con l’obiettivo di verificarne il corretto funzionamento mediante osservazione manuale. La tabella \ref{tab:test-manuali} riporta i test manuali eseguiti.
 
 \renewcommand{\arraystretch}{1.5}
 \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X}
@@ -193,14 +193,14 @@ Siti web partecipanti al concorso \textbf{Accattivante Accessibile}, organizzato
 \textbf{Vite} - HomePage (\url{https://vite.dev/}) & Tutti i test manuali sono stati superati con successo. Durante l’evidenziazione delle parole chiave contenute nel tag H1, il testo risultava nascosto, lasciando un riquadro vuoto. Il problema è stato risolto azzerando gli stili preimpostati del tag genitore. \\
 \end{tabularx}
 
-\newpage
+\cleardoublepage
 
 \subsection{Questionario SUS}
 
-\par Il questionario \gls{sus} è stato compilato da 12 utenti, tutti appartenenti all’Università degli Studi di Padova e quindi familiari con il contesto d’uso principale dell’estensione, rivolta principalmente a sviluppatori web. Il template standard è composto da 10 affermazioni (item), bilanciate tra positive e negative, a cui il rispondente assegna un punteggio da 1 a 5 in base al proprio grado di accordo o disaccordo, secondo un intervallo che va da “Fortemente in disaccordo” a “Fortemente d’accordo”. Questo metodo di valutazione prende il nome di \textit{scala Likert} ed è utilizzato per ottenere una valutazione affidabile dell’usabilità di un sistema senza un dispendio eccessivo di risorse.
+Il questionario \gls{sus} è stato compilato da 12 utenti, tutti appartenenti all’Università degli Studi di Padova e quindi familiari con il contesto d’uso principale dell’estensione, rivolta principalmente a sviluppatori web. Il template standard è composto da 10 affermazioni (item), bilanciate tra positive e negative, a cui il rispondente assegna un punteggio da 1 a 5 in base al proprio grado di accordo o disaccordo, secondo un intervallo che va da “Fortemente in disaccordo” a “Fortemente d’accordo”. Questo metodo di valutazione prende il nome di \textit{scala Likert} ed è utilizzato per ottenere una valutazione affidabile dell’usabilità di un sistema senza un dispendio eccessivo di risorse.
 
 \vspace{10pt}
-\par\noindent Il calcolo del punteggio complessivo segue i seguenti criteri:
+\noindent Il calcolo del punteggio complessivo segue i seguenti criteri:
 \begin{itemize}
   \item Sottrarre 1 dal punteggio per ciascuna domanda dispari;
   \item Sottrarre il punteggio da 5 per ciascuna domanda pari;
@@ -208,13 +208,13 @@ Siti web partecipanti al concorso \textbf{Accattivante Accessibile}, organizzato
 \end{itemize}
 
 \vspace{5pt}
-\par\noindent Il punteggio medio ottenuto è pari a \textbf{79}, superiore alla media di riferimento di 68, generalmente considerata indicativa di una buona usabilità. Di seguito sono riportati i grafici relativi alle risposte fornite per ciascuna delle 10 domande del questionario.
+\noindent Il punteggio medio ottenuto è pari a 79, superiore alla media di riferimento di 68, generalmente considerata indicativa di una buona usabilità. Di seguito sono riportati i grafici relativi alle risposte fornite per ciascuna delle 10 domande del questionario.
 
 \subsubsection*{Domanda 1}
 
 \vspace{5pt}
 \begin{minipage}{\textwidth}
-  \par\noindent La figura \ref{fig:sus_q1} mostra le risposte alla prima domanda del questionario \gls{sus}.
+  \noindent La figura \ref{fig:sus_q1} mostra le risposte alla prima domanda del questionario \gls{sus}.
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\columnwidth]{sus/domanda_1.png}
@@ -227,7 +227,7 @@ Siti web partecipanti al concorso \textbf{Accattivante Accessibile}, organizzato
 
 \vspace{5pt}
 \begin{minipage}{\textwidth}
-  \par\noindent La figura \ref{fig:sus_q2} mostra le risposte alla seconda domanda del questionario \gls{sus}.
+  \noindent La figura \ref{fig:sus_q2} mostra le risposte alla seconda domanda del questionario \gls{sus}.
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\columnwidth]{sus/domanda_2.png}
@@ -240,7 +240,7 @@ Siti web partecipanti al concorso \textbf{Accattivante Accessibile}, organizzato
 
 \vspace{5pt}
 \begin{minipage}{\textwidth}
-  \par\noindent La figura \ref{fig:sus_q3} mostra le risposte alla terza domanda del questionario \gls{sus}.
+  \noindent La figura \ref{fig:sus_q3} mostra le risposte alla terza domanda del questionario \gls{sus}.
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\columnwidth]{sus/domanda_3.png}
@@ -253,7 +253,7 @@ Siti web partecipanti al concorso \textbf{Accattivante Accessibile}, organizzato
 
 \vspace{5pt}
 \begin{minipage}{\textwidth}
-  \par\noindent La figura \ref{fig:sus_q4} mostra le risposte alla quarta domanda del questionario \gls{sus}.
+  \noindent La figura \ref{fig:sus_q4} mostra le risposte alla quarta domanda del questionario \gls{sus}.
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\columnwidth]{sus/domanda_4.png}
@@ -266,7 +266,7 @@ Siti web partecipanti al concorso \textbf{Accattivante Accessibile}, organizzato
 
 \vspace{5pt}
 \begin{minipage}{\textwidth}
-  \par\noindent La figura \ref{fig:sus_q5} mostra le risposte alla quinta domanda del questionario \gls{sus}.
+  \noindent La figura \ref{fig:sus_q5} mostra le risposte alla quinta domanda del questionario \gls{sus}.
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\columnwidth]{sus/domanda_5.png}
@@ -279,7 +279,7 @@ Siti web partecipanti al concorso \textbf{Accattivante Accessibile}, organizzato
 
 \vspace{5pt}
 \begin{minipage}{\textwidth}
-  \par\noindent La figura \ref{fig:sus_q6} mostra le risposte alla sesta domanda del questionario \gls{sus}.
+  \noindent La figura \ref{fig:sus_q6} mostra le risposte alla sesta domanda del questionario \gls{sus}.
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\columnwidth]{sus/domanda_6.png}
@@ -292,7 +292,7 @@ Siti web partecipanti al concorso \textbf{Accattivante Accessibile}, organizzato
 
 \vspace{5pt}
 \begin{minipage}{\textwidth}
-  \par\noindent La figura \ref{fig:sus_q7} mostra le risposte alla settima domanda del questionario \gls{sus}.
+  \noindent La figura \ref{fig:sus_q7} mostra le risposte alla settima domanda del questionario \gls{sus}.
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\columnwidth]{sus/domanda_7.png}
@@ -305,7 +305,7 @@ Siti web partecipanti al concorso \textbf{Accattivante Accessibile}, organizzato
 
 \vspace{5pt}
 \begin{minipage}{\textwidth}
-  \par\noindent La figura \ref{fig:sus_q8} mostra le risposte all'ottava domanda del questionario \gls{sus}.
+  \noindent La figura \ref{fig:sus_q8} mostra le risposte all'ottava domanda del questionario \gls{sus}.
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\columnwidth]{sus/domanda_8.png}
@@ -318,7 +318,7 @@ Siti web partecipanti al concorso \textbf{Accattivante Accessibile}, organizzato
 
 \vspace{5pt}
 \begin{minipage}{\textwidth}
-  \par\noindent La figura \ref{fig:sus_q9} mostra le risposte alla nona domanda del questionario \gls{sus}.
+  \noindent La figura \ref{fig:sus_q9} mostra le risposte alla nona domanda del questionario \gls{sus}.
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\columnwidth]{sus/domanda_9.png}
@@ -331,7 +331,7 @@ Siti web partecipanti al concorso \textbf{Accattivante Accessibile}, organizzato
 
 \vspace{5pt}
 \begin{minipage}{\textwidth}
-  \par\noindent La figura \ref{fig:sus_q10} mostra le risposte alla decima domanda del questionario \gls{sus}.
+  \noindent La figura \ref{fig:sus_q10} mostra le risposte alla decima domanda del questionario \gls{sus}.
   \begin{figure}[H]
     \centering
     \includegraphics[width=0.95\columnwidth]{sus/domanda_10.png}
@@ -340,19 +340,19 @@ Siti web partecipanti al concorso \textbf{Accattivante Accessibile}, organizzato
   \end{figure}
 \end{minipage}
 
-\newpage
+\cleardoublepage
 
 \section{Accessibilità}
 
-\par Dal momento che lo strumento di analisi delle parole chiave è integrato in un’estensione preesistente orientata all’accessibilità, anche questo \textit{tool} è stato progettato in conformità alle linee guida \gls{wcag}. A tal fine, sono stati condotti test di accessibilità con i seguenti obiettivi:
+Dal momento che lo strumento di analisi delle parole chiave è integrato in un’estensione preesistente orientata all’accessibilità, anche questo \textit{tool} è stato progettato in conformità alle linee guida \gls{wcag}. A tal fine, sono stati condotti test di accessibilità con i seguenti obiettivi:
 \begin{itemize}
-  \item Verificare il rispetto del \textbf{rapporto minimo di contrasto} tra testo e sfondo, pari a 4.5:1 per il testo di dimensioni “normali” e 3:1 per il testo di grandi dimensioni. Questo controllo è stato applicato sia agli elementi interni all’estensione, sia a quelli utilizzati per evidenziare le parole chiave;
-  \item Controllare che le \textbf{immagini non decorative} siano dotate di un testo alternativo;
-  \item Accertarsi che le \textbf{icone non decorative} siano accompagnate da un’etichetta accessibile;
-  \item Verificare l’accessibilità dei \textbf{tooltip}, assicurandosi che vengano attivati e disattivati correttamente quando si interagisce con l’elemento \textit{trigger}, sia tramite navigazione da tastiera sia tramite l’uso del mouse. Inoltre, i tooltip devono rimanere visibili al passaggio del mouse su di essi e devono poter essere chiusi premendo il tasto Esc;
-  \item Controllare che tutti gli \textbf{elementi interattivi} (come pulsanti o link) dispongano di un’etichetta testuale descrittiva;
-  \item Assicurare la \textbf{navigazione tramite tastiera}, con un ordine di tabulazione logico e una chiara indicazione visiva dell’elemento attualmente attivo.
+  \item Verificare il rispetto del rapporto minimo di contrasto tra testo e sfondo, pari a 4.5:1 per il testo di dimensioni “normali” e 3:1 per il testo di grandi dimensioni. Questo controllo è stato applicato sia agli elementi interni all’estensione, sia a quelli utilizzati per evidenziare le parole chiave;
+  \item Controllare che le immagini non decorative siano dotate di un testo alternativo;
+  \item Accertarsi che le icone non decorative siano accompagnate da un’etichetta accessibile;
+  \item Verificare l’accessibilità dei tooltip, assicurandosi che vengano attivati e disattivati correttamente quando si interagisce con l’elemento \textit{trigger}, sia tramite navigazione da tastiera sia tramite l’uso del mouse. Inoltre, i tooltip devono rimanere visibili al passaggio del mouse su di essi e devono poter essere chiusi premendo il tasto Esc;
+  \item Controllare che tutti gli elementi interattivi (come pulsanti o link) dispongano di un’etichetta testuale descrittiva;
+  \item Assicurare la navigazione tramite tastiera, con un ordine di tabulazione logico e una chiara indicazione visiva dell’elemento attualmente attivo.
 \end{itemize}
 
 \vspace{15pt}
-\par\noindent Tutti i test eseguiti, sia manuali che automatici (condotti principalmente con \textit{axe DevTools} e \textit{Colour Contrast Analyser}), hanno dato esito positivo.
+\noindent Tutti i test eseguiti, sia manuali che automatici (condotti principalmente con \textit{axe DevTools} e \textit{Colour Contrast Analyser}), hanno dato esito positivo.
